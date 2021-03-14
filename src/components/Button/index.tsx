@@ -7,9 +7,10 @@ export interface Props extends BaseProps {
   theme?: 'A' | 'B' | 'C'
   isDisabled?: boolean
   isSelected?: boolean
+  type?: 'submit' | 'button'
 }
 
-const Button: FC<Props>  = ({ children, onClick, theme = 'A', styles, isDisabled, isSelected }) => {
+const Button: FC<Props>  = ({ children, onClick, theme = 'A', styles, isDisabled, isSelected, type = 'button' }) => {
   let Styled
 
   switch (theme) {
@@ -23,7 +24,7 @@ const Button: FC<Props>  = ({ children, onClick, theme = 'A', styles, isDisabled
       Styled = ButtonA
   }
 
-  return <Styled onClick={onClick} isDisabled={isDisabled} isSelected={isSelected} styles={styles}>{children}</Styled>
+  return <Styled onClick={onClick} type={type} isDisabled={isDisabled} isSelected={isSelected} styles={styles}>{children}</Styled>
 }
 
 Button.displayName = 'Button'

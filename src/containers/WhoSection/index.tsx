@@ -5,7 +5,7 @@ import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import Styled, { SubSection, Card } from './styles'
 import Text from '../../components/Text'
-import theme from '../../themes/theme'
+import theme from '../../styles/theme'
 import { Lang } from '../../models'
 
 interface Props {

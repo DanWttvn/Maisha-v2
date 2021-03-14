@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { BaseProps } from '../../models'
-import theme from '../../themes/theme'
+import theme from '../../styles/theme'
 
 export const Section = styled.div<BaseProps>`
   width: 100%;

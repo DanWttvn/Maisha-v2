@@ -6,8 +6,9 @@ import Input from "../components/Input"
 import Modal from "../components/Modal"
 import Subtitle from "../components/Subtitle"
 import Text from '../components/Text'
-import defaultTheme from '../themes/theme'
-import VideoPlayer from 'react-video-js-player'
+import Video from '../components/Video'
+import Form from '../components/Form'
+import defaultTheme from '../styles/theme'
 
 const Landing: FC = () => {
   const [ selectedAmount, setSelectedAmount ] = useState<number>(0)
@@ -19,8 +20,6 @@ const Landing: FC = () => {
     setCustomAmount(Number(value))
     setSelectedAmount(Number(value))
   }
-  console.log(selectedAmount)
-
   return (
     <>
       <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isStreched>
@@ -46,12 +45,16 @@ const Landing: FC = () => {
         
       </Modal>
 
-      <VideoPlayer
-        src={}
-      />
+      <Container isStreched>
+        <Video src="/images/videos/CampañaSocios.mp4" />
+      </Container>
 
+      <Form />
+
+      {/* 
       //* video: https://docs.videojs.com/tutorial-react.html https://videojs.com/getting-started
-      //* https://www.youtube.com/watch?v=lVJLNsLNnWs&t=4s&ab_channel=Arslan
+      //* https://www.youtube.com/watch?v=lVJLNsLNnWs&t=4s&ab_channel=Arslan 
+      */}
 
     </>
   )

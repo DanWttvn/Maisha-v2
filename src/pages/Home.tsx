@@ -8,7 +8,6 @@ import Title from "../components/Title"
 import Modal from "../components/Modal"
 import Navbar from "../containers/Navbar"
 import WhoSection from "../containers/WhoSection"
-import GlobalStyle from '../styles/global'
 
 export default function Home() {
   return (
@@ -31,9 +30,8 @@ export default function Home() {
       <Title firstPart="Cómo" secondPart="trabajamos" />
 
 
-      <Modal>
-        <Subtitle >Subtitle</Subtitle>
-      </Modal>
+
+
       
 
       <Controls onChange={() => console.log('')} currentIndex={3} totalItems={4} styles={{ width: 300 }}></Controls>
