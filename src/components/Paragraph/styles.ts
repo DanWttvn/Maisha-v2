@@ -7,6 +7,10 @@ export default styled.p<Props>`
   color: ${({ theme, color = 'darkGrey' }) => theme.colors[color]};
   word-wrap: break-word;
   line-height: 27px;
+  display: flex;
+  flex-flow: row wrap;
+  white-space: pre-wrap;
+
 
   ${({ styles }) => ({ ...styles })}
 `

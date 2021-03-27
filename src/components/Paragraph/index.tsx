@@ -8,7 +8,8 @@ export interface Props extends BaseProps {
   color?: string
 }
 
-const Paragraph: FC<Props> = ({ children, styles, color }) => {
+const Paragraph: FC<Props> = ({ children, styles, color, isHidden }) => {
+  if (isHidden) return null
   return <Styled styles={styles} color={color}>{children}</Styled>
 }
 

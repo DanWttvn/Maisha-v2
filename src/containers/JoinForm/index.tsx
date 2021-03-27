@@ -1,29 +1,40 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { BaseProps } from '../../models'
-import Button from '../Button'
+import Button from '../../components/Button'
+import Text from '../../components/Text'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import { useForm } from 'react-hook-form'
 import Styled, { InputText } from './styles'
 import { format } from 'date-fns'
+import { isEmailValid, isBankAccountValid } from '../../helpers/form'
+import theme from '../../styles/theme'
 
-//! posibleemtne mover a container
 //! mirar como ponerle un estado de error 
+
+//* ES20 1465 01 00951715486475
 
 export interface Props extends BaseProps {
   aa?: string
 }
 
 const Form: FC<Props> = ({  isHidden, styles }) => {
+  const [ errors, setErrors ] = useState<string[]>([])
   const { register, handleSubmit } = useForm()
 
-
+console.log(errors)
   if (isHidden) return null
 
   const handleFormSubmit = (data: any) => {
-    console.log(data)
+    const { name, dni, email, CP, IBAN, amount } = data
 
-  const { name, dni, email, CP, IBAN, amount } = data
+    let nextErrors: string[] = []
+
+    if (!isEmailValid(email)) nextErrors = [ ...nextErrors, 'email']
+    if (!isBankAccountValid(IBAN)) nextErrors = [ ...nextErrors, 'IBAN']
+
+    console.log(nextErrors)
+    if (nextErrors) return setErrors(nextErrors)
 
 
     fetch('https://api.apispreadsheets.com/data/3056/', {
@@ -33,7 +44,8 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
       if (res.status === 201 || res.status === 200){
         (window as any).Email.send({
           SecureToken: "31b045c6-3093-457c-b941-429917ab3497",
-          To : ['maisharoots@gmail.com', 'danielaw95@gmail.com'],
+          // To : ['maisharoots@gmail.com', 'danielaw95@gmail.com'],
+          To : [],
           // To : email,
           From : "info@maisharoots.org",
           Subject : "Nuevo socio!",
@@ -59,7 +71,7 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
             Dinerito al mes: ${amount}
           `
         }).then((message: any) => {
-          console.log(message)
+          console.log('enviado!', message)
         }).catch((err: any) => console.error(err))
       } else {
         // formMsg.innerHTML = '<span class="form-msg">Ha ocurrido un error, por favor, vuelve a intentarlo más tarde</span>';
@@ -79,7 +91,8 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
         label="Nombre y Apellidos"
         name="name"
         autoComplete="name"
-        autoFocus
+        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
         inputRef={register}
       />
       <InputText
@@ -91,7 +104,8 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
         label="DNI/Pasaporte"
         name="dni"
         autoComplete="dni"
-        autoFocus
+        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
         inputRef={register}
       />
       <InputText
@@ -99,11 +113,14 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
         margin="normal"
         required
         fullWidth
+        error={errors.includes('email')}
+        helperText={errors.includes('email') ? "Por favor, incluye un email válido" : ''}
         id="email"
         label="Correo Electrónico"
         name="email"
         autoComplete="email"
-        autoFocus
+        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
         inputRef={register}
       />
       <InputText
@@ -111,11 +128,13 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
         margin="normal"
         required
         fullWidth
+        type="number"
         id="CP"
         label="Código Postal"
         name="CP"
         autoComplete="CP"
-        autoFocus
+        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
         inputRef={register}
       />
       <InputText
@@ -123,24 +142,27 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
         margin="normal"
         required
         fullWidth
+        error={errors.includes('IBAN')}
         id="IBAN"
         label="Cuenta Bancaria"
         name="IBAN"
         autoComplete="IBAN"
-        autoFocus
+        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
         helperText="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
         inputRef={register}
       />
-      {/* //! añadir link */}
+
+      {/* //! cambiar font */}
       <FormControlLabel
         control={<Checkbox inputRef={register} name="privacy" defaultChecked={false} color="primary" required/>}
         label="He leído y acepto la Política de Privacidad"
+        // inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
+        style={{ fontFamily: theme.fonts.main }}
       />
-      <Button
-        type="submit"
-      >
-        Enviar
-      </Button>
+      {/* //! añadir link */}
+      <Text onClick={() => console.log('ir a privi')}>Política de Privacidad</Text>
+      <Button type="submit" >Enviar</Button>
     </Styled>
   )
 }

@@ -8,6 +8,9 @@ export default styled.span<Props>`
   ${({ isBlack }) => isBlack && css`
     font-weight: 700;
   `};
+  ${({ isSemibold }) => isSemibold && css`
+    font-weight: 600;
+  `};
 
   ${({ isHighlighted }) => isHighlighted && css`
     color: ${({ theme }) => theme.colors.darkRed};

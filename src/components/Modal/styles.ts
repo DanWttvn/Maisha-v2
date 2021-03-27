@@ -26,7 +26,7 @@ export const Dialog = styled.article<BaseProps>`
 	height: fit-content;
 	max-height: 650px;
 	overflow: scroll;
-	padding: 25px 25px;
+	padding: 32px;
 	border-radius: 30px;
 
   &::-webkit-scrollbar {
