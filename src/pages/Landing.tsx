@@ -1,11 +1,11 @@
-import React, { FC, useState } from "react"
-import Button from "../components/Button"
-import Accordion from "../components/Accordion"
-import Container from "../components/Container"
+import React, { FC, useState } from 'react'
+import Button from '../components/Button'
+import Accordion from '../components/Accordion'
+import Container from '../components/Container'
 import Image from '../components/Image'
-import Input from "../components/Input"
-import Modal from "../components/Modal"
-import Subtitle from "../components/Subtitle"
+import Input from '../components/Input'
+import Modal from '../components/Modal'
+import Subtitle from '../components/Subtitle'
 import Text from '../components/Text'
 import Video from '../components/Video'
 import JoinForm from '../containers/JoinForm'
@@ -39,25 +39,17 @@ const Landing: FC = () => {
         <Button onClick={setSelectedAmount.bind(undefined, 15)} isSelected={selectedAmount === 15} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">15€</Button>
         <Button onClick={setSelectedAmount.bind(undefined, 25)} isSelected={selectedAmount === 25} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">25€</Button>
         <Button onClick={setSelectedAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">
-          <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12 }}/>
-          €
+          <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12 }}/>€
         </Button>
       </Container>
 
       <Button theme="A" onClick={setIsModalOpen.bind(undefined, true)}>HAZTE SOCIA/O</Button>
 
       <Modal isHidden={!isModalOpen} onClose={setIsModalOpen.bind(undefined, false)}>
-      {/* <Modal isHidden={false} onClose={setIsModalOpen.bind(undefined, false)}> */}
+        {/* <Modal isHidden={false} onClose={setIsModalOpen.bind(undefined, false)}> */}
         <Subtitle>Hazte socio</Subtitle>
         <JoinForm />
       </Modal>
-
-      <Accordion title="¿Qué es una cookie?">
-        <Text isStreched>ñkalj fñasdkfl sñdlfkm sadñfklj ñsdkf sf</Text>
-        <Text isStreched>ñkalj fñasdkfl sñdlfkm sadñfklj ñsdkf sf</Text>
-        <Text isStreched>ñkalj fñasdkfl sñdlfkm sadñfklj ñsdkf sf</Text>
-        <Text isStreched>ñkalj fñasdkfl sñdlfkm sadñfklj ñsdkf sf</Text>
-      </Accordion>
 
       <Container isStreched>
         <Video src="/images/videos/CampañaSocios.mp4" />

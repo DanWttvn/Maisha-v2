@@ -1,13 +1,13 @@
-import React from "react"
-import Button from "../components/Button"
-import Paragraph from "../components/Paragraph"
-import Subtitle from "../components/Subtitle"
-import Text from "../components/Text"
-import Controls from "../components/Timeline/Controls"
-import Title from "../components/Title"
-import Modal from "../components/Modal"
-import Navbar from "../containers/Navbar"
-import WhoSection from "../containers/WhoSection"
+import React from 'react'
+import Button from '../components/Button'
+import Paragraph from '../components/Paragraph'
+import Subtitle from '../components/Subtitle'
+import Text from '../components/Text'
+import Controls from '../components/Timeline/Controls'
+import Title from '../components/Title'
+import Modal from '../components/Modal'
+import Navbar from '../containers/Navbar'
+import WhoSection from '../containers/WhoSection'
 
 export default function Home() {
   return (

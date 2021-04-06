@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BaseProps } from '../../models';
+import { BaseProps } from '../../models'
 
 export default styled.div<BaseProps>`
   width: 100%;

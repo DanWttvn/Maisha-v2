@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { KeyboardArrowRight } from '@styled-icons/material/KeyboardArrowRight'
-import { BaseProps } from '../../models';
+import { BaseProps } from '../../models'
 
 export default styled.div<BaseProps>`
   display: flex;
