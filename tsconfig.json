@@ -14,7 +14,9 @@
     "allowJs": false,
     "jsx": "react-jsx",
     "moduleResolution": "node",
-    "rootDirs": ["src"],
+    "rootDirs": [
+      "src"
+    ],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -28,7 +30,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
