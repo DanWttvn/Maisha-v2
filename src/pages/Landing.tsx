@@ -8,14 +8,17 @@ import Modal from '../components/Modal'
 import Subtitle from '../components/Subtitle'
 import Text from '../components/Text'
 import Video from '../components/Video'
+import Tabs from '../components/Tabs'
 import JoinForm from '../containers/JoinForm'
 import Policy from '../containers/Policy'
+import Cookies from '../containers/Cookies'
 import defaultTheme from '../styles/theme'
 
 const Landing: FC = () => {
   const [ selectedAmount, setSelectedAmount ] = useState<number>(0)
   const [ customAmount, setCustomAmount ] = useState<number>(0)
-  const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false)
+  const [ isFormModalOpen, setIsFormModalOpen ] = useState<boolean>(false)
+  const [ isPrivacyModalOpen, setIsPrivacyModalOpen ] = useState<boolean>(false)
 
 
   const handleInputChange = (value: string | number) => {
@@ -24,13 +27,23 @@ const Landing: FC = () => {
   }
   return (
     <>
+      <button onClick={setIsPrivacyModalOpen.bind(undefined, true)}>Privacy</button>
+      <Modal isHidden={!isPrivacyModalOpen} onClose={setIsPrivacyModalOpen.bind(undefined, false)}>
+        <Tabs.Container>
+          <Tabs.Item title="Privacy">
+            <Policy />
+          </Tabs.Item>
+          <Tabs.Item title="Cookies">
+            <Cookies />
+          </Tabs.Item>
+        </Tabs.Container>
+      </Modal>
 
-      <Policy />
 
 
       <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isStreched>
         <Image src="/images/playing_kids.jpg" isStreched/>
-        <Text styles={{ position: 'absolute', top: '20%', left: '10%', color: 'white', fontSize: 55, width: '70%', fontWeight: 800 }} isBlack>"Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo" E. Galeno</Text>
+        <Text styles={{ position: 'absolute', top: '20%', left: '10%', color: 'white', fontSize: 55, width: '70%', fontWeight: 800 }} isBlack>&quot;Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo&quot; E. Galeno</Text>
       </Container>
 
       <Container styles={{ marginTop: -25, marginBottom: 24 }}>
@@ -43,10 +56,9 @@ const Landing: FC = () => {
         </Button>
       </Container>
 
-      <Button theme="A" onClick={setIsModalOpen.bind(undefined, true)}>HAZTE SOCIA/O</Button>
+      <Button theme="A" onClick={setIsFormModalOpen.bind(undefined, true)}>HAZTE SOCIA/O</Button>
 
-      <Modal isHidden={!isModalOpen} onClose={setIsModalOpen.bind(undefined, false)}>
-        {/* <Modal isHidden={false} onClose={setIsModalOpen.bind(undefined, false)}> */}
+      <Modal isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
         <Subtitle>Hazte socio</Subtitle>
         <JoinForm />
       </Modal>

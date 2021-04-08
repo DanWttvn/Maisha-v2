@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { BaseProps } from '../../models'
 import Button from '../../components/Button'
 import Text from '../../components/Text'
@@ -22,7 +22,7 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
   const { register, handleSubmit } = useForm()
 
-console.log(errors)
+  console.log(errors)
   if (isHidden) return null
 
   const handleFormSubmit = (data: any) => {
@@ -43,12 +43,12 @@ console.log(errors)
     }).then(res => {
       if (res.status === 201 || res.status === 200){
         (window as any).Email.send({
-          SecureToken: "31b045c6-3093-457c-b941-429917ab3497",
+          SecureToken: '31b045c6-3093-457c-b941-429917ab3497',
           // To : ['maisharoots@gmail.com', 'danielaw95@gmail.com'],
           To : [],
           // To : email,
-          From : "info@maisharoots.org",
-          Subject : "Nuevo socio!",
+          From : 'info@maisharoots.org',
+          Subject : 'Nuevo socio!',
           Body : `
             ESTO ES UNA PRUEBA DE DANIELA PARA LA LANDING
             Nuevo socio desde la Landing !
@@ -114,7 +114,7 @@ console.log(errors)
         required
         fullWidth
         error={errors.includes('email')}
-        helperText={errors.includes('email') ? "Por favor, incluye un email válido" : ''}
+        helperText={errors.includes('email') ? 'Por favor, incluye un email válido' : ''}
         id="email"
         label="Correo Electrónico"
         name="email"

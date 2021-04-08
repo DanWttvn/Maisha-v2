@@ -2,7 +2,6 @@ import { CSSProperties, FC, Ref } from 'react'
 
 export interface BaseProps {
   styles?: CSSProperties
-  className?: string
   isHidden?: boolean
   isStreched?: boolean
   ref?: Ref<any>

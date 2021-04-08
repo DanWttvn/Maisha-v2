@@ -9,15 +9,6 @@ export default styled.div<BaseProps>`
   ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })};
 `
-
-// export const ArrowDown = styled(KeyboardArrowDown)<{ isHidden?: boolean }>`
-//   width: 25px;
-//   cursor: pointer;
-//   color: ${({ theme }) => theme.colors.lightestGrey};
-
-//   ${({ isHidden }) => isHidden ? 'display: none;' : ''};
-// `
-
 export const Icon = styled(KeyboardArrowRight)<{ isOpen?: boolean }>`
   width: 25px;
   cursor: pointer;
@@ -34,10 +25,6 @@ export const Content = styled.article<{ isOpen: boolean, height: number }>`
 	padding: 0 30px;
 	overflow: hidden;
 
-  /* height: auto;
-	transition: height 0.4s ease-out;
-  ${({ isOpen }) => isOpen ? 'height: 0;' : ''}; */
-
 	height: ${({ isOpen, height }) => isOpen ? `${height}px` : 0};
 	transition: height 0.4s ease-out;
 `
@@ -45,4 +32,5 @@ export const Content = styled.article<{ isOpen: boolean, height: number }>`
 export const Wrapper = styled.div<{ ref: any }>`
   display: flex;
   flex-flow: row wrap;
+  padding-bottom: 10px;
 `

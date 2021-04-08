@@ -1,16 +1,17 @@
 import React, { FC } from 'react'
 import { BaseProps } from '../../models'
 import Styled from './styles'
-// import theme from '../../themes'
 
 export interface Props extends BaseProps {
   // color?: keyof theme.colors
   color?: string
+  weight?: 'normal' | 'semibold' | 'bold'
+  size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 
-const Paragraph: FC<Props> = ({ children, styles, color, isHidden }) => {
+const Paragraph: FC<Props> = ({ children, styles, weight = 'normal', size = 's', color, isHidden }) => {
   if (isHidden) return null
-  return <Styled styles={styles} color={color}>{children}</Styled>
+  return <Styled weight={weight} size={size} styles={styles} color={color}>{children}</Styled>
 }
 
 export default Paragraph

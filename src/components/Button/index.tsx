@@ -14,14 +14,14 @@ const Button: FC<Props>  = ({ children, onClick, theme = 'A', styles, isDisabled
   let Styled
 
   switch (theme) {
-    case 'B':
-      Styled = ButtonB
-      break
-    case 'C':
-      Styled = ButtonC
-      break
-    default:
-      Styled = ButtonA
+  case 'B':
+    Styled = ButtonB
+    break
+  case 'C':
+    Styled = ButtonC
+    break
+  default:
+    Styled = ButtonA
   }
 
   return <Styled onClick={onClick} type={type} isDisabled={isDisabled} isSelected={isSelected} styles={styles}>{children}</Styled>

@@ -69,4 +69,9 @@ export default createGlobalStyle<ThemeProps>`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  ul,
+  ol {
+    padding-left: 20px;
+  }
 `

@@ -24,8 +24,8 @@ const Accordion: FC<Props> = ({ isHidden, title, styles, children, isStreched })
   return (
     <Styled styles={styles} isStreched={isStreched}>
       <Icon isOpen={isOpen} onClick={handleToggle}/>
-      <Text onClick={handleToggle} isSemibold>{title}</Text>
-      <Separator />
+      <Text onClick={handleToggle} isSemibold size="s" styles={{ marginTop: 4 }}>{title}</Text>
+      <Separator styles={{ margin: '5px 0' }} />
       <Content isOpen={isOpen} height={contentRef?.current?.clientHeight || 0}>
         <Wrapper ref={contentRef}>{children}</Wrapper>
       </Content>
