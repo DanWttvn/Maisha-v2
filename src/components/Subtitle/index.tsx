@@ -4,13 +4,13 @@ import { H3, H4 } from './styles'
 
 export interface Props extends BaseProps {
   color?: string
-  small?: boolean
+  isSmall?: boolean
 }
 
-const Subtitle: FC<Props> = ({ children, styles, color, small }) => {
+const Subtitle: FC<Props> = ({ children, styles, color, isSmall }) => {
   return (
     <>
-      {small
+      {isSmall
         ? <H4 color={color} styles={styles}>{children}</H4>
         : <H3 color={color} styles={styles}>{children}</H3>
       }

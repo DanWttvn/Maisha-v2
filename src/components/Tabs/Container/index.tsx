@@ -21,8 +21,6 @@ const Tabs: FC<Props> = ({ isHidden, styles, children, isStreched }) => {
 
     tabs = [ ...tabs, tabButton ]
     content = [ ...content, tabContent ]
-
-    if (i === value && x.props?.isDisabled) setValue(i+1)
   })
 
   if (isHidden) return null

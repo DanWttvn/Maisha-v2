@@ -8,6 +8,15 @@ export default styled.input<Props>`
   font-weight: 700;
   text-align: center;
 
+  ::-webkit-inner-spin-button{
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+  ::-webkit-outer-spin-button{
+    -webkit-appearance: none; 
+    margin: 0; 
+  }   
+
   ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

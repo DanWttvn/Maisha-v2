@@ -10,7 +10,7 @@ const Policy: FC<Props> = ({ isHidden }) => {
   if (isHidden) return null
   return (
     <div style={{ display: 'flex', flexFlow: 'row wrap', fontSize: '0.9rem' }}>
-      <Subtitle small styles={{ marginBottom: 8 }}>Política de privacidad</Subtitle>
+      <Subtitle styles={{ marginBottom: 8 }} isSmall>Política de privacidad</Subtitle>
       <Paragraph size="xs">
         Para saber cómo se procede con los datos personales, te rogamos leas la siguiente política de privacidad que aconsejamos consultar con regularidad, dado que puede ser actualizada.
         <br />

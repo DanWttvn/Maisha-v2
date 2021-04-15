@@ -12,7 +12,7 @@ const Cookies: FC<Props> = ({ isHidden }) => {
 
   return (
     <div style={{ display: 'flex', flexFlow: 'row wrap', fontSize: '0.9rem' }}>
-      <Subtitle small styles={{ marginBottom: 8 }}>Política de cookies</Subtitle>
+      <Subtitle styles={{ marginBottom: 8 }} isSmall>Política de cookies</Subtitle>
       <Text size="xs" isStreched>Maisha Roots Spain utiliza cookies para proporcionar un uso personalizado al usuario de la Web.</Text>
       <Accordion title="¿Qué es una cookie?">
         <Text size="xs">

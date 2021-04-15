@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components'
 import { Props } from '.'
 
-export default styled.span<Props>`
+export default styled.a<Props>`
   margin: 0;
-  cursor: ${({ onClick }) => onClick ? 'pointer' : 'inherit'};
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
-  //! responsive: cambio el body y listo
-  
   ${({ size }) => size === 'xxs' && css`
     font-size: 0.6rem;
     line-height: 24px;
@@ -52,13 +51,6 @@ export default styled.span<Props>`
   ${({ weight }) => weight === 'black' && css`
     font-weight: 700;
   `}
-
-  ${({ isHighlighted }) => isHighlighted && css`
-    color: ${({ theme }) => theme.colors.darkRed};
-    font-size: 1.6rem;
-    font-weight: 900;
-    font-style: italic;
-  `};
 
   ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
