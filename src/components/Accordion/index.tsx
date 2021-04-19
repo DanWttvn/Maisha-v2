@@ -14,7 +14,6 @@ const Accordion: FC<Props> = ({ isHidden, title, styles, children, isStreched })
   const [ isOpen, setIsOpen ] = useState(false)
   const contentRef = useRef<HTMLDivElement>()
 
-  console.log(contentRef.current)
   if (isHidden) return null
 
   const handleToggle = () => {

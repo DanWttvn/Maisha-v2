@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { Cross as CrossRoot } from 'styled-icons/entypo'
 import { BaseProps } from '../../models'
-// <Icon
-
 
 export default styled.div<BaseProps>`
   position: fixed;

@@ -8,7 +8,7 @@ import Title from '../components/Title'
 import Navbar from '../containers/Navbar'
 import WhoSection from '../containers/WhoSection'
 
-export const Home = () => {
+const Home = () => {
   return (
     <>
       <Navbar />
@@ -30,3 +30,5 @@ export const Home = () => {
     </>
   )
 }
+
+export default Home

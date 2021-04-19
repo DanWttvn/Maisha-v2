@@ -63,3 +63,20 @@ export default styled.span<Props>`
   ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `
+
+export const OpenQuote = styled.span<Props>`
+  position: relative;
+  &::before {
+    content: "“";
+  }
+  ${({ styles }) => ({ ...styles })}
+`
+
+export const CloseQuote = styled.span<Props>`
+  position: relative;
+  &::before {
+    content: "”";
+  }
+  ${({ styles }) => ({ ...styles })}
+`
+
