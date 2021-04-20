@@ -6,7 +6,7 @@ import { BaseProps } from '../../models'
 
 export type Props = BaseProps
 
-const Policy: FC<Props> = ({ isHidden }) => {
+const Privacy: FC<Props> = ({ isHidden }) => {
   if (isHidden) return null
   return (
     <div style={{ display: 'flex', flexFlow: 'row wrap', fontSize: '0.9rem' }}>
@@ -76,13 +76,11 @@ const Policy: FC<Props> = ({ isHidden }) => {
         </ul>
         <Paragraph size="xs">
           Sólo en los casos en que la cesión de los datos venga impuesta por ley o fuera necesaria para hacer frente a una situación de emergencia que exija la cooperación de personas o entidades distintas de las mencionadas anteriormente, tus datos podrán ser cedidos a terceros en la medida en que resulte necesaria para cumplir la legislación vigente o para hacer frente a la situación de emergencia planteada.
-
         </Paragraph>
       </Accordion>
       <Accordion title="¿Cuáles son tus derechos?">
         <Paragraph size="xs">
           Mediante solicitud escrita y firmada, acompañada de copia del Documento de Identidad, dirigida a Maisha Roots Spain, Avenida Bélgica, 12, drch 7ºB 28916, Leganés (España), o a canaldenuncias@maisharoots.org, puedes
-
         </Paragraph>
         <ul>
           <li>
@@ -97,7 +95,6 @@ const Policy: FC<Props> = ({ isHidden }) => {
         </ul>
         <Paragraph size="xs">
           Asimismo, si no estás conforme con cómo hemos atendido tus derechos, podrás presentar una reclamación ante la Agencia Española de Protección de Datos, a través de la página Web www.aepd.es.
-
         </Paragraph>
       </Accordion>
       <Accordion title="Actualización">
@@ -109,4 +106,4 @@ const Policy: FC<Props> = ({ isHidden }) => {
   )
 }
 
-export default Policy
+export default Privacy

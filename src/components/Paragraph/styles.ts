@@ -41,7 +41,7 @@ export default styled.p<Props>`
   `}
 
   ${({ weight }) => weight === 'normal' && css`
-    font-weight: normal;
+    font-weight: 400;
   `}
 
   ${({ weight }) => weight === 'semibold' && css`
@@ -49,7 +49,11 @@ export default styled.p<Props>`
   `}
 
   ${({ weight }) => weight === 'bold' && css`
-    font-weight: bold;
+    font-weight: 600;
+  `}
+
+  ${({ weight }) => weight === 'black' && css`
+    font-weight: 700;
   `}
 
   ${({ styles }) => ({ ...styles })}

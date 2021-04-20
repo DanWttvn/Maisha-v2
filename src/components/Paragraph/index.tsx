@@ -5,7 +5,7 @@ import Styled from './styles'
 export interface Props extends BaseProps {
   // color?: keyof theme.colors
   color?: string
-  weight?: 'normal' | 'semibold' | 'bold'
+  weight?: 'normal' | 'semibold' | 'bold' | 'black'
   size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 

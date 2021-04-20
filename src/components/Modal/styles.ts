@@ -12,7 +12,7 @@ export default styled.div<BaseProps>`
   justify-content: center;
   align-items: center;
   background: rgba(50,50,50,.5);
-  z-index: 100;
+  z-index: ${({ theme }) => theme.zIndex.high};
 
   ${({ styles }) => ({ ...styles })}
 `

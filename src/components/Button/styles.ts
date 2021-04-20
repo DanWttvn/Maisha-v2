@@ -10,8 +10,6 @@ const Button = styled.button<Props>`
 	border-radius: 10px;
 	transition: all 0.2s ease-in-out;
 	pointer-events: ${({ isDisabled }) => isDisabled ? 'none' : 'auto'};
-
-  ${({ styles }) => ({ ...styles })}
 `
 
 export const ButtonA = styled(Button)`
@@ -23,6 +21,8 @@ export const ButtonA = styled(Button)`
     transform: scale(1.05);
 	  background: ${({ theme }) => theme.colors.brightRed};
   }
+
+  ${({ styles }) => ({ ...styles })}
 `
 
 export const ButtonB = styled(Button)`
@@ -34,6 +34,8 @@ export const ButtonB = styled(Button)`
     transform: scale(1.05);
 	  background: ${({ theme }) => theme.colors.darkRed};
   }
+
+  ${({ styles }) => ({ ...styles })}
 `
 
 export const ButtonC = styled(Button)`
@@ -50,4 +52,6 @@ export const ButtonC = styled(Button)`
 	  transform: none;
 	  background: ${({ theme, isSelected }) => isSelected ? theme.colors.offOrange : theme.colors.brightRed};
   }
+
+  ${({ styles }) => ({ ...styles })}
 `

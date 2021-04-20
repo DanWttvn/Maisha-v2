@@ -11,8 +11,13 @@ export interface Props extends BaseProps {
 
 const Text: FC<Props> = ({ children, onClick, styles, weight = 'normal', size = 'm', isHighlighted, isStreched }) => {
   
+  const handleClick = (e: any) => {
+    e.stopPropagation()
+    if (onClick) onClick()
+  }
+
   return (
-    <Styled size={size} weight={weight} styles={styles} isHighlighted={isHighlighted} onClick={onClick} isStreched={isStreched}>
+    <Styled size={size} weight={weight} styles={styles} isHighlighted={isHighlighted} onClick={handleClick} isStreched={isStreched}>
       {children}
     </Styled>
   )

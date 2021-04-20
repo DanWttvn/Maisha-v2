@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import { BaseProps } from '../../models'
 import Button from '../../components/Button'
 import Text from '../../components/Text'
+import SkipWrap from '../../components/SkipWrap'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import { useForm } from 'react-hook-form'
@@ -9,18 +10,18 @@ import Styled, { InputText } from './styles'
 import { format } from 'date-fns'
 import { isEmailValid, isBankAccountValid } from '../../helpers/form'
 import theme from '../../styles/theme'
+import PolicyModal from '../PolicyModal'
 
 //! mirar como ponerle un estado de error 
 
 //* ES20 1465 01 00951715486475
 
-export interface Props extends BaseProps {
-  aa?: string
-}
+export type Props = BaseProps
 
 const Form: FC<Props> = ({  isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
   const { register, handleSubmit } = useForm()
+  const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState<boolean>(false)
 
   console.log(errors)
   if (isHidden) return null
@@ -80,90 +81,96 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
     }).catch(err => console.error(err))
   }
 
-  return (
-    <Styled onSubmit={handleSubmit(handleFormSubmit)}>
-      <InputText
-        variant="standard"
-        margin="normal"
-        required
-        fullWidth
-        id="name"
-        label="Nombre y Apellidos"
-        name="name"
-        autoComplete="name"
-        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-        inputRef={register}
-      />
-      <InputText
-        variant="standard"
-        margin="normal"
-        required
-        fullWidth
-        id="dni"
-        label="DNI/Pasaporte"
-        name="dni"
-        autoComplete="dni"
-        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-        inputRef={register}
-      />
-      <InputText
-        variant="standard"
-        margin="normal"
-        required
-        fullWidth
-        error={errors.includes('email')}
-        helperText={errors.includes('email') ? 'Por favor, incluye un email válido' : ''}
-        id="email"
-        label="Correo Electrónico"
-        name="email"
-        autoComplete="email"
-        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-        inputRef={register}
-      />
-      <InputText
-        variant="standard"
-        margin="normal"
-        required
-        fullWidth
-        type="number"
-        id="CP"
-        label="Código Postal"
-        name="CP"
-        autoComplete="CP"
-        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-        inputRef={register}
-      />
-      <InputText
-        variant="standard"
-        margin="normal"
-        required
-        fullWidth
-        error={errors.includes('IBAN')}
-        id="IBAN"
-        label="Cuenta Bancaria"
-        name="IBAN"
-        autoComplete="IBAN"
-        InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-        inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-        helperText="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
-        inputRef={register}
-      />
+  const label = (
+    <>
+      <Text size="xs" styles={{ marginRight: 6 }}>He leído y acepto la</Text>
+      <Text size="xs" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }}>Política de Privacidad</Text>
+    </>
+  )
 
-      {/* //! cambiar font */}
-      <FormControlLabel
-        control={<Checkbox inputRef={register} name="privacy" defaultChecked={false} color="primary" required/>}
-        label="He leído y acepto la Política de Privacidad"
-        // inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-        style={{ fontFamily: theme.fonts.main }}
-      />
-      {/* //! añadir link */}
-      <Text onClick={() => console.log('ir a privi')}>Política de Privacidad</Text>
-      <Button type="submit" >Enviar</Button>
-    </Styled>
+  return (
+    <>
+      <Styled onSubmit={handleSubmit(handleFormSubmit)}>
+        <InputText
+          variant="standard"
+          margin="normal"
+          required
+          fullWidth
+          id="name"
+          label="Nombre y Apellidos"
+          name="name"
+          autoComplete="name"
+          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
+          inputRef={register}
+        />
+        <InputText
+          variant="standard"
+          margin="normal"
+          required
+          fullWidth
+          id="dni"
+          label="DNI/Pasaporte"
+          name="dni"
+          autoComplete="dni"
+          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
+          inputRef={register}
+        />
+        <InputText
+          variant="standard"
+          margin="normal"
+          required
+          fullWidth
+          error={errors.includes('email')}
+          helperText={errors.includes('email') ? 'Por favor, incluye un email válido' : ''}
+          id="email"
+          label="Correo Electrónico"
+          name="email"
+          autoComplete="email"
+          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
+          inputRef={register}
+        />
+        <InputText
+          variant="standard"
+          margin="normal"
+          required
+          fullWidth
+          type="number"
+          id="CP"
+          label="Código Postal"
+          name="CP"
+          autoComplete="CP"
+          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
+          inputRef={register}
+        />
+        <InputText
+          variant="standard"
+          margin="normal"
+          required
+          fullWidth
+          error={errors.includes('IBAN')}
+          id="IBAN"
+          label="Cuenta Bancaria"
+          name="IBAN"
+          autoComplete="IBAN"
+          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
+          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
+          helperText="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
+          inputRef={register}
+        />
+        <FormControlLabel
+          control={<Checkbox inputRef={register} name="privacy" defaultChecked={false} color="primary" required/>}
+          label={label}
+          style={{ fontFamily: theme.fonts.main }}
+        />
+        <SkipWrap/>
+        <Button type="submit" styles={{ margin: '0 auto' }}>Enviar</Button>
+      </Styled>
+      <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
+    </>
   )
 }
 
