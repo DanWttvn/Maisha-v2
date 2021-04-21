@@ -7,7 +7,7 @@ const Provider: FC = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter basename="/">
         {children}
       </HashRouter>
     </ThemeProvider>
