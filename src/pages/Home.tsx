@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
 import Subtitle from '../components/Subtitle'
@@ -13,6 +14,8 @@ const Home = () => {
     <>
       <Navbar />
       <p style={{ marginBottom: 100 }}>usdgfh</p>
+      <Link to="/landing">Landing</Link>
+
       <Button theme="A">Ahgdf</Button>
       <Button theme="A" styles={{ padding: 15 }}>Ahgdf</Button>
       <Button theme="B">Ahgdf</Button>
