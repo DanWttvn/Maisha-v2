@@ -4,12 +4,11 @@ import Styled from './styles'
 
 export interface Props extends BaseProps {
   src: string
+  hasOverlay?: boolean
 }
 
-// background: 'linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)))'
-//forma de poner overlay
-const Image: FC<Props> = ({ src, styles, isStreched }) => {
-  return <Styled src={src} styles={styles} isStreched={isStreched}/>
+const Image: FC<Props> = ({ src, hasOverlay, styles, isStreched }) => {
+  return <Styled src={src} styles={styles} hasOverlay={hasOverlay} isStreched={isStreched}/>
 }
 
 export default Image

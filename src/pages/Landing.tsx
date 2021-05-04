@@ -16,27 +16,25 @@ import Paragraph from '../components/Paragraph'
 import { SubSection } from '../components/Section/styles'
 import SkipWrap from '../components/SkipWrap'
 import theme from '../styles/theme'
-import PolicyModal from '../containers/PolicyModal'
+
+//! aprender a deployat
 
 const Landing: FC = () => {
-  const [ selectedAmount, setSelectedAmount ] = useState<number>(0)
+  const [ selectedAmount, setSelectedAmount ] = useState<number>()
   const [ customAmount, setCustomAmount ] = useState<number>(0)
   const [ isFormModalOpen, setIsFormModalOpen ] = useState<boolean>(false)
-  const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState<boolean>(false)
 
-
-  const handleInputChange = (value: string | number) => {
+  const handleInputChange = (value: string) => {
     setCustomAmount(Number(value))
     setSelectedAmount(Number(value))
   }
+
   return (
     <Container>
-      <button onClick={setIsPolicyModalOpen.bind(undefined, true)}>Privacy</button>
-      <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
-
       <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isStreched>
-        <Image src="/images/playing_kids.jpg" isStreched/>
-        <p style={{ position: 'absolute', top: '25%', left: '10%', width: '70%', zIndex: 100 }}>
+        <Image src="/images/playing_kids.jpg" hasOverlay isStreched/>
+
+        <p style={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
           <OpenQuote styles={{ color: 'white', fontSize: 120, top: 10, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 20 }}/>
           <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', fontStyle: 'italic' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
           <CloseQuote styles={{ color: 'white', fontSize: 120, top: 20, lineHeight: '55px', fontStyle: 'italic', fontWeight: 800 }}/>
@@ -45,83 +43,60 @@ const Landing: FC = () => {
       </Container>
 
       <Container styles={{ marginTop: -25, marginBottom: 24, margin: '-25px auto 24px' }}>
-        <Button onClick={setSelectedAmount.bind(undefined, 5)} isSelected={selectedAmount === 5} styles={{ zIndex: defaultTheme.zIndex.medium, marginLeft: 'auto' }} theme="C">5€</Button>
-        <Button onClick={setSelectedAmount.bind(undefined, 10)} isSelected={selectedAmount === 10} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">10€</Button>
-        <Button onClick={setSelectedAmount.bind(undefined, 15)} isSelected={selectedAmount === 15} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">15€</Button>
-        <Button onClick={setSelectedAmount.bind(undefined, 25)} isSelected={selectedAmount === 25} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">25€</Button>
+        <Button onClick={setSelectedAmount.bind(undefined, 5)} isSelected={selectedAmount === 5 && customAmount !== 5} styles={{ zIndex: defaultTheme.zIndex.medium, marginLeft: 'auto' }} theme="C">5€</Button>
+        <Button onClick={setSelectedAmount.bind(undefined, 10)} isSelected={selectedAmount === 10 && customAmount !== 10} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">10€</Button>
+        <Button onClick={setSelectedAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">15€</Button>
+        <Button onClick={setSelectedAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">25€</Button>
         <Button onClick={setSelectedAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} styles={{ zIndex: defaultTheme.zIndex.medium, marginRight: 'auto' }} theme="C">
           <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12 }}/>€
         </Button>
       </Container>
 
       <SkipWrap />
-      
-      {/* <Button theme="B" onClick={setIsFormModalOpen.bind(undefined, true)} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.darkOrange, color: theme.colors.white, marginBottom: 56 }}>HAZTE SOCIA/O</Button> */}
+      {/* //! mensaje de selct ammount antes de derivarme, si no hay seleccionado */}
       <Button theme="B" onClick={setIsFormModalOpen.bind(undefined, true)} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, marginBottom: 56, border: `${theme.colors.darkRed} 1px solid` }}>HAZTE SOCIA/O</Button>
-
       <SkipWrap />
+
+      <Modal isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
+        <Subtitle>Hazte socia/o</Subtitle>
+        <JoinForm amountSelected={selectedAmount || 0} />
+      </Modal>
 
       <Container styles={{ padding: '0 75px' }}>
         <Paragraph styles={{ marginBottom: 36 }}>
           La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de las personas en Arusha, al norte de Tanzania, a través de la educación y los medios de vida desde un enfoque participativo. ¡Mira nuestras actividades!
         </Paragraph>
-
-        {/* //! cartas */}
-        {/* <Container styles={{ justifyContent: 'space-between', marginBottom: 56 }}>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', background: theme.colors.darkRed, borderRadius: 20 }}>
-            <Image src="/images/icons/ball.svg" styles={{ width: 80, marginBottom: 16 }} />
-            <Text weight="black" size="m" styles={{ color: theme.colors.offOrange, marginBottom: 8, textAlign: 'center' }}>Talleres de agricultura</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ color: theme.colors.offOrange, textAlign: 'center' }}>
-              Formamos a personas en riesgo de exclusión social en técnicas agricultura tradicional tanzanas.
-            </Paragraph>
-          </Container>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', background: theme.colors.darkRed, borderRadius: 20 }}>
-            <Text weight="black" size="m" styles={{ color: theme.colors.offOrange, marginBottom: 8, textAlign: 'center' }}>Actividades extraescolares</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ color: theme.colors.offOrange, textAlign: 'center' }}>
-              Fomentamos el deporte y la educación emocional en adolescentes, niñas y niños.
-            </Paragraph>
-          </Container>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', background: theme.colors.darkRed, borderRadius: 20 }}>
-            <Text weight="black" size="m" styles={{ color: theme.colors.offOrange, marginBottom: 8, textAlign: 'center' }}>Talleres de género</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ color: theme.colors.offOrange, textAlign: 'center' }}>
-              Apostamos por lograr el empoderamiento de las mujeres en Arusha.
-            </Paragraph>
-          </Container>
-        </Container> */}
         <Container styles={{ justifyContent: 'space-between', marginBottom: 56 }}>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
-            <Image src="/images/icons/ball.svg" styles={{ width: 80, marginBottom: 16 }} />
-            <Text weight="black" size="m" styles={{ color: theme.colors.darkRed, marginBottom: 8, textAlign: 'center' }}>Talleres de agricultura</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ color: theme.colors.darkRed, textAlign: 'center' }}>
+          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20, justifyContent: 'flex-end' }}>
+            <Image src="/images/icons/agriculture.svg" styles={{ height: 130, margin: 'auto 0' }} />
+            <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Talleres de agricultura</Text>
+            <Paragraph size="xs" weight="semibold" styles={{ textAlign: 'center' }}>
               Formamos a personas en riesgo de exclusión social en técnicas agricultura tradicional tanzanas.
             </Paragraph>
           </Container>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
-            <Text weight="black" size="m" styles={{ color: theme.colors.darkRed, marginBottom: 8, textAlign: 'center' }}>Actividades extraescolares</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ color: theme.colors.darkRed, textAlign: 'center' }}>
+          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20, justifyContent: 'flex-end' }}>
+            <Image src="/images/icons/Ball.svg" styles={{ height: 100, margin: 'auto 0' }} />
+            <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Actividades extraescolares</Text>
+            <Paragraph size="xs" weight="semibold" styles={{ textAlign: 'center' }}>
               Fomentamos el deporte y la educación emocional en adolescentes, niñas y niños.
             </Paragraph>
           </Container>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
-            <Text weight="black" size="m" styles={{ color: theme.colors.darkRed, marginBottom: 8, textAlign: 'center' }}>Talleres de género</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ color: theme.colors.darkRed, textAlign: 'center' }}>
+          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20, justifyContent: 'flex-end' }}>
+            <Image src="/images/icons/Gender.svg" styles={{ height: 120, margin: 'auto 0' }} />
+            <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Talleres de género</Text>
+            <Paragraph size="xs" weight="semibold" styles={{ textAlign: 'center' }}>
               Apostamos por lograr el empoderamiento de las mujeres en Arusha.
             </Paragraph>
           </Container>
         </Container>
-
       </Container>
-
-      <Modal isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
-        <Subtitle>Hazte socia/o</Subtitle>
-        <JoinForm />
-      </Modal>
 
       <Container isStreched>
         <Video src="/images/videos/CampañaSocios.mp4" />
       </Container>
 
-      <Image src="/images/IRPFGraph.svg" styles={{ height: 800 }} />
+      {/* //! cortar imagen y poner mas contenido */}
+      <Image src="/images/IRPFGraph.svg" styles={{ height: 600 }} />
     
       <SubSection>
         <Subtitle styles={{ marginBottom: 8 }}>FAQ</Subtitle>

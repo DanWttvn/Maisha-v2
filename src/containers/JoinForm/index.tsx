@@ -12,39 +12,40 @@ import { isEmailValid, isBankAccountValid } from '../../helpers/form'
 import theme from '../../styles/theme'
 import PolicyModal from '../PolicyModal'
 
-//! mirar como ponerle un estado de error 
+//* ES20 1465 01 00951715486475 : formatear para que repsete espacios
 
-//* ES20 1465 01 00951715486475
+export interface Props extends BaseProps {
+  amountSelected: number
+}
 
-export type Props = BaseProps
-
-const Form: FC<Props> = ({  isHidden, styles }) => {
+const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
   const { register, handleSubmit } = useForm()
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState<boolean>(false)
 
-  console.log(errors)
   if (isHidden) return null
 
   const handleFormSubmit = (data: any) => {
-    const { name, dni, email, CP, IBAN, amount } = data
+    const { name, dni, email, CP, IBAN } = data
+    data.amount = amountSelected
+    console.log(data)
 
     let nextErrors: string[] = []
 
     if (!isEmailValid(email)) nextErrors = [ ...nextErrors, 'email']
     if (!isBankAccountValid(IBAN)) nextErrors = [ ...nextErrors, 'IBAN']
 
-    console.log(nextErrors)
     if (nextErrors) return setErrors(nextErrors)
 
 
     fetch('https://api.apispreadsheets.com/data/3056/', {
       method: 'post',
-      body: JSON.stringify({'data': data }),
+      body: JSON.stringify({ 'data': data }),
     }).then(res => {
       if (res.status === 201 || res.status === 200){
         (window as any).Email.send({
           SecureToken: '31b045c6-3093-457c-b941-429917ab3497',
+          // //! ponerlo
           // To : ['maisharoots@gmail.com', 'danielaw95@gmail.com'],
           To : [],
           // To : email,
@@ -69,11 +70,12 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
             <br>
             Mes de alta: ${new Date().getMonth() + 1}
             <br>
-            Dinerito al mes: ${amount}
+            Dinerito al mes: ${amountSelected}
           `
-        }).then((message: any) => {
+        }).then((message: string) => {
           console.log('enviado!', message)
-        }).catch((err: any) => console.error(err))
+          // //! derivar a thak you page
+        }).catch((err: Error) => console.error(err))
       } else {
         // formMsg.innerHTML = '<span class="form-msg">Ha ocurrido un error, por favor, vuelve a intentarlo más tarde</span>';
         console.error(res)
@@ -90,7 +92,7 @@ const Form: FC<Props> = ({  isHidden, styles }) => {
 
   return (
     <>
-      <Styled onSubmit={handleSubmit(handleFormSubmit)}>
+      <Styled onSubmit={handleSubmit(handleFormSubmit)} styles={styles}>
         <InputText
           variant="standard"
           margin="normal"
