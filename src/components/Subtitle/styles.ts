@@ -11,6 +11,7 @@ export const H3 = styled.h3<Props>`
   color: ${({ theme, color = 'black' }) => theme.colors[color]};
   word-wrap: break-word;
 
+  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `
 
@@ -19,5 +20,6 @@ export const H4 = styled.h4<Props>`
 	font-weight: 600;
   color: ${({ theme, color = 'black' }) => theme.colors[color]};
 
+  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

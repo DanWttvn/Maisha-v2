@@ -32,8 +32,7 @@ export const SubSection = styled.div<Props>`
 	padding-top: 90px; /* 35px + 90 del margin */
 
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-flow: row wrap;
 
   ${({ hasFullWidth }) => !hasFullWidth && css`
     @media ${theme.breakpoints.m} {

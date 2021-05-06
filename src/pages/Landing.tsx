@@ -17,7 +17,7 @@ import { SubSection } from '../components/Section/styles'
 import SkipWrap from '../components/SkipWrap'
 import theme from '../styles/theme'
 
-//! aprender a deployat
+//! deploy -images
 
 const Landing: FC = () => {
   const [ selectedAmount, setSelectedAmount ] = useState<number>()
@@ -33,7 +33,6 @@ const Landing: FC = () => {
     <Container>
       <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isStreched>
         <Image src="/images/playing_kids.jpg" hasOverlay isStreched/>
-
         <p style={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
           <OpenQuote styles={{ color: 'white', fontSize: 120, top: 10, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 20 }}/>
           <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', fontStyle: 'italic' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
@@ -62,7 +61,7 @@ const Landing: FC = () => {
         <JoinForm amountSelected={selectedAmount || 0} />
       </Modal>
 
-      <Container styles={{ padding: '0 75px' }}>
+      <SubSection>
         <Paragraph styles={{ marginBottom: 36 }}>
           La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de las personas en Arusha, al norte de Tanzania, a través de la educación y los medios de vida desde un enfoque participativo. ¡Mira nuestras actividades!
         </Paragraph>
@@ -89,28 +88,35 @@ const Landing: FC = () => {
             </Paragraph>
           </Container>
         </Container>
-      </Container>
+      </SubSection>
 
       <Container isStreched>
         <Video src="/images/videos/CampañaSocios.mp4" />
       </Container>
 
-      {/* //! cortar imagen y poner mas contenido */}
-      <Image src="/images/IRPFGraph.svg" styles={{ height: 600 }} />
+      <SubSection styles={{ alignItems: 'center' }}>
+        <Image src="/images/IRPFGraph.png" styles={{ height: 400, margin: '20px 50px 0 0' }} />
+
+        <Paragraph size="xs" styles={{ flex: 1, margin: '20px 0 0 50px' }}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
+        </Paragraph>
+      </SubSection>
     
       <SubSection>
-        <Subtitle styles={{ marginBottom: 8 }}>FAQ</Subtitle>
-        <Accordion title="¿Qué significa hacerse socio?">
+        <Subtitle styles={{ marginBottom: 8 }} isStreched>FAQ</Subtitle>
+        <Accordion title="¿Qué significa hacerse socio?" isStreched>
           <Paragraph size="xs">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
           </Paragraph>
         </Accordion>
-        <Accordion title="¿?">
+        <Accordion title="¿?" isStreched>
           <Paragraph size="xs">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
           </Paragraph>
         </Accordion>
-        <Accordion title="¿?">
+        <Accordion title="¿?" isStreched>
           <Paragraph size="xs">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
           </Paragraph>

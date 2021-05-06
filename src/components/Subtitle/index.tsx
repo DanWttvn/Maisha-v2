@@ -7,12 +7,12 @@ export interface Props extends BaseProps {
   isSmall?: boolean
 }
 
-const Subtitle: FC<Props> = ({ children, styles, color, isSmall }) => {
+const Subtitle: FC<Props> = ({ children, styles, color, isSmall, isStreched }) => {
   return (
     <>
       {isSmall
-        ? <H4 color={color} styles={styles}>{children}</H4>
-        : <H3 color={color} styles={styles}>{children}</H3>
+        ? <H4 color={color} styles={styles} isStreched={isStreched}>{children}</H4>
+        : <H3 color={color} styles={styles} isStreched={isStreched}>{children}</H3>
       }
     </>
   )

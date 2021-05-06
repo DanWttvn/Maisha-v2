@@ -28,7 +28,6 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
   const handleFormSubmit = (data: any) => {
     const { name, dni, email, CP, IBAN } = data
     data.amount = amountSelected
-    console.log(data)
 
     let nextErrors: string[] = []
 
