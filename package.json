@@ -47,8 +47,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "postinstall":"npm run build tsc"
   },
   "browserslist": {
     "production": [
