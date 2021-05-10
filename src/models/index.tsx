@@ -12,9 +12,6 @@ export interface Route {
   content: FC
 }
 
-export type Lang = 'ES' | 'EN' | 'SW'
-
-
 export interface Theme {
   fonts: {
     main: string
@@ -46,3 +43,5 @@ export interface ThemeProps {
 }
 
 export type FormDraft<T> = { [P in keyof Partial<T>]: T[P] }
+
+export type Language = 'ES' | 'EN' | 'SW'

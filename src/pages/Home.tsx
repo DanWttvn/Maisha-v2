@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
@@ -6,10 +7,15 @@ import Subtitle from '../components/Subtitle'
 import Text from '../components/Text'
 import Controls from '../components/Timeline/Controls'
 import Title from '../components/Title'
+import Footer from '../containers/Footer'
 import Navbar from '../containers/Navbar'
 import WhoSection from '../containers/WhoSection'
+import LanguageContext from '../contexts/language'
 
-const Home = () => {
+const Home: FC = () => {
+  const { lang, setLang } = useContext(LanguageContext)
+  console.log('---->>> lang', lang)
+  
   return (
     <>
       <Navbar />
@@ -30,6 +36,7 @@ const Home = () => {
       <Title firstPart="Cómo" secondPart="trabajamos" />
       <Controls onChange={() => console.log('')} currentIndex={3} totalItems={4} styles={{ width: 300 }}></Controls>
       <WhoSection id={'who'} />
+      <Footer />
     </>
   )
 }

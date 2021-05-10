@@ -1,21 +1,19 @@
-import React, { FC, useState } from 'react'
-import Image from "../../components/Image"
+import React, { FC, useContext } from 'react'
+import Image from '../../components/Image'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import Styled, { SubSection, Card } from './styles'
 import Text from '../../components/Text'
 import theme from '../../styles/theme'
-import { Lang } from '../../models'
+import LanguageContext from '../../contexts/language'
 
 interface Props {
   id?: string
 }
 
 export const WhoSection: FC<Props> = ({ id }) => {
-  //! meter en context
-  // const lang: Lang = 'SW'
-  const [ lang, setLang ] = useState<Lang>('SW')
+  const { lang } = useContext(LanguageContext)
 
   return (
     <Styled id={id}>

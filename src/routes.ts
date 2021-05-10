@@ -4,7 +4,7 @@ import Landing from './pages/Landing'
 
 
 export const urls = {
-  root: '/',
+  root: '/root',
   landing: '/landing'
 
 }

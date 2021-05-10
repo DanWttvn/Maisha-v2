@@ -10,14 +10,12 @@ import Text from '../components/Text'
 import { OpenQuote, CloseQuote } from '../components/Text/styles'
 import Video from '../components/Video'
 import JoinForm from '../containers/JoinForm'
-import Footer from '../containers/Footer'
+import FooterSimple from '../containers/FooterSimple'
 import defaultTheme from '../styles/theme'
 import Paragraph from '../components/Paragraph'
 import { SubSection } from '../components/Section/styles'
 import SkipWrap from '../components/SkipWrap'
 import theme from '../styles/theme'
-
-//! deploy -images
 
 const Landing: FC = () => {
   const [ selectedAmount, setSelectedAmount ] = useState<number>()
@@ -53,7 +51,7 @@ const Landing: FC = () => {
 
       <SkipWrap />
       {/* //! mensaje de selct ammount antes de derivarme, si no hay seleccionado */}
-      <Button theme="B" onClick={setIsFormModalOpen.bind(undefined, true)} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, marginBottom: 56, border: `${theme.colors.darkRed} 1px solid` }}>HAZTE SOCIA/O</Button>
+      <Button theme="B" onClick={setIsFormModalOpen.bind(undefined, true)} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, marginBottom: 24, border: `${theme.colors.darkRed} 1px solid` }}>HAZTE SOCIA/O</Button>
       <SkipWrap />
 
       <Modal isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
@@ -62,29 +60,30 @@ const Landing: FC = () => {
       </Modal>
 
       <SubSection>
-        <Paragraph styles={{ marginBottom: 36 }}>
-          La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de las personas en Arusha, al norte de Tanzania, a través de la educación y los medios de vida desde un enfoque participativo. ¡Mira nuestras actividades!
+        <Paragraph styles={{ marginBottom: 16 }}>
+          <Text size="s" styles={{ marginBottom: 8 }}>La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de una de las comunidades masái de la ciudad de Arusha, al norte de Tanzania, a través del fomento de la educación y el desarrollo de los medios de vida desde un enfoque participativo.</Text>
+          <Text size="s" weight="semibold">¡Mira las actividades que ya hemos puesto en marcha!:</Text>
         </Paragraph>
         <Container styles={{ justifyContent: 'space-between', marginBottom: 56 }}>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20, justifyContent: 'flex-end' }}>
-            <Image src="/images/icons/agriculture.svg" styles={{ height: 130, margin: 'auto 0' }} />
+          <Container direction="vertical" styles={{ width: '33%', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
+            <Image src="/images/icons/agriculture.svg" styles={{ height: 130, margin: '20px 0' }} />
             <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Talleres de agricultura</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ textAlign: 'center' }}>
-              Formamos a personas en riesgo de exclusión social en técnicas agricultura tradicional tanzanas.
+            <Paragraph size="xs" styles={{ textAlign: 'center' }}>
+              La agricultura es la principal fuente de ingresos en la comunidad donde trabajamos. Para que puedan sacarle el máximo partido a sus cultivos, formamos a personas en riesgo de exclusión social en técnicas agrícolas tradicionales en nuestro huerto urbano.
             </Paragraph>
           </Container>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20, justifyContent: 'flex-end' }}>
-            <Image src="/images/icons/Ball.svg" styles={{ height: 100, margin: 'auto 0' }} />
+          <Container direction="vertical" styles={{ width: '33%', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
+            <Image src="/images/icons/Ball.svg" styles={{ height: 110, margin: '30px 0' }} />
             <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Actividades extraescolares</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ textAlign: 'center' }}>
-              Fomentamos el deporte y la educación emocional en adolescentes, niñas y niños.
+            <Paragraph size="xs" styles={{ textAlign: 'center' }}>
+              Una parte muy importante de los niños y niñas en Arusha no ejerce su derecho a jugar todos los días. Por eso, fomentamos el deporte y la educación emocional en adolescentes, niñas y niños.
             </Paragraph>
           </Container>
-          <Container direction="vertical" styles={{ width: 'calc(33% - 40px)', padding: '25px 20px', alignItems: 'center', borderRadius: 20, justifyContent: 'flex-end' }}>
-            <Image src="/images/icons/Gender.svg" styles={{ height: 120, margin: 'auto 0' }} />
+          <Container direction="vertical" styles={{ width: '33%', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
+            <Image src="/images/icons/Gender.svg" styles={{ height: 120, margin: '25px 0' }} />
             <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Talleres de género</Text>
-            <Paragraph size="xs" weight="semibold" styles={{ textAlign: 'center' }}>
-              Apostamos por lograr el empoderamiento de las mujeres en Arusha.
+            <Paragraph size="xs" styles={{ textAlign: 'center' }}>
+              El 58% de las mujeres de entre 15 y 49 años afirma haber sufrido violencia por parte de su pareja. En Maisha Roots apostamos por el empoderamiento transversal de las mujeres en Arusha como uno de los ejes fundamentales en la lucha contra la violencia de género.
             </Paragraph>
           </Container>
         </Container>
@@ -123,7 +122,7 @@ const Landing: FC = () => {
         </Accordion>
       </SubSection>
 
-      <Footer/>
+      <FooterSimple/>
     </Container>
   )
 }

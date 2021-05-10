@@ -55,3 +55,13 @@ export const ButtonC = styled(Button)`
 
   ${({ styles }) => ({ ...styles })}
 `
+
+export const ButtonD = styled(Button)`
+	font-size: 0.95rem;
+	background: transparent;
+	font-weight: 400;
+	padding: 0 5px;
+	color: ${({ theme }) => theme.colors.offOrange};
+
+  ${({ styles }) => ({ ...styles })};
+`

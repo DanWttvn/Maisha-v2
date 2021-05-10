@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { BaseProps } from '../../models'
 import Styled, { Dialog, Cross } from './styles'
 

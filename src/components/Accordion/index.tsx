@@ -1,6 +1,5 @@
-import React, { FC, ChangeEvent, useState, useRef } from 'react'
+import React, { FC, useState, useRef } from 'react'
 import { BaseProps } from '../../models'
-import theme from '../../styles/theme'
 import Text from '../Text'
 import Separator from '../Separator'
 import Styled, { Icon, Content, Wrapper } from './styles'

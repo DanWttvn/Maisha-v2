@@ -28,9 +28,18 @@ export const Link = styled(LinkRoot)`
   }
 `
 
-export const Divider = styled.div`
+export const HorizontalDivider = styled.div`
 	width: 100%;
 	height: 1px;
 	background-color: #ccc;
 	opacity: 0.5;
 `
+
+export const VerticalDivider = styled.div`
+	width: 1px;
+	height: 15px;
+	margin: 'auto 0';
+	background-color: #ccc;
+	opacity: 0.5;
+`
+
