@@ -36,26 +36,30 @@ const Home: FC = () => {
       <Carousel.Container
         title="Nuestra experiencia"
         onChange={i => console.log(`Item ${i} is selected`)}
+        sectionTitles={['2021', '2020', '2019', '2018', '2017', '2016', '2015']}
         styles={{ height: 690 }}
         isStreched
       >
-        <Carousel.Item src="/images/photo(1).JPG" hasOverlay>
-          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>1</Text>
+        <Carousel.Item src="/images/photo4.jpg" hasOverlay>
+          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2021</Text>
         </Carousel.Item>
         <Carousel.Item src="/images/photo4.jpg" hasOverlay>
-          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2</Text>
+          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2020</Text>
+        </Carousel.Item>
+        <Carousel.Item src="/images/photo4.jpg" hasOverlay>
+          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2019</Text>
         </Carousel.Item>
         <Carousel.Item src="/images/photo11.jpg" hasOverlay>
-          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2</Text>
+          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2018</Text>
         </Carousel.Item>
         <Carousel.Item src="/images/photo8.jpg" hasOverlay>
-          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2</Text>
+          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2017</Text>
         </Carousel.Item>
         <Carousel.Item src="/images/photo(12).jpg" hasOverlay>
-          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2</Text>
+          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2016</Text>
         </Carousel.Item>
         <Carousel.Item src="/images/a(1).jpg" hasOverlay>
-          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2</Text>
+          <Text size="xl" weight="bold" styles={{ color: 'white' }} isStreched>2015</Text>
         </Carousel.Item>
       </Carousel.Container>
       <Subtitle >Subtitle</Subtitle>

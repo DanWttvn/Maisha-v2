@@ -9,10 +9,10 @@ import { Props as ItemProps } from '../Item'
 export interface Props extends BaseProps {
   title?: string
   onChange?: (i: number) => void
-  totalItems?: number
+  sectionTitles: string[]
 }
 
-const Container: FC<Props> = ({ children, totalItems, isHidden, title, styles, onChange, isStreched }) => {
+const Container: FC<Props> = ({ children, isHidden, title, sectionTitles, styles, onChange, isStreched }) => {
   const ref = useRef<HTMLDivElement>(null)
   const activeCardRef = useRef<HTMLDivElement>(null)
   const [ currentIndex, setCurrentIndex ] = useState(0)
@@ -41,9 +41,7 @@ const Container: FC<Props> = ({ children, totalItems, isHidden, title, styles, o
     if (onChange) onChange(i)
   }
 
-  const items = Children.map(children, (x: ReactElement<ItemProps>, i) => {
-    return cloneElement(x, { onClick: handleChange.bind(undefined, i), ref: currentIndex === i ? activeCardRef : null })
-  })
+  const items = Children.map(children, (x: ReactElement<ItemProps>, i) => cloneElement(x, { onClick: handleChange.bind(undefined, i), ref: currentIndex === i ? activeCardRef : null }))
 
   if (isHidden) return null
 
@@ -51,13 +49,13 @@ const Container: FC<Props> = ({ children, totalItems, isHidden, title, styles, o
     <Styled styles={styles} isStreched={isStreched}>
       <Header>
         <Text size="l" weight="bold">{title}</Text>
-        <Control control={{ currentIndex, totalItems: totalItems || items?.length || 0 }} onChange={handleChange}/>
       </Header>
       <Content ref={ref} isStreched>
         <Wrapper style={{ marginTop: 20 }}>
           {items}
         </Wrapper>
       </Content>
+      <Control control={{ currentIndex, totalItems: items?.length || 0 }} sectionTitles={sectionTitles} onChange={handleChange}/>
     </Styled>
   )
 }

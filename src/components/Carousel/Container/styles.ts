@@ -23,7 +23,6 @@ export const Header = styled.div`
 
 export const Content = styled.div<StyledProps<BaseProps>>`
   position: relative;
-  box-sizing: border-box;
   height: 100%;
   overflow-x: hidden;
 
