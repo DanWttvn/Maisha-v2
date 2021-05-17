@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Cross as CrossRoot } from 'styled-icons/entypo'
 import { BaseProps } from '../../models'
+import DialogRoot from '../Dialog'
 
 export default styled.div<BaseProps>`
   position: fixed;
@@ -17,21 +18,9 @@ export default styled.div<BaseProps>`
   ${({ styles }) => ({ ...styles })}
 `
 
-export const Dialog = styled.article<BaseProps>`
-  position: relative;
-	background: #fff;
+export const Dialog = styled(DialogRoot)<BaseProps>`
 	width: 90%;
-	height: fit-content;
 	max-height: 650px;
-	overflow: scroll;
-	padding: 32px;
-	border-radius: 30px;
-
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-    display: none;
-    width: 5px;
-  }
 
   @media ${({ theme }) => theme.breakpoints.s} {
     max-height: 85%;

@@ -4,7 +4,7 @@ import theme from '../../../styles/theme'
 import Button from '../../Button'
 // import Icon from '../../Icon'
 import Text from '../../Text'
-import Styled, { ButtonsWrapper, NodesWrapper, NodeWrapper, Node, Line } from './styles'
+import Styled, { ButtonsWrapper, NodesWrapper, NodeWrapper, Node, Line, Icon } from './styles'
 
 export interface Props extends BaseProps {
   control: { currentIndex: number, totalItems: number }
@@ -31,20 +31,18 @@ const Control: FC<Props> = ({ isHidden, control, sectionTitles, onChange, styles
     <Styled style={styles}>
       <ButtonsWrapper>
         <Button
-          theme="B"
+          theme="E"
           onClick={onChange.bind(undefined, currentIndex - 1)}
           isDisabled={currentIndex === 0}
         >
-          a
-          {/* <Icon name="navigate_before" color="darkNebulae75" /> */}
+          <Icon isLeft/>
         </Button>
         <Button
-          theme="B"
+          theme="E"
           onClick={onChange.bind(undefined, currentIndex + 1)}
           isDisabled={!totalItems || currentIndex === totalItems - 1}
         >
-          b
-          {/* <Icon name="navigate_next" color="darkNebulae75"  /> */}
+          <Icon/>
         </Button>
       </ButtonsWrapper>
       <NodesWrapper>

@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { BaseProps } from '../../models'
-import Styled, { Dialog, Cross } from './styles'
+import Dialog from '../Dialog'
+import Styled from './styles'
 
 export interface Props extends BaseProps {
   onClose?: () => void
@@ -11,8 +12,7 @@ const Modal: FC<Props> = ({ children, styles, onClose, isHidden }) => {
 
   return (
     <Styled>
-      <Dialog styles={styles}>
-        <Cross onClick={onClose}/>
+      <Dialog styles={styles} onClose={onClose}>
         {children}
       </Dialog>
     </Styled>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { KeyboardArrowRight } from '@styled-icons/material/KeyboardArrowRight'
 
 export default styled.div`
   position: absolute;
@@ -76,4 +77,10 @@ export const Node = styled.div`
     left: -50%;
     transform: translateX(2px);
   }
+`
+
+export const Icon = styled(KeyboardArrowRight)<{ isLeft?: boolean }>`
+  width: 1.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  ${({ isLeft }) => isLeft ? 'transform: rotate(180deg);' : ''};
 `

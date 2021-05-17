@@ -1,16 +1,18 @@
 import React, { FC } from 'react'
 import { BaseProps } from '../../models'
-import { ButtonA, ButtonB, ButtonC, ButtonD } from './styles'
+import { ButtonA, ButtonB, ButtonC, ButtonD, ButtonE, ButtonF } from './styles'
 
 export interface Props extends BaseProps {
   onClick?: () => void
-  theme?: 'A' | 'B' | 'C' | 'D'
+  theme?: 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
   isDisabled?: boolean
   isSelected?: boolean
   type?: 'submit' | 'button'
 }
 
-const Button: FC<Props>  = ({ children, onClick, theme = 'A', styles, isDisabled, isSelected, type = 'button' }) => {
+const Button: FC<Props> = ({ children, onClick, theme = 'A', styles, isDisabled, isSelected, type = 'button', isHidden }) => {
+  if (isHidden) return null
+
   let Styled
 
   switch (theme) {
@@ -22,6 +24,12 @@ const Button: FC<Props>  = ({ children, onClick, theme = 'A', styles, isDisabled
     break
   case 'D':
     Styled = ButtonD
+    break
+  case 'E':
+    Styled = ButtonE
+    break
+  case 'F':
+    Styled = ButtonF
     break
   default:
     Styled = ButtonA

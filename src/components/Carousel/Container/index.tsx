@@ -1,8 +1,7 @@
 import React, { Children, cloneElement, FC, ReactElement, useEffect, useRef, useState } from 'react'
 import { BaseProps } from '../../../models'
 import Text from '../../Text'
-import Styled, { Header } from './styles'
-import { Content, Wrapper } from './styles'
+import Styled, { Header, Content, Wrapper } from './styles'
 import Control from '../Control'
 import { Props as ItemProps } from '../Item'
 

@@ -9,12 +9,12 @@ export default styled.div<BaseProps>`
   ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })};
 `
+
 export const Icon = styled(KeyboardArrowRight)<{ isOpen?: boolean }>`
   width: 25px;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.lightestGrey};
 
-  
   ${({ isOpen }) => isOpen ? 'transform: rotate(90deg);' : ''};
 	transition: transform 0.4s ease-out;
 `

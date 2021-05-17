@@ -5,6 +5,7 @@ export default styled.section<StyledProps<BaseProps>>`
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 
   ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
