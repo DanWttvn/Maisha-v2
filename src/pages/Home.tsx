@@ -10,7 +10,6 @@ import Controls from '../components/Timeline/Controls'
 import Title from '../components/Title'
 import Footer from '../containers/Footer'
 import Navbar from '../containers/Navbar'
-import Map from '../containers/Map'
 import WhoSection from '../containers/WhoSection'
 import LanguageContext from '../contexts/language'
 
@@ -34,7 +33,6 @@ const Home: FC = () => {
         flaugdf
       </Paragraph>
 
-      <Map />
 
       <Carousel.Container
         title="Nuestra experiencia"

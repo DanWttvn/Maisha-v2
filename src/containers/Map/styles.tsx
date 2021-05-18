@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Cross as CrossRoot } from 'styled-icons/entypo'
 import ButtonRoot from '../../components/Button'
-import DialogRoot from '../../components/Dialog'
+import ModalRoot from '../../components/Modal'
+import { BaseProps } from '../../models'
 
 export const Point = styled.div`
 	width: 10px;
@@ -12,19 +12,49 @@ export const Point = styled.div`
   background-color: ${({ theme }) => theme.colors.brightRed};
 `
 
-export const Cross = styled(CrossRoot)`
-	color: ${({ theme }) => theme.colors.white};
-  width: 25px;
-`
-
-//! no funciona...
 export const Button = styled(ButtonRoot)`
-	position: relative;
-  top: 50%;
-  left: 50%;
-  background: red;
+  position: absolute;
+  z-index: 1;
+`
+/* //! no encuenta el breakpoint */
+/* display: none;
+
+// @media ${({ theme }) => theme.breakpoints.m} {
+  display: flex;
+} */
+
+export const Card = styled.div<BaseProps>`
+  position: absolute;
+  border-radius: 0;
+	background: ${({ theme }) => theme.colors.darkOrange};
+	padding: 15px 20px 10px;
+	width: 90%;
+	max-width: 800px;
+	font-size: 0.95rem;
+
+  @media ${({ theme }) => theme.breakpoints.m} {
+    display: none;
+  }
+
+  ${({ styles }) => ({ ...styles })}
 `
 
-export const Dialog = styled(DialogRoot)`
+export const Modal = styled(ModalRoot)`
+  position: absolute;
+  border-radius: 0;
   background: ${({ theme }) => theme.colors.darkOrange};
+  padding: 15px 20px 10px;
+  font-size: 0.95rem;
+  display: none;
+
+  @media ${({ theme }) => theme.breakpoints.m} {
+    display: flex;
+    width: 42%;
+  }
+
+  @media ${({ theme }) => theme.breakpoints.sl} {
+		width: 280px;
+  }
+
+  ${({ styles }) => ({ ...styles })}
 `

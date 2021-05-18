@@ -5,6 +5,7 @@ export interface BaseProps {
   isHidden?: boolean
   isStreched?: boolean
   ref?: Ref<any>
+  className?: string
 }
 
 export interface Route {

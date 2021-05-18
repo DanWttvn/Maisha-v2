@@ -6,8 +6,6 @@ export default styled.p<Props>`
   margin-bottom: 16px;
   color: ${({ theme, color = 'darkGrey' }) => theme.colors[color]};
   word-wrap: break-word;
-  display: flex;
-  flex-flow: row wrap;
   white-space: pre-wrap;
 
   ${({ size }) => size === 'xxs' && css`

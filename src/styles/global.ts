@@ -12,6 +12,10 @@ export default createGlobalStyle<ThemeProps>`
     -webkit-tap-highlight-color: transparent; 
   }
 
+  strong {
+    color: #000;
+  }
+
   input,
   button,
   textarea,

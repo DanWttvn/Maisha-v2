@@ -4,7 +4,7 @@ import Accordion from '../components/Accordion'
 import Container from '../components/Container'
 import Image from '../components/Image'
 import Input from '../components/Input'
-import Modal from '../components/Modal'
+import Dialog from '../components/Modal'
 import Subtitle from '../components/Subtitle'
 import Text from '../components/Text'
 import { OpenQuote, CloseQuote } from '../components/Text/styles'
@@ -54,10 +54,10 @@ const Landing: FC = () => {
       <Button theme="B" onClick={setIsFormModalOpen.bind(undefined, true)} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, marginBottom: 24, border: `${theme.colors.darkRed} 1px solid` }}>HAZTE SOCIA/O</Button>
       <SkipWrap />
 
-      <Modal isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
+      <Dialog isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
         <Subtitle>Hazte socia/o</Subtitle>
         <JoinForm amountSelected={selectedAmount || 0} />
-      </Modal>
+      </Dialog>
 
       <SubSection>
         <Paragraph styles={{ marginBottom: 16 }}>

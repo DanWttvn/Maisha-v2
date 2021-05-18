@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import Modal from '../../components/Modal'
+import Dialog from '../../components/Modal'
 import Privacy from '../Privacy'
 import Cookies from '../Cookies'
 import Tabs from '../../components/Tabs'
@@ -12,7 +12,7 @@ export interface Props extends BaseProps {
 const PolicyModal: FC<Props> = ({ isHidden, onClose }) => {
   if (isHidden) return null
   return (
-    <Modal onClose={onClose}>
+    <Dialog onClose={onClose}>
       <Tabs.Container>
         <Tabs.Item title="Privacy">
           <Privacy />
@@ -21,7 +21,7 @@ const PolicyModal: FC<Props> = ({ isHidden, onClose }) => {
           <Cookies />
         </Tabs.Item>
       </Tabs.Container>
-    </Modal>
+    </Dialog>
   )
 }
 

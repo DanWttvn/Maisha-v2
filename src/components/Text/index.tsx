@@ -9,7 +9,7 @@ export interface Props extends BaseProps {
   size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 
-const Text: FC<Props> = ({ children, onClick, styles, weight = 'normal', size = 'm', isHighlighted, isStreched }) => {
+const Text: FC<Props> = ({ children, onClick, styles, weight = 'normal', size = 'm', isHighlighted, className, isStreched }) => {
   
   const handleClick = (e: any) => {
     e.stopPropagation()
@@ -17,7 +17,7 @@ const Text: FC<Props> = ({ children, onClick, styles, weight = 'normal', size = 
   }
 
   return (
-    <Styled size={size} weight={weight} styles={styles} isHighlighted={isHighlighted} onClick={handleClick} isStreched={isStreched}>
+    <Styled size={size} weight={weight} styles={styles} isHighlighted={isHighlighted} onClick={handleClick} className={className} isStreched={isStreched}>
       {children}
     </Styled>
   )

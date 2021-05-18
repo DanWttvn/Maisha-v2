@@ -1,18 +1,20 @@
 import React, { FC } from 'react'
 import { BaseProps } from '../../models'
-import Styled, { Cross } from './styles'
+import Modal from '.'
+import Styled from './styles'
 
 export interface Props extends BaseProps {
   onClose?: () => void
 }
 
-const Dialog: FC<Props> = ({ children, styles, onClose, isHidden }) => {
+const Dialog: FC<Props> = ({ children, styles, onClose, className, isHidden }) => {
   if (isHidden) return null
 
   return (
-    <Styled styles={styles}>
-      <Cross onClick={onClose}/>
-      {children}
+    <Styled className={className}>
+      <Modal styles={styles} onClose={onClose}>
+        {children}
+      </Modal>
     </Styled>
   )
 }

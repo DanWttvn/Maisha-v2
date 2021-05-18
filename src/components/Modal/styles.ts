@@ -1,40 +1,31 @@
 import styled from 'styled-components'
 import { Cross as CrossRoot } from 'styled-icons/entypo'
 import { BaseProps } from '../../models'
-import DialogRoot from '../Dialog'
 
 export default styled.div<BaseProps>`
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(50,50,50,.5);
-  z-index: ${({ theme }) => theme.zIndex.high};
+  flex-flow: row wrap;
+	background: ${({ theme }) => theme.colors.white};
+	height: fit-content;
+	overflow: scroll;
+	padding: 32px;
+	border-radius: 30px;
 
-  ${({ styles }) => ({ ...styles })}
-`
-
-export const Dialog = styled(DialogRoot)<BaseProps>`
-	width: 90%;
-	max-height: 650px;
-
-  @media ${({ theme }) => theme.breakpoints.s} {
-    max-height: 85%;
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    display: none;
+    width: 5px;
   }
 
   ${({ styles }) => ({ ...styles })}
 `
 
-export const Cross = styled(CrossRoot)`
+export const Cross = styled(CrossRoot)<{ color: string }>`
   position: absolute;
   top: 17px;
   right: 20px;
-
-	color: ${({ theme }) => theme.colors.lightGrey};
+	color: ${({ theme, color }) => theme.colors[color]};
   width: 25px;
   cursor: pointer;
 `

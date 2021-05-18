@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react'
 import { BaseProps } from '../../models'
-// import Styled, { Dialog, Cross } from './styles'
+// import Styled, { Modal, Cross } from './styles'
 
 export interface Props extends BaseProps {
 
 }
 
-const Modal: FC<Props> = ({ children, styles }) => {
+const Popup: FC<Props> = ({ children, styles }) => {
   const [ isOpen, setIsOpen ] = useState(open || true)
 
   return (
@@ -14,4 +14,4 @@ const Modal: FC<Props> = ({ children, styles }) => {
   )
 }
 
-export default Modal
+export default Popup

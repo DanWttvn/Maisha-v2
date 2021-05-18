@@ -4,6 +4,7 @@ import { Props } from '.'
 export default styled.span<Props>`
   margin: 0;
   cursor: ${({ onClick }) => onClick ? 'pointer' : 'inherit'};
+  color: ${({ theme, color = 'darkGrey' }) => theme.colors[color]};
 
   //! responsive: cambio el body y listo
   
