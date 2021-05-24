@@ -29,8 +29,8 @@ const Landing: FC = () => {
 
   return (
     <Container>
-      <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isStreched>
-        <Image src="/images/playing_kids.jpg" hasOverlay isStreched/>
+      <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
+        <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth/>
         <p style={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
           <OpenQuote styles={{ color: 'white', fontSize: 120, top: 10, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 20 }}/>
           <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', fontStyle: 'italic' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
@@ -89,7 +89,7 @@ const Landing: FC = () => {
         </Container>
       </SubSection>
 
-      <Container isStreched>
+      <Container isFullWidth>
         <Video src="/images/videos/CampañaSocios.mp4" />
       </Container>
 
@@ -104,18 +104,18 @@ const Landing: FC = () => {
       </SubSection>
     
       <SubSection>
-        <Subtitle styles={{ marginBottom: 8 }} isStreched>FAQ</Subtitle>
-        <Accordion title="¿Qué significa hacerse socio?" isStreched>
+        <Subtitle styles={{ marginBottom: 8 }} isFullWidth>FAQ</Subtitle>
+        <Accordion title="¿Qué significa hacerse socio?" isFullWidth>
           <Paragraph size="xs">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
           </Paragraph>
         </Accordion>
-        <Accordion title="¿?" isStreched>
+        <Accordion title="¿?" isFullWidth>
           <Paragraph size="xs">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
           </Paragraph>
         </Accordion>
-        <Accordion title="¿?" isStreched>
+        <Accordion title="¿?" isFullWidth>
           <Paragraph size="xs">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
           </Paragraph>

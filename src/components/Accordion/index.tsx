@@ -9,7 +9,7 @@ export interface Props extends BaseProps {
   title: string
 }
 
-const Accordion: FC<Props> = ({ isHidden, title, styles, children, isStreched }) => {
+const Accordion: FC<Props> = ({ isHidden, title, styles, children, isFullWidth }) => {
   const [ isOpen, setIsOpen ] = useState(false)
   const contentRef = useRef<HTMLDivElement>()
 
@@ -20,7 +20,7 @@ const Accordion: FC<Props> = ({ isHidden, title, styles, children, isStreched })
   }
 
   return (
-    <Styled styles={styles} isStreched={isStreched}>
+    <Styled styles={styles} isFullWidth={isFullWidth}>
       <Icon isOpen={isOpen} onClick={handleToggle}/>
       <Text onClick={handleToggle} weight="semibold" size="s" styles={{ marginTop: 4 }}>{title}</Text>
       <Separator styles={{ margin: '5px 0' }} />

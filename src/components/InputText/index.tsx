@@ -13,7 +13,7 @@ export interface Props extends BaseProps {
   register?: any
 }
 
-const InputText: FC<Props> = ({ isHidden, styles, name, label, type = 'text', onChange, isInvalid, helper, register, isStreched }) => {
+const InputText: FC<Props> = ({ isHidden, styles, name, label, type = 'text', onChange, isInvalid, helper, register, isFullWidth }) => {
   const [ value, setValue ] = useState('')
   const [ formatError, setFormatError ] = useState<Error>()
 //! controlar aqui los invalids de format
@@ -38,7 +38,7 @@ const InputText: FC<Props> = ({ isHidden, styles, name, label, type = 'text', on
       autoComplete={name}
       onChange={handleChange}
       error={isInvalid || !!formatError}
-      fullWidth={isStreched}
+      fullWidth={isFullWidth}
       inputRef={register}
       helperText={helper}
       InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}

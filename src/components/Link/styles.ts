@@ -52,6 +52,6 @@ export default styled.a<Props>`
     font-weight: 700;
   `}
 
-  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

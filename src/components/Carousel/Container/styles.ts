@@ -7,27 +7,16 @@ export default styled.section<StyledProps<BaseProps>>`
   height: 100%;
   position: relative;
 
-  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
-`
-
-export const Header = styled.div`
-  position: absolute;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 24px;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 `
 
 export const Content = styled.div<StyledProps<BaseProps>>`
   position: relative;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 
-  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })};
 `
 

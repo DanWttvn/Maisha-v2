@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 import { ThemeProps } from '../models'
 
 export default createGlobalStyle<ThemeProps>`
@@ -10,6 +10,32 @@ export default createGlobalStyle<ThemeProps>`
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent; 
+  }
+
+  * {
+    font-size: 17px;
+
+    ${({ theme }) => css`
+      /* @media (max-width: 1500px) {
+        font-size: 16px;
+      } */
+      /* @media ${theme.breakpoints.l} {
+        font-size: 15px;
+      } */
+      @media ${theme.breakpoints.m} {
+        font-size: 15.5px;
+      }
+      @media ${theme.breakpoints.sl} {
+        font-size: 14.5px;
+      }
+      @media ${theme.breakpoints.s} {
+        font-size: 14px;
+      }
+      /* @media ${theme.breakpoints.xs} {
+      } */
+    `}
+
+
   }
 
   strong {

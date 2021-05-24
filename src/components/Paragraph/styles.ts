@@ -20,22 +20,22 @@ export default styled.p<Props>`
 
   ${({ size }) => size === 's' && css`
     font-size: 1rem;
-    line-height: 24px;
+    line-height: 27px;
   `}
 
   ${({ size }) => size === 'm' && css`
     font-size: 1.2rem;
-    line-height: 24px;
+    line-height: 30px;
   `}
 
   ${({ size }) => size === 'l' && css`
     font-size: 2rem;
-    line-height: 24px;
+    line-height: 35px;
   `}
 
   ${({ size }) => size === 'xl' && css`
-    font-size: 3rem;
-    line-height: 24px;
+    font-size: 3.2rem;
+    line-height: 40px;
   `}
 
   ${({ weight }) => weight === 'normal' && css`

@@ -5,7 +5,7 @@ export default styled.section<Props>`
   display: flex;
   flex-direction: column;
 
-  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `
 

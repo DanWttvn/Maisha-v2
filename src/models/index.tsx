@@ -3,7 +3,7 @@ import { CSSProperties, FC, Ref } from 'react'
 export interface BaseProps {
   styles?: CSSProperties
   isHidden?: boolean
-  isStreched?: boolean
+  isFullWidth?: boolean
   ref?: Ref<any>
   className?: string
 }

@@ -24,23 +24,28 @@ export const WhoSection: FC<Props> = ({ id }) => {
         firstPart={(lang === 'ES' && 'QUIÉNES') || (lang === 'EN' && 'WHO') || (lang === 'SW' && 'SISI') || ''}
         secondPart={(lang === 'ES' && 'SOMOS') || (lang === 'EN' && 'ARE WE') || (lang === 'SW' && 'NI NANI') || ''}
       />
-      <SubSection hasFullWidth styles={{ height: 600, boxSizing: 'content-box', fontSize: '1.2rem', fontWeight: 500 }}>
-        <Subtitle color='white' styles={{ fontSize: '3em' }}>
-          {lang === 'ES' && 'Conócenos'}
-          {lang === 'EN' && 'Get to know us'}
-          {lang === 'SW' && 'Pata kutufahamu'}
-        </Subtitle>
-        <Paragraph color='white'>
-          {lang === 'ES' && 'Maisha Roots es una ONG que aúna los esfuerzos de dos entidades, una española (Maisha Roots Spain) y otra tanzana (FYWCO, Focus for Youth, Woman and Children Organization), con el fin de fomentar el desarrollo en Tanzania.'}
-          {lang === 'EN' && 'Maisha Roots is an NGO that combines the efforts of two entities, a Spanish one (Maisha Roots Spain) and a Tanzanian one (FYWCO, Focus for Youth, Woman and Children Organization), with the common goal of fostering development in Tanzania.'}
-          {lang === 'SW' && 'Maisha Roots ni Shirika Lisilo La Kiserikali ambalo linalounganisha nguvu za taasisi mbili Moja ya Uhispania (Maisha Roots Spain) na nyingine ya Tanzania (Focus for youth, women and children organisation kwa lengo la Pamoja la kuchochea maendeleo Tanzania.'}
-        </Paragraph>
-        <Paragraph color='white'>
-          {lang === 'ES' && 'Nace de la decisión locºal de establecer un tejido comunitario fértil a través del cual lograr el desarrollo de la comunidad en la que trabajamos.'}
-          {lang === 'EN' && 'Its origins are found in the local decision of establishing a prosperous community to achieve the development of the community where we work.'}
-          {lang === 'SW' && 'Imezaliwa kutokana na maamuzi ya wenyeji kwa lengo la kuiboresha jamii tunayoifanyia kazi kimaendeleo.'}
-        </Paragraph>
-        <Image src="/images/playing_kids.jpg" styles={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', zIndex: -1, background: 'linear-gradientrgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15))' }} />
+
+      <SubSection isFullWidth>
+        <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
+          <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth />
+          <Container styles={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
+            <Subtitle color='white'>
+              {lang === 'ES' && 'Conócenos'}
+              {lang === 'EN' && 'Get to know us'}
+              {lang === 'SW' && 'Pata kutufahamu'}
+            </Subtitle>
+            <Paragraph color='white'>
+              {lang === 'ES' && 'Maisha Roots es una ONG que aúna los esfuerzos de dos entidades, una española (Maisha Roots Spain) y otra tanzana (FYWCO, Focus for Youth, Woman and Children Organization), con el fin de fomentar el desarrollo en Tanzania.'}
+              {lang === 'EN' && 'Maisha Roots is an NGO that combines the efforts of two entities, a Spanish one (Maisha Roots Spain) and a Tanzanian one (FYWCO, Focus for Youth, Woman and Children Organization), with the common goal of fostering development in Tanzania.'}
+              {lang === 'SW' && 'Maisha Roots ni Shirika Lisilo La Kiserikali ambalo linalounganisha nguvu za taasisi mbili Moja ya Uhispania (Maisha Roots Spain) na nyingine ya Tanzania (Focus for youth, women and children organisation kwa lengo la Pamoja la kuchochea maendeleo Tanzania.'}
+            </Paragraph>
+            <Paragraph color='white'>
+              {lang === 'ES' && 'Nace de la decisión local de establecer un tejido comunitario fértil a través del cual lograr el desarrollo de la comunidad en la que trabajamos.'}
+              {lang === 'EN' && 'Its origins are found in the local decision of establishing a prosperous community to achieve the development of the community where we work.'}
+              {lang === 'SW' && 'Imezaliwa kutokana na maamuzi ya wenyeji kwa lengo la kuiboresha jamii tunayoifanyia kazi kimaendeleo.'}
+            </Paragraph>
+          </Container>
+        </Container>
       </SubSection>
 
       <SubSection>
@@ -77,8 +82,7 @@ export const WhoSection: FC<Props> = ({ id }) => {
       </SubSection>
 
 
-
-      <SubSection hasFullWidth>
+      <SubSection isFullWidth>
         <Subtitle color='black' >
           {lang === 'ES' && 'Dónde trabajamos'}
           {lang === 'EN' && 'Where do we work'}
@@ -104,7 +108,7 @@ export const WhoSection: FC<Props> = ({ id }) => {
           {lang === 'SW' && <>Ijapokuwa, tangu uhuru wa Tanzania imefurahia kwa kuwa na <Text isHighlighted> utulivu wa kisiasa na amani, </Text> hii haimanishi kiwango bora cha maisha kwa wakazi wake wengi.</>}
         </Paragraph>
 
-        <Container styles={{ justifyContent: 'space-between', marginBottom: 30 }} isStreched>
+        <Container styles={{ justifyContent: 'space-between', marginBottom: 30 }} isFullWidth>
           <Container direction="vertical" styles={{ margin: '30px 0' }}>
             <DataNumber>194º</DataNumber>
             <Text size="m">
@@ -173,8 +177,9 @@ export const WhoSection: FC<Props> = ({ id }) => {
           </DataText>
         </Container>
 
-        <Paragraph styles={{ flex: 1, minWidth: 200, margin:'0 30px', marginBottom: 30 }}>
+        <Paragraph styles={{ flex: 1, minWidth: 200, margin: '0 30px', marginBottom: 30 }}>
           {lang === 'ES' && 'Son los idiomas oficiales, aunque sólo las personas que han recibido educación hablan este último. La educación primaria se ofrece en swahili, y la secundaria en inglés, uno de los motivos por los cuales muchos estudiantes dejan la escuela en los niveles de secundaria'}
+          {/* //! falta */}
           {lang === 'EN' && ''}
           {lang === 'SW' && ''}
         </Paragraph>
@@ -197,8 +202,6 @@ export const WhoSection: FC<Props> = ({ id }) => {
           {lang === 'SW' && <>Kwa upande mwingine, kiwango cha ukosefu wa ajira katika vyombo vya habari rasmi na taasisi za umma sio za idadi kubwa, lakini kwa hali halisi, hasa katika miji mikubwa kama Arusha, vijana ambao wameacha shule, haswa katika elimu ya sekondari au waliomaliza kwa wakati, <Text isHighlighted>hawana kazi</Text> na <Text isHighlighted>bila sifa zinazostahiki</Text> kupata kazi sahihi au kuanza biashara.</>}
         </Paragraph>
 
-
-        {/* //! missing recuadro */}
         <BorderedBox>
           <Text size="s">
             {lang === 'ES' && <>Es en estos ámbitos en los que Maisha Roots pretende incidir y transformar esta realidad, situando a las <strong>personas beneficiarias en el centro</strong> de cada intervención, empleando un <strong>enfoque participativo</strong> en todas sus acciones, y haciendo <strong>protagonistas</strong> de cambio y <strong>evolución</strong> a las personas.</>}
@@ -206,7 +209,6 @@ export const WhoSection: FC<Props> = ({ id }) => {
             {lang === 'SW' && <>Haya ndo maeneo makubwa ambayo Maisha Roots inasaidia kushawishi na kubadili uhalisia huu, kuweka walengwa wake katikati kwa kila upande, kwa kutumia <strong>njia shirikishi</strong> katika shughuli zake zote, na kuwafanya watu kuwa <strong>wahusika wakuu</strong> wa mabadiliko na <strong>kukuza maisha</strong>.</>}
           </Text>
         </BorderedBox>
-
       </SubSection>
     </Styled>
   )

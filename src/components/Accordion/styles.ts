@@ -6,7 +6,7 @@ export default styled.div<BaseProps>`
   display: flex;
   flex-flow: row wrap;
 
-  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })};
 `
 

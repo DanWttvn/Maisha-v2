@@ -23,6 +23,7 @@ export const Wrapper = styled.span<{ content: string, isVisible: boolean }>`
 	left: 0;
 	bottom: 0;
 	right: 0;
+	font-size: 4.8rem;
 	line-height: 1.2em;
 	padding: 0 10px;
 

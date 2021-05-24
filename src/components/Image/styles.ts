@@ -6,6 +6,6 @@ export default styled.img<Props>`
     filter: brightness(50%);
   `};
 
-  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

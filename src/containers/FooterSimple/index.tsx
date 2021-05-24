@@ -22,8 +22,8 @@ const FooterSimple: FC<Props> = () => {
         {/* // ponerlo en eun link */}
         <Image src="/images/MR-orange.png" styles={{ width: 100, height: 100 }} />
         <Container styles={{ padding: '0 10px', maxWidth: 200 }}>
-          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isStreched>Síguenos</Text>
-          <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isStreched>
+          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>Síguenos</Text>
+          <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isFullWidth>
             <Link size="xs" href="https://www.facebook.com/maisharoots/" styles={{ color: theme.colors.offOrange }} target="_blank">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-facebook-square"></i>
             </Link>
@@ -36,7 +36,7 @@ const FooterSimple: FC<Props> = () => {
           </Container>
           <Link size="xs" href="mailto:info@maisharoots.org" styles={{ color: theme.colors.offOrange }} target="_blank">info@maisharoots.org</Link>
         </Container>
-        <Text styles={{ fontSize: 11, color: '#ccc' }} isStreched>CIF XXXXX - Registro de Fundaciones de competencia estatal con nº de registro XXX</Text>
+        <Text styles={{ fontSize: 11, color: '#ccc' }} isFullWidth>CIF XXXXX - Registro de Fundaciones de competencia estatal con nº de registro XXX</Text>
       </InnerContainer>
     </Styled>
   )

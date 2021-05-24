@@ -19,7 +19,7 @@ export const Section = styled.div<BaseProps>`
 `
 
 interface Props extends BaseProps {
-  hasFullWidth?: boolean
+  isFullWidth?: boolean
   isNarrow?: boolean
 }
 
@@ -34,7 +34,7 @@ export const SubSection = styled.div<Props>`
 	display: flex;
 	flex-flow: row wrap;
 
-  ${({ hasFullWidth }) => !hasFullWidth && css`
+  ${({ isFullWidth }) => !isFullWidth && css`
     @media ${theme.breakpoints.m} {
       padding-left: 80px; padding-right: 80px;
     }

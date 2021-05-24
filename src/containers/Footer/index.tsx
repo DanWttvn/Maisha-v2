@@ -24,8 +24,8 @@ const Footer: FC<Props> = () => {
         </Container>
         {/* Pending: Newsletter secction */}
         <Container styles={{ padding: '0 10px', maxWidth: 200 }}>
-          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isStreched>Síguenos</Text>
-          <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isStreched>
+          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>Síguenos</Text>
+          <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isFullWidth>
             <Link size="xs" href="https://www.facebook.com/maisharoots/" styles={{ color: theme.colors.offOrange }} target="_blank">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-facebook-square"></i>
             </Link>
@@ -39,8 +39,8 @@ const Footer: FC<Props> = () => {
           <Link size="xs" href="mailto:info@maisharoots.org" styles={{ color: theme.colors.offOrange }} target="_blank">info@maisharoots.org</Link>
         </Container>
         <Container styles={{ padding: '0 10px', maxWidth: 180, alignItems: 'flex-start' }}>
-          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15, textAlign: 'center' }} isStreched>Languages</Text>
-          <Container styles={{ marginBottom: 15, alignItems: 'center' }} isStreched>
+          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15, textAlign: 'center' }} isFullWidth>Languages</Text>
+          <Container styles={{ marginBottom: 15, alignItems: 'center' }} isFullWidth>
             <Button theme="D" onClick={setLang?.bind(undefined, 'ES')}>ESP</Button>
             <VerticalDivider />
             <Button theme="D" onClick={setLang?.bind(undefined, 'EN')}>ENG</Button>
@@ -49,7 +49,7 @@ const Footer: FC<Props> = () => {
           </Container>
           {/* // política de privacidad */}
         </Container>
-        <Text styles={{ fontSize: 11, color: '#ccc' }} isStreched>CIF XXXXX - Registro de Fundaciones de competencia estatal con nº de registro XXX</Text>
+        <Text styles={{ fontSize: 11, color: '#ccc' }} isFullWidth>CIF XXXXX - Registro de Fundaciones de competencia estatal con nº de registro XXX</Text>
       </InnerContainer>
     </Styled>
   )

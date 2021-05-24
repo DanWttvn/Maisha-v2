@@ -6,7 +6,7 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   z-index: 1;
-	bottom: 130px;
+	bottom: 60px;
 	width: 100%;
   padding: 0 50px;
 `

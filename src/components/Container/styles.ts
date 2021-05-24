@@ -6,6 +6,6 @@ export default styled.div<Props>`
   flex-direction: ${({ direction }) => direction === 'vertical' ? 'column' : 'row'};
   flex-wrap: wrap;
 
-  ${({ isStreched }) => isStreched ? 'width: 100%;' : ''};
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

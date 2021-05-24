@@ -5,7 +5,7 @@ import { Props as ItemProps } from '../Item'
 
 export type Props = BaseProps
 
-const Tabs: FC<Props> = ({ isHidden, styles, children, isStreched }) => {
+const Tabs: FC<Props> = ({ isHidden, styles, children, isFullWidth }) => {
   const [ value, setValue ] = useState(0)
   let tabs: ReactElement[] = []
   let content: ReactElement[] = []
@@ -26,7 +26,7 @@ const Tabs: FC<Props> = ({ isHidden, styles, children, isStreched }) => {
   if (isHidden) return null
 
   return (
-    <Styled styles={styles} isStreched={isStreched}>
+    <Styled styles={styles} isFullWidth={isFullWidth}>
       <TabBar>{tabs}</TabBar>
       {content}
     </Styled>

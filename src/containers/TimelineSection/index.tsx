@@ -1,0 +1,109 @@
+import React, { FC, useContext } from 'react'
+import Title from '../../components/Title'
+import Paragraph from '../../components/Paragraph'
+import Text from '../../components/Text'
+import LanguageContext from '../../contexts/language'
+import { Section, SubSection } from '../../components/Section/styles'
+import Carousel from '../../components/Carousel'
+
+interface Props {
+  id?: string
+}
+
+export const TimelineSection: FC<Props> = ({ id }) => {
+  const { lang } = useContext(LanguageContext)
+
+  const title = 
+    lang === 'ES' ? 'Nuestra Experiencia'
+      : lang === 'EN' ? 'Get to know us'
+        : 'Pat a kutufahamu'
+
+  return (
+    <Section id={id}>
+      <Title
+        firstPart={(lang === 'ES' && 'DE DÓNDE') || (lang === 'EN' && 'WHERE WE') || (lang === 'SW' && 'TUMETOKA') || ''}
+        secondPart={(lang === 'ES' && 'VENIMOS') || (lang === 'EN' && 'COME FROM') || (lang === 'SW' && 'WAPI') || ''}
+      />
+
+      <SubSection isFullWidth>
+        <Carousel.Container
+          title={title}
+          sectionTitles={['2021', '2020', '2019', '2018', '2017', '2016', '2014/15']}
+          styles={{ height: 690 }}
+          isFullWidth
+        >
+          <Carousel.Item src="/images/photo1.jpg" hasOverlay>
+            {/* //! falta texto */}
+            <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2021</Text>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && ''}
+              {lang === 'EN' && ''}
+              {lang === 'SW' && ''}
+            </Paragraph>
+          </Carousel.Item>
+          <Carousel.Item src="/images/photo1.jpg" hasOverlay>
+            <Text color='white' size="xl" weight="black" styles={{ marginBottom: 25 }} isFullWidth>2020</Text>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'En 2020 decidimos lanzarnos hacia nuevos proyectos de la mano de un grupo de chicos y chicas tanzanos que también participaron en Chagua Maisha y que, desde hace años, están centrados en la cooperación al desarrollo. Junto a este equipo, comenzamos un estudio poblacional en Arusha, con el fin de evaluar las necesidades y fortalezas de las comunidades de la ciudad. Tras esto, y con la emergencia sanitaria de la pandemia, llevamos a cabo una campaña de prevención del COVID-19 con la que conseguimos reducir la vulnerabilidad de 118 familias a través del reparto de bienes de limpieza, cubos de agua para el lavado de mano y material informativo.'}
+              {/* //! traducir nuevo */}
+              {lang === 'EN' && 'In 2020, we have started a new project together with a group of local people, who participated in Chagua Maisha and who have worked in development cooperation for several years.'}
+              {lang === 'SW' && 'Mnamo mwaka 2020, tumeanza mradi mpya pamoja na kikundi cha watu wa ndani, walioshiriki Chagua Maisha na ambao wamefanya kazi kwa ushirikiano wa maendeleo kwa miaka kadhaa.'}
+            </Paragraph>
+          </Carousel.Item>
+          <Carousel.Item src="/images/photo4.jpg" hasOverlay>
+            <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2019</Text>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'En 2019 empezó a funcionar, en el espacio de Chagua Maisha, un huerto ecológico de uso comunitario con el que, además, los estudiantes aprendían técnicas agrícolas. A finales de año, decidimos ceder la gestión de Chagua Maisha por completo a la contraparte local para poder emprender nuevos proyectos.'}
+              {lang === 'EN' && 'In 2019, an eco-friendly orchard for communitarian use as well as for the education of the children attending school was built in the Chagua Maisha space. At the end of this year, we gave the total Chagua Maisha management to the local counterpart. We decided to start a new project in the community.'}
+              {lang === 'SW' && 'Mnamo mwaka 2019, bustani ya mazingira rafiki kwa matumizi ya jamii na kwa elimu ya watoto wanaohudhuria shule iliyojengwa katika eneo la Chagua Maisha. Mwisho wa mwaka huu, tulikabidhi usimamizi wa Chagua Maisha kwa washirika wa ndani. Tuliamua kuanza mradi mpya katika jamii.'}
+            </Paragraph>
+          </Carousel.Item>
+          <Carousel.Item src="/images/photo6.jpg" hasOverlay>
+            <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2018</Text>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'En el año 2018, llevamos a cabo actividades deportivas para más de 100 niños y niñas de la zona, con el fin de promover el deporte y el disfrute del tiempo libre, a través de juegos educativos, entre la población joven. Además, este mismo año abrimos una tienda que vendía productos básicos, para contribuir a la sostenibilidad del proyecto.'}
+              {lang === 'EN' && 'In 2018, we carried out sports activities for more than 100 children of the neighborhood to promote sports and free time enjoyment through educational activities. Besides, we opened a shop that sold basic products to contribute to the maintenance of the project.'}
+              {lang === 'SW' && 'Mnamo mwaka 2018, tulifanya shughuli za michezo kwa watoto zaidi ya 100 katika jamii na kukuza michezo na starehe kwa wakati wa ziada kupitia shughuli za kielimu. Kwa kuongezea, tulifungua duka ambalo liliuza bidhaa za msingi ili kusaidia katika utunzaji wa mradi.'}
+            </Paragraph>
+          </Carousel.Item>
+          <Carousel.Item src="/images/photo5.jpg" hasOverlay>
+            <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2017</Text>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'Así, a finales de 2016 y principios de 2017 levantamos un aula de pre-primaria para 25 niños y niñas en riesgo de exclusión social. También desarrollamos talleres sociales con la comunidad y comenzamos un campamento deportivo para jóvenes.'}
+              {lang === 'EN' && 'In late 2016 and early 2017, we built a pre-primary classroom for 25 kids at risk of social exclusion. We also develop social workshops with the community and start a youth sports camp.'}
+              {lang === 'SW' && 'Mnamo mwaka 2017, tulifungua darasa la pili na tukajenga nafasi ya umma ambapo sinema zilifanyika, chakula kilipatikana, michezo ya mezani na vitabu vilikuzwa. Lengo kuu la nafasi kuu ya umma ilikuwa kuunda hali ya jamii na mtandao katika jamii inayokua.'}
+            </Paragraph>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'Además, abrimos una segunda aula y construimos un espacio público que sirvió para proyectar películas, ofrecer comidas, proveer de juegos de mesa y libros a los habitantes de la zona y, en definitiva, crear comunidad en un barrio en expansión.'}
+              {lang === 'EN' && 'Besides, we opened a second class and we built a public space where movies were played, meals were held, and board games and books were promoted, and ultimately create a sense of community in a growing neighborhood. '}
+              {lang === 'SW' && ''}
+            </Paragraph>
+          </Carousel.Item>
+          <Carousel.Item src="/images/photo3.jpg" hasOverlay>
+            <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2016</Text>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'Desde 2016 y hasta 2019 lanzamos, junto con la ONG tanzana Progress for Africa, un proyecto propio llamado ‘Chagua Maisha’. Bajo este nombre, que en swahili significa “elige vida”, desarrollamos diferentes proyectos de cooperación al desarrollo destinados a contribuir a la mejora de vida de la población beneficiaria, en un barrio en expansión y con un acceso limitado a recursos básicos, denominado ‘Born City’.'}
+              {lang === 'EN' && 'From 2016 to 2019, we collaborated with the Tanzanian NGO Progress for Africa with a common project called ‘Chagua Maisha’ which means ‘choose life’ in Swahili. In this collaboration, we developed several development cooperation projects, aiming to contribute to the improvement of the beneficiaries in Born City, a growing neighborhood with limited access to basic needs.'}
+              {lang === 'SW' && 'Kutokea mwaka 2016 hadi 2019, tulishirikiana na Progress for Africa NGO ya Tanzania kwa mradi unaoitwa ‘Chagua Maisha’ ambao unamaanisha (choose life) ‘Chagua Maisha’ kwa Kiswahili. Kwa ushirikiano huu, tulianzisha miradi kadhaa ya ushirikiano wa maendeleo, tulilenga kuchangia katika uboreshaji wa wanufaika wa Born City, mtaa unaokuwa na ufikiaji mdogo wa mahitaji ya kijamii.'}
+            </Paragraph>
+          </Carousel.Item>
+          <Carousel.Item src="/images/photo7.jpg" hasOverlay>
+            <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2014/15</Text>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'Aunque Maisha Roots ha nacido recientemente, nuestra experiencia e historia se remontan a 2014.'}
+              {lang === 'EN' && 'Although Maisha Roots was born recently, our experience and history started in 2014.'}
+              {lang === 'SW' && 'Ingawa Maisha Roots imezaliwa hivi karibuni, uzoefu wetu na historia yetu ilianza mnamo mwaka 2014.'}
+            </Paragraph>
+            <Paragraph color='white' weight="semibold">
+              {lang === 'ES' && 'Durante los años 2014 y 2015, el grupo de jóvenes estudiantes que después fundaría la contraparte española comenzó a desarrollar actividades educativas y sanitarias en Arusha a través de programas de voluntariado en distintos centros de la ciudad. Entre otros, hemos colaborado en el Orfanato Good Hope, en la Escuela de Educación Infantil Upendo y en el Hospital Monte Meru.'}
+              {lang === 'EN' && 'During 2014 and 2015, the group of students who later would fund the Spanish counterpart, begun to develop educational and health activities in Arusha through volunteer programs in other centers of the city. Among others, we have collaborated with Good Hope Orphanage, Upendo Pre-Primary school, and Mont Meru Hospital.'}
+              {lang === 'SW' && 'Mnamo mwaka 2014 na 2015, kikundi cha wanafunzi ambao baadaye kilikuwa ni waashiriki wa Uhispania, walianza kukuza shughuli za kielimu na kiafya Arusha kupitia programu za kujitolea katika vituo vingine vya jiji. Kati ya zingine, tumeshirikiana na kituo cha kulea watoto yatima kinachoitwa Good Hope Orphanage, shule ya msingi Upendo na Hospitali ya Mont Meru.'}
+            </Paragraph>
+          </Carousel.Item>
+        </Carousel.Container>
+      </SubSection>
+    </Section>
+  )
+}
+
+export default TimelineSection
