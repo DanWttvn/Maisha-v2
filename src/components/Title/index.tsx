@@ -1,32 +1,37 @@
-import React, { useState, FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import Styled, {  Wrapper } from './styles'
 import { BaseProps } from '../../models'
+import { forwardRef } from 'react'
+import { useState } from 'react'
+import useIntersection from '../../hooks/useIntersection'
 
 export interface Props extends BaseProps {
   firstPart: string
   secondPart?: string
 }
 
-const Title: FC<Props> = ({ firstPart, secondPart, styles }) => {
+const Title: FC<Props> = forwardRef(({ firstPart, secondPart, styles }) => {
   const [ isVisible, setIsVisible ] = useState(false)
+  const { isNear, elementRef } = useIntersection(false, '500px')
+
+  useEffect(() => {
+    if (isNear) setIsVisible(true)
+  }, [ isNear ])
 
   return (
-    <Styled styles={styles}>
-
+    <Styled styles={styles} ref={elementRef}>
       <Wrapper content={firstPart} isVisible={isVisible}>
         {firstPart}
       </Wrapper>
-
       {!!secondPart && 
         <Wrapper content={secondPart} isVisible={isVisible}>
           {secondPart}
         </Wrapper>
       }
-      {/* //todo: ver como visible */}
-      <button onClick={() => setIsVisible(!isVisible)}>VISIBLE</button>
-
     </Styled>
   )
-}
+})
+
+Title.displayName = 'Title'
 
 export default Title
