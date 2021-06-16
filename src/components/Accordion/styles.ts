@@ -4,7 +4,7 @@ import { BaseProps } from '../../models'
 
 export default styled.div<BaseProps>`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
 
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })};
@@ -17,6 +17,12 @@ export const Icon = styled(KeyboardArrowRight)<{ isOpen?: boolean }>`
 
   ${({ isOpen }) => isOpen ? 'transform: rotate(90deg);' : ''};
 	transition: transform 0.4s ease-out;
+`
+
+export const Header = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  cursor: pointer;
 `
 
 export const Content = styled.article<{ isOpen: boolean, height: number }>`

@@ -19,12 +19,6 @@ export default styled.div<BaseProps>`
 
 export const Modal = styled(ModalRoot)<BaseProps>`
 	width: 90%;
-	max-height: 650px;
-
-  @media ${({ theme }) => theme.breakpoints.s} {
-    max-height: 85%;
-  }
-
-  ${({ styles }) => ({ ...styles })}
+  max-height: 90vh;
 `
 

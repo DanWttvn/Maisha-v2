@@ -61,28 +61,28 @@ const Landing: FC = () => {
 
       <SubSection>
         <Paragraph styles={{ marginBottom: 16 }}>
-          <Text size="s" styles={{ marginBottom: 8 }} isFullWidth>La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de una de las comunidades masái de la ciudad de Arusha, al norte de Tanzania, a través del fomento de la educación y el desarrollo de los medios de vida desde un enfoque participativo.</Text>
-          <Text size="s" weight="bold" isFullWidth>¡Mira las actividades que ya hemos puesto en marcha!</Text>
+          <Text styles={{ marginBottom: 8 }} isFullWidth>La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de una de las comunidades masái de la ciudad de Arusha, al norte de Tanzania, a través del fomento de la educación y el desarrollo de los medios de vida desde un enfoque participativo.</Text>
+          <Text weight="bold" isFullWidth>¡Mira las actividades que ya hemos puesto en marcha!</Text>
         </Paragraph>
         <Container styles={{ justifyContent: 'space-between', marginBottom: 56 }}>
           <Container direction="vertical" styles={{ width: '33%', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
             <Image src="/images/icons/agriculture.svg" styles={{ height: 130, margin: '20px 0' }} />
             <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Talleres de agricultura</Text>
-            <Paragraph size="xs" styles={{ textAlign: 'center' }}>
+            <Paragraph size="s" styles={{ textAlign: 'center' }}>
               La agricultura es la principal fuente de ingresos en la comunidad donde trabajamos. Para que puedan sacarle el máximo partido a sus cultivos, formamos a personas en riesgo de exclusión social en técnicas agrícolas tradicionales en nuestro huerto urbano.
             </Paragraph>
           </Container>
           <Container direction="vertical" styles={{ width: '33%', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
             <Image src="/images/icons/Ball.svg" styles={{ height: 110, margin: '30px 0' }} />
             <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Actividades extraescolares</Text>
-            <Paragraph size="xs" styles={{ textAlign: 'center' }}>
+            <Paragraph size="s" styles={{ textAlign: 'center' }}>
               Una parte muy importante de los niños y niñas en Arusha no ejerce su derecho a jugar todos los días. Por eso, fomentamos el deporte y la educación emocional en adolescentes, niñas y niños.
             </Paragraph>
           </Container>
           <Container direction="vertical" styles={{ width: '33%', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
             <Image src="/images/icons/Gender.svg" styles={{ height: 120, margin: '25px 0' }} />
             <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Talleres de género</Text>
-            <Paragraph size="xs" styles={{ textAlign: 'center' }}>
+            <Paragraph size="s" styles={{ textAlign: 'center' }}>
               El 58% de las mujeres de entre 15 y 49 años afirma haber sufrido violencia por parte de su pareja. En Maisha Roots apostamos por el empoderamiento transversal de las mujeres en Arusha como uno de los ejes fundamentales en la lucha contra la violencia de género.
             </Paragraph>
           </Container>
@@ -98,11 +98,11 @@ const Landing: FC = () => {
 
         <Paragraph styles={{ flex: 1, margin: '20px 0 0 50px' }}>
           <Subtitle>Donar tiene recompensa!</Subtitle>
-          <Paragraph size="xs">
+          <Paragraph>
             {/* La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en la sección superior */}
             La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en el esquema
           </Paragraph>
-          <Paragraph size="xxs">
+          <Paragraph size="s">
             * Si en los dos períodos impositivos inmediatos anteriores se hubieran realizado donativos, donaciones o aportaciones con derecho a deducción en favor de una misma entidad por importe igual o superior, en cada uno de ellos, al del ejercicio anterior, el porcentaje de deducción aplicable a la base de la deducción en favor de esa misma entidad que exceda de 150 euros, será el 40 por ciento.
           </Paragraph>
         </Paragraph>
@@ -111,40 +111,40 @@ const Landing: FC = () => {
       <SubSection>
         <Subtitle styles={{ marginBottom: 8 }} isFullWidth>FAQ</Subtitle>
         <Accordion title="¿Qué significa ser socio/a de Maisha Roots?" isFullWidth>
-          <Paragraph size="xs">
+          <Paragraph color="darkGrey" size="s">
             La <strong>estabilidad económica</strong> es la clave del éxito de cualquier proyecto de cooperación al desarrollo, sobre todo para asociaciones pequeñas como la nuestra. Gracias a tu ayuda y la de las <strong>40 personas que ya son socias</strong> de Maisha Roots, conseguimos una financiación estable que nos permitirá:
           </Paragraph>
           <ul>
-            <li><Text size="xs">Seguir apoyando, por muchos años más, a las más de 100 personas beneficiarias de nuestros proyectos en la comunidad de Arusha, Tanzania, donde trabajamos.</Text></li>
-            <li><Text size="xs">Aumentar el alcance de nuestro Proyecto Mawio y su continuación en el tiempo</Text></li>
-            <li><Text size="xs">Sacar adelante futuros proyectos</Text></li>
-            <li><Text size="xs">Potenciar nuestra sostenibilidad</Text></li>
+            <li><Text color="darkGrey" size="s">Seguir apoyando, por muchos años más, a las más de 100 personas beneficiarias de nuestros proyectos en la comunidad de Arusha, Tanzania, donde trabajamos.</Text></li>
+            <li><Text color="darkGrey" size="s">Aumentar el alcance de nuestro Proyecto Mawio y su continuación en el tiempo</Text></li>
+            <li><Text color="darkGrey" size="s">Sacar adelante futuros proyectos</Text></li>
+            <li><Text color="darkGrey" size="s">Potenciar nuestra sostenibilidad</Text></li>
           </ul>
         </Accordion>
-        <Accordion title="¿A qué va destinada mi aportación??" isFullWidth>
-          <Paragraph size="xs">
+        <Accordion title="¿A qué va destinada mi aportación?" isFullWidth>
+          <Text color="darkGrey" size="s">
             Con tu contribución, no importa la cantidad, estás haciendo posible que saquemos adelante nuestros proyectos actuales y futuros. Tu aportación nos permite pagar a nuestro <strong>equipo local tanzano</strong>, comprar los <strong>materiales</strong> que necesitamos para desarrollar nuestros talleres y proyectos y hacer frente a los <strong>gastos</strong> de la ONG.
-          </Paragraph>
+          </Text>
         </Accordion>
         <Accordion title="¿Qué ventajas obtengo como socio/a?" isFullWidth>
-          <Paragraph size="xs">
+          <Text color="darkGrey" size="s">
             Además de la correspondiente <strong>desgravación</strong> en tu Declaración de la Renta, recibirás cada tres meses nuestra <strong>Newsletter</strong> en la que te contaremos todos los avances que vamos consiguiendo gracias a tu ayuda.
-          </Paragraph>
+          </Text>
         </Accordion>
         <Accordion title="¿Ser socio/a tiene beneficios fiscales?" isFullWidth>
-          <Paragraph size="xs">
+          <Text color="darkGrey" size="s">
             ¡Sí! La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en la sección superior
-          </Paragraph>
+          </Text>
         </Accordion>
         <Accordion title="¿Tengo que hacer una aportación mínima?" isFullWidth>
-          <Paragraph size="xs">
+          <Text color="darkGrey" size="s">
             No. Cuando te haces socio/a de Maisha Roots <strong>eliges la cantidad</strong> fija que quieres o puedes aportar <strong>cada mes</strong>. ¡Cada euro puede hacer una <strong>gran diferencia</strong>!
-          </Paragraph>
+          </Text>
         </Accordion>
         <Accordion title="¿Puedo darme de baja?" isFullWidth>
-          <Paragraph size="xs">
+          <Text color="darkGrey" size="s">
             Ser socio/a de Maisha Roots es voluntario, puedes serlo <strong>durante el tiempo que quieras o puedas</strong>. ¡Desde Maisha Roots esperamos que sea durante mucho tiempo! Eso significaría que estamos haciendo las cosas bien y que estás <strong>feliz con nuestro trabajo</strong>.
-          </Paragraph>
+          </Text>
         </Accordion>
       </SubSection>
       <FooterSimple />

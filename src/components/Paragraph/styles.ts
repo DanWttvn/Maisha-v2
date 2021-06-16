@@ -1,41 +1,40 @@
 import styled, { css } from 'styled-components'
 import { Props } from '.'
 
+//! repasar sizes de textos... 0.95 que sea s y 1 m y asi
 
 export default styled.p<Props>`
+/* //! si le pongo el flex, no sigue la frase con spans dentro */
+  /* display: flex;
+  flex-flow: row wrap; */
   margin-bottom: 16px;
-  color: ${({ theme, color = 'darkGrey' }) => theme.colors[color]};
+  color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
   word-wrap: break-word;
   white-space: pre-wrap;
 
-  ${({ size }) => size === 'xxs' && css`
+  ${({ size }) => size === 'xs' && css`
     font-size: 0.6rem;
     line-height: 24px;
   `}
 
-  ${({ size }) => size === 'xs' && css`
-    font-size: 0.95rem;
-    line-height: 24px;
-  `}
-
   ${({ size }) => size === 's' && css`
-    font-size: 1rem;
-    line-height: 27px;
+    font-size: 0.85rem;
+    line-height: 1.3rem;
   `}
 
   ${({ size }) => size === 'm' && css`
-    font-size: 1.2rem;
-    line-height: 30px;
+    font-size: 1rem;
+    line-height: 1.59rem;
   `}
 
   ${({ size }) => size === 'l' && css`
     font-size: 2rem;
-    line-height: 35px;
+    line-height: 2rem;
   `}
 
   ${({ size }) => size === 'xl' && css`
     font-size: 3.2rem;
-    line-height: 40px;
+    line-height: 2.35rem;
   `}
 
   ${({ weight }) => weight === 'normal' && css`

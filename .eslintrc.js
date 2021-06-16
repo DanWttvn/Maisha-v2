@@ -39,7 +39,10 @@ module.exports = {
       'never'
     ],
     'react/prop-types': [
-      0
+      'off'
+    ],
+    'no-extra-boolean-cast':[
+      'off'
     ],
   }
 }

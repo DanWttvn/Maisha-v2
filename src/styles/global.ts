@@ -12,7 +12,7 @@ export default createGlobalStyle<ThemeProps>`
     -webkit-tap-highlight-color: transparent; 
   }
 
-  body {
+  html {
     font-size: 17px;
 
     ${({ theme }) => css`
@@ -37,8 +37,7 @@ export default createGlobalStyle<ThemeProps>`
   }
 
   strong {
-    color: #000;
-    font-size: inherit;
+    font-weight: 600;
   }
 
   input,

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import Dialog from '../../components/Modal'
+import Dialog from '../../components/Dialog'
 import Privacy from '../Privacy'
 import Cookies from '../Cookies'
 import Tabs from '../../components/Tabs'

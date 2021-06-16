@@ -1,4 +1,6 @@
-const theme = {
+import { Theme } from '../models'
+
+const theme: Theme = {
   fonts: {
     main: 'Montserrat'
   }, 
@@ -13,8 +15,6 @@ const theme = {
     brightRed: 'rgb(196, 47, 22)',
     offRed: 'rgb(184, 56, 62)',
     lightRed: 'rgb(222, 137, 141)',
-    darkPurple: 'rgb(53, 18, 148)',
-    brightPurple: 'rgb(68, 38, 150)',
     darkOrange: 'rgb(241, 98, 58)',
     offOrange: 'rgb(253, 193, 95)',
   },
@@ -27,7 +27,6 @@ const theme = {
     elevation1: '0px 0px 8px -5px rgba(122, 23, 36,0.1)',
     elevation2: '0px 3px 16px -11px rgba(112,112,112,0.86)'
   },
-  spacing: '',
   breakpoints: {
     xs: '(max-width: 400px)',
     s: '(max-width: 650px)',

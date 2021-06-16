@@ -17,7 +17,20 @@ export interface Theme {
   fonts: {
     main: string
   }
-  colors: string
+  colors: {
+    black: string
+    white: string
+    darkGrey: string
+    lightGrey: string
+    lightestGrey: string
+    darkestRed: string
+    darkRed: string
+    brightRed: string
+    offRed: string
+    lightRed: string
+    darkOrange: string
+    offOrange: string
+  },
   zIndex: {
     low: number
     medium: number
@@ -26,8 +39,6 @@ export interface Theme {
   shadows: {
     elevation1: string
     elevation2: string
-    elevation3: string
-    elevation4: string
   }
   breakpoints: {
     xs: string

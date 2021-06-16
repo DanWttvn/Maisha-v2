@@ -13,10 +13,11 @@ interface Props {
 export const TimelineSection: FC<Props> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
-  const title = 
-    lang === 'ES' ? 'Nuestra Experiencia'
-      : lang === 'EN' ? 'Get to know us'
-        : 'Pat a kutufahamu'
+  const titles = {
+    ES: 'Nuestra Experiencia',
+    EN: 'Get to know us',
+    SW: 'Pat a kutufahamu'
+  }
 
   return (
     <Section id={id}>
@@ -27,7 +28,7 @@ export const TimelineSection: FC<Props> = ({ id }) => {
 
       <SubSection isFullWidth>
         <Carousel.Container
-          title={title}
+          title={titles[lang]}
           sectionTitles={['2021', '2020', '2019', '2018', '2017', '2016', '2014/15']}
           styles={{ height: 690 }}
           isFullWidth

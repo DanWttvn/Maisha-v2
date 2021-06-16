@@ -2,16 +2,6 @@ import styled from 'styled-components'
 import { Section as SectionRoot, SubSection as SubSectionRoot } from '../../components/Section/styles'
 import Text from '../../components/Text'
 
-export default styled(SectionRoot)`
-  /* background: green; */
-
-`
-
-export const SubSection = styled(SubSectionRoot)`
-  /* background: green; */
-
-`
-
 export const DataNumber = styled(Text)`
 	color: ${({ theme }) => theme.colors.darkRed};
 	font-size: 7rem;

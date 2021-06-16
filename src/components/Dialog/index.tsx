@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { BaseProps } from '../../models'
-import Modal from '../Modal'
-import Styled from './styles'
+import Styled, { Modal } from './styles'
 
 export interface Props extends BaseProps {
   onClose?: () => void

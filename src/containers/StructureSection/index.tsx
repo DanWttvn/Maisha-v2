@@ -17,11 +17,12 @@ interface Props {
 export const StructureSection: FC<Props> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
-  // * hacerla en sw
-  const imgSrc =
-    lang === 'ES' ? './images/esquema-organizacion-ES.png'
-      : lang === 'EN' ? './images/esquema-organizacion-EN.png'
-        : './images/esquema-organizacion-EN.png'
+  const imgSrcs = {
+    ES: './images/esquema-organizacion-ES.png',
+    EN: './images/esquema-organizacion-EN.png',
+    // //! falta
+    SW: './images/esquema-organizacion-EN.png'
+  }
 
   return (
     <Section id={id}>
@@ -44,7 +45,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'SW' && <>Tunaamini kwamba, ndani ya shirika letu, <strong>sauti zote lazima zisikilizwe</strong>. Kwa kuwa sisi ni wawili tunaofanana, tunavyo vyombo viwili vya kutawala na mkusanyiko mmoja wa jumla. Kwa kuongezea, kwenye timu ya Uhispania (ambapo tunao watu wote wanaojitolea), tunahesabu na vikundi mbali mbali vya kufanya kazi ambazo hutofautiana kulingana na mahitaji ya wakati huo.</>}
             </Paragraph>
           </Container>
-          <Image src={imgSrc} styles={{	paddingTop: 20, width: 430, maxWidth: '100%' }}/>
+          <Image src={imgSrcs[lang]} styles={{	paddingTop: 20, width: 430, maxWidth: '100%' }}/>
         </Container>
 
         <Container styles={{ justifyContent: 'center' }}>
@@ -54,7 +55,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'General Assembly'}
               {lang === 'SW' && 'Mkutano Mkuu'}
             </Subtitle>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Es el grupo de trabajo y de toma de decisiones principal. Está formado por personal voluntario que se ha comprometido con la organización a largo plazo. Se reúne, aproximadamente, una vez cada mes para debatir y tomar decisiones importantes.'}
               {lang === 'EN' && 'It is the main working and decision-making group. It is formed by volunteers who have compromised in the long term with the organization. It meets once a month (approximately) in order to debate and make important decisions.'}
               {lang === 'SW' && 'Ni kundi kuu la kufanya kazi na la kufanya maamuzi. Limeundwa na wafanyakazi wa kujitolea ambao wamejitolea kwa mda mrefu kwenye shirika. Hukutana mara moja kwa mwezi (takribani) ili kujadili na kufanya maamuzi muhimu.'}
@@ -66,7 +67,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Management Team'}
               {lang === 'SW' && 'Timu ya Usimamizi'}
             </Subtitle>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Está formada por cuatro miembros elegidos cada año por la Asamblea. Se encarga de dirigir las actividades de la organización, así como de gestionar el voluntariado y los proyectos. Son la representación legal de la organización y tienen cargos no remunerados, voluntarios.'}
               {lang === 'EN' && 'It is composed of four members chosen every year by the Assembly. It oversees the organization’s activities as well as managing the volunteers and the projects. It represents the organization legally and its members do not receive any salary for their work, they do it voluntarily.'}
               {lang === 'SW' && 'Inaundwa na wanachama wanne waliochaguliwa na mkutano kila mwaka. Inasimamia shughuli za shirika na vile vile kusimamia watu wa kujitolea na mradi. Inawakilisha shirika kihalali na wanachama wake wake hawapati mshahara wowote kwa kazi yao, wanafanya kwa hiari.'}
@@ -78,7 +79,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Working groups'}
               {lang === 'SW' && 'Makundi ya kufanya kazi'}
             </Subtitle>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Están formados por voluntariado español que trabaja en colaboración con el personal tanzano. Fueron creados para coordinar las diferentes actividades de la organización de una forma más dinámica y eficiente.'}
               {lang === 'EN' && 'They are formed by Spanish volunteers working in collaboration with Tanzanian workers. These groups were created in order to coordinate the different organization’s activities more dynamically and efficiently.'}
               {lang === 'SW' && 'Huundwa na wajitoleaji wa Uhispania wanaofanya kazi kwa kushirikiana na wafanyakazi wa kitanzania. Vikundi hivi viliundwa ili kuratibu shughuli tofauti za shirika kwa nguvu na ufanisi zaidi.'}
@@ -94,7 +95,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Marketing and communication group'}
               {lang === 'SW' && 'Kikundi cha masoko na Mawasiliano'}
             </Text>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Crea el contenido audiovisual de Maisha Roots. Coordina las actividades informativas y difunde este trabajo en las diferentes redes, la página web, las campañas de comunicación, etc.'}
               {lang === 'EN' && 'It creates Maisha Roots’ audio-visual content. It coordinates the informative activities and spreads this work in social networks, the webpage, the communication campaigns, etc.'}
               {lang === 'SW' && 'Kinaunda maudhui yamaandishi na sauti za Maisha Roots. Inaratibu shughuli za kuelimisha na kueneza kazi hizi katika mitandao ya kijamii, kurasa za tovuti, kampeni za mawasiliano n.k.'}
@@ -107,7 +108,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Education for Development Group'}
               {lang === 'SW' && ''}
             </Text>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Coordina la relación con los distintos centros educativos con los que colaboramos. Transmite a colegios, universidades y otros centros educativos la realidad que se vive en Tanzania y las actividades de la organización, y promueve una ciudadanía global, crítica, responsable y comprometida con la lucha contra la pobreza y la exclusión.'}
               {lang === 'EN' && 'It coordinates the relationship with educational centers. It transmits among schools, universities, student residencies, and other educational centers (through different sensitization activities such as talks, workshops, or games) the reality lived in Tanzania as well as the organization’s activities.'}
               {lang === 'SW' && ''}
@@ -121,7 +122,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Fundraising and events'}
               {lang === 'SW' && ''}
             </Text>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Promueve eventos, iniciativas solidarias y colaboraciones con otras entidades, con el fin de conseguir fuentes de financiación para nuestros proyectos.'}
               {lang === 'EN' && 'It promotes events, charitable initiatives, and collaborations with other entities, with the aim of raising funds for our projects.'}
               {lang === 'SW' && ''}
@@ -134,7 +135,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Global Strategy'}
               {lang === 'SW' && ''}
             </Text>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Coordina las acciones de los distintos grupos de trabajo, con el fin de proporcionar una visión global de las actividades llevadas a cabo en el seno de la organización. Se encarga de la recopilación de información y de la puesta en común de la misma.'}
               {lang === 'EN' && 'It coordinates the actions of the different working groups, with the aim of providing a global view od the organization’s activities. It is in charge of compiling information.'}
               {lang === 'SW' && ''}
@@ -148,7 +149,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Agricultural Group'}
               {lang === 'SW' && ''}
             </Text>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Da apoyo al proyecto de empoderamiento agrícola, a través del estudio de nuevas técnicas y el fomento de prácticas sostenibles y ecológicas.'}
               {lang === 'EN' && 'It supports the agricultural empowerment project, through the study of new techniques and the promotion of sustainable and ecological practices.'}
               {lang === 'SW' && ''}
@@ -161,7 +162,7 @@ export const StructureSection: FC<Props> = ({ id }) => {
               {lang === 'EN' && 'Group for Gender Equality'}
               {lang === 'SW' && ''}
             </Text>
-            <Paragraph styles={{ textAlign: 'justify' }}>
+            <Paragraph size="s" styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Garantiza el enfoque de género en todas las acciones de la asociación y trabaja por la equidad entre mujeres y hombres, internamente y en los diferentes proyectos que llevamos a cabo.'}
               {lang === 'EN' && 'It guarantees the gender approach in all the actions of the association and works for equality between women and men, internally and in the different projects we carry out.'}
               {lang === 'SW' && ''}

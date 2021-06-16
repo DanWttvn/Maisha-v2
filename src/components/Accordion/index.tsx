@@ -2,7 +2,7 @@ import React, { FC, useState, useRef } from 'react'
 import { BaseProps } from '../../models'
 import Text from '../Text'
 import Separator from '../Separator'
-import Styled, { Icon, Content, Wrapper } from './styles'
+import Styled, { Icon, Content, Wrapper, Header } from './styles'
 
 
 export interface Props extends BaseProps {
@@ -21,9 +21,11 @@ const Accordion: FC<Props> = ({ isHidden, title, styles, children, isFullWidth }
 
   return (
     <Styled styles={styles} isFullWidth={isFullWidth}>
-      <Icon isOpen={isOpen} onClick={handleToggle}/>
-      <Text onClick={handleToggle} weight="semibold" size="s" styles={{ marginTop: 4 }}>{title}</Text>
-      <Separator styles={{ margin: '5px 0' }} />
+      <Header onClick={handleToggle} >
+        <Icon isOpen={isOpen} onClick={handleToggle}/>
+        <Text weight="bold" styles={{ marginTop: 4 }}>{title}</Text>
+        <Separator styles={{ margin: '5px 0' }} />
+      </Header>
       <Content isOpen={isOpen} height={contentRef?.current?.clientHeight || 0}>
         <Wrapper ref={contentRef}>{children}</Wrapper>
       </Content>

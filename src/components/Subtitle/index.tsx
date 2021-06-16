@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { BaseProps } from '../../models'
+import { BaseProps, Theme } from '../../models'
 import { H3, H4 } from './styles'
 
 export interface Props extends BaseProps {
-  color?: string
+  color?: keyof Theme['colors']
   isSmall?: boolean
 }
 

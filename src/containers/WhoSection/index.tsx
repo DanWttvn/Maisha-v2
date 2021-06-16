@@ -9,7 +9,8 @@ import SkipWrap from '../../components/SkipWrap'
 import theme from '../../styles/theme'
 import LanguageContext from '../../contexts/language'
 import Map from '../Map'
-import Styled, { SubSection, DataText, DataNumber, BorderedBox } from './styles'
+import { Section, SubSection } from '../../components/Section/styles'
+import { DataText, DataNumber, BorderedBox } from './styles'
 
 interface Props {
   id?: string
@@ -19,7 +20,7 @@ export const WhoSection: FC<Props> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
   return (
-    <Styled id={id}>
+    <Section id={id}>
       <Title
         firstPart={(lang === 'ES' && 'QUIÉNES') || (lang === 'EN' && 'WHO') || (lang === 'SW' && 'SISI') || ''}
         secondPart={(lang === 'ES' && 'SOMOS') || (lang === 'EN' && 'ARE WE') || (lang === 'SW' && 'NI NANI') || ''}
@@ -111,6 +112,7 @@ export const WhoSection: FC<Props> = ({ id }) => {
         <Container styles={{ justifyContent: 'space-between', marginBottom: 30 }} isFullWidth>
           <Container direction="vertical" styles={{ margin: '30px 0' }}>
             <DataNumber>194º</DataNumber>
+            {/* //! encajar en otro tamaño */}
             <Text size="m">
               {lang === 'ES' && 'Ránking Índice de'}
               {lang === 'EN' && 'Human Development'}
@@ -210,7 +212,7 @@ export const WhoSection: FC<Props> = ({ id }) => {
           </Text>
         </BorderedBox>
       </SubSection>
-    </Styled>
+    </Section>
   )
 }
 
