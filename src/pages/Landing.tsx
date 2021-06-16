@@ -4,7 +4,7 @@ import Accordion from '../components/Accordion'
 import Container from '../components/Container'
 import Image from '../components/Image'
 import Input from '../components/Input'
-import Dialog from '../components/Modal'
+import Dialog from '../components/Dialog'
 import Subtitle from '../components/Subtitle'
 import Text from '../components/Text'
 import { OpenQuote, CloseQuote } from '../components/Text/styles'
@@ -18,9 +18,9 @@ import SkipWrap from '../components/SkipWrap'
 import theme from '../styles/theme'
 
 const Landing: FC = () => {
-  const [ selectedAmount, setSelectedAmount ] = useState<number>()
-  const [ customAmount, setCustomAmount ] = useState<number>(0)
-  const [ isFormModalOpen, setIsFormModalOpen ] = useState<boolean>(false)
+  const [selectedAmount, setSelectedAmount] = useState<number>()
+  const [customAmount, setCustomAmount] = useState<number>(0)
+  const [isFormModalOpen, setIsFormModalOpen] = useState<boolean>(false)
 
   const handleInputChange = (value: string) => {
     setCustomAmount(Number(value))
@@ -30,11 +30,11 @@ const Landing: FC = () => {
   return (
     <Container>
       <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
-        <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth/>
+        <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth />
         <p style={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
-          <OpenQuote styles={{ color: 'white', fontSize: 120, top: 10, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 20 }}/>
+          <OpenQuote styles={{ color: 'white', fontSize: 120, top: 10, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 20 }} />
           <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', fontStyle: 'italic' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
-          <CloseQuote styles={{ color: 'white', fontSize: 120, top: 20, lineHeight: '55px', fontStyle: 'italic', fontWeight: 800 }}/>
+          <CloseQuote styles={{ color: 'white', fontSize: 120, top: 20, lineHeight: '55px', fontStyle: 'italic', fontWeight: 800 }} />
           <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', marginLeft: 24, fontWeight: 800 }}>E. Galeno</Text>
         </p>
       </Container>
@@ -45,7 +45,7 @@ const Landing: FC = () => {
         <Button onClick={setSelectedAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">15€</Button>
         <Button onClick={setSelectedAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} styles={{ zIndex: defaultTheme.zIndex.medium }} theme="C">25€</Button>
         <Button onClick={setSelectedAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} styles={{ zIndex: defaultTheme.zIndex.medium, marginRight: 'auto' }} theme="C">
-          <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12 }}/>€
+          <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12 }} />€
         </Button>
       </Container>
 
@@ -61,8 +61,8 @@ const Landing: FC = () => {
 
       <SubSection>
         <Paragraph styles={{ marginBottom: 16 }}>
-          <Text size="s" styles={{ marginBottom: 8 }}>La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de una de las comunidades masái de la ciudad de Arusha, al norte de Tanzania, a través del fomento de la educación y el desarrollo de los medios de vida desde un enfoque participativo.</Text>
-          <Text size="s" weight="semibold">¡Mira las actividades que ya hemos puesto en marcha!:</Text>
+          <Text size="s" styles={{ marginBottom: 8 }} isFullWidth>La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de una de las comunidades masái de la ciudad de Arusha, al norte de Tanzania, a través del fomento de la educación y el desarrollo de los medios de vida desde un enfoque participativo.</Text>
+          <Text size="s" weight="bold" isFullWidth>¡Mira las actividades que ya hemos puesto en marcha!</Text>
         </Paragraph>
         <Container styles={{ justifyContent: 'space-between', marginBottom: 56 }}>
           <Container direction="vertical" styles={{ width: '33%', padding: '25px 20px', alignItems: 'center', borderRadius: 20 }}>
@@ -96,33 +96,58 @@ const Landing: FC = () => {
       <SubSection styles={{ alignItems: 'center' }}>
         <Image src="/images/IRPFGraph.png" styles={{ height: 400, margin: '20px 50px 0 0' }} />
 
-        <Paragraph size="xs" styles={{ flex: 1, margin: '20px 0 0 50px' }}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
+        <Paragraph styles={{ flex: 1, margin: '20px 0 0 50px' }}>
+          <Subtitle>Donar tiene recompensa!</Subtitle>
+          <Paragraph size="xs">
+            {/* La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en la sección superior */}
+            La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en el esquema
+          </Paragraph>
+          <Paragraph size="xxs">
+            * Si en los dos períodos impositivos inmediatos anteriores se hubieran realizado donativos, donaciones o aportaciones con derecho a deducción en favor de una misma entidad por importe igual o superior, en cada uno de ellos, al del ejercicio anterior, el porcentaje de deducción aplicable a la base de la deducción en favor de esa misma entidad que exceda de 150 euros, será el 40 por ciento.
+          </Paragraph>
         </Paragraph>
+
       </SubSection>
-    
       <SubSection>
         <Subtitle styles={{ marginBottom: 8 }} isFullWidth>FAQ</Subtitle>
-        <Accordion title="¿Qué significa hacerse socio?" isFullWidth>
+        <Accordion title="¿Qué significa ser socio/a de Maisha Roots?" isFullWidth>
           <Paragraph size="xs">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
+            La <strong>estabilidad económica</strong> es la clave del éxito de cualquier proyecto de cooperación al desarrollo, sobre todo para asociaciones pequeñas como la nuestra. Gracias a tu ayuda y la de las <strong>40 personas que ya son socias</strong> de Maisha Roots, conseguimos una financiación estable que nos permitirá:
+          </Paragraph>
+          <ul>
+            <li><Text size="xs">Seguir apoyando, por muchos años más, a las más de 100 personas beneficiarias de nuestros proyectos en la comunidad de Arusha, Tanzania, donde trabajamos.</Text></li>
+            <li><Text size="xs">Aumentar el alcance de nuestro Proyecto Mawio y su continuación en el tiempo</Text></li>
+            <li><Text size="xs">Sacar adelante futuros proyectos</Text></li>
+            <li><Text size="xs">Potenciar nuestra sostenibilidad</Text></li>
+          </ul>
+        </Accordion>
+        <Accordion title="¿A qué va destinada mi aportación??" isFullWidth>
+          <Paragraph size="xs">
+            Con tu contribución, no importa la cantidad, estás haciendo posible que saquemos adelante nuestros proyectos actuales y futuros. Tu aportación nos permite pagar a nuestro <strong>equipo local tanzano</strong>, comprar los <strong>materiales</strong> que necesitamos para desarrollar nuestros talleres y proyectos y hacer frente a los <strong>gastos</strong> de la ONG.
           </Paragraph>
         </Accordion>
-        <Accordion title="¿?" isFullWidth>
+        <Accordion title="¿Qué ventajas obtengo como socio/a?" isFullWidth>
           <Paragraph size="xs">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
+            Además de la correspondiente <strong>desgravación</strong> en tu Declaración de la Renta, recibirás cada tres meses nuestra <strong>Newsletter</strong> en la que te contaremos todos los avances que vamos consiguiendo gracias a tu ayuda.
           </Paragraph>
         </Accordion>
-        <Accordion title="¿?" isFullWidth>
+        <Accordion title="¿Ser socio/a tiene beneficios fiscales?" isFullWidth>
           <Paragraph size="xs">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nobis ut libero labore, laudantium id dolorem? Sapiente cumque ullam doloribus autem tempora eum. Possimus laboriosam placeat natus, similique id voluptatem!
+            ¡Sí! La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en la sección superior
+          </Paragraph>
+        </Accordion>
+        <Accordion title="¿Tengo que hacer una aportación mínima?" isFullWidth>
+          <Paragraph size="xs">
+            No. Cuando te haces socio/a de Maisha Roots <strong>eliges la cantidad</strong> fija que quieres o puedes aportar <strong>cada mes</strong>. ¡Cada euro puede hacer una <strong>gran diferencia</strong>!
+          </Paragraph>
+        </Accordion>
+        <Accordion title="¿Puedo darme de baja?" isFullWidth>
+          <Paragraph size="xs">
+            Ser socio/a de Maisha Roots es voluntario, puedes serlo <strong>durante el tiempo que quieras o puedas</strong>. ¡Desde Maisha Roots esperamos que sea durante mucho tiempo! Eso significaría que estamos haciendo las cosas bien y que estás <strong>feliz con nuestro trabajo</strong>.
           </Paragraph>
         </Accordion>
       </SubSection>
-
-      <FooterSimple/>
+      <FooterSimple />
     </Container>
   )
 }

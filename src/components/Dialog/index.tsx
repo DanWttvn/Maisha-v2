@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { BaseProps } from '../../models'
-import Modal from '.'
+import Modal from '../Modal'
 import Styled from './styles'
 
 export interface Props extends BaseProps {

@@ -10,7 +10,11 @@ import LanguageContext from '../../contexts/language'
 import { Section, SubSection } from '../../components/Section/styles'
 import { StructureCard, GroupCard, GroupsBlock, CommissionIcon } from './styles'
 
-export const StructureSection: FC = () => {
+interface Props {
+  id?: string
+}
+
+export const StructureSection: FC<Props> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
   // * hacerla en sw
@@ -20,7 +24,7 @@ export const StructureSection: FC = () => {
         : './images/esquema-organizacion-EN.png'
 
   return (
-    <Section>
+    <Section id={id}>
       <Title
         firstPart={(lang === 'ES' && 'CÓMO') || (lang === 'EN' && 'HOW') || (lang === 'SW' && 'JINSI TUNAVYO') || ''}
         secondPart={(lang === 'ES' && 'TRABAJAMOS') || (lang === 'EN' && 'WE WORK') || (lang === 'SW' && 'FANYA KAZI') || ''}

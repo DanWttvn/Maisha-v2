@@ -12,7 +12,7 @@ export default createGlobalStyle<ThemeProps>`
     -webkit-tap-highlight-color: transparent; 
   }
 
-  * {
+  body {
     font-size: 17px;
 
     ${({ theme }) => css`
@@ -34,18 +34,18 @@ export default createGlobalStyle<ThemeProps>`
       /* @media ${theme.breakpoints.xs} {
       } */
     `}
-
-
   }
 
   strong {
     color: #000;
+    font-size: inherit;
   }
 
   input,
   button,
   textarea,
-  select {
+  select,
+  li {
     font: inherit;
   }
 
