@@ -128,6 +128,7 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
           id="email"
           label="Correo Electrónico"
           name="email"
+          type="email"
           autoComplete="email"
           InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
           inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}

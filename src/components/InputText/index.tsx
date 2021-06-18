@@ -16,8 +16,10 @@ export interface Props extends BaseProps {
 const InputText: FC<Props> = ({ isHidden, styles, name, label, type = 'text', onChange, isInvalid, helper, register, isFullWidth }) => {
   const [ value, setValue ] = useState('')
   const [ formatError, setFormatError ] = useState<Error>()
-//! controlar aqui los invalids de format
-//! faltaria pasar al form que recoriese todos los hijos y les meta un invalid si es required
+
+  //! controlar aqui los invalids de format
+  //* faltaria pasar al form que recoriese todos los hijos y les meta un invalid si es required
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const nextValue = event.currentTarget.value
     setValue(nextValue)

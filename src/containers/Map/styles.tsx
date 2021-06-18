@@ -16,12 +16,6 @@ export const Button = styled(ButtonRoot)`
   position: absolute;
   z-index: 1;
 `
-/* //! no encuenta el breakpoint */
-/* display: none;
-
-// @media ${({ theme }) => theme.breakpoints.m} {
-  display: flex;
-} */
 
 export const Card = styled.div<BaseProps>`
   position: absolute;

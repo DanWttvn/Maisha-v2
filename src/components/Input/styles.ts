@@ -7,6 +7,7 @@ export default styled.input<Props>`
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
+  border: none;
 
   ::-webkit-inner-spin-button{
     -webkit-appearance: none; 

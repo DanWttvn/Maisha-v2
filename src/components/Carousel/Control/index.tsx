@@ -31,14 +31,14 @@ const Control: FC<Props> = ({ isHidden, control, sectionTitles, onChange, styles
     <Styled style={styles}>
       <ButtonsWrapper>
         <Button
-          theme="E"
+          variant="E"
           onClick={onChange.bind(undefined, currentIndex - 1)}
           isDisabled={currentIndex === 0}
         >
           <Icon isLeft/>
         </Button>
         <Button
-          theme="E"
+          variant="E"
           onClick={onChange.bind(undefined, currentIndex + 1)}
           isDisabled={!totalItems || currentIndex === totalItems - 1}
         >

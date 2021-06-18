@@ -22,9 +22,9 @@ const Home: FC = () => {
       <p style={{ marginBottom: 100 }}>usdgfh</p>
       <Link to="/landing">Landing</Link>
 
-      <Button theme="A">Ahgdf</Button>
-      <Button theme="A" styles={{ padding: 15 }}>Ahgdf</Button>
-      <Button theme="B">Ahgdf</Button>
+      <Button variant="A">Ahgdf</Button>
+      <Button variant="A" styles={{ padding: 15 }}>Ahgdf</Button>
+      <Button variant="B">Ahgdf</Button>
       <Paragraph >
         jhsgdf ksdjfh sdfh hjsgd
         <Text weight="black" onClick={() => console.log('isudhf')}>ldih f</Text>

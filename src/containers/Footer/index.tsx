@@ -41,11 +41,11 @@ const Footer: FC<Props> = () => {
         <Container styles={{ padding: '0 10px', maxWidth: 180, alignItems: 'flex-start' }}>
           <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15, textAlign: 'center' }} isFullWidth>Languages</Text>
           <Container styles={{ marginBottom: 15, alignItems: 'center' }} isFullWidth>
-            <Button theme="D" onClick={setLang?.bind(undefined, 'ES')}>ESP</Button>
+            <Button variant="D" onClick={setLang?.bind(undefined, 'ES')}>ESP</Button>
             <VerticalDivider />
-            <Button theme="D" onClick={setLang?.bind(undefined, 'EN')}>ENG</Button>
+            <Button variant="D" onClick={setLang?.bind(undefined, 'EN')}>ENG</Button>
             <VerticalDivider />
-            <Button theme="D" onClick={setLang?.bind(undefined, 'SW')}>SWA</Button>
+            <Button variant="D" onClick={setLang?.bind(undefined, 'SW')}>SWA</Button>
           </Container>
           {/* // política de privacidad */}
         </Container>

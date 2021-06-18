@@ -9,7 +9,7 @@ export interface Props extends BaseProps {
 
 const Input: FC<Props> = ({ type = 'text', styles, onChange, isFullWidth }) => {
   const handleInput = (e: any) => {
-    if (e.key === '.' ||e.key === ',') e.preventDefault()
+    if (e.key === '.' || e.key === ',') e.preventDefault()
   }
 
   const handleChange = (e: any) => {

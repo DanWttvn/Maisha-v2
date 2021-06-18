@@ -3,7 +3,7 @@ import { BaseProps, Theme } from '../../models'
 import Styled from './styles'
 
 export interface Props extends BaseProps {
-  color?: keyof Theme['colors']
+  color?: keyof Theme['colors'] | 'inherit'
   weight?: 'normal' | 'semibold' | 'bold' | 'black'
   size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
 }

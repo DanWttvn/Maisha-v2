@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components'
 import { Props } from '.'
 
-//! repasar sizes de textos... 0.95 que sea s y 1 m y asi
-
 export default styled.p<Props>`
 /* //! si le pongo el flex, no sigue la frase con spans dentro */
   /* display: flex;
   flex-flow: row wrap; */
   margin-bottom: 16px;
-  color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
+  /* color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
+  color: ${({ theme, color = 'black' }) => theme.colors[color]}; */
+  color: ${({ theme, color }) => !color || color === 'inherit' ?  'inherit' : theme.colors[color]};
   word-wrap: break-word;
   white-space: pre-wrap;
 

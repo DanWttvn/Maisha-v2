@@ -7,11 +7,13 @@ export interface Props extends BaseProps {
   isHighlighted?: boolean
   weight?: 'normal' | 'semibold' | 'bold' | 'black'
   size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
-  color?: keyof Theme['colors']
+  color?: keyof Theme['colors'] | 'inherit'
 }
 
-const Text: FC<Props> = ({ children, onClick, styles, color, weight = 'normal', size = 'm', isHighlighted, className, isFullWidth }) => {
+const Text: FC<Props> = ({ children, onClick, styles, color, weight = 'normal', size = 'm', isHidden, isHighlighted, className, isFullWidth }) => {
   
+  if (isHidden) return null
+
   const handleClick = (e: any) => {
     // e.stopPropagation()
     if (onClick) onClick()
