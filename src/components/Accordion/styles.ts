@@ -35,7 +35,7 @@ export const Content = styled.article<{ isOpen: boolean, height: number }>`
 	transition: height 0.4s ease-out;
 `
 
-export const Wrapper = styled.div<{ ref: any }>`
+export const Wrapper = styled.div<BaseProps>`
   display: flex;
   flex-flow: row wrap;
   padding-bottom: 10px;

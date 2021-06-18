@@ -8,9 +8,9 @@ import Styled, { InnerContainer, Link, HorizontalDivider } from '../Footer/style
 
 export type Props = BaseProps
 
-const FooterSimple: FC<Props> = () => {
+const FooterSimple: FC<Props> = ({ styles }) => {
   return (
-    <Styled>
+    <Styled styles={styles}>
       <InnerContainer>
         <Container styles={{ justifyContent: 'space-between', maxWidth: 200, }}>
           <Link size="xs" href="https://maisharoots.org/#about" target="_blank" styles={{ color: theme.colors.offOrange }}>Quiénes somos</Link>

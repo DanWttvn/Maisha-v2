@@ -1,15 +1,16 @@
 import styled, { css } from 'styled-components'
-import { Props } from '.'
+import { Props } from './'
 
-export default styled.div<Props>`
+export default styled.div<Props & { height: number }>`
   display: flex;
   flex-flow: row wrap;
   z-index: ${({ theme }) => theme.zIndex.high};
   position: fixed;
   width: 100%;
   padding: 20px 30px;
-  bottom: 0;
   left: 0;
+  bottom: ${({ isShown, height }) => isShown ? 0 : `-${height}px`};
+  transition: bottom 0.5s ease;
 
   ${({ variant }) => variant === 'A' && css`
     background: rgba(0,0,0,0.7);
@@ -17,9 +18,8 @@ export default styled.div<Props>`
   `};
 
   ${({ variant }) => variant === 'B' && css`
-    background: ${({ theme }) => theme.colors.offOrange};
+    background: ${({ theme }) => theme.colors.darkOrange};
   `};
-
 
   ${({ styles }) => ({ ...styles })};
 `

@@ -1,14 +1,18 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import { BaseProps } from '../../models'
 import Styled from './styles'
 
 export interface Props extends BaseProps {
   variant: 'A' | 'B'
+  isShown?: boolean
 }
 
-const Banner: FC<Props> = ({ children, variant, styles, className, isHidden }) => {
+const Banner: FC<Props> = ({ children, variant, isShown = true, styles, className, isHidden }) => {
+  const ref = useRef<HTMLDivElement>()
+
   if (isHidden) return null
-  return <Styled variant={variant} className={className} styles={styles}>{children}</Styled>
+
+  return <Styled ref={ref} height={ref?.current?.clientHeight || 80} variant={variant} isShown={isShown} className={className} styles={styles}>{children}</Styled>
 }
 
 Banner.displayName = 'Banner'

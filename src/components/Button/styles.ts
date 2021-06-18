@@ -37,6 +37,7 @@ export const ButtonB = styled(Button)`
   &:hover {
     transform: scale(1.05);
     background: ${({ theme }) => theme.colors.darkRed};
+    color: ${({ theme }) => theme.colors.offOrange};
   }
 
   ${({ styles }) => ({ ...styles })}

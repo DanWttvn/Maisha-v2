@@ -4,7 +4,7 @@ export interface BaseProps {
   styles?: CSSProperties
   isHidden?: boolean
   isFullWidth?: boolean
-  ref?: Ref<any>
+  ref?: any
   className?: string
 }
 

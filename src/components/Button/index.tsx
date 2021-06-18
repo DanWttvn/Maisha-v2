@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, forwardRef } from 'react'
 import { BaseProps } from '../../models'
 import { ButtonA, ButtonB, ButtonC, ButtonD, ButtonE, ButtonF } from './styles'
 
@@ -10,7 +10,7 @@ export interface Props extends BaseProps {
   type?: 'submit' | 'button'
 }
 
-const Button: FC<Props> = ({ children, onClick, variant = 'A', styles, isDisabled, isSelected, type = 'button', className, isHidden }) => {
+const Button: FC<Props> = forwardRef(({ children, onClick, variant = 'A', styles, isDisabled, isSelected, type = 'button', className, isHidden }, ref) => {
   if (isHidden) return null
 
   let Styled
@@ -35,8 +35,8 @@ const Button: FC<Props> = ({ children, onClick, variant = 'A', styles, isDisable
     Styled = ButtonA
   }
 
-  return <Styled className={className} onClick={onClick} type={type} isDisabled={isDisabled} isSelected={isSelected} styles={styles}>{children}</Styled>
-}
+  return <Styled ref={ref} className={className} onClick={onClick} type={type} isDisabled={isDisabled} isSelected={isSelected} styles={styles}>{children}</Styled>
+})
 
 Button.displayName = 'Button'
 

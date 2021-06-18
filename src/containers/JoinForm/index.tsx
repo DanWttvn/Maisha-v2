@@ -92,6 +92,7 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
   return (
     <>
       <Styled onSubmit={handleSubmit(handleFormSubmit)} styles={styles}>
+        {/* //! hacer esto un tema o algo del Input */}
         <InputText
           variant="standard"
           margin="normal"
