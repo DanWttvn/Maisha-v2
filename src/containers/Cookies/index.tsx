@@ -117,11 +117,11 @@ const Cookies: FC<Props> = ({ isHidden }) => {
           A continuación, se indica una lista de enlaces sobre cómo ver cookies en diferentes navegadores. Si utilizas otro navegador, consulte la información sobre cookies en el propio navegador. Si utilizas un teléfono móvil, consulta el manual del dispositivo para obtener más información.
         </Paragraph>
         <ul style={{ marginBottom: 16 }}>
-          <li><a target="_blank" rel="noreferrer" href="https://support.mozilla.org/en-US/kb/cookies-information-Websites-store-on-your-computer">Firefox</a></li>
-          <li><a target="_blank" rel="noreferrer" href="https://support.google.com/chrome/bin/answer.py?hl=en&answer=95647&topic=14666&ctx=topic">Chrome</a></li>
-          <li><a target="_blank" rel="noreferrer" href="http://windows.microsoft.com/en-US/internet-explorer/delete-manage-cookies">Internet Explorer 8-10</a></li>
-          <li><a target="_blank" rel="noreferrer" href="http://support.apple.com/kb/ph5042">Safari</a></li>
-          <li><a target="_blank" rel="noreferrer" href="http://support.apple.com/kb/ph5042">Opera</a></li>
+          <li><a rel="noreferrer" href="https://support.mozilla.org/en-US/kb/cookies-information-Websites-store-on-your-computer">Firefox</a></li>
+          <li><a rel="noreferrer" href="https://support.google.com/chrome/bin/answer.py?hl=en&answer=95647&topic=14666&ctx=topic">Chrome</a></li>
+          <li><a rel="noreferrer" href="http://windows.microsoft.com/en-US/internet-explorer/delete-manage-cookies">Internet Explorer 8-10</a></li>
+          <li><a rel="noreferrer" href="http://support.apple.com/kb/ph5042">Safari</a></li>
+          <li><a rel="noreferrer" href="http://support.apple.com/kb/ph5042">Opera</a></li>
         </ul>
         <Text size="s" weight="bold" isFullWidth>Configuración de cookies para los navegadores más populares</Text>
         <Text size="s" styles={{ marginBottom: 16 }} isFullWidth>

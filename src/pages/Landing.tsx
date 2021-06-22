@@ -19,6 +19,7 @@ import theme from '../styles/theme'
 import Banner from '../components/Banner'
 import useIntersection from '../hooks/useIntersection'
 import { handleScrollToTop } from '../helpers/screen'
+import DataText from '../containers/DataText'
 
 const Landing: FC = () => {
   const [ selectedAmount, setSelectedAmount ] = useState<number>()
@@ -26,7 +27,6 @@ const Landing: FC = () => {
   const [ isFormModalOpen, setIsFormModalOpen ] = useState<boolean>(false)
   const [ isError, setIsError ] = useState<boolean>(false)
   const [ isCTAVisible, setIsCTAVisible ] = useState(true)
-  //* cambiar por si está visible en la pantalla
   const { isNear, elementRef } = useIntersection(false, '350px')
 
   useEffect(() => {
@@ -48,13 +48,13 @@ const Landing: FC = () => {
     setIsError(false)
     setIsFormModalOpen(true)
   }
-  
+
   return (
     <Container>
       <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
         <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth />
         <p style={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
-          <OpenQuote styles={{ color: 'white', fontSize: 120, top: 10, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 20 }} />
+          <OpenQuote styles={{ color: 'white', fontSize: 120, top: 1, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 7 }} />
           <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', fontStyle: 'italic' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
           <CloseQuote styles={{ color: 'white', fontSize: 120, top: 20, lineHeight: '55px', fontStyle: 'italic', fontWeight: 800 }} />
           <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', marginLeft: 24, fontWeight: 800 }}>E. Galeno</Text>
@@ -81,7 +81,7 @@ const Landing: FC = () => {
 
       <Dialog isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
         <Subtitle>Hazte socia/o</Subtitle>
-        <Text color="black" weight="semibold" styles={{ marginRight: 8 }}>Tu aportación mensual seleccionada es de {selectedAmount}€.</Text>
+        <Text color="black" weight="semibold" styles={{ marginRight: 8 }}>Tu aportación mensual seleccionada es de <strong>{selectedAmount}</strong>€.</Text>
         <Text size="s" color="lightGrey" onClick={setIsFormModalOpen.bind(undefined, false)} styles={{ textDecoration: 'underline', cursor: 'pointer', marginTop: 2 }}>Cambiar</Text>
         <JoinForm amountSelected={selectedAmount || 0} />
       </Dialog>
@@ -120,20 +120,63 @@ const Landing: FC = () => {
         <Video src="/images/videos/CampañaSocios.mp4" />
       </Container>
 
+      <SubSection isNarrow>
+        <Container direction="horizontal" styles={{ justifyContent: 'space-around' }} isFullWidth>
+          <Container>
+            <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+              <DataText>320</DataText>
+              <Text weight="bold" isCentered>menores</Text>
+              <Text weight="bold" isCentered>beneficiarios</Text>
+            </Container>
+            <DataText styles={{ margin: '34px 16px 0 16px' }}>/</DataText>
+            <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+              <DataText>44</DataText>
+              <Text weight="bold" isCentered>personas adultas</Text>
+              <Text weight="bold" isCentered>beneficiarias</Text>
+            </Container>
+          </Container>
+          <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+            <DataText>+250</DataText>
+            <Text weight="bold" isCentered>personas sensibilizadas</Text>
+          </Container>
+        </Container>
+
+        <Container styles={{ justifyContent: 'space-around' }} isFullWidth>
+          <Container direction="vertical" styles={{ margin: '30px 0' }}>
+            <DataText>120</DataText>
+            <Text weight="bold" isCentered>Voluntarias/as</Text>
+          </Container>
+          <Container>
+            <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+              <DataText>5</DataText>
+              <Text weight="bold" isCentered>convenios con</Text>
+              <Text weight="bold" isCentered>universidades</Text>
+            </Container>
+            <DataText styles={{ margin: '34px 16px 0 16px' }}>/</DataText>
+            <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+              <DataText>3</DataText>
+              <Text weight="bold" isCentered>Colegios amigos</Text>
+            </Container>
+          </Container>
+          <Container direction="vertical" styles={{ margin: '30px 0' }}>
+            <DataText>40</DataText>
+            <Text weight="bold" isCentered>Socios/as</Text>
+          </Container>
+        </Container>
+      </SubSection>
+
+
       <SubSection styles={{ alignItems: 'center' }}>
         <Image src="/images/IRPFGraph.png" styles={{ height: 400, margin: '20px 50px 0 0' }} />
-
         <Paragraph styles={{ flex: 1, margin: '20px 0 0 50px' }}>
           <Subtitle>Donar tiene recompensa!</Subtitle>
           <Paragraph>
-            {/* La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en la sección superior */}
             La Utilidad Pública, concedida el pasado 29 de julio de 2020, permite que nuestros socios/as puedan desgravar en su Declaración de la Renta de acuerdo con los porcentajes indicados en el esquema
           </Paragraph>
           <Paragraph size="s">
             * Si en los dos períodos impositivos inmediatos anteriores se hubieran realizado donativos, donaciones o aportaciones con derecho a deducción en favor de una misma entidad por importe igual o superior, en cada uno de ellos, al del ejercicio anterior, el porcentaje de deducción aplicable a la base de la deducción en favor de esa misma entidad que exceda de 150 euros, será el 40 por ciento.
           </Paragraph>
         </Paragraph>
-
       </SubSection>
       <SubSection>
         <Subtitle styles={{ marginBottom: 8 }} isFullWidth>FAQ</Subtitle>

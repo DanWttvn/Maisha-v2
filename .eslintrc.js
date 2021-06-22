@@ -44,5 +44,6 @@ module.exports = {
     'no-extra-boolean-cast':[
       'off'
     ],
+    'array-bracket-spacing': [ 'warn', 'always' ]
   }
 }

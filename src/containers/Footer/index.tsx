@@ -49,7 +49,7 @@ const Footer: FC<Props> = () => {
           </Container>
           {/* // política de privacidad */}
         </Container>
-        <Text styles={{ fontSize: 11, color: '#ccc' }} isFullWidth>CIF XXXXX - Registro de Fundaciones de competencia estatal con nº de registro XXX</Text>
+        <Text styles={{ fontSize: 11, color: '#ccc' }} isFullWidth>CIF G87557476 - Registro de Fundaciones de competencia estatal</Text>
       </InnerContainer>
     </Styled>
   )

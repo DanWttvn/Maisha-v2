@@ -4,6 +4,7 @@ import { Props } from '.'
 export default styled.span<Props>`
   margin: 0;
   color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
+  text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
   ${({ size }) => size === 'xs' && css`
     font-size: 0.6rem;

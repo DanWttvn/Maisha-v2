@@ -12,6 +12,9 @@ const Video: FC<Props>  = ({ src, poster }) => (
   <VideoPlayer
     src={src}
     poster={poster}
+    autoplay={false}
+    bigPlayButton={true}
+    bigPlayButtonCentered={true}
     className="vjs-fill vjs-fluid video-js vjs-matrix"
   />
 )

@@ -1,23 +1,24 @@
+/* //! compribar si con el important pasa a prod */
 .vjs-matrix .vjs-big-play-button {
-  border: 2px rgb(253, 193, 95) solid;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  background-color: rgb(122, 23, 36);
+  border: 2px rgb(253, 193, 95) solid !important;
+  border-radius: 50% !important;
+  height: 50px !important;
+  width: 50px !important;
+  background-color: rgb(122, 23, 36) !important;
 }
 
 .vjs-matrix:hover .vjs-big-play-button {
-  border: 2px rgb(253, 193, 95) solid;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  background-color: rgb(196, 47, 22);
+  border: 2px rgb(253, 193, 95) solid !important;
+  border-radius: 50% !important;
+  height: 50px !important;
+  width: 50px !important;
+  background-color: rgb(196, 47, 22) !important;
 }
 
 .vjs-matrix:hover {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .vjs-matrix .vjs-big-play-button .vjs-icon-placeholder {
-  color: rgb(253, 193, 95);
+  color: rgb(253, 193, 95) !important;
 }

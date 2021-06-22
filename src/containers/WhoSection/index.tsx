@@ -10,7 +10,8 @@ import theme from '../../styles/theme'
 import LanguageContext from '../../contexts/language'
 import Map from '../Map'
 import { Section, SubSection } from '../../components/Section/styles'
-import { DataText, DataNumber, BorderedBox } from './styles'
+import { BorderedBox } from './styles'
+import DataText from '../DataText'
 
 interface Props {
   id?: string
@@ -111,40 +112,39 @@ export const WhoSection: FC<Props> = ({ id }) => {
 
         <Container styles={{ justifyContent: 'space-between', marginBottom: 30 }} isFullWidth>
           <Container direction="vertical" styles={{ margin: '30px 0' }}>
-            <DataNumber>194º</DataNumber>
-            {/* //! encajar en otro tamaño */}
-            <Text size="m">
+            <DataText>194º</DataText>
+            <Text>
               {lang === 'ES' && 'Ránking Índice de'}
               {lang === 'EN' && 'Human Development'}
               {lang === 'SW' && 'Katika orodha ya'}
             </Text>
-            <Text size="m">
+            <Text>
               {lang === 'ES' && 'Desarrollo Humano'}
               {lang === 'EN' && 'Index ranking'}
               {lang === 'SW' && 'Maendeleo ya Binadamu'}
             </Text>
           </Container>
           <Container direction="vertical" styles={{ margin: '30px 0' }}>
-            <DataNumber>64</DataNumber>
-            <DataNumber styles={{ fontSize: '5rem', lineHeight: '5rem', marginTop: '-12px' }}>
+            <DataText>64</DataText>
+            <DataText styles={{ fontSize: '5rem', lineHeight: '5rem', marginTop: '-12px' }}>
               {lang === 'ES' && 'años'}
               {lang === 'EN' && 'years'}
               {lang === 'SW' && 'miaka'}
-            </DataNumber>
-            <Text size="m">
+            </DataText>
+            <Text>
               {lang === 'ES' && 'Esperanza de vida'}
               {lang === 'EN' && 'Life expectancy'}
               {lang === 'SW' && 'ya maisha'}
             </Text>
           </Container>
           <Container direction="vertical" styles={{ margin: '30px 0' }}>
-            <DataNumber>
+            <DataText>
               {lang === 'ES' && <>862<span style={{ fontSize: '5rem' }}>€</span></>}
               {lang === 'EN' && <>862<span style={{ fontSize: '5rem' }}>€</span></>}
               {lang === 'SW' && <><span style={{ fontSize: '4rem' }}>2,284,300</span></>}
-            </DataNumber>
+            </DataText>
 
-            <Text size="m">
+            <Text>
               {lang === 'ES' && 'Renta per cápita'}
               {lang === 'EN' && 'Rent per capita'}
               {lang === 'SW' && 'tzs ya kodi ya kila mtu'}
@@ -167,12 +167,12 @@ export const WhoSection: FC<Props> = ({ id }) => {
         <SkipWrap />
 
         <Container direction="vertical">
-          <DataText>
+          <DataText type="text">
             {lang === 'ES' && 'swahili'}
             {lang === 'EN' && 'swahili'}
             {lang === 'SW' && 'kiswahili'}
           </DataText>
-          <DataText>
+          <DataText type="text">
             {lang === 'ES' && 'inglés'}
             {lang === 'EN' && 'english'}
             {lang === 'SW' && 'kingereza'}
@@ -187,11 +187,11 @@ export const WhoSection: FC<Props> = ({ id }) => {
         </Paragraph>
 
         <Container direction="vertical" styles={{ marginBottom: 30 }}>
-          <DataNumber>
+          <DataText>
             77,9
             <span style={{ fontSize: '5rem' }}>%</span>
-          </DataNumber>
-          <Text size="m">
+          </DataText>
+          <Text>
             {lang === 'ES' && 'Tasa de alfabetización'}
             {lang === 'EN' && 'Literacy rate'}
             {lang === 'SW' && 'ni kiwango cha waliosoma'}
