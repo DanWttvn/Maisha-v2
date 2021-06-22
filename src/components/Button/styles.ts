@@ -18,7 +18,7 @@ const Button = styled.button<Props>`
 
 export const ButtonA = styled(Button)`
   background: ${({ theme }) => theme.colors.darkRed};
-  color: ${({ theme }) => theme.colors.offOrange};
+  color: ${({ theme, isLoading }) => isLoading ? 'transparent' : theme.colors.offOrange};
   box-shadow: ${({ theme }) => theme.shadows.elevation1};
 
   &:hover {
@@ -31,7 +31,7 @@ export const ButtonA = styled(Button)`
 
 export const ButtonB = styled(Button)`
   background: ${({ theme }) => theme.colors.offOrange};
-  color: ${({ theme }) => theme.colors.darkRed};
+  color: ${({ theme, isLoading }) => isLoading ? 'transparent' : theme.colors.darkRed};
   box-shadow: ${({ theme }) => theme.shadows.elevation1};
 
   &:hover {

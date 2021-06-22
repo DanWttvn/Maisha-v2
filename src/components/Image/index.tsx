@@ -7,7 +7,8 @@ export interface Props extends BaseProps {
   hasOverlay?: boolean
 }
 
-const Image: FC<Props> = ({ src, hasOverlay, styles, isFullWidth, className }) => {
+const Image: FC<Props> = ({ src, hasOverlay, isHidden, styles, isFullWidth, className }) => {
+  if (isHidden) return null
   return <Styled src={src} styles={styles} loading="lazy" hasOverlay={hasOverlay} className={className} isFullWidth={isFullWidth}/>
 }
 

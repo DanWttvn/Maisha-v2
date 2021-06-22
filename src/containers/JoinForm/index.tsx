@@ -12,8 +12,6 @@ import { isEmailValid, isBankAccountValid } from '../../helpers/form'
 import theme from '../../styles/theme'
 import PolicyModal from '../PolicyModal'
 
-//* ES20 1465 01 00951715486475 : formatear para que repsete espacios
-
 export interface Props extends BaseProps {
   amountSelected: number
 }
@@ -22,6 +20,7 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
   const { register, handleSubmit } = useForm()
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState<boolean>(false)
+  const [ isSending, setIsSending ] = useState<boolean>(false)
 
   if (isHidden) return null
 
@@ -31,25 +30,26 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
 
     let nextErrors: string[] = []
 
-    if (!isEmailValid(email)) nextErrors = [ ...nextErrors, 'email']
-    if (!isBankAccountValid(IBAN)) nextErrors = [ ...nextErrors, 'IBAN']
+    if (!isEmailValid(email)) nextErrors = [ ...nextErrors, 'email' ]
+    if (!isBankAccountValid(IBAN)) nextErrors = [ ...nextErrors, 'IBAN' ]
 
-    if (nextErrors) return setErrors(nextErrors)
+    if (nextErrors.length) return setErrors(nextErrors)
 
+    setIsSending(true)
 
-    fetch('https://api.apispreadsheets.com/data/3056/', {
+    fetch('https://api.apispreadsheets.com/data/14513/', {
       method: 'post',
       body: JSON.stringify({ 'data': data }),
     }).then(res => {
-      if (res.status === 201 || res.status === 200){
+      console.log('4', res)
+      if (res.status === 201 || res.status === 200) {
         (window as any).Email.send({
-          SecureToken: '31b045c6-3093-457c-b941-429917ab3497',
-          // //! ponerlo
-          // To : ['maisharoots@gmail.com', 'danielaw95@gmail.com'],
-          To : [],
-          // To : email,
+          SecureToken: `${process.env.REACT_APP_SMPT_TOKEN}`,
+          //! poner maisba
+          To : [ `${process.env.REACT_APP_EMAIL1}` ],
           From : 'info@maisharoots.org',
           Subject : 'Nuevo socio!',
+          //! quitar 'ESTO ES...
           Body : `
             ESTO ES UNA PRUEBA DE DANIELA PARA LA LANDING
             Nuevo socio desde la Landing !
@@ -72,10 +72,11 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
             Dinerito al mes: ${amountSelected}
           `
         }).then((message: string) => {
-          console.log('enviado!', message)
-          // //! derivar a thak you page
+          console.log('sent!', message)
+          window.location.href = 'https://maisharoots.org/donate-success'
         }).catch((err: Error) => console.error(err))
       } else {
+        setIsSending(false)
         // formMsg.innerHTML = '<span class="form-msg">Ha ocurrido un error, por favor, vuelve a intentarlo más tarde</span>';
         console.error(res)
       }
@@ -170,7 +171,7 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
           style={{ fontFamily: theme.fonts.main }}
         />
         <SkipWrap/>
-        <Button type="submit" styles={{ margin: '0 auto' }}>Enviar</Button>
+        <Button type="submit" isLoading={isSending} styles={{ margin: '0 auto' }}>Enviar</Button>
       </Styled>
       <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
     </>

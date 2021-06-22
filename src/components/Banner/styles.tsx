@@ -9,7 +9,7 @@ export default styled.div<Props & { height: number }>`
   width: 100%;
   padding: 20px 30px;
   left: 0;
-  bottom: ${({ isShown, height }) => isShown ? 0 : `-${height}px`};
+  bottom: ${({ isShown, height }) => !isShown ? `-${height}px` : 0};
   transition: bottom 0.5s ease;
 
   ${({ variant }) => variant === 'A' && css`
