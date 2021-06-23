@@ -30,7 +30,7 @@ const Infography: FC = () => {
       <Container styles={{ justifyContent: 'space-around' }} isFullWidth>
         <Container direction="vertical" styles={{ margin: '30px 0' }}>
           <DataText>120</DataText>
-          <Text weight="bold" isCentered>Voluntarias/as</Text>
+          <Text weight="bold" isCentered>Voluntarios/as</Text>
         </Container>
         <Container>
           <Container direction="vertical" styles={{ margin: '30px 0px' }}>
