@@ -51,14 +51,14 @@ const Landing: FC = () => {
 
   return (
     <Container>
-      <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
-        <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth />
-        <p style={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
+      <Container styles={{ position: 'relative', height: '70vh', minHeight: 600, maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
+        <Paragraph styles={{ zIndex: defaultTheme.zIndex.medium, width: '70%', margin: 'auto' }}>
           <OpenQuote styles={{ color: 'white', fontSize: 120, top: 1, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 7 }} />
-          <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', fontStyle: 'italic' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
+          <Text weight="black" color="white" styles={{ fontStyle: 'italic', fontSize: '3.5rem', lineHeight: '4.7rem' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
           <CloseQuote styles={{ color: 'white', fontSize: 120, top: 20, lineHeight: '55px', fontStyle: 'italic', fontWeight: 800 }} />
-          <Text size="xl" weight="black" styles={{ color: 'white', fontSize: 60, lineHeight: '75px', marginLeft: 24, fontWeight: 800 }}>E. Galeno</Text>
-        </p>
+          <Text weight="black" color="white" styles={{ marginLeft: 24, fontWeight: 800, fontSize: '3.5rem', lineHeight: '4.7rem' }}>E. Galeno</Text>
+        </Paragraph>
+        <Image src="/images/playing_kids.jpg" styles={{ position: 'absolute' }} hasOverlay isFullWidth />
       </Container>
 
       <Container direction="vertical" styles={{ margin: '-80px auto 24px', zIndex: defaultTheme.zIndex.medium }}>
@@ -76,7 +76,7 @@ const Landing: FC = () => {
       </Container>
 
       <SkipWrap />
-      <Button variant="B" onClick={handleOpenForm} ref={elementRef} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, marginBottom: 24, border: `${theme.colors.darkRed} 2px solid` }}>HAZTE SOCIA/O</Button>
+      <Button variant="B" onClick={handleOpenForm} ref={elementRef} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, border: `${theme.colors.darkRed} 2px solid` }}>HAZTE SOCIA/O</Button>
       <SkipWrap />
 
       <Dialog isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
@@ -88,7 +88,7 @@ const Landing: FC = () => {
 
       <SubSection>
         <Paragraph styles={{ marginBottom: 16 }}>
-          <Text styles={{ marginBottom: 8 }} isFullWidth>La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de una de las comunidades masái de la ciudad de Arusha, al norte de Tanzania, a través del fomento de la educación y el desarrollo de los medios de vida desde un enfoque participativo.</Text>
+          <Text styles={{ marginBottom: 8, marginRight: 4 }} isFullWidth>La misión de nuestro Proyecto Mawio es mejorar la calidad de vida de una de las comunidades masái de la ciudad de Arusha, al norte de Tanzania, a través del fomento de la educación y el desarrollo de los medios de vida desde un enfoque participativo.</Text>
           <Text weight="bold" isFullWidth>¡Mira las actividades que ya hemos puesto en marcha!</Text>
         </Paragraph>
         <Container styles={{ justifyContent: 'space-between', marginBottom: 56 }}>

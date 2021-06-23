@@ -34,7 +34,7 @@ export default styled.p<Props>`
 
   ${({ size }) => size === 'xl' && css`
     font-size: 3.2rem;
-    line-height: 2.35rem;
+    line-height: 4.3rem;
   `}
 
   ${({ weight }) => weight === 'normal' && css`

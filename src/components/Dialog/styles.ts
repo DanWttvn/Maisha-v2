@@ -20,5 +20,6 @@ export default styled.div<BaseProps>`
 export const Modal = styled(ModalRoot)<BaseProps>`
 	width: 90%;
   max-height: 90vh;
+  overflow-y: auto;
 `
 

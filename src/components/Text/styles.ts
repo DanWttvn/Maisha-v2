@@ -28,7 +28,7 @@ export default styled.span<Props>`
 
   ${({ size }) => size === 'xl' && css`
     font-size: 3.2rem;
-    line-height: 2.35rem;
+    line-height: 4rem;
   `}
 
   ${({ weight }) => weight === 'normal' && css`
