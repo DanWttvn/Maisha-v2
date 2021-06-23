@@ -3,7 +3,6 @@ import { FC } from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import Paragraph from '../../components/Paragraph'
 import Subtitle from '../../components/Subtitle'
-import Text from '../../components/Text'
 import LanguageContext from '../../contexts/language'
 import { Point, Card, Button, Modal } from './styles'
 
@@ -80,7 +79,7 @@ export const Map: FC = () => {
 
   const points = data.map(x => (
     <Marker key={x.city} latitude={x.latitude} longitude={x.longitude}>
-      <Button onClick={setSelected.bind(undefined, x.city)} isHidden={!['Madrid', 'Arusha'].includes(x.city)} styles={{ left: x.city === 'Madrid' ? '-60px' : '-25px', top: x.city === 'Madrid' ? '-15px' : '-25px' }} variant="F">+</Button>
+      <Button onClick={setSelected.bind(undefined, x.city)} isHidden={![ 'Madrid', 'Arusha' ].includes(x.city)} styles={{ left: x.city === 'Madrid' ? '-60px' : '-25px', top: x.city === 'Madrid' ? '-15px' : '-25px' }} variant="F">+</Button>
       <Point />
     </Marker>
   ))

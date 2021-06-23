@@ -14,6 +14,7 @@ export default createGlobalStyle<ThemeProps>`
 
   html {
     font-size: 17px;
+    background-color: white;
 
     ${({ theme }) => css`
       /* @media (max-width: 1500px) {

@@ -11,7 +11,7 @@ export interface Props extends BaseProps {
 }
 
 const NavItem: FC<Props> = ({ children, subItemsData, isActive, sectionId, onClick }) => {
-  const [showSub, setShowSub] = useState(false)
+  const [ showSub, setShowSub ] = useState(false)
 
   const subItems = subItemsData?.map((x, i) => (
     <Link to={x.url} key={i} style={{ textDecoration: 'none' }}>
