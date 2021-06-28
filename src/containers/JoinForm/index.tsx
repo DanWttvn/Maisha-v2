@@ -14,9 +14,18 @@ import PolicyModal from '../PolicyModal'
 
 export interface Props extends BaseProps {
   amountSelected: number
+  variant: '1' | '2'
 }
 
-const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
+type FormData = {
+  name: string
+  dni: string
+  email: string
+  CP: string
+  IBAN: string
+}
+
+const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
   const { register, handleSubmit } = useForm()
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState<boolean>(false)
@@ -24,20 +33,26 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
 
   if (isHidden) return null
 
-  const handleFormSubmit = (data: any) => {
-    const { name, dni, email, CP, IBAN } = data
-    data.amount = amountSelected
+  const handleFormSubmit = (formData: FormData) => {
+    const data = {
+      ...formData,
+      amount: amountSelected,
+      date: format(new Date(), 'dd/MM/yyyy')
+    }
 
     let nextErrors: string[] = []
 
-    if (!isEmailValid(email)) nextErrors = [ ...nextErrors, 'email' ]
-    if (!isBankAccountValid(IBAN)) nextErrors = [ ...nextErrors, 'IBAN' ]
+    if (!isEmailValid(data.email)) nextErrors = [ ...nextErrors, 'email' ]
+    if (!isBankAccountValid(data.IBAN)) nextErrors = [ ...nextErrors, 'IBAN' ]
 
     if (nextErrors.length) return setErrors(nextErrors)
 
     setIsSending(true)
 
-    fetch('https://api.apispreadsheets.com/data/14513/', {
+    const url = variant === '1' ? `${process.env.REACT_APP_SPREADSHEET1}` : `${process.env.REACT_APP_SPREADSHEET2}`
+
+
+    fetch(url, {
       method: 'post',
       body: JSON.stringify({ 'data': data }),
     }).then(res => {
@@ -55,21 +70,21 @@ const Form: FC<Props> = ({ amountSelected, isHidden, styles }) => {
             Nuevo socio desde la Landing !
             Sus datos:
             <br>
-            Nombre: ${name}
+            Nombre: ${data.name}
             <br>
-            DNI: ${dni}
+            DNI: ${data.dni}
             <br>
-            Email: ${email}
+            Email: ${data.email}
             <br>
-            Código Postal: ${CP}
+            Código Postal: ${data.CP}
             <br>
-            IBAN: ${IBAN}
+            IBAN: ${data.IBAN}
             <br>
-            Fecha de alta: ${format(new Date(), 'dd/MM/yyyy')}
+            Fecha de alta: ${data.date}
             <br>
             Mes de alta: ${new Date().getMonth() + 1}
             <br>
-            Dinerito al mes: ${amountSelected}
+            Dinerito al mes: ${data.amount}
           `
         }).then((message: string) => {
           console.log('sent!', message)

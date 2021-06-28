@@ -13,7 +13,11 @@ import Banner from '../../../components/Banner'
 import useIntersection from '../../../hooks/useIntersection'
 import { handleScrollToTop } from '../../../helpers/screen'
 
-const Join: FC = () => {
+type Props = {
+  variant: '1' | '2'
+}
+
+const Join: FC<Props> = ({ variant }) => {
   const [ selectedAmount, setSelectedAmount ] = useState<number>()
   const [ customAmount, setCustomAmount ] = useState<number>(0)
   const [ isFormModalOpen, setIsFormModalOpen ] = useState<boolean>(false)
@@ -65,7 +69,7 @@ const Join: FC = () => {
         <Subtitle>Hazte socia/o</Subtitle>
         <Text color="black" weight="semibold" styles={{ marginRight: 8 }}>Tu aportación mensual seleccionada es de <strong>{selectedAmount}</strong>€.</Text>
         <Text size="s" color="lightGrey" onClick={setIsFormModalOpen.bind(undefined, false)} styles={{ textDecoration: 'underline', cursor: 'pointer', marginTop: 2 }}>Cambiar</Text>
-        <JoinForm amountSelected={selectedAmount || 0} />
+        <JoinForm amountSelected={selectedAmount || 0} variant={variant} />
       </Dialog>
 
       <Banner variant="B" isShown={!isCTAVisible} styles={{ padding: '20px 20%', alignItems: 'center' }}>

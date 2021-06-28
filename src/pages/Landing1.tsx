@@ -8,7 +8,7 @@ const Landing1: FC = () => {
   return (
     <Container>
       <Landing.Header />
-      <Landing.Join />
+      <Landing.Join variant="1" />
       <Landing.Projects />
       <Container isFullWidth>
         <Video src="/images/videos/CampañaSocios.mp4" />
