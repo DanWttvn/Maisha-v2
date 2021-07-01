@@ -88,7 +88,7 @@ export const Map: FC = () => {
     <>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN_PROD}
         mapStyle="mapbox://styles/danielawg/ckosute2r1crk17senzuyxoct"
       >
         {points}

@@ -12,6 +12,9 @@ import WhoSection from '../containers/WhoSection'
 import TimelineSection from '../containers/TimelineSection'
 import LanguageContext from '../contexts/language'
 import StructureSection from '../containers/StructureSection'
+import ProjectsSection from '../containers/ProjectsSection'
+import ColaborateSection from '../containers/ColaborateSection'
+import TransparencySection from '../containers/TransparencySection'
 
 const Home: FC = () => {
   const { lang, setLang } = useContext(LanguageContext)
@@ -22,9 +25,9 @@ const Home: FC = () => {
       <p style={{ marginBottom: 100 }}>usdgfh</p>
       <Link to="/landing">Landing</Link>
 
-      <Button variant="A">Ahgdf</Button>
+      <Button variant="A">Variant A</Button>
       <Button variant="A" styles={{ padding: 15 }}>Ahgdf</Button>
-      <Button variant="B">Ahgdf</Button>
+      <Button variant="B">Variant B</Button>
       <Paragraph >
         jhsgdf ksdjfh sdfh hjsgd
         <Text weight="black" onClick={() => console.log('isudhf')}>ldih f</Text>
@@ -34,7 +37,7 @@ const Home: FC = () => {
       </Paragraph>
 
       <Title firstPart="Cómo" secondPart="trabajamos" />
-      <Subtitle >Subtitle</Subtitle>
+      <Subtitle>Subtitle</Subtitle>
 
 
 
@@ -42,6 +45,9 @@ const Home: FC = () => {
       <WhoSection id="who" />
       <TimelineSection id="timeline" />
       <StructureSection id="structure" />
+      <ProjectsSection id="projects" />
+      <ColaborateSection id="colaborate" />
+      <TransparencySection id="transparency" />
       
       <Footer />
     </>

@@ -12,12 +12,9 @@ import Map from '../Map'
 import { Section, SubSection } from '../../components/Section/styles'
 import { BorderedBox } from './styles'
 import DataText from '../DataText'
+import { SectionProps } from '../../models'
 
-interface Props {
-  id?: string
-}
-
-export const WhoSection: FC<Props> = ({ id }) => {
+export const WhoSection: FC<SectionProps> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
   return (

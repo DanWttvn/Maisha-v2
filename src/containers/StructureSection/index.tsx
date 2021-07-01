@@ -9,18 +9,14 @@ import theme from '../../styles/theme'
 import LanguageContext from '../../contexts/language'
 import { Section, SubSection } from '../../components/Section/styles'
 import { StructureCard, GroupCard, GroupsBlock, CommissionIcon } from './styles'
+import { SectionProps } from '../../models'
 
-interface Props {
-  id?: string
-}
-
-export const StructureSection: FC<Props> = ({ id }) => {
+export const StructureSection: FC<SectionProps> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
   const imgSrcs = {
     ES: './images/esquema-organizacion-ES.png',
     EN: './images/esquema-organizacion-EN.png',
-    // //! falta
     SW: './images/esquema-organizacion-EN.png'
   }
 

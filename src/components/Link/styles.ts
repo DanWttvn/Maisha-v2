@@ -5,6 +5,8 @@ export default styled.a<Props>`
   margin: 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.darkRed};
+  text-decoration: underline;
 
   ${({ size }) => size === 'xs' && css`
     font-size: 0.6rem;

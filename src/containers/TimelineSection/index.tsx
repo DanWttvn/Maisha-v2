@@ -5,12 +5,9 @@ import Text from '../../components/Text'
 import LanguageContext from '../../contexts/language'
 import { Section, SubSection } from '../../components/Section/styles'
 import Carousel from '../../components/Carousel'
+import { SectionProps } from '../../models'
 
-interface Props {
-  id?: string
-}
-
-export const TimelineSection: FC<Props> = ({ id }) => {
+export const TimelineSection: FC<SectionProps> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
   const titles = {

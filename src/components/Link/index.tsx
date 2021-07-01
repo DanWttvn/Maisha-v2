@@ -1,20 +1,17 @@
 import React, { FC } from 'react'
-import { BaseProps } from '../../models'
+import { Props as TextProps } from '../Text'
 import Styled from './styles'
 
-export interface Props extends BaseProps {
+export interface Props extends TextProps {
   href: string
   target?: string
-  onClick?: () => void
-  weight?: 'normal' | 'semibold' | 'bold' | 'black'
-  size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 
-const Link: FC<Props> = ({ children, href, target = '_blank', onClick, styles, size = 'm', isHidden, weight }) => {
+const Link: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', color, onClick, styles, size = 'm', isHidden }) => {
   if (isHidden) return null
 
   return (
-    <Styled href={href} target={target} rel="noreferrer" onClick={onClick} size={size} styles={styles} weight={weight}>
+    <Styled href={href} target={target} rel="noreferrer" onClick={onClick} color={color} size={size} styles={styles} weight={weight}>
       {children}
     </Styled>
   )

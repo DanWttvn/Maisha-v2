@@ -1,4 +1,4 @@
-import { CSSProperties, FC, Ref } from 'react'
+import { CSSProperties, FC } from 'react'
 
 export interface BaseProps {
   styles?: CSSProperties
@@ -11,6 +11,10 @@ export interface BaseProps {
 export interface Route {
   url: string
   content: FC
+}
+
+export interface SectionProps {
+  id?: string
 }
 
 export interface Theme {
