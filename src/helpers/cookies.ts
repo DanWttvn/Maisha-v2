@@ -1,7 +1,7 @@
 export const checkCookie = (name: string): string | undefined => {
   const decodedCookies = decodeURIComponent(document.cookie).split(';')
   const cookie = decodedCookies.find(x => x.includes(name))
-  const value = cookie?.substring(name.length + 1)
+  const value = cookie?.trim().replace(name + '=', '')
 
   return value
 }

@@ -1,11 +1,11 @@
 import React, { FC, forwardRef } from 'react'
 import { BaseProps } from '../../models'
 import Loader from '../Loader'
-import { ButtonA, ButtonB, ButtonC, ButtonD, ButtonE, ButtonF } from './styles'
+import { ButtonA, ButtonB, ButtonC, ButtonD, ButtonE, ButtonF, ButtonG } from './styles'
 
 export interface Props extends BaseProps {
   onClick?: () => void
-  variant?: 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
+  variant?: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
   isDisabled?: boolean
   isSelected?: boolean
   type?: 'submit' | 'button'
@@ -32,6 +32,9 @@ const Button: FC<Props> = forwardRef(({ children, onClick, variant = 'A', styles
     break
   case 'F':
     Styled = ButtonF
+    break
+  case 'G':
+    Styled = ButtonG
     break
   default:
     Styled = ButtonA

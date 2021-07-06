@@ -28,8 +28,8 @@ type FormData = {
 const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
   const { register, handleSubmit } = useForm()
-  const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState<boolean>(false)
-  const [ isSending, setIsSending ] = useState<boolean>(false)
+  const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
+  const [ isSending, setIsSending ] = useState(false)
 
   if (isHidden) return null
 

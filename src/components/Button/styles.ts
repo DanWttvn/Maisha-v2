@@ -100,3 +100,14 @@ export const ButtonF = styled(Button)`
 
   ${({ styles }) => ({ ...styles })};
 `
+
+export const ButtonG = styled(Button)`
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: 400;
+  background: ${({ theme }) => theme.colors.offRed};
+  color: ${({ theme }) => theme.colors.white};
+
+  ${({ styles }) => ({ ...styles })};
+`

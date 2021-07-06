@@ -16,6 +16,7 @@ import ProjectsSection from '../containers/ProjectsSection'
 import ColaborateSection from '../containers/ColaborateSection'
 import TransparencySection from '../containers/TransparencySection'
 import NewsletterPopup from '../containers/NewsletterPopup'
+import PolicyBanner from '../containers/PolicyBanner'
 
 const Home: FC = () => {
   const { lang, setLang } = useContext(LanguageContext)
@@ -29,6 +30,11 @@ const Home: FC = () => {
       <Button variant="A">Variant A</Button>
       <Button variant="A" styles={{ padding: 15 }}>Ahgdf</Button>
       <Button variant="B">Variant B</Button>
+      <Button variant="C">Variant C</Button>
+      <Button variant="D">Variant D</Button>
+      <Button variant="E">Variant E</Button>
+      <Button variant="F">Variant F</Button>
+      <Button variant="G">Variant G</Button>
       <Paragraph >
         jhsgdf ksdjfh sdfh hjsgd
         <Text weight="black" onClick={() => console.log('isudhf')}>ldih f</Text>
@@ -39,7 +45,6 @@ const Home: FC = () => {
 
       <Title firstPart="Cómo" secondPart="trabajamos" />
       <Subtitle>Subtitle</Subtitle>
-      <NewsletterPopup />
 
       <WhoSection id="who" />
       <TimelineSection id="timeline" />
@@ -49,6 +54,9 @@ const Home: FC = () => {
       <TransparencySection id="transparency" />
       
       <Footer />
+
+      <NewsletterPopup />
+      <PolicyBanner />
     </>
   )
 }
