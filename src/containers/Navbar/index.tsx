@@ -19,16 +19,16 @@ export const Navbar: FC = () => {
         <Image styles={{ width: 200 }} src="./images/logo.png" />
       </Link>
 
-      {/* <Bars /> */}
+      <Bars />
       <ItemsWrapper >
-        {/* <Cross /> */}
+        <Cross />
         <NavItem sectionId='who' 
           onClick={setActiveItem.bind(undefined, 'who')} 
           isActive={activeItem === 'who'} 
-          subItemsData={[{ name: 'CONÓCENOS', url: '/#know-us' }, { name: 'DÓNDE TRABAJAMOS', url: '/#where' }]}
+          subItemsData={[ { name: 'CONÓCENOS', url: '/#know-us' }, { name: 'DÓNDE TRABAJAMOS', url: '/#where' } ]}
         >QUIÉNES SOMOS</NavItem>
 
-        <NavItem sectionId='where' onClick={setActiveItem.bind(undefined, 'where')} isActive={activeItem === 'where'} subItemsData={[{ name: 'CONÓCENOS', url: '/#know-us' }, { name: 'DÓNDE TRABAJAMOS', url: '/#where' }]}>DE DONDE VENIMOS</NavItem>
+        <NavItem sectionId='where' onClick={setActiveItem.bind(undefined, 'where')} isActive={activeItem === 'where'} subItemsData={[ { name: 'CONÓCENOS', url: '/#know-us' }, { name: 'DÓNDE TRABAJAMOS', url: '/#where' } ]}>DE DONDE VENIMOS</NavItem>
 
 
       </ItemsWrapper>

@@ -13,11 +13,11 @@ export interface Props extends BaseProps {
 const NavItem: FC<Props> = ({ children, subItemsData, isActive, sectionId, onClick }) => {
   const [ showSub, setShowSub ] = useState(false)
 
-  const subItems = subItemsData?.map((x, i) => (
-    <Link to={x.url} key={i} style={{ textDecoration: 'none' }}>
-      <Styled >{x.name}</Styled>
-    </Link>
-  ))
+  // const subItems = subItemsData?.map((x, i) => (
+  //   <Link to={x.url} key={i} style={{ textDecoration: 'none' }}>
+  //     <Styled >{x.name}</Styled>
+  //   </Link>
+  // ))
 
   return (
     <Link to={`/#${sectionId}`} style={{ textDecoration: 'none' }}>
@@ -29,7 +29,7 @@ const NavItem: FC<Props> = ({ children, subItemsData, isActive, sectionId, onCli
       >
         {children}
         <SubItemsWrapper isOpen={showSub}>
-          {subItems}
+          {/* {subItems} */}
         </SubItemsWrapper>   
       </Styled>
     </Link>

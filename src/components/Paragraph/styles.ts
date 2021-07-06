@@ -1,13 +1,9 @@
 import styled, { css } from 'styled-components'
-import { Props } from '.'
+import { TextProps } from '../../models'
 
-export default styled.p<Props>`
+export default styled.p<TextProps>`
 /* //! si le pongo el flex, no sigue la frase con spans dentro */
-  /* display: flex;
-  flex-flow: row wrap; */
   margin-bottom: 16px;
-  /* color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
-  color: ${({ theme, color = 'black' }) => theme.colors[color]}; */
   color: ${({ theme, color }) => !color || color === 'inherit' ?  'inherit' : theme.colors[color]};
   word-wrap: break-word;
   white-space: pre-wrap;
@@ -53,5 +49,6 @@ export default styled.p<Props>`
     font-weight: 700;
   `}
 
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

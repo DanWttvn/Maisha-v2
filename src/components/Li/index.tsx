@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
-import Text, { Props as TextProps } from '../Text'
+import { TextProps } from '../../models'
+import Text from '../Text'
 
 const Li: FC<TextProps> = ({ children, isHidden, ...props }) => {
   if (isHidden) return null

@@ -17,6 +17,15 @@ export interface SectionProps {
   id?: string
 }
 
+export interface TextProps extends BaseProps {
+  onClick?: (x?: any) => void
+  isHighlighted?: boolean
+  isCentered?: boolean
+  weight?: 'normal' | 'semibold' | 'bold' | 'black'
+  size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
+  color?: keyof Theme['colors'] | 'inherit'
+}
+
 export interface Theme {
   fonts: {
     main: string
@@ -43,6 +52,7 @@ export interface Theme {
   shadows: {
     elevation1: string
     elevation2: string
+    elevation3: string
   }
   breakpoints: {
     xs: string

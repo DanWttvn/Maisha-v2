@@ -15,6 +15,7 @@ import StructureSection from '../containers/StructureSection'
 import ProjectsSection from '../containers/ProjectsSection'
 import ColaborateSection from '../containers/ColaborateSection'
 import TransparencySection from '../containers/TransparencySection'
+import NewsletterPopup from '../containers/NewsletterPopup'
 
 const Home: FC = () => {
   const { lang, setLang } = useContext(LanguageContext)
@@ -38,9 +39,7 @@ const Home: FC = () => {
 
       <Title firstPart="Cómo" secondPart="trabajamos" />
       <Subtitle>Subtitle</Subtitle>
-
-
-
+      <NewsletterPopup />
 
       <WhoSection id="who" />
       <TimelineSection id="timeline" />

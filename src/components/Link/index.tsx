@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Props as TextProps } from '../Text'
+import { TextProps } from '../../models'
 import Styled from './styles'
 
 export interface Props extends TextProps {

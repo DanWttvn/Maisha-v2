@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import { BaseProps } from '../../../models'
 import theme from '../../../styles/theme'
 import Button from '../../Button'
-// import Icon from '../../Icon'
 import Text from '../../Text'
 import Styled, { ButtonsWrapper, NodesWrapper, NodeWrapper, Node, Line, Icon } from './styles'
 

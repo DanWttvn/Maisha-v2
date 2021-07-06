@@ -26,7 +26,7 @@ export const TimelineSection: FC<SectionProps> = ({ id }) => {
       <SubSection isFullWidth>
         <Carousel.Container
           title={titles[lang]}
-          sectionTitles={['2021', '2020', '2019', '2018', '2017', '2016', '2014/15']}
+          sectionTitles={[ '2021', '2020', '2019', '2018', '2017', '2016', '2014/15' ]}
           styles={{ height: 690 }}
           isFullWidth
         >

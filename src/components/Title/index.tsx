@@ -1,16 +1,14 @@
-import React, { FC, useEffect } from 'react'
-import Styled, {  Wrapper } from './styles'
+import React, { FC, useEffect, useState, forwardRef } from 'react'
 import { BaseProps } from '../../models'
-import { forwardRef } from 'react'
-import { useState } from 'react'
 import useIntersection from '../../hooks/useIntersection'
+import Styled, {  Wrapper } from './styles'
 
 export interface Props extends BaseProps {
   firstPart: string
   secondPart?: string
 }
 
-const Title: FC<Props> = forwardRef(({ firstPart, secondPart, styles }) => {
+const Title: FC<Props> = forwardRef(({ firstPart, secondPart, styles }, ref) => {
   const [ isVisible, setIsVisible ] = useState(false)
   const { isNear, elementRef } = useIntersection(false, '500px')
 

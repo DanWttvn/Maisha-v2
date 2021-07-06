@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import { Props } from '.'
+import { TextProps, BaseProps } from '../../models'
 
-export default styled.span<Props>`
+export default styled.span<TextProps>`
   margin: 0;
   color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
   text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
@@ -58,7 +58,7 @@ export default styled.span<Props>`
   ${({ styles }) => ({ ...styles })}
 `
 
-export const OpenQuote = styled.span<Props>`
+export const OpenQuote = styled.span<BaseProps>`
   position: relative;
   &::before {
     content: "“";
@@ -66,7 +66,7 @@ export const OpenQuote = styled.span<Props>`
   ${({ styles }) => ({ ...styles })}
 `
 
-export const CloseQuote = styled.span<Props>`
+export const CloseQuote = styled.span<BaseProps>`
   position: relative;
   &::before {
     content: "”";

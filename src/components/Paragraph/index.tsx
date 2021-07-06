@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
-import { Props as TextProps } from '../Text'
+import { TextProps } from '../../models'
 import Styled from './styles'
 
-const Paragraph: FC<TextProps> = ({ children, styles, weight = 'normal', size = 'm', color, isHidden }) => {
+const Paragraph: FC<TextProps> = ({ children, styles, weight = 'normal', size = 'm', color, isFullWidth, isHidden }) => {
   if (isHidden) return null
-  return <Styled weight={weight} size={size} styles={styles} color={color}>{children}</Styled>
+  return <Styled weight={weight} size={size} styles={styles} color={color} isFullWidth={isFullWidth}>{children}</Styled>
 }
 
 export default Paragraph
