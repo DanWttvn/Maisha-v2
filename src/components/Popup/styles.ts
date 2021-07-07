@@ -8,7 +8,7 @@ export default styled.div<BaseProps>`
 	width: 60%;
 	max-width: 600px;
 	padding: 20px 30px;
-	background:${({ theme }) => theme.colors.darkestRed};
+	background: ${({ theme }) => theme.colors.darkestRed};
 	color: ${({ theme }) => theme.colors.offOrange};
 	border-radius: 5px;
 	bottom: 30px;

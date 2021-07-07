@@ -46,11 +46,12 @@ const Home: FC = () => {
       <Title firstPart="Cómo" secondPart="trabajamos" />
       <Subtitle>Subtitle</Subtitle>
 
-      <WhoSection id="who" />
+      {/* //! diferenciar subsections */}
+      <WhoSection id="about" />
       <TimelineSection id="timeline" />
       <StructureSection id="structure" />
       <ProjectsSection id="projects" />
-      <ColaborateSection id="colaborate" />
+      <ColaborateSection id="collaborate" />
       <TransparencySection id="transparency" />
       
       <Footer />

@@ -24,7 +24,7 @@ export const WhoSection: FC<SectionProps> = ({ id }) => {
         secondPart={(lang === 'ES' && 'SOMOS') || (lang === 'EN' && 'ARE WE') || (lang === 'SW' && 'NI NANI') || ''}
       />
 
-      <SubSection isFullWidth>
+      <SubSection id="know-us" isFullWidth>
         <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
           <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth />
           <Container styles={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
@@ -81,7 +81,7 @@ export const WhoSection: FC<SectionProps> = ({ id }) => {
       </SubSection>
 
 
-      <SubSection isFullWidth>
+      <SubSection id="where" isFullWidth>
         <Subtitle color='black' >
           {lang === 'ES' && 'Dónde trabajamos'}
           {lang === 'EN' && 'Where do we work'}
@@ -90,7 +90,7 @@ export const WhoSection: FC<SectionProps> = ({ id }) => {
         <Map />
       </SubSection>
 
-      <SubSection isNarrow>
+      <SubSection id="context" isNarrow>
         <Subtitle>
           {lang === 'ES' && 'Nuestro contexto'}
           {lang === 'EN' && 'Our context'}

@@ -26,7 +26,6 @@ export const StructureSection: FC<SectionProps> = ({ id }) => {
         firstPart={(lang === 'ES' && 'CÓMO') || (lang === 'EN' && 'HOW') || (lang === 'SW' && 'JINSI TUNAVYO') || ''}
         secondPart={(lang === 'ES' && 'TRABAJAMOS') || (lang === 'EN' && 'WE WORK') || (lang === 'SW' && 'FANYA KAZI') || ''}
       />
-
       <SubSection>
         <Container styles={{ justifyContent: 'space-around', alignItems: 'center', marginBottom: 60 }} isFullWidth>
           <Container styles={{ borderLeft: `10px solid ${theme.colors.offRed}`, padding: '0 20px 0 40px', width: '55%', paddingRight: 20 }}>
@@ -167,7 +166,7 @@ export const StructureSection: FC<SectionProps> = ({ id }) => {
         </GroupsBlock>
       </SubSection>
 
-      <SubSection>
+      <SubSection id="collaborators">
         <Subtitle>
           {lang === 'ES' && 'Colaboradores/as'}
           {lang === 'EN' && 'Collaborators'}

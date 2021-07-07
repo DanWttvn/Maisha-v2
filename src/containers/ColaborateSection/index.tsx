@@ -64,7 +64,7 @@ export const ColaborateSection: FC<SectionProps> = ({ id }) => {
         {/* many small people, in small places, doing small things, can change the world */}
         {/* watu wengi kwenye maeneo madogo madogo, wanaofanya shughuli ndogo ndogo, wanaweza kuibadilisha dunia */}
       </SubSection>
-      <SubSection>
+      <SubSection id="donate">
         <Subtitle>
           {lang === 'ES' && 'Haz una donación'}
           {lang === 'EN' && 'Make a donation'}
@@ -150,7 +150,7 @@ export const ColaborateSection: FC<SectionProps> = ({ id }) => {
           {lang === 'SW' && <>Wenzetu wa shule hivi sasa ni <Link href="https://colegioarcadia.com/">schule ya Arcadia</Link>, ambayo tunashirikiana nao kwa bidii na tunakuza shughuli za uhamasishaji kwa wakati wa mwaka wa shule. Tumeendeleza pia kushirikiana kwa muda katika shule zingine, kama vile siku ya Kiafrika katika <strong>shule ya Umma ya Valdepielagos</strong>, mbio za mshikamano katika shule ya Umma ya <strong>Manuel Nuñez de Arenas</strong>.</>}
         </Paragraph>
       </SubSection>
-      <SubSection>
+      <SubSection id="entities">
         <Subtitle>
           {lang === 'ES' && 'Entidades colaboradoras'}
           {lang === 'EN' && 'Partner organizations'}

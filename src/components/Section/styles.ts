@@ -1,15 +1,12 @@
 import styled, { css } from 'styled-components'
-import { BaseProps } from '../../models'
+import { SubSectionProps, BaseProps } from '../../models'
 import theme from '../../styles/theme'
 
 export const Section = styled.div<BaseProps>`
   width: 100%;
 	max-width: 2500px;
 	margin: 0 auto;
-	/* to skip the navbar height. real sepatation is padding-navbar. to change separation change only margin */
-	padding-top: 90px; 
-	margin-top: -40px;
-
+	padding-top: 45px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -18,19 +15,10 @@ export const Section = styled.div<BaseProps>`
   ${({ styles }) => ({ ...styles })}
 `
 
-interface Props extends BaseProps {
-  isFullWidth?: boolean
-  isNarrow?: boolean
-}
-
-export const SubSection = styled.div<Props>`
+export const SubSection = styled.div<SubSectionProps>`
   position: relative;
-
-	margin-top: -30px;
-	/* margin-bottom: 35px; */
 	width: 100%;
-	padding-top: 90px; /* 35px + 90 del margin */
-
+	padding-top: 45px;
 	display: flex;
 	flex-flow: row wrap;
 

@@ -1,38 +1,35 @@
 import React, { useState, FC } from 'react'
-import Styled, { SubItemsWrapper } from './styles'
-import { Link } from 'react-router-dom'
 import { BaseProps } from '../../models'
+import { Li, SubItemsWrapper, Link } from './styles'
 
 export interface Props extends BaseProps {
-  subItemsData: { name: string, url: string }[]
+  subItemsData?: { name: string, section: string }[]
   isActive?: boolean
   sectionId: string
-  onClick?: any
+  onClick?: () => void
+  onOpen: (isShown: boolean) => void
 }
 
-const NavItem: FC<Props> = ({ children, subItemsData, isActive, sectionId, onClick }) => {
+const NavItem: FC<Props> = ({ children, subItemsData, isActive, sectionId, onClick, onOpen }) => {
   const [ showSub, setShowSub ] = useState(false)
 
-  // const subItems = subItemsData?.map((x, i) => (
-  //   <Link to={x.url} key={i} style={{ textDecoration: 'none' }}>
-  //     <Styled >{x.name}</Styled>
-  //   </Link>
-  // ))
+  const subItems = subItemsData?.map((x, i) => (
+    <Li key={i} isSubItem>
+      <Link to={x.section} activeClass="active" spy={true} smooth={true} offset={-90}>{x.name}</Link>
+    </Li>
+  ))
+
+  const handleToggle = (isShown: boolean) => {
+    if (!subItemsData) return
+    setShowSub(isShown)
+    onOpen(isShown)
+  }
 
   return (
-    <Link to={`/#${sectionId}`} style={{ textDecoration: 'none' }}>
-      <Styled
-        isActive={isActive}
-        onClick={onClick}
-        onMouseEnter={() => setShowSub(true)}
-        onMouseLeave={() => setShowSub(false)}
-      >
-        {children}
-        <SubItemsWrapper isOpen={showSub}>
-          {/* {subItems} */}
-        </SubItemsWrapper>   
-      </Styled>
-    </Link>
+    <Li onMouseEnter={handleToggle.bind(undefined, true)} onMouseLeave={handleToggle.bind(undefined, false)}>
+      <Link to={sectionId} spy={true} smooth={true} offset={-90} activeClass="active">{children}</Link>
+      <SubItemsWrapper isOpen={showSub}>{subItems}</SubItemsWrapper>
+    </Li>
   )
 }
 

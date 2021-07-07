@@ -13,8 +13,16 @@ export interface Route {
   content: FC
 }
 
+export type SectionTitle = 'header' | 'about' | 'timeline' | 'structure' | 'projects' | 'collaborate' | 'transparency'
+export type SubSectionTitle = 'know-us' | 'where' | 'context' | 'collaborators' | 'donate' | 'entities' | 'reports' | 'entities'
+
 export interface SectionProps {
-  id?: string
+  id?: SectionTitle
+}
+
+export interface SubSectionProps extends BaseProps {
+  id?: SubSectionTitle
+  isNarrow?: boolean
 }
 
 export interface TextProps extends BaseProps {
@@ -64,9 +72,7 @@ export interface Theme {
   }
 }
 
-export interface ThemeProps {
-  theme: Theme
-}
+export interface ThemeProps { theme: Theme }
 
 export type FormDraft<T> = { [P in keyof Partial<T>]: T[P] }
 

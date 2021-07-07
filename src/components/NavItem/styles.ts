@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components'
+import { Link as ReactScrollLink } from 'react-scroll'
 
-export default styled.li<{ isActive?: boolean, onClick?: any }>`
+export const Li = styled.li<{ isSubItem?: boolean }>`
   position: relative;
-  
-  font-size: 13px;
-  color: rgb(170, 170, 170);
+  font-size: ${({ isSubItem }) => isSubItem ? '13px' : '14px'};
   font-weight: 600;
   text-decoration: none;
   padding: 20px;
   transition: 0.3s;
-  white-space: nowrap; /* se mantiene la palabra completa */
+  white-space: nowrap;
   text-align: center;
-	color: ${({ isActive }) => isActive ? 'rgb(165,42,42)' : 'rgb(170, 170, 170)'};
+  text-transform: uppercase;
+	color: rgb(170, 170, 170);
 
   &:active {
 	  color: rgb(165,42,42);
@@ -23,24 +23,29 @@ export default styled.li<{ isActive?: boolean, onClick?: any }>`
 
 export const SubItemsWrapper = styled.ul<{ isOpen: boolean }>`
   top: 0;
-	opacity: 0.3;
+	opacity: 0;
   list-style: none; 
   pointer-events: none;
   position: absolute;
-
-  //!: calcular
-  left: calc(-50%/2);
+  width: 100%;
 	height: 50px;
 	padding: 10px 0;
-	font-size: 0.85em;
 	z-index: 15;
-	
-	display: flex; flex-flow: row nowrap; justify-content: center; align-items: center;
+	display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   transition: all 0.4s ease-in-out;
   
   ${({ isOpen }) => isOpen && css`
-    top: 40px;
+    top: 35px;
     opacity: 1;
     pointer-events: all;
   `}
+`
+
+export const Link = styled(ReactScrollLink).attrs(() => ({ activeClass: 'active' }))`
+  &.active {
+    color: rgb(165,42,42);
+  }
 `
