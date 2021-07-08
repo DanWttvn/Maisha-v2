@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { Link as RouteLink } from 'react-router-dom'
+import RouteLink from '../../components/RouteLink'
 import Image from '../../components/Image'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'

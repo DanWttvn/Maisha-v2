@@ -1,11 +1,7 @@
 import styled, { css } from 'styled-components'
 import { TextProps, BaseProps } from '../../models'
 
-export default styled.span<TextProps>`
-  margin: 0;
-  color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
-  text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
-
+export const TextStyles = css<TextProps>`
   ${({ size }) => size === 'xs' && css`
     font-size: 0.6rem;
     line-height: 24px;
@@ -46,6 +42,13 @@ export default styled.span<TextProps>`
   ${({ weight }) => weight === 'black' && css`
     font-weight: 700;
   `}
+`
+
+export default styled.span<TextProps>`
+  ${TextStyles}
+  margin: 0;
+  color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
+  text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
   ${({ isHighlighted }) => isHighlighted && css`
     color: ${({ theme }) => theme.colors.darkRed};
@@ -53,7 +56,6 @@ export default styled.span<TextProps>`
     font-weight: 900;
     font-style: italic;
   `};
-
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

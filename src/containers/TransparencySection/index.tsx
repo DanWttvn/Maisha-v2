@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { Link as RouteLink } from 'react-router-dom'
+import RouteLink from '../../components/RouteLink'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
@@ -96,7 +96,7 @@ export const TransparencySection: FC<SectionProps> = () => {
           {lang === 'SW' && 'Wanachama hawa wote wanadhana timilifu ya kanuni hizi moja kwa moja, katika tarehe yao ya kuanza ndani ya shirika.'}
         </Paragraph>
 
-        <Subtitle isSmall>
+        <Subtitle isSmall isFullWidth>
           {lang === 'ES' && 'Canal de denuncias'}
           {lang === 'EN' && 'Complaints channel'}
           {lang === 'SW' && 'Malalamiko ya kituo'}

@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import { Props } from '.'
+import { Link as RootLink } from 'react-router-dom'
+import { TextProps } from '../../models'
 import { TextStyles } from '../Text/styles'
 
-
-export default styled.a<Props>`
+export default styled(RootLink)<TextProps>`
   ${TextStyles}
   margin: 0;
   cursor: pointer;
@@ -11,6 +11,7 @@ export default styled.a<Props>`
   color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.darkRed};
   text-decoration: underline;
 
+  //! falta hover aqui y en link
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `
