@@ -18,6 +18,7 @@ export const H3 = styled.h3<Props>`
 export const H4 = styled.h4<Props>`
 	font-size: 1.3rem;
 	font-weight: 600;
+  margin-bottom: 20px;
   color: ${({ theme, color = 'black' }) => theme.colors[color]};
 
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};

@@ -1,4 +1,5 @@
 import React, { FC, useContext } from 'react'
+import { Link as RouteLink } from 'react-router-dom'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
@@ -8,13 +9,13 @@ import { SectionProps } from '../../models'
 import Li from '../../components/Li'
 import Link from '../../components/Link'
 
-export const TransparencySection: FC<SectionProps> = ({ id }) => {
+export const TransparencySection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
   return (
-    <Section id={id}>
+    <Section id="transparency">
       <Title firstPart={(lang === 'ES' && 'TRANSPARENCIA') || (lang === 'EN' && 'TRANSPARENCY') || (lang === 'SW' && 'UWAZI GHARAMA') || ''} />
-      <SubSection>
+      <SubSection id="good-practices">
         <Subtitle>
           {lang === 'ES' && 'Mecanismos de buen gobierno'}
           {lang === 'EN' && 'Good governance Mechanisms'}
@@ -32,22 +33,22 @@ export const TransparencySection: FC<SectionProps> = ({ id }) => {
         </Paragraph>
         <ul style={{ marginBottom: 16 }}>
           <Li>
-            {lang === 'ES' && <Link href="https://maisharoots.org/img/docs/Mecan%C3%ADsmo_de_gesti%C3%B3n_de_conflictos_de_inter%C3%A9s-Maisha_Roots.pdf">Gestión de conflictos de interés en el órgano de gobierno</Link>}
+            {lang === 'ES' && <Link href="/images/docs/Mecan%C3%ADsmo_de_gesti%C3%B3n_de_conflictos_de_inter%C3%A9s-Maisha_Roots.pdf">Gestión de conflictos de interés en el órgano de gobierno</Link>}
             {lang === 'EN' && 'Management of conflicts of interest in the Management team'}
             {lang === 'SW' && 'Usimamizi wa migogoro ya kimaslahi katika timu ya usimamizi'}
           </Li>
           <Li>
-            {lang === 'ES' && <Link href="https://maisharoots.org/img/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">Selección responsable de contrapartes y colaboradores</Link>}
+            {lang === 'ES' && <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">Selección responsable de contrapartes y colaboradores</Link>}
             {lang === 'EN' && 'Responsible selection of partners and collaboration'}
             {lang === 'SW' && 'Uwajibikaji wa uteuzi wa washirika'}
           </Li>
           <Li>
-            {lang === 'ES' && <Link href="https://maisharoots.org/img/docs/Aprobaci%C3%B3n_de_gastos_y_selecci%C3%B3n_de_proveedores-Maisha_Roots.pdf">Aprobación razonada de gastos y proveedores</Link>}
+            {lang === 'ES' && <Link href="/images/docs/Aprobaci%C3%B3n_de_gastos_y_selecci%C3%B3n_de_proveedores-Maisha_Roots.pdf">Aprobación razonada de gastos y proveedores</Link>}
             {lang === 'EN' && 'Reasoned approval of expenses and suppliers'}
             {lang === 'SW' && 'Uidhinishwaji wa gharama na usambazaji'}
           </Li>
           <Li>
-            {lang === 'ES' && <Link href="https://maisharoots.org/img/docs/Control_de_donaciones-Maisha_Roots.pdf">Control de Donaciones</Link>}
+            {lang === 'ES' && <Link href="/images/docs/Control_de_donaciones-Maisha_Roots.pdf">Control de Donaciones</Link>}
             {lang === 'EN' && 'Donations control'}
             {lang === 'SW' && 'Udhibiti wa michango'}
           </Li>
@@ -67,61 +68,127 @@ export const TransparencySection: FC<SectionProps> = ({ id }) => {
           {lang === 'EN' && 'Therefore, we have created some documents as a regulatory body for the performance of any action taken within the organization which applies to:'}
           {lang === 'SW' && 'Kwa hivyo, tumeunda hati zingine kama chombo cha udhibiti wa utekelezaji wa hatua yoyote iliyochukuliwa ndani ya shirika ambayo inatumika kwa:'}
         </Paragraph>
-
-        <ol>
-          <Li></Li>
-          <Li></Li>
-          <Li></Li>
-          <Li></Li>
+        <ol style={{ marginBottom: 16 }}>
+          <Li>
+            {lang === 'ES' && 'Miembros de la Asamblea General'}
+            {lang === 'EN' && 'Members of the General Assembly'}
+            {lang === 'SW' && 'Mwanachama wa mkutano mkuu'}
+          </Li>
+          <Li>
+            {lang === 'ES' && 'Junta Directiva'}
+            {lang === 'EN' && 'Management team'}
+            {lang === 'SW' && 'Timu ya usimamizi'}
+          </Li>
+          <Li>
+            {lang === 'ES' && 'Personal empleado'}
+            {lang === 'EN' && 'Employees'}
+            {lang === 'SW' && 'Wafanyakazi'}
+          </Li>
+          <Li>
+            {lang === 'ES' && 'Personal voluntario'}
+            {lang === 'EN' && 'Volunteers'}
+            {lang === 'SW' && 'Watu wa kujitolea'}
+          </Li>
         </ol>
-
         <Paragraph>
-          {lang === 'ES' && ''}
-          {lang === 'EN' && ''}
-          {lang === 'SW' && ''}
+          {lang === 'ES' && 'Todos estos miembros asumen el cumplimiento de estos principios de forma automática, al comenzar a formar parte de la Asociación.'}
+          {lang === 'EN' && 'All these members assume the accomplishment of these principles automatically, in their date of commencement within the organization.'}
+          {lang === 'SW' && 'Wanachama hawa wote wanadhana timilifu ya kanuni hizi moja kwa moja, katika tarehe yao ya kuanza ndani ya shirika.'}
         </Paragraph>
 
         <Subtitle isSmall>
-          {lang === 'ES' && ''}
-          {lang === 'EN' && ''}
-          {lang === 'SW' && ''}
+          {lang === 'ES' && 'Canal de denuncias'}
+          {lang === 'EN' && 'Complaints channel'}
+          {lang === 'SW' && 'Malalamiko ya kituo'}
         </Subtitle>
         <Paragraph>
-          {lang === 'ES' && <></>}
-          {lang === 'EN' && <></>}
-          {lang === 'SW' && <></>}
+          {lang === 'ES' && <>Con el fin de cumplir con nuestro compromiso con la transparencia y el buen gobierno, Maisha Roots pone a disposición del personal empleado y voluntario, donantes, proveedores, colaboradores, etc. un canal de denuncias que permita identificar conductas irregulares en el seno la Asociación. Estas conductas irregulares incluyen cualquier acción ilegal, irregular o contraria a las normas – tanto externas como internas - llevada a cabo por la Asociación Maisha Roots o por cualquiera de sus miembros. En el siguiente enlace puedes encontrar el documento normativo de nuestro canal de denuncias: Canal de Denuncias.</>}
+          {lang === 'EN' && <>With the aim of accomplishing our commitment with transparency and good governance, Maisha Roots makes available to the employed and volunteering staff, donors, suppliers, partners, etc. a complaints channel that allows us to identify irregular behavior within the organization. This irregular behavior includes any illegal action, irregular or against law- both intern and extern- undertaken by the organization Maisha Roots or any of its members. In this link you might find the related document to our complaints channel: Complaints channel.</>}
+          {lang === 'SW' && <>Kwa kusudi la kukamilisha kujitolea kwetu kwa uwazi na utawala bora, Maisha Roots hutengeneza wafanyakazi walioajiriwa, wafadhili, wauzaji, washirika, n.k. njia ya malalamiko ambayo inaruhusu tabia isiyo ya kawaida inajumuisha hatua yoyote haramu, isiyo ya kawaida au dhidi ya sharia zote za ndani na nje zinazofanywa na shirika Maisha Roots au mtu yeyote wa washiriki wake. Kwenye kiunga hiki unaeza kupata hati inayohusiana na kituo chetu cha malalamiko: kituo cha malalamiko.</>}
         </Paragraph>
+        {/* //! linkar y estilos */}
         <Paragraph>
-          {lang === 'ES' && <></>}
-          {lang === 'EN' && <></>}
-          {lang === 'SW' && <></>}
+          {lang === 'ES' && <>Para establecer tu denuncia, puedes rellenar las indicaciones del documento, o rellenar <RouteLink to="">este formulario</RouteLink> o envía <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">esta ficha rellena</Link> a la dirección de correo electrónico <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
+          {lang === 'EN' && <>To present your complaint, you might fill in the indications in the document, or fill in <RouteLink to="">this form</RouteLink> or send <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">this completed draft</Link> to the email address <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
+          {lang === 'SW' && <>Ili kuwasilisha malalamiko yako, unaweza kujaza dalili kwenye hati, au ujaze <RouteLink to="">fomu hii</RouteLink>, au utume <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">rasimu hii iliyosimamiwa</Link> kwa anwani ya barua pepe <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
         </Paragraph>
-
       </SubSection>
 
       <SubSection id="reports">
         <Subtitle>
-          {lang === 'ES' && ''}
-          {lang === 'EN' && ''}
-          {lang === 'SW' && ''}
+          {lang === 'ES' && 'Cuentas y memorias de actividades'}
+          {lang === 'EN' && 'Accounting and reports of activities'}
+          {lang === 'SW' && 'Uhasibu na ripoti za shughuli'}
         </Subtitle>
-        <Paragraph>
-          {lang === 'ES' && <></>}
-          {lang === 'EN' && <></>}
-          {lang === 'SW' && <></>}
-        </Paragraph>
-      </SubSection>
 
-      <SubSection id="entities">
-        <Subtitle>
-          {lang === 'ES' && ''}
-          {lang === 'EN' && ''}
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Dossier 2017'}
+          {lang === 'EN' && 'Dossier 2017'}
+          {lang === 'SW' && 'Dossier 2017'}
+          <Link href="/images/docs/Dossier_es_2017-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <Link href="/images/docs/Dossier_en_2017-MR.pdf">ENG</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Memoria de Actividades 2017'}
+          {lang === 'EN' && 'Report of Activities 2017'}
+          {lang === 'SW' && 'Ripoti ya Shughuli 2017'}
+          <Link href="/images/docs/Memoria_de_Actividades2016-2017-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Dossier 2018'}
+          {lang === 'EN' && 'Dossier 2018'}
+          {lang === 'SW' && 'Dossier 2018'}
+          <Link href="/images/docs/Dossier_es_2018-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <Link href="/images/docs/Dossier_en_2018-MR.pdf">ENG</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Memoria de Actividades 2018'}
+          {lang === 'EN' && 'Report of Activities 2018'}
+          {lang === 'SW' && 'Ripoti ya Shughuli 2018'}
+          <Link href="/images/docs/Memoria_de_Actividades2017-2018-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Memoria actividades 2019'}
+          {lang === 'EN' && 'Report of Activities 2019'}
+          {lang === 'SW' && 'Ripoti ya Shughuli 2019'}
+          <Link href="/images/docs/Memoria_de_Actividades2019-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Memoria actividades 2020'}
+          {lang === 'EN' && 'Report of Activities 2020'}
+          {lang === 'SW' && 'Ripoti ya Shughuli 2020'}
+          <Link href="/images/docs/Memoria_de_Actividades2020-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+        </Paragraph>
+        {/* //! falta swahili */}
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Estatutos Maisha Roots Spain'}
+          {lang === 'EN' && 'Maisha Roots Spain Constitution'}
           {lang === 'SW' && ''}
-        </Subtitle>
-        <Paragraph>
-          {lang === 'ES' && <></>}
-          {lang === 'EN' && <></>}
-          {lang === 'SW' && <></>}
+          <Link href="/images/docs/estatutos-Maisha_Roots_Spain.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Constitución FYWCO'}
+          {lang === 'EN' && 'FYWCO Constitution'}
+          {lang === 'SW' && ''}
+          <Link href="/images/docs/FYWCO_constitution.pdf" styles={{ margin: '0 4px' }}>ENG</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Memorandum of Understanding'}
+          {lang === 'EN' && 'Memorandum of Understanding'}
+          {lang === 'SW' && 'Memorandum of Understanding'}
+          <Link href="/images/docs/MOU-FYWCO_MRS.pdf" styles={{ margin: '0 4px' }}>ENG</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Plan de voluntariado'}
+          {lang === 'EN' && 'Volunteer Plan'}
+          {lang === 'SW' && ''}
+          <Link href="/images/docs/plan_de_voluntariado-Maisha_Roots.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+        </Paragraph>
+        <Paragraph isFullWidth>
+          {lang === 'ES' && 'Utilidad Pública Maisha Roots Spain'}
+          {lang === 'EN' && 'Maisha Roots Spain Public Utility'}
+          {lang === 'SW' && ''}
+          <Link href="/images/docs/utilidad_publica.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
         </Paragraph>
       </SubSection>
     </Section>

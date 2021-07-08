@@ -1,4 +1,5 @@
 import React, { FC, useContext } from 'react'
+import { Link as RouteLink } from 'react-router-dom'
 import Image from '../../components/Image'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
@@ -14,14 +15,14 @@ import Accordion from '../../components/Accordion'
 import Container from '../../components/Container'
 import Li from '../../components/Li'
 
-export const ColaborateSection: FC<SectionProps> = ({ id }) => {
+export const ColaborateSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
   return (
-    <Section id={id}>
+    <Section id="collaborate">
       <Title firstPart={(lang === 'ES' && 'COLABORA') || (lang === 'EN' && 'COLLABORATE') || (lang === 'SW' && 'SHIRIKI') || ''} />
 
-      <SubSection>
+      <SubSection id="volunteering">
         <Subtitle>
           {lang === 'ES' && 'Hazte voluntaria/o'}
           {lang === 'EN' && 'Become a volunteer'}
@@ -72,8 +73,10 @@ export const ColaborateSection: FC<SectionProps> = ({ id }) => {
         </Subtitle>
         <Accordion title="Hazte socia/o" isHidden={lang !== 'ES'} isFullWidth>
           <Text styles={{ marginBottom: 8 }}>Puedes donarnos una cantidad fija al mes. Uno de los pilares de nuestra asociación es la estabilidad económica. Si conseguimos una financiación estable, contribuiremos activamente a la sostenibilidad de nuestros proyectos. Por ello, te animamos a que colabores con una aportación mensual.</Text>
-          {/* //! navigate?? */}
-          <Button onClick={() => console.log('a pag de donar')} styles={{ marginBottom: 16 }}>Hazte socia/o aquí</Button>
+          {/* //! linkar */}
+          <RouteLink to="">
+            <Button onClick={() => console.log('a pag de donar')} styles={{ marginBottom: 16 }}>Hazte socia/o aquí</Button>
+          </RouteLink>
         </Accordion>
         <Accordion title={(lang === 'ES' && 'Haz una transferencia') || (lang === 'EN' && 'Make a transfer') || (lang === 'SW' && 'Fanya uhamishaji') || ''} isFullWidth>
           <Text styles={{ marginBottom: 8 }}>
@@ -157,9 +160,9 @@ export const ColaborateSection: FC<SectionProps> = ({ id }) => {
           {lang === 'SW' && 'Washirika wa mashirika'}
         </Subtitle>
         <Paragraph>
-          {lang === 'ES' && <>Maisha Roots busca entidades que quieran colaborar para el desarrollo de la comunidad tanzana. Tratamos de establecer relaciones duraderas que vayan más allá de la donación económica y que aporten beneficios a ambas partes, ya sea a través del voluntariado corporativo, la cesión de servicios o espacios, o la simple donación. Además, buscamos entidades éticas, que cumplan con nuestros <Link href="https://maisharoots.org/img/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">mecanismos de selección de colaboradores</Link>.</>}
-          {lang === 'EN' && <>Maisha Roots looks for organizations that aim to collaborate in the development of Tanzanian societies. We try to establish long-duration relations that go further than economic donations, based on a win-win strategy for both organizations. It can be through corporative volunteering, pro bono services, or economic donation. We also look for ethical corporations, that accomplish with our <Link href="https://maisharoots.org/img/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">partnership selection mechanisms</Link>.</>}
-          {lang === 'SW' && <>Maisha Roots inatafuta shirika ambalo linalenga kushirikiana katika maendeleo ya jamii za Kitanzania. Tunajaribu kuweka uhusiano wa mda mrefu ambao huenda zaidi kuliko michango ya kiuchumi, kwa msingi wa mkakati wa kushinda kwa mashirika yote mawili. Inaweza kujitolea kupitia kwa ushirika, huduma za bro bono, au mchango wa kiuchumi. Tunatafuta pia mashirika ya maadili, ambayo hutimiza kwa <Link href="https://maisharoots.org/img/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">njia za uteuzi kwa ushirikiano wetu</Link>.</>}
+          {lang === 'ES' && <>Maisha Roots busca entidades que quieran colaborar para el desarrollo de la comunidad tanzana. Tratamos de establecer relaciones duraderas que vayan más allá de la donación económica y que aporten beneficios a ambas partes, ya sea a través del voluntariado corporativo, la cesión de servicios o espacios, o la simple donación. Además, buscamos entidades éticas, que cumplan con nuestros <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">mecanismos de selección de colaboradores</Link>.</>}
+          {lang === 'EN' && <>Maisha Roots looks for organizations that aim to collaborate in the development of Tanzanian societies. We try to establish long-duration relations that go further than economic donations, based on a win-win strategy for both organizations. It can be through corporative volunteering, pro bono services, or economic donation. We also look for ethical corporations, that accomplish with our <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">partnership selection mechanisms</Link>.</>}
+          {lang === 'SW' && <>Maisha Roots inatafuta shirika ambalo linalenga kushirikiana katika maendeleo ya jamii za Kitanzania. Tunajaribu kuweka uhusiano wa mda mrefu ambao huenda zaidi kuliko michango ya kiuchumi, kwa msingi wa mkakati wa kushinda kwa mashirika yote mawili. Inaweza kujitolea kupitia kwa ushirika, huduma za bro bono, au mchango wa kiuchumi. Tunatafuta pia mashirika ya maadili, ambayo hutimiza kwa <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">njia za uteuzi kwa ushirikiano wetu</Link>.</>}
         </Paragraph>
         <Paragraph>
           {lang === 'ES' && <>Hemos colaborado con empresas como Gajo, una marca de ropa ética con un gran sentido de la responsabilidad social. Mantenemos también una colaboración sólida con Proyecto Amanecer, una ONG que colabora en el desarrollo de proyectos de cooperación al desarrollo. De manera puntual, también han colaborado con nosotros dos compañías teatrales (La Locandiera Teatro y Katharsis Teatro), la Diputación de Deportes de Palencia, la Asociación Mbuyu y la Exposición de Arte 50x50x50.</>}

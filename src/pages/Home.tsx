@@ -11,7 +11,7 @@ import Navbar from '../containers/Navbar'
 import WhoSection from '../containers/WhoSection'
 import TimelineSection from '../containers/TimelineSection'
 import LanguageContext from '../contexts/language'
-import StructureSection from '../containers/StructureSection'
+import HowWorkSection from '../containers/HowWorkSection'
 import ProjectsSection from '../containers/ProjectsSection'
 import ColaborateSection from '../containers/ColaborateSection'
 import TransparencySection from '../containers/TransparencySection'
@@ -24,8 +24,8 @@ const Home: FC = () => {
   return (
     <>
       <Navbar />
-      <p style={{ marginBottom: 100 }}>usdgfh</p>
-      <Link to="/landing">Landing</Link>
+      {/* //! hacer RouterLink con estilos */}
+      <Link to="/landing">Router Link</Link>
 
       <Button variant="A">Variant A</Button>
       <Button variant="A" styles={{ padding: 15 }}>Ahgdf</Button>
@@ -35,24 +35,13 @@ const Home: FC = () => {
       <Button variant="E">Variant E</Button>
       <Button variant="F">Variant F</Button>
       <Button variant="G">Variant G</Button>
-      <Paragraph >
-        jhsgdf ksdjfh sdfh hjsgd
-        <Text weight="black" onClick={() => console.log('isudhf')}>ldih f</Text>
-        hjgb
-        <Text isHighlighted>ldih f</Text>
-        flaugdf
-      </Paragraph>
 
-      <Title firstPart="Cómo" secondPart="trabajamos" />
-      <Subtitle>Subtitle</Subtitle>
-
-      {/* //! diferenciar subsections */}
-      <WhoSection id="about" />
-      <TimelineSection id="timeline" />
-      <StructureSection id="structure" />
-      <ProjectsSection id="projects" />
-      <ColaborateSection id="collaborate" />
-      <TransparencySection id="transparency" />
+      <WhoSection/>
+      <TimelineSection/>
+      <HowWorkSection/>
+      <ProjectsSection/>
+      <ColaborateSection/>
+      <TransparencySection/>
       
       <Footer />
 

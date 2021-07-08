@@ -18,7 +18,7 @@ export const WhoSection: FC<SectionProps> = ({ id }) => {
   const { lang } = useContext(LanguageContext)
 
   return (
-    <Section id={id}>
+    <Section id="about">
       <Title
         firstPart={(lang === 'ES' && 'QUIÉNES') || (lang === 'EN' && 'WHO') || (lang === 'SW' && 'SISI') || ''}
         secondPart={(lang === 'ES' && 'SOMOS') || (lang === 'EN' && 'ARE WE') || (lang === 'SW' && 'NI NANI') || ''}
@@ -79,7 +79,6 @@ export const WhoSection: FC<SectionProps> = ({ id }) => {
           {lang === 'SW' && <>Uinuaji wa maisha na elimu ni zana mbili ambazo zinachangia<strong> uhuru, kujitegemea na uwezeshaji </strong>wa watu. Kwa kuongezea, elimu na uinuaji wa maisha huimarisha maadili na mipango ambayo inajibu mahitaji na matakwa ya watu wengine. Kwa hivyo, Maisha Roots inalenga katika kukuza uwezo na rasilimali kwaajili ya<strong> ujenzi wa ustawi wa kawaida, uvumbuzi na maendeleo.</strong></>}
         </Paragraph>
       </SubSection>
-
 
       <SubSection id="where" isFullWidth>
         <Subtitle color='black' >

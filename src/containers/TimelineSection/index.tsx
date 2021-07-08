@@ -7,7 +7,7 @@ import { Section, SubSection } from '../../components/Section/styles'
 import Carousel from '../../components/Carousel'
 import { SectionProps } from '../../models'
 
-export const TimelineSection: FC<SectionProps> = ({ id }) => {
+export const TimelineSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
   const titles = {
@@ -17,7 +17,7 @@ export const TimelineSection: FC<SectionProps> = ({ id }) => {
   }
 
   return (
-    <Section id={id}>
+    <Section id="timeline">
       <Title
         firstPart={(lang === 'ES' && 'DE DÓNDE') || (lang === 'EN' && 'WHERE WE') || (lang === 'SW' && 'TUMETOKA') || ''}
         secondPart={(lang === 'ES' && 'VENIMOS') || (lang === 'EN' && 'COME FROM') || (lang === 'SW' && 'WAPI') || ''}

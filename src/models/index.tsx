@@ -13,8 +13,8 @@ export interface Route {
   content: FC
 }
 
-export type SectionTitle = 'header' | 'about' | 'timeline' | 'structure' | 'projects' | 'collaborate' | 'transparency'
-export type SubSectionTitle = 'know-us' | 'where' | 'context' | 'collaborators' | 'donate' | 'entities' | 'reports' | 'entities'
+export type SectionTitle = 'header' | 'about' | 'timeline' | 'how-work' | 'projects' | 'collaborate' | 'transparency'
+export type SubSectionTitle = 'know-us' | 'where' | 'context' | 'structure' | 'collaborators' | 'volunteering' | 'donate' | 'entities' | 'reports' | 'entities' | 'good-practices'
 
 export interface SectionProps {
   id?: SectionTitle

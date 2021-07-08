@@ -19,7 +19,7 @@ const PolicyBanner: FC<BaseProps> = () => {
   }, [])
 
   const handleAccept = () => {
-    setCookie('is_policy_accepted', 'true', 1)
+    setCookie('is_policy_accepted', 'true', 15)
     setIsShown(false)
   }
 

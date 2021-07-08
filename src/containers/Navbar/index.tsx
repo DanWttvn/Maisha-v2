@@ -4,15 +4,15 @@ import Styled, { Bars, Cross, ItemsWrapper } from './styles'
 import NavItem from '../../components/NavItem'
 import Image from '../../components/Image'
 import LanguageContext from '../../contexts/language'
+import { SubSectionTitle, SectionTitle } from '../../models'
 
-
-type Id = {
-  id: string
+interface SectionData {
+  id: SectionTitle
   title: { ES: string, EN: string, SW: string }
-}
-
-interface SectionData extends Id {
-  subsections?: Id[]
+  subsections?: {
+    id: SubSectionTitle
+    title: { ES: string, EN: string, SW: string }
+  }[]
 }
 
 export const Navbar: FC = () => {
@@ -28,32 +28,32 @@ export const Navbar: FC = () => {
       id: 'about',
       title: {
         ES: 'Quiénes somos',
-        EN: '',
-        SW: ''
+        EN: 'Who we are',
+        SW: 'Sisi ni nani'
       },
       subsections: [
         {
           id: 'know-us',
           title: {
             ES: 'Conócenos',
-            EN: '',
-            SW: ''
+            EN: 'Know us',
+            SW: 'Kutufahamu'
           }
         },
         {
           id: 'where',
           title: {
             ES: 'Dónde trabajamos',
-            EN: '',
-            SW: ''
+            EN: 'Where we work',
+            SW: 'Tunafanya kazi wapi'
           }
         },
         {
           id: 'context',
           title: {
             ES: 'Nuestro contexto',
-            EN: '',
-            SW: ''
+            EN: 'Our context',
+            SW: 'Muktadha wetu'
           }
         }
       ],
@@ -62,32 +62,32 @@ export const Navbar: FC = () => {
       id: 'timeline',
       title: {
         ES: 'De dónde venimos',
-        EN: '',
-        SW: ''
+        EN: 'Where we come from',
+        SW: 'Tumetoka wapi'
       }
     },
     {
-      id: 'structure',
+      id: 'how-work',
       title: {
         ES: 'Cómo trabajamos',
-        EN: '',
-        SW: ''
+        EN: 'How we work',
+        SW: 'Fanya Kazi'
       },
       subsections: [
         {
           id: 'structure',
           title: {
             ES: 'Estructura',
-            EN: '',
-            SW: ''
+            EN: 'Structure',
+            SW: 'Muundo'
           }
         },
         {
           id: 'collaborators',
           title: {
             ES: 'Colaboradoras/es',
-            EN: '',
-            SW: ''
+            EN: 'Collaborators',
+            SW: 'Washirika'
           }
         }
       ]
@@ -96,40 +96,40 @@ export const Navbar: FC = () => {
       id: 'projects',
       title: {
         ES: 'Qué hacemos',
-        EN: '',
-        SW: ''
+        EN: 'What we do',
+        SW: 'Tunafanya nini'
       }
     },
     {
       id: 'collaborate',
       title: {
         ES: 'Colabora',
-        EN: '',
-        SW: '',
+        EN: 'Collaborate',
+        SW: 'Shiriki',
       },
       subsections: [
         {
-          id: 'collaborate',
+          id: 'volunteering',
           title: {
             ES: 'Voluntariado',
-            EN: '',
-            SW: ''
+            EN: 'Volunteers',
+            SW: 'Kujitolea'
           }
         },
         {
           id: 'donate',
           title: {
             ES: 'Donaciones',
-            EN: '',
-            SW: ''
+            EN: 'Donations',
+            SW: 'Changia'
           }
         },
         {
           id: 'entities',
           title: {
             ES: 'Entidades',
-            EN: '',
-            SW: ''
+            EN: 'Partners',
+            SW: 'Washirika'
           }
         }
       ]
@@ -138,23 +138,23 @@ export const Navbar: FC = () => {
       id: 'transparency',
       title: {
         ES: 'Transparencia',
-        EN: '',
-        SW: '',
+        EN: 'Transparency',
+        SW: 'Uwazi Gharama',
       },
       subsections: [
         {
-          id: 'transparency',
+          id: 'good-practices',
           title: {
             ES: 'Buen gobierno',
-            EN: '',
-            SW: ''
+            EN: 'Good governance',
+            SW: 'Utawala bora'
           },
         },
         {
           id: 'reports',
           title: {
             ES: 'Memorias',
-            EN: '',
+            EN: 'Reports',
             SW: ''
           }
         }

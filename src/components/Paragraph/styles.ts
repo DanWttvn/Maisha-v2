@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { TextProps } from '../../models'
 
 export default styled.p<TextProps>`
-/* //! si le pongo el flex, no sigue la frase con spans dentro */
+  /* si le pongo el flex, no sigue la frase con spans dentro */
   margin-bottom: 16px;
   color: ${({ theme, color }) => !color || color === 'inherit' ?  'inherit' : theme.colors[color]};
   word-wrap: break-word;

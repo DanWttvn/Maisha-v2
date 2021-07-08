@@ -7,16 +7,17 @@ import { Section, SubSection } from '../../components/Section/styles'
 import { SectionProps } from '../../models'
 
 //! falta inglés y swahili
-export const ProjectsSection: FC<SectionProps> = ({ id }) => {
+export const ProjectsSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
   return (
-    <Section id={id}>
+    <Section id="projects">
       <Title
         firstPart={(lang === 'ES' && 'QUÉ') || (lang === 'EN' && 'WHAT') || (lang === 'SW' && '') || ''}
         secondPart={(lang === 'ES' && 'HACEMOS') || (lang === 'EN' && 'WE DO') || (lang === 'SW' && '') || ''}
       />
 
+      {/* //! tengo fotos en el email */}
       <SubSection>
         <Subtitle>
           {lang === 'ES' && 'Proyecto deportivo'}

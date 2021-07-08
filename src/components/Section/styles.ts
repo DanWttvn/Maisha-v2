@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
-import { SubSectionProps, BaseProps } from '../../models'
+import { SubSectionProps, SectionProps, BaseProps } from '../../models'
 import theme from '../../styles/theme'
 
-export const Section = styled.div<BaseProps>`
+export const Section = styled.div<SectionProps & BaseProps>`
   width: 100%;
 	max-width: 2500px;
 	margin: 0 auto;
