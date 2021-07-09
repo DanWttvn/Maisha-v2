@@ -19,9 +19,10 @@ type Props = {
 
 const Join: FC<Props> = ({ variant }) => {
   const [ selectedAmount, setSelectedAmount ] = useState<number>()
-  const [ customAmount, setCustomAmount ] = useState<number>(0)
-  const [ isFormModalOpen, setIsFormModalOpen ] = useState<boolean>(false)
-  const [ isError, setIsError ] = useState<boolean>(false)
+  const [ customAmount, setCustomAmount ] = useState(0)
+  const [ isFormModalOpen, setIsFormModalOpen ] = useState(false)
+  const [ isError, setIsError ] = useState(false)
+  const [ isSmallerThanMin, setIsSmallerThanMin ] = useState(false)
   const [ isCTAVisible, setIsCTAVisible ] = useState(true)
   const { isNear, elementRef } = useIntersection(false, '350px')
 
@@ -37,14 +38,17 @@ const Join: FC<Props> = ({ variant }) => {
   const handleInputChange = (value: string) => {
     setCustomAmount(Number(value))
     handleSelectAmount(value)
+    setIsSmallerThanMin(false)
   }
 
   const handleOpenForm = () => {
     if (!selectedAmount || selectedAmount === 0) return setIsError(true)
+    if (selectedAmount < 5) return setIsSmallerThanMin(true)
     setIsError(false)
     setIsFormModalOpen(true)
   }
 
+  //! recaptcha
   return (
     <>
       <Container direction="vertical" styles={{ margin: '-80px auto 24px', zIndex: defaultTheme.zIndex.medium }}>
@@ -54,11 +58,14 @@ const Join: FC<Props> = ({ variant }) => {
           <Button onClick={handleSelectAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} variant="C">15€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} variant="C">25€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} variant="C">
-            <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12 }} />€
+            <Input type="number" min={5} onChange={handleInputChange} styles={{ marginRight: 12 }} />€
           </Button>
         </Container>
         <Text isHidden={isError} color="black" weight="semibold" isFullWidth>Elige tu aportación mensual</Text>
+        <Text isHidden={selectedAmount !== 5} color="black" size="s" styles={{ width: 860 }}>*Para evitar comisiones del banco y sacar el máximo provecho a tu aportación, retiraremos cada dos meses 10€ de tu cuenta</Text>
+        <SkipWrap />
         <Text isHidden={!isError} color="brightRed" weight="black" isFullWidth>*Por favor, selecciona una cantidad mensual</Text>
+        <Text isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>*La cantidad mínima es de 5€</Text>
       </Container>
 
       <SkipWrap />

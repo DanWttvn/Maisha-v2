@@ -33,6 +33,42 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
 
   if (isHidden) return null
 
+  const sendEmail = (data: FormData & { amount: number, date: string }, hasFetchFailed?: boolean, errorInfo?: string) => {
+    (window as any).Email.send({
+      SecureToken: `${process.env.REACT_APP_SMPT_TOKEN}`,
+      To : [ `${process.env.REACT_APP_EMAIL1}`, `${process.env.REACT_APP_EMAIL2}` ],
+      From : 'info@maisharoots.org',
+      Subject : 'Nuevo socio!',
+      Body : `
+        ${!!hasFetchFailed && `¡CUIDADO! Se ha producido un error al intentar meter los datos en el excel. INTRODUCIR A MANO. <br> Error: ${errorInfo}`}
+        Nuevo socio desde la Landing variante ${variant} !
+        Sus datos:
+        <br>
+        Nombre: ${data.name}
+        <br>
+        DNI: ${data.dni}
+        <br>
+        Email: ${data.email}
+        <br>
+        Código Postal: ${data.CP}
+        <br>
+        IBAN: ${data.IBAN}
+        <br>
+        Fecha de alta: ${data.date}
+        <br>
+        Mes de alta: ${new Date().getMonth() + 1}
+        <br>
+        Dinerito al mes: ${data.amount}
+      `
+    }).then(() => window.location.href = 'https://maisharoots.org/donate-success'
+    ).catch((err: Error) => {
+      if (hasFetchFailed) return setErrors([ ...errors, 'fail' ])
+      setErrors([ ...errors, 'smtpjs' ])
+      console.error(err)
+      window.location.href = 'https://maisharoots.org/donate-success'
+    })
+  }
+
   const handleFormSubmit = (formData: FormData) => {
     const data = {
       ...formData,
@@ -56,46 +92,19 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
       method: 'post',
       body: JSON.stringify({ 'data': data }),
     }).then(res => {
-      console.log('4', res)
       if (res.status === 201 || res.status === 200) {
-        (window as any).Email.send({
-          SecureToken: `${process.env.REACT_APP_SMPT_TOKEN}`,
-          //! poner maisba
-          To : [ `${process.env.REACT_APP_EMAIL1}` ],
-          From : 'info@maisharoots.org',
-          Subject : 'Nuevo socio!',
-          //! quitar 'ESTO ES...
-          Body : `
-            ESTO ES UNA PRUEBA DE DANIELA PARA LA LANDING
-            Nuevo socio desde la Landing !
-            Sus datos:
-            <br>
-            Nombre: ${data.name}
-            <br>
-            DNI: ${data.dni}
-            <br>
-            Email: ${data.email}
-            <br>
-            Código Postal: ${data.CP}
-            <br>
-            IBAN: ${data.IBAN}
-            <br>
-            Fecha de alta: ${data.date}
-            <br>
-            Mes de alta: ${new Date().getMonth() + 1}
-            <br>
-            Dinerito al mes: ${data.amount}
-          `
-        }).then((message: string) => {
-          console.log('sent!', message)
-          window.location.href = 'https://maisharoots.org/donate-success'
-        }).catch((err: Error) => console.error(err))
-      } else {
+        sendEmail(data)
         setIsSending(false)
-        // formMsg.innerHTML = '<span class="form-msg">Ha ocurrido un error, por favor, vuelve a intentarlo más tarde</span>';
+      } else {
+        sendEmail(data, true, res.toString())
+        setIsSending(false)
         console.error(res)
       }
-    }).catch(err => console.error(err))
+    }).catch(err => {
+      sendEmail(data, true, err)
+      setIsSending(false)
+      console.error(err)
+    })
   }
 
   const label = (
@@ -171,13 +180,13 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
           required
           fullWidth
           error={errors.includes('IBAN')}
+          helperText="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
           id="IBAN"
           label="Cuenta Bancaria"
           name="IBAN"
           autoComplete="IBAN"
           InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
           inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-          helperText="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
           inputRef={register}
         />
         <FormControlLabel
@@ -186,6 +195,7 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
           style={{ fontFamily: theme.fonts.main }}
         />
         <SkipWrap/>
+        <Text color="brightRed" weight="bold" styles={{ marginBottom: 16 }} isHidden={!errors.includes('fail')} isFullWidth>Ha ocurrido un error, por favor, vuelve a intentarlo más tarde o envía un email a info@maisharoots.org</Text>
         <Button type="submit" isLoading={isSending} styles={{ margin: '0 auto' }}>Enviar</Button>
       </Styled>
       <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />

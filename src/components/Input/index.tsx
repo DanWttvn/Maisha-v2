@@ -5,9 +5,10 @@ import Styled from './styles'
 export interface Props extends BaseProps {
   type?: 'text' | 'number'
   onChange: (value: string) => void
+  min?: number
 }
 
-const Input: FC<Props> = ({ type = 'text', styles, onChange, isFullWidth }) => {
+const Input: FC<Props> = ({ type = 'text', styles, min, onChange, isFullWidth }) => {
   const handleInput = (e: any) => {
     if (e.key === '.' || e.key === ',') e.preventDefault()
   }
@@ -16,7 +17,7 @@ const Input: FC<Props> = ({ type = 'text', styles, onChange, isFullWidth }) => {
     onChange(e.currentTarget.value)
   }
 
-  return <Styled step="1" onKeyDown={handleInput} onChange={handleChange} type={type} styles={styles} isFullWidth={isFullWidth}/>
+  return <Styled step="1" min={min} onKeyDown={handleInput} onChange={handleChange} type={type} styles={styles} isFullWidth={isFullWidth}/>
 }
 
 export default Input

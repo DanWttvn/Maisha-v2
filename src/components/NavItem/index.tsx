@@ -4,13 +4,12 @@ import { Li, SubItemsWrapper, Link } from './styles'
 
 export interface Props extends BaseProps {
   subItemsData?: { name: string, section: string }[]
-  isActive?: boolean
   sectionId: string
   onClick?: () => void
   onOpen: (isShown: boolean) => void
 }
 
-const NavItem: FC<Props> = ({ children, subItemsData, isActive, sectionId, onClick, onOpen }) => {
+const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen }) => {
   const [ showSub, setShowSub ] = useState(false)
 
   const subItems = subItemsData?.map((x, i) => (

@@ -14,7 +14,7 @@ import { BorderedBox } from './styles'
 import DataText from '../DataText'
 import { SectionProps } from '../../models'
 
-export const WhoSection: FC<SectionProps> = ({ id }) => {
+export const WhoSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
   return (

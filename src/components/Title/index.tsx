@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, forwardRef } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { BaseProps } from '../../models'
 import useIntersection from '../../hooks/useIntersection'
 import Styled, {  Wrapper } from './styles'
@@ -8,7 +8,7 @@ export interface Props extends BaseProps {
   secondPart?: string
 }
 
-const Title: FC<Props> = forwardRef(({ firstPart, secondPart, styles }, ref) => {
+const Title: FC<Props> = ({ firstPart, secondPart, styles }) => {
   const [ isVisible, setIsVisible ] = useState(false)
   const { isNear, elementRef } = useIntersection(false, '500px')
 
@@ -28,7 +28,7 @@ const Title: FC<Props> = forwardRef(({ firstPart, secondPart, styles }, ref) => 
       }
     </Styled>
   )
-})
+}
 
 Title.displayName = 'Title'
 

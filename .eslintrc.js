@@ -23,7 +23,7 @@ module.exports = {
   ],
   'rules': {
     'indent': [
-      'none',
+      'warn',
       2
     ],
     'linebreak-style': [
@@ -43,6 +43,10 @@ module.exports = {
     ],
     'no-extra-boolean-cast':[
       'off'
+    ],
+    'no-explicit-any': [
+      'off',
+      'never'
     ],
     'array-bracket-spacing': [ 'warn', 'always' ]
   }
