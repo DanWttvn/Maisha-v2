@@ -7,7 +7,7 @@ export interface Props extends TextProps {
   target?: string
 }
 
-const Link: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', color, onClick, styles, size = 'm', isHidden }) => {
+const Link: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', color, onClick, styles, size = 'inherit', isHidden }) => {
   if (isHidden) return null
 
   return (

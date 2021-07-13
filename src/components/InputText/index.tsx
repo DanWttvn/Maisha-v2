@@ -1,19 +1,19 @@
 import React, { FC, ChangeEvent, useState } from 'react'
-import { BaseProps } from '../../models'
+import { BaseProps, InputProps } from '../../models'
 import theme from '../../styles/theme'
 import Styled from './styles'
 
-export interface Props extends BaseProps {
-  type?: 'text' | 'number'
-  onChange?: (value: string) => void
-  name: string
+export interface Props extends BaseProps, InputProps {
   label?: string
-  isInvalid?: boolean
+  name: string
+  autocomplete?: string
+  type?: 'text' | 'number' | 'email'
+  onChange?: (value: string) => void
   helper?: string
   register?: any
 }
 
-const InputText: FC<Props> = ({ isHidden, styles, name, label, type = 'text', onChange, isInvalid, helper, register, isFullWidth }) => {
+const InputText: FC<Props> = ({ isHidden, styles, name, label, autocomplete, type = 'text', onChange, isError, helper, isRequired, register, isFullWidth }) => {
   const [ value, setValue ] = useState('')
   const [ formatError, setFormatError ] = useState<Error>()
 
@@ -37,17 +37,20 @@ const InputText: FC<Props> = ({ isHidden, styles, name, label, type = 'text', on
       value={value}
       label={label}
       name={name}
-      autoComplete={name}
+      autoComplete={autocomplete}
       onChange={handleChange}
-      error={isInvalid || !!formatError}
+      error={isError || !!formatError}
       fullWidth={isFullWidth}
       inputRef={register}
       helperText={helper}
+      required={isRequired}
       InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-      inputProps={{ style: { fontFamily: theme.fonts.main } }}
+      inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
       style={styles}
     />
   )
 }
+
+InputText.displayName = 'InputText'
 
 export default InputText

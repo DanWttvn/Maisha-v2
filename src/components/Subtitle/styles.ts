@@ -10,6 +10,7 @@ export const H3 = styled.h3<Props>`
   line-height: 1.5em;
   color: ${({ theme, color = 'black' }) => theme.colors[color]};
   word-wrap: break-word;
+  text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
@@ -20,6 +21,7 @@ export const H4 = styled.h4<Props>`
 	font-weight: 600;
   margin-bottom: 20px;
   color: ${({ theme, color = 'black' }) => theme.colors[color]};
+  text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}

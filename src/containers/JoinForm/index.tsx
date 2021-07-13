@@ -1,16 +1,17 @@
 import React, { FC, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { BaseProps } from '../../models'
 import Button from '../../components/Button'
 import Text from '../../components/Text'
 import SkipWrap from '../../components/SkipWrap'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
-import { useForm } from 'react-hook-form'
-import Styled, { InputText } from './styles'
 import { format } from 'date-fns'
 import { isEmailValid, isBankAccountValid } from '../../helpers/form'
 import theme from '../../styles/theme'
 import PolicyModal from '../PolicyModal'
+import InputText from '../../components/InputText'
+import Form from '../../components/Form'
 
 export interface Props extends BaseProps {
   amountSelected: number
@@ -25,9 +26,9 @@ type FormData = {
   IBAN: string
 }
 
-const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
+const JoinForm: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
-  const { register, handleSubmit } = useForm()
+  const { register } = useForm()
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
   const [ isSending, setIsSending ] = useState(false)
 
@@ -40,7 +41,7 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
       From : 'info@maisharoots.org',
       Subject : 'Nuevo socio!',
       Body : `
-        ${!!hasFetchFailed && `¡CUIDADO! Se ha producido un error al intentar meter los datos en el excel. INTRODUCIR A MANO. <br> Error: ${errorInfo}`}
+        ${!!hasFetchFailed ? `¡CUIDADO! Se ha producido un error al intentar meter los datos en el excel. INTRODUCIR A MANO. <br> Error: ${errorInfo}` : ''}
         Nuevo socio desde la Landing variante ${variant} !
         Sus datos:
         <br>
@@ -69,7 +70,7 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
     })
   }
 
-  const handleFormSubmit = (formData: FormData) => {
+  const handleSubmit = (formData: FormData) => {
     const data = {
       ...formData,
       amount: amountSelected,
@@ -116,78 +117,47 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
 
   return (
     <>
-      <Styled onSubmit={handleSubmit(handleFormSubmit)} styles={styles}>
-        {/* //! hacer esto un tema o algo del Input */}
+      <Form handleSubmit={handleSubmit} styles={styles}>
         <InputText
-          variant="standard"
-          margin="normal"
-          required
-          fullWidth
-          id="name"
           label="Nombre y Apellidos"
           name="name"
-          autoComplete="name"
-          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-          inputRef={register}
+          autocomplete="name"
+          isRequired
+          isFullWidth
         />
         <InputText
-          variant="standard"
-          margin="normal"
-          required
-          fullWidth
-          id="dni"
           label="DNI/Pasaporte"
           name="dni"
-          autoComplete="dni"
-          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-          inputRef={register}
+          autocomplete="dni"
+          isRequired
+          isFullWidth
         />
         <InputText
-          variant="standard"
-          margin="normal"
-          required
-          fullWidth
-          error={errors.includes('email')}
-          helperText={errors.includes('email') ? 'Por favor, incluye un email válido' : ''}
-          id="email"
           label="Correo Electrónico"
           name="email"
           type="email"
-          autoComplete="email"
-          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-          inputRef={register}
+          autocomplete="email"
+          isError={errors.includes('email')}
+          helper={errors.includes('email') ? 'Por favor, incluye un email válido' : ''}
+          isRequired
+          isFullWidth
         />
         <InputText
-          variant="standard"
-          margin="normal"
-          required
-          fullWidth
-          type="number"
-          id="CP"
           label="Código Postal"
           name="CP"
-          autoComplete="CP"
-          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-          inputRef={register}
+          type="number"
+          autocomplete="CP"
+          isRequired
+          isFullWidth
         />
         <InputText
-          variant="standard"
-          margin="normal"
-          required
-          fullWidth
-          error={errors.includes('IBAN')}
-          helperText="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
-          id="IBAN"
           label="Cuenta Bancaria"
           name="IBAN"
-          autoComplete="IBAN"
-          InputLabelProps={{ style: { fontFamily: theme.fonts.main } }}
-          inputProps={{ style: { fontFamily: theme.fonts.main, fontWeight: 500 } }}
-          inputRef={register}
+          autocomplete="IBAN"
+          isError={errors.includes('IBAN')}
+          helper="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
+          isRequired
+          isFullWidth
         />
         <FormControlLabel
           control={<Checkbox inputRef={register} name="privacy" defaultChecked={false} color="primary" required/>}
@@ -197,10 +167,10 @@ const Form: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
         <SkipWrap/>
         <Text color="brightRed" weight="bold" styles={{ marginBottom: 16 }} isHidden={!errors.includes('fail')} isFullWidth>Ha ocurrido un error, por favor, vuelve a intentarlo más tarde o envía un email a info@maisharoots.org</Text>
         <Button type="submit" isLoading={isSending} styles={{ margin: '0 auto' }}>Enviar</Button>
-      </Styled>
+      </Form>
       <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
     </>
   )
 }
 
-export default Form
+export default JoinForm

@@ -11,7 +11,6 @@ export const Section = styled.div<SectionProps & BaseProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 
   ${({ styles }) => ({ ...styles })}
 `
@@ -24,6 +23,8 @@ export const SubSection = styled.div<SubSectionProps>`
 	flex-flow: row wrap;
 
   ${({ isFullWidth }) => !isFullWidth && css`
+    padding-left: 120px; padding-right: 120px;
+
     @media ${theme.breakpoints.m} {
       padding-left: 80px; padding-right: 80px;
     }
@@ -33,7 +34,6 @@ export const SubSection = styled.div<SubSectionProps>`
     @media ${theme.breakpoints.xs} {
       padding-left: 20px; padding-right: 20px;
     }
-    padding-left: 120px; padding-right: 120px;
   `}
 
   ${({ isNarrow }) => isNarrow && css`

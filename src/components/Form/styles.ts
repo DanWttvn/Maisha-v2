@@ -6,7 +6,7 @@ export default styled.form<Partial<Props>>`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  width: 100%;
   
+  ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

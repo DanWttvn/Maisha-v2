@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components'
 import { TextProps, BaseProps } from '../../models'
 
 export const TextStyles = css<TextProps>`
+  text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
+
   ${({ size }) => size === 'xs' && css`
     font-size: 0.6rem;
     line-height: 24px;
@@ -48,7 +50,6 @@ export default styled.span<TextProps>`
   ${TextStyles}
   margin: 0;
   color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
-  text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
   ${({ isHighlighted }) => isHighlighted && css`
     color: ${({ theme }) => theme.colors.darkRed};

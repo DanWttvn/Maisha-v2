@@ -7,10 +7,10 @@ export interface Props extends BaseProps {
   offset?: number
 }
 
-const ScrollLink: FC<Props> = ({ children, to, offset = -90, isHidden }) => {
+const ScrollLink: FC<Props> = ({ children, to, className, offset = -90, isHidden }) => {
   if (isHidden) return null
 
-  return <Link to={to} activeClass="active" spy={true} smooth={true} offset={offset}>{children}</Link>
+  return <Link to={to} activeClass="active" spy={true} smooth={true} offset={offset} className={className}>{children}</Link>
 }
 
 export default ScrollLink

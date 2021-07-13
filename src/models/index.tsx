@@ -35,7 +35,7 @@ export interface TextProps extends BaseProps {
   isHighlighted?: boolean
   isCentered?: boolean
   weight?: 'normal' | 'semibold' | 'bold' | 'black'
-  size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'
+  size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'inherit'
   color?: keyof Theme['colors'] | 'inherit'
 }
 
@@ -83,3 +83,5 @@ export interface ThemeProps { theme: Theme }
 export type FormDraft<T> = { [P in keyof Partial<T>]: T[P] }
 
 export type Language = 'ES' | 'EN' | 'SW'
+
+export type LanguageOptions = { ES: string, EN: string, SW: string }
