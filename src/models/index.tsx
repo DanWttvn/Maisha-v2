@@ -8,6 +8,11 @@ export interface BaseProps {
   className?: string
 }
 
+export interface InputProps {
+  isError?: boolean
+  isRequired?: boolean
+}
+
 export interface Route {
   url: string
   content: FC
@@ -61,6 +66,7 @@ export interface Theme {
     elevation1: string
     elevation2: string
     elevation3: string
+    elevation4: string
   }
   breakpoints: {
     xs: string

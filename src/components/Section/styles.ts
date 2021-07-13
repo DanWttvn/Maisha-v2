@@ -3,6 +3,7 @@ import { SubSectionProps, SectionProps, BaseProps } from '../../models'
 import theme from '../../styles/theme'
 
 export const Section = styled.div<SectionProps & BaseProps>`
+  position: relative;
   width: 100%;
 	max-width: 2500px;
 	margin: 0 auto;

@@ -1,9 +1,20 @@
 import { keyframes } from 'styled-components'
 
-export const sizeAnimation = keyframes`
-    from { transform: scale(1); }
-    to { transform: scale(1.05); }
+export const headerAnimation = keyframes`
+    from {
+      transform: scale(1);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1.2);
+      opacity: 1;
+    }
   }
+`
+
+export const sizeAnimation = keyframes`
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
 `
 
 export const circularDash = keyframes`
@@ -25,4 +36,9 @@ export const circularRotate = keyframes`
   100% {
     transform: rotate(360deg);
   }
+`
+
+export const scrollIconAnimation = keyframes`
+  from { bottom: 38px; }
+  to { bottom: 34px; }
 `

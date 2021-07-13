@@ -26,7 +26,8 @@ const theme: Theme = {
   shadows: {
     elevation1: '0px 0px 8px -5px rgba(122, 23, 36,0.1)',
     elevation2: '0px 3px 16px -11px rgba(112,112,112,0.86)',
-    elevation3: '-1px 5px 14px 1px rgba(0,0,0,0.2)'
+    elevation3: '-1px 5px 14px 1px rgba(0,0,0,0.2)',
+    elevation4: '0px 3px 30px -11px rgba(112,112,112,0.2)'
   },
   breakpoints: {
     xs: '(max-width: 400px)',

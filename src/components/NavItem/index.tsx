@@ -1,10 +1,10 @@
 import React, { useState, FC } from 'react'
-import { BaseProps } from '../../models'
-import { Li, SubItemsWrapper, Link } from './styles'
+import { BaseProps, SectionTitle, SubSectionTitle } from '../../models'
+import { Li, SubItemsWrapper, ScrollLink } from './styles'
 
 export interface Props extends BaseProps {
-  subItemsData?: { name: string, section: string }[]
-  sectionId: string
+  subItemsData?: { name: string, section: SubSectionTitle }[]
+  sectionId: SectionTitle
   onClick?: () => void
   onOpen: (isShown: boolean) => void
 }
@@ -14,7 +14,7 @@ const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen
 
   const subItems = subItemsData?.map((x, i) => (
     <Li key={i} isSubItem>
-      <Link to={x.section} activeClass="active" spy={true} smooth={true} offset={-90}>{x.name}</Link>
+      <ScrollLink to={x.section}>{x.name}</ScrollLink>
     </Li>
   ))
 
@@ -26,7 +26,7 @@ const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen
 
   return (
     <Li onMouseEnter={handleToggle.bind(undefined, true)} onMouseLeave={handleToggle.bind(undefined, false)}>
-      <Link to={sectionId} spy={true} smooth={true} offset={-90} activeClass="active">{children}</Link>
+      <ScrollLink to={sectionId}>{children}</ScrollLink>
       <SubItemsWrapper isOpen={showSub}>{subItems}</SubItemsWrapper>
     </Li>
   )

@@ -1,7 +1,7 @@
 import React, { useState, FC, useContext } from 'react'
-import { Link } from 'react-scroll'
 import Styled, { Bars, Cross, ItemsWrapper } from './styles'
 import NavItem from '../../components/NavItem'
+import ScrollLink from '../../components/ScrollLink'
 import Image from '../../components/Image'
 import LanguageContext from '../../contexts/language'
 import { SubSectionTitle, SectionTitle } from '../../models'
@@ -179,9 +179,9 @@ export const Navbar: FC = () => {
 
   return (
     <Styled isOpen={isOpen}>
-      <Link to="header" style={{ marginTop: 16 }}>
-        <Image styles={{ width: 200 }} src="./images/logo.png" />
-      </Link>
+      <ScrollLink to="header" offset={0}>
+        <Image styles={{ width: 200, marginTop: 16 }} src="./images/logo.png" />
+      </ScrollLink>
       {/* <Bars /> */}
       {/* <Cross /> */}
       <ItemsWrapper>{items}</ItemsWrapper>

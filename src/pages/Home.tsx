@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Footer from '../containers/Footer'
 import Navbar from '../containers/Navbar'
+import HeroSection from '../containers/HeroSection'
 import WhoSection from '../containers/WhoSection'
 import TimelineSection from '../containers/TimelineSection'
 import HowWorkSection from '../containers/HowWorkSection'
@@ -26,6 +27,7 @@ const Home: FC = () => (
     <Button variant="F">Variant F</Button>
     <Button variant="G">Variant G</Button>
 
+    <HeroSection />
     <WhoSection/>
     <TimelineSection/>
     <HowWorkSection/>

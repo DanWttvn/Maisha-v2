@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Link as ReactScrollLink } from 'react-scroll'
+import ScrollLinkRoot from '../ScrollLink'
 
 export const Li = styled.li<{ isSubItem?: boolean }>`
   position: relative;
@@ -44,7 +44,7 @@ export const SubItemsWrapper = styled.ul<{ isOpen: boolean }>`
   `}
 `
 
-export const Link = styled(ReactScrollLink).attrs(() => ({ activeClass: 'active' }))`
+export const ScrollLink = styled(ScrollLinkRoot).attrs(() => ({ activeClass: 'active' }))`
   &.active {
     color: rgb(165,42,42);
   }
