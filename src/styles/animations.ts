@@ -42,3 +42,8 @@ export const scrollIconAnimation = keyframes`
   from { bottom: 38px; }
   to { bottom: 34px; }
 `
+
+export const colorFadeInAnimation = keyframes`
+  from { bottom: rgba(0,0,0,0) }
+  to { background: rgba(0,0,0,.7); }
+`

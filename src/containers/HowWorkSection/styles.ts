@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Image from '../../components/Image'
 
 export const StructureCard = styled.div`
@@ -15,11 +15,9 @@ export const GroupCard = styled.div`
 	flex-flow: column nowrap;
 	justify-content: center;
 
-	${({ theme }) => css`
-		@media ${theme.breakpoints.sl} {
-			width: 100%;
-		}
-	`}
+	@media ${({ theme }) => theme.breakpoints.sl} {
+		width: 100%;
+	}
 `
 
 export const GroupsBlock = styled.div`
@@ -29,20 +27,16 @@ export const GroupsBlock = styled.div`
 	justify-content: center;
 	align-items: flex-start;
 
-	${({ theme }) => css`
-		@media ${theme.breakpoints.xl} {
-			width: 100%;
-		}
-	`}
+	@media ${({ theme }) => theme.breakpoints.xl} {
+		width: 100%;
+	}
 `
 
 export const CommissionIcon = styled(Image)`
 	height: 150px;
 	margin: 20px 0;
 
-	${({ theme }) => css`
-		@media ${theme.breakpoints.s} {
-			height: 120px;
-		}
-	`}
+	@media ${({ theme }) => theme.breakpoints.s} {
+		height: 120px;
+	}
 `

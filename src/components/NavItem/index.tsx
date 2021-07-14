@@ -18,7 +18,7 @@ const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen
   const subItems = subItemsData?.map((x, i) => (
     <Li key={i} isSubItem>
       {isHomePage
-        ? <ScrollLink to={x.section}>{x.name}</ScrollLink>
+        ? <ScrollLink to={x.section} onClick={onClick}>{x.name}</ScrollLink>
         : <Link href={`${urls.root}#${x.section}`} target="">{x.name}</Link>
       }
     </Li>
@@ -33,7 +33,7 @@ const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen
   return (
     <Li onMouseEnter={handleToggle.bind(undefined, true)} onMouseLeave={handleToggle.bind(undefined, false)}>
       {isHomePage
-        ? <ScrollLink to={sectionId}>{children}</ScrollLink>
+        ? <ScrollLink to={sectionId} onClick={onClick}>{children}</ScrollLink>
         : <Link href={`${urls.root}#${sectionId}`} target="">{children}</Link>
       }
       <SubItemsWrapper isOpen={showSub}>{subItems}</SubItemsWrapper>

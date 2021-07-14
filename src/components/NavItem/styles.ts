@@ -30,7 +30,7 @@ export const SubItemsWrapper = styled.ul<{ isOpen: boolean }>`
   width: 100%;
 	height: 50px;
 	padding: 10px 0;
-	z-index: 15;
+  z-index: ${({ theme }) => theme.zIndex.high};
 	display: flex;
   flex-flow: row nowrap;
   justify-content: center;
