@@ -17,7 +17,7 @@ const Complains: FC = () => {
   const { lang } = useContext(LanguageContext)
   const [ errors, setErrors ] = useState<string[]>([])
   const [ isSending, setIsSending ] = useState(false)
-  const [ isSuccessful, setIsSuccesful ] = useState(true)
+  const [ isSuccessful, setIsSuccesful ] = useState(false)
 
   //! faltan traducciones
   const labelCopies: Record<string, LanguageOptions> = {

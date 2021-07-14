@@ -15,7 +15,7 @@ import PolicyBanner from '../containers/PolicyBanner'
 
 const Home: FC = () => (
   <>
-    <Navbar />
+    <Navbar isHomePage/>
     <Link to="/landing">Router Link</Link>
 
     <Button variant="A">Variant A</Button>
