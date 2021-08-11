@@ -1,9 +1,9 @@
 import React, { Children, cloneElement, FC, ReactElement, useEffect, useRef, useState } from 'react'
 import { BaseProps } from '../../../models'
 import Subtitle from '../../Subtitle'
-import Styled, { Content, Wrapper } from './styles'
 import Control from '../Control'
 import { Props as ItemProps } from '../Item'
+import Styled, { Content, Wrapper } from './styles'
 
 export interface Props extends BaseProps {
   title?: string

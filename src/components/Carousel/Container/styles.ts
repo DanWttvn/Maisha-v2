@@ -5,6 +5,7 @@ export default styled.section<StyledProps<BaseProps>>`
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-x: hidden;
   position: relative;
 
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};

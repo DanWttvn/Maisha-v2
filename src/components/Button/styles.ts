@@ -17,13 +17,12 @@ const Button = styled.button<Props>`
 `
 
 export const ButtonA = styled(Button)`
-  background: ${({ theme }) => theme.colors.darkRed};
-  color: ${({ theme, isLoading }) => isLoading ? 'transparent' : theme.colors.offOrange};
-  box-shadow: ${({ theme }) => theme.shadows.elevation1};
+  background: ${({ theme, isSelected }) => isSelected ? theme.colors.offOrange : theme.colors.darkRed};
+  color: ${({ theme, isSelected, isLoading }) => isLoading ? 'transparent' : isSelected ? theme.colors.darkRed : theme.colors.offOrange};
 
   &:hover {
-    transform: scale(1.05);
-    background: ${({ theme }) => theme.colors.brightRed};
+    transform: none;
+    background: ${({ theme, isSelected }) => isSelected ? theme.colors.offOrange : theme.colors.brightRed};
   }
 
   ${({ styles }) => ({ ...styles })}
@@ -43,22 +42,11 @@ export const ButtonB = styled(Button)`
   ${({ styles }) => ({ ...styles })}
 `
 
-export const ButtonC = styled(Button)`
+export const ButtonC = styled(ButtonA)`
   font-size: 3rem;
   font-weight: 700;
   padding: 20px 35px;
   border-radius: 0;
-
-  background: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.offOrange : theme.colors.darkRed};
-  color: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.darkRed : theme.colors.offOrange};
-
-  &:hover {
-    transform: none;
-    background: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.offOrange : theme.colors.brightRed};
-  }
 
   ${({ styles }) => ({ ...styles })}
 `

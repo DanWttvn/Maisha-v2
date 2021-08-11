@@ -19,7 +19,7 @@ const Home: FC = () => (
     <Link to="/landing">Router Link</Link>
 
     <Button variant="A">Variant A</Button>
-    <Button variant="A" styles={{ padding: 15 }}>Ahgdf</Button>
+    <Button variant="A" styles={{ padding: 15 }}>Variant A</Button>
     <Button variant="B">Variant B</Button>
     <Button variant="C">Variant C</Button>
     <Button variant="D">Variant D</Button>

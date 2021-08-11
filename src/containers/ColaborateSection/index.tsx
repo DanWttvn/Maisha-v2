@@ -14,6 +14,7 @@ import Link from '../../components/Link'
 import Accordion from '../../components/Accordion'
 import Container from '../../components/Container'
 import Li from '../../components/Li'
+import { urls } from '../../routes'
 
 export const ColaborateSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)

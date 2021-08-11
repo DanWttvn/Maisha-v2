@@ -1,12 +1,14 @@
 import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { BaseProps } from '../../models'
-import Button from '../../components/Button'
-import Text from '../../components/Text'
-import SkipWrap from '../../components/SkipWrap'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import { format } from 'date-fns'
+import { BaseProps } from '../../models'
+import Button from '../../components/Button'
+import Text from '../../components/Text'
+import Container from '../../components/Container'
+import SkipWrap from '../../components/SkipWrap'
+import Input from '../../components/Input'
 import { isEmailValid, isBankAccountValid } from '../../helpers/form'
 import theme from '../../styles/theme'
 import PolicyModal from '../PolicyModal'
@@ -14,8 +16,8 @@ import InputText from '../../components/InputText'
 import Form from '../../components/Form'
 
 export interface Props extends BaseProps {
-  amountSelected: number
-  variant: '1' | '2'
+  selectedAmount: number
+  variant: '1' | '2' | '3'
 }
 
 type FormData = {
@@ -26,13 +28,30 @@ type FormData = {
   IBAN: string
 }
 
-const JoinForm: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
+const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, styles }) => {
   const [ errors, setErrors ] = useState<string[]>([])
   const { register } = useForm()
+  const [ selectedAmount, setSelectedAmount ] = useState(forcedAmount || null)
+  const [ customAmount, setCustomAmount ] = useState(0)
+  // //! meterlo como error
+  const [ isSmallerThanMin, setIsSmallerThanMin ] = useState(false)
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
   const [ isSending, setIsSending ] = useState(false)
 
   if (isHidden) return null
+
+  const handleSelectAmount = (value: string) => {
+    setSelectedAmount(Number(value))
+    if (value !== '0') setErrors([])
+    setIsSmallerThanMin(false)
+  }
+
+  const handleInputChange = (value: string) => {
+    setCustomAmount(Number(value))
+    handleSelectAmount(value)
+    setIsSmallerThanMin(false)
+    if (value !== '0') setErrors([])
+  }
 
   const sendEmail = (data: FormData & { amount: number, date: string }, hasFetchFailed?: boolean, errorInfo?: string) => {
     (window as any).Email.send({
@@ -71,25 +90,28 @@ const JoinForm: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
   }
 
   const handleSubmit = (formData: FormData) => {
+    if (!selectedAmount) return setErrors([ ...errors, 'no-amount' ])
+    if (selectedAmount < 5) return setIsSmallerThanMin(true)
+
     const data = {
       ...formData,
-      amount: amountSelected,
+      amount: selectedAmount || 0,
       date: format(new Date(), 'dd/MM/yyyy')
     }
 
     let nextErrors: string[] = []
-
     if (!isEmailValid(data.email)) nextErrors = [ ...nextErrors, 'email' ]
     if (!isBankAccountValid(data.IBAN)) nextErrors = [ ...nextErrors, 'IBAN' ]
-
     if (nextErrors.length) return setErrors(nextErrors)
 
     setIsSending(true)
+    const urls = {
+      1: `${process.env.REACT_APP_SPREADSHEET1}`,
+      2: `${process.env.REACT_APP_SPREADSHEET2}`,
+      3: `${process.env.REACT_APP_SPREADSHEET3}`
+    }
 
-    const url = variant === '1' ? `${process.env.REACT_APP_SPREADSHEET1}` : `${process.env.REACT_APP_SPREADSHEET2}`
-
-
-    fetch(url, {
+    fetch(urls[variant], {
       method: 'post',
       body: JSON.stringify({ 'data': data }),
     }).then(res => {
@@ -108,12 +130,10 @@ const JoinForm: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
     })
   }
 
-  const label = (
-    <>
-      <Text size="xs" styles={{ marginRight: 6 }}>He leído y acepto la</Text>
-      <Text size="xs" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }}>Política de Privacidad</Text>
-    </>
-  )
+  const label = <>
+    <Text size="xs" styles={{ marginRight: 6 }}>He leído y acepto la</Text>
+    <Text size="xs" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }}>Política de Privacidad</Text>
+  </>
 
   return (
     <>
@@ -156,13 +176,34 @@ const JoinForm: FC<Props> = ({ amountSelected, variant, isHidden, styles }) => {
           autocomplete="IBAN"
           isError={errors.includes('IBAN')}
           helper="Recuerda que debes añadir el IBAN (Ej.: ES1212341234110123456789)"
+          styles={{ marginBottom: 32 }}
           isRequired
           isFullWidth
         />
+
+        <Container isHidden={variant !== '3'} styles={{ marginBottom: 16 }} isFullWidth>
+          <Container styles={{ margin: '0 auto' }}>
+            <Text weight="bold" styles={{ marginBottom: 8 }} isFullWidth>Donación mensual</Text>
+            <Button onClick={handleSelectAmount.bind(undefined, 5)} isSelected={selectedAmount === 5 && customAmount !== 5} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>5€</Button>
+            <Button onClick={handleSelectAmount.bind(undefined, 10)} isSelected={selectedAmount === 10 && customAmount !== 10} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>10€</Button>
+            <Button onClick={handleSelectAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>15€</Button>
+            <Button onClick={handleSelectAmount.bind(undefined, 20)} isSelected={selectedAmount === 20 && customAmount !== 20} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>20€</Button>
+            <Button onClick={handleSelectAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>25€</Button>
+            <Button onClick={handleSelectAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>
+              <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12, fontSize: '1.1rem', width: '50px' }} />€
+            </Button>
+          </Container>
+
+          <Text isHidden={selectedAmount !== 5} color="black" size="s" styles={{ width: 860 }}>*Para evitar comisiones del banco y sacar el máximo provecho a tu aportación, retiraremos cada dos meses 10€ de tu cuenta</Text>
+          <SkipWrap />
+          <Text isHidden={!errors.includes('no-amount')} color="brightRed" weight="black" isFullWidth>*Por favor, selecciona una cantidad mensual</Text>
+          <Text isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>*La cantidad mínima es de 5€</Text>
+        </Container>
+
         <FormControlLabel
           control={<Checkbox inputRef={register} name="privacy" defaultChecked={false} color="primary" required/>}
           label={label}
-          style={{ fontFamily: theme.fonts.main }}
+          style={{ fontFamily: theme.fonts.main, marginBottom: 8 }}
         />
         <SkipWrap/>
         <Text color="brightRed" weight="bold" styles={{ marginBottom: 16 }} isHidden={!errors.includes('fail')} isFullWidth>Ha ocurrido un error, por favor, vuelve a intentarlo más tarde o envía un email a info@maisharoots.org</Text>
