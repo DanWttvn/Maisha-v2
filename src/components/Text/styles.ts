@@ -5,7 +5,7 @@ export const TextStyles = css<TextProps>`
   text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
   ${({ size }) => size === 'xs' && css`
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     line-height: 24px;
   `}
 

@@ -8,6 +8,7 @@ import { Section, SubSection } from '../../components/Section/styles'
 import { SectionProps } from '../../models'
 import Li from '../../components/Li'
 import Link from '../../components/Link'
+import { urls } from '../../routes'
 
 export const TransparencySection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
@@ -106,11 +107,10 @@ export const TransparencySection: FC<SectionProps> = () => {
           {lang === 'EN' && <>With the aim of accomplishing our commitment with transparency and good governance, Maisha Roots makes available to the employed and volunteering staff, donors, suppliers, partners, etc. a complaints channel that allows us to identify irregular behavior within the organization. This irregular behavior includes any illegal action, irregular or against law- both intern and extern- undertaken by the organization Maisha Roots or any of its members. In this link you might find the related document to our complaints channel: Complaints channel.</>}
           {lang === 'SW' && <>Kwa kusudi la kukamilisha kujitolea kwetu kwa uwazi na utawala bora, Maisha Roots hutengeneza wafanyakazi walioajiriwa, wafadhili, wauzaji, washirika, n.k. njia ya malalamiko ambayo inaruhusu tabia isiyo ya kawaida inajumuisha hatua yoyote haramu, isiyo ya kawaida au dhidi ya sharia zote za ndani na nje zinazofanywa na shirika Maisha Roots au mtu yeyote wa washiriki wake. Kwenye kiunga hiki unaeza kupata hati inayohusiana na kituo chetu cha malalamiko: kituo cha malalamiko.</>}
         </Paragraph>
-        {/* //! linkar y estilos */}
         <Paragraph>
-          {lang === 'ES' && <>Para establecer tu denuncia, puedes rellenar las indicaciones del documento, o rellenar <RouteLink to="">este formulario</RouteLink> o envía <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">esta ficha rellena</Link> a la dirección de correo electrónico <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
-          {lang === 'EN' && <>To present your complaint, you might fill in the indications in the document, or fill in <RouteLink to="">this form</RouteLink> or send <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">this completed draft</Link> to the email address <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
-          {lang === 'SW' && <>Ili kuwasilisha malalamiko yako, unaweza kujaza dalili kwenye hati, au ujaze <RouteLink to="">fomu hii</RouteLink>, au utume <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">rasimu hii iliyosimamiwa</Link> kwa anwani ya barua pepe <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
+          {lang === 'ES' && <>Para establecer tu denuncia, puedes rellenar las indicaciones del documento, o rellenar <RouteLink to={urls.complains}>este formulario</RouteLink> o envía <Link href="/images/docs/Canal_de_denuncias-Maisha_Roots.pdf">esta ficha rellena</Link> a la dirección de correo electrónico <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
+          {lang === 'EN' && <>To present your complaint, you might fill in the indications in the document, or fill in <RouteLink to={urls.complains}>this form</RouteLink> or send <Link href="/images/docs/Canal_de_denuncias-Maisha_Roots.pdf">this completed draft</Link> to the email address <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
+          {lang === 'SW' && <>Ili kuwasilisha malalamiko yako, unaweza kujaza dalili kwenye hati, au ujaze <RouteLink to={urls.complains}>fomu hii</RouteLink>, au utume <Link href="/images/docs/Canal_de_denuncias-Maisha_Roots.pdf">rasimu hii iliyosimamiwa</Link> kwa anwani ya barua pepe <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
         </Paragraph>
       </SubSection>
 

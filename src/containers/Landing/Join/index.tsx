@@ -58,7 +58,7 @@ const Join: FC<Props> = ({ variant }) => {
           <Button onClick={handleSelectAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} variant="C">15€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} variant="C">25€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} variant="C">
-            <Input type="number" min={5} onChange={handleInputChange} styles={{ marginRight: 12 }} />€
+            <Input type="number" min={5} onChange={handleInputChange} styles={{ marginRight: 12, fontSize: '2.5rem', width: '100px' }} />€
           </Button>
         </Container>
         <Text isHidden={isError} color="black" weight="semibold" isFullWidth>Elige tu aportación mensual</Text>
@@ -76,7 +76,8 @@ const Join: FC<Props> = ({ variant }) => {
         <Subtitle>Hazte socia/o</Subtitle>
         <Text color="black" weight="semibold" styles={{ marginRight: 8 }}>Tu aportación mensual seleccionada es de <strong>{selectedAmount}</strong>€.</Text>
         <Text size="s" color="lightGrey" onClick={setIsFormModalOpen.bind(undefined, false)} styles={{ textDecoration: 'underline', cursor: 'pointer', marginTop: 2 }}>Cambiar</Text>
-        <JoinForm amountSelected={selectedAmount || 0} variant={variant} />
+        <SkipWrap />
+        <JoinForm selectedAmount={selectedAmount || 0} variant={variant} />
       </Dialog>
 
       <Banner variant="B" isShown={!isCTAVisible} styles={{ padding: '20px 20%', alignItems: 'center' }}>

@@ -15,8 +15,8 @@ const Thanks: FC = () => {
       <Navbar />
       <SubSection styles={{ flex: 1 }}>
         <DataText type="text" styles={{ margin: 'auto' }}>
-          {lang === 'ES' && 'Gracias por tu aportación !'}
-          {lang === 'EN' && 'Thanks for your contribution !'}
+          {lang === 'ES' && 'Gracias por tu aportación!'}
+          {lang === 'EN' && 'Thanks for your contribution!'}
           {lang === 'SW' && 'Asante kwa mchango wako!'}
         </DataText>
         <Paragraph >
