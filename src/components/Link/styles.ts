@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Props } from '.'
 import { TextStyles } from '../Text/styles'
 
@@ -9,10 +9,20 @@ export default styled.a<Props>`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.darkRed};
-  /* text-decoration: underline; */
+
+  ${({ variant }) => variant === 'A' && css`
+
+  `};
+
+  ${({ variant }) => variant === 'B' && css`
+    color: rgb(170, 170, 170);
+    &:hover {
+      color: rgb(224, 133, 133);
+    }
+  `};
 
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''}
   ${({ styles }) => ({ ...styles })}
 `
 
-//! make two variants
+/* text-decoration: underline; */

@@ -9,11 +9,11 @@ import Styled, { InnerContainer, Link, HorizontalDivider, VerticalDivider } from
 
 export type Props = BaseProps
 
-const Footer: FC<Props> = () => {
+const Footer: FC<Props> = ({ className, styles }) => {
   const { lang, setLang } = useContext(LanguageContext)
 
   return (
-    <Styled>
+    <Styled className={className} styles={styles}>
       <InnerContainer>
         <Container styles={{ justifyContent: 'space-between', maxWidth: 200, }}>
           <Link size="xs" href="https://maisharoots.org/#about" target="_blank" styles={{ color: theme.colors.offOrange }}>Quiénes somos</Link>

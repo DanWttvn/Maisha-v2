@@ -7,7 +7,8 @@ export const Section = styled.div<SectionProps & BaseProps>`
   width: 100%;
 	max-width: 2500px;
 	margin: 0 auto;
-	padding-top: 45px;
+  padding-top: 100px;
+  margin-top: -50px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -18,7 +19,8 @@ export const Section = styled.div<SectionProps & BaseProps>`
 export const SubSection = styled.div<SubSectionProps>`
   position: relative;
 	width: 100%;
-	padding-top: 45px;
+	padding-top: 100px;
+  margin-top: -50px;
 	display: flex;
 	flex-flow: row wrap;
 
