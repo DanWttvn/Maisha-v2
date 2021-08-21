@@ -5,6 +5,7 @@ import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import Text from '../../components/Text'
+import Quote from '../../containers/Quote'
 import Button from '../../components/Button'
 import theme from '../../styles/theme'
 import LanguageContext from '../../contexts/language'
@@ -14,6 +15,7 @@ import Link from '../../components/Link'
 import Accordion from '../../components/Accordion'
 import Container from '../../components/Container'
 import Li from '../../components/Li'
+import ColabLink from '../ColabLink'
 import { urls } from '../../routes'
 
 export const ColaborateSection: FC<SectionProps> = () => {
@@ -59,12 +61,13 @@ export const ColaborateSection: FC<SectionProps> = () => {
         <Text isFullWidth isCentered>
           {lang === 'ES' && 'Como Eduardo Galeano, creemos que...'}
           {lang === 'EN' && 'As Eduardo Galeano said, we believe that...'}
-          {lang === 'SW' && 'Kama Eduardo Galeano alivyosema, tunamini hivyo...s'}
+          {lang === 'SW' && 'Kama Eduardo Galeano alivyosema, tunamini hivyo...'}
         </Text>
-        {/* //! falta quote */}
-        {/* mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo */}
-        {/* many small people, in small places, doing small things, can change the world */}
-        {/* watu wengi kwenye maeneo madogo madogo, wanaofanya shughuli ndogo ndogo, wanaweza kuibadilisha dunia */}
+        <Quote color="darkRed" quotesColor="offOrange" weight="black" size="xl" isFullWidth isCentered>
+          {lang === 'ES' && 'mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo'}
+          {lang === 'EN' && 'many small people, in small places, doing small things, can change the world'}
+          {lang === 'SW' && 'watu wengi kwenye maeneo madogo madogo, wanaofanya shughuli ndogo ndogo, wanaweza kuibadilisha dunia'}
+        </Quote>
       </SubSection>
       <SubSection id="donate">
         <Subtitle>
@@ -74,9 +77,8 @@ export const ColaborateSection: FC<SectionProps> = () => {
         </Subtitle>
         <Accordion title="Hazte socia/o" isHidden={lang !== 'ES'} isFullWidth>
           <Text styles={{ marginBottom: 8 }}>Puedes donarnos una cantidad fija al mes. Uno de los pilares de nuestra asociación es la estabilidad económica. Si conseguimos una financiación estable, contribuiremos activamente a la sostenibilidad de nuestros proyectos. Por ello, te animamos a que colabores con una aportación mensual.</Text>
-          {/* //! linkar */}
-          <RouteLink to="">
-            <Button onClick={() => console.log('a pag de donar')} styles={{ marginBottom: 16 }}>Hazte socia/o aquí</Button>
+          <RouteLink to={urls.join}>
+            <Button styles={{ marginBottom: 16 }}>Hazte socia/o aquí</Button>
           </RouteLink>
         </Accordion>
         <Accordion title={(lang === 'ES' && 'Haz una transferencia') || (lang === 'EN' && 'Make a transfer') || (lang === 'SW' && 'Fanya uhamishaji') || ''} isFullWidth>
@@ -171,7 +173,18 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'SW' && <>Tumeshirikiana na biashara kama GAJO, alama za biashara za jukumu la maendeleo ya kijamii. Pia tunaushirikiano na Proyecto Amanecer, Shirika lisilo la Kiserikali la Uhispania ambalo linashiriki katika utekelezaji wa miradi ya maendeleo. Kwa wakati, mashirika mengine yameshiriki katika baadhi ya vitendo vyetu, kama vile kampuni mbili za maonyesho (La Locandiera Teatro y Katharsis Teatro), Palencia’s Diputacion de Deportes, Mbuyu Association and an Arts exhibition ‘50x50x50.</>}
         </Paragraph>
 
-        {/* //! fotos y links mirando el css  */}
+        <Container styles={{ justifyContent: 'space-around' }} isFullWidth>
+          <ColabLink src="/images/colab-logos/1.png" href="https://www.facebook.com/katharsismedicinaucm" />
+          <ColabLink src="/images/colab-logos/2.png" href="https://colegioarcadia.com/" />
+          <ColabLink src="/images/colab-logos/3.png" href="https://www.facebook.com/lalocandierateatro/" />
+          <ColabLink src="/images/colab-logos/4.png" href="https://asociacionmbuyu.org/"/>
+          <ColabLink src="/images/colab-logos/5.png" href="https://www.urjc.es/"/>
+          <ColabLink src="/images/colab-logos/6.png" href="https://www.diputaciondepalencia.es/"/>
+          <ColabLink src="/images/colab-logos/7.png" href="#"/>
+          <ColabLink src="/images/colab-logos/8.png" href="https://www.nodo50.org/pamanecer/"/>
+          <ColabLink src="/images/colab-logos/9.png" href="https://www.uc3m.es/"/>
+          <ColabLink src="/images/colab-logos/10.png" href="https://www.instagram.com/thegajosociety/"/>
+        </Container>
       </SubSection>
     </Section>
   )

@@ -159,11 +159,10 @@ export const TransparencySection: FC<SectionProps> = () => {
           {lang === 'SW' && 'Ripoti ya Shughuli 2020'}
           <Link href="/images/docs/Memoria_de_Actividades2020-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
         </Paragraph>
-        {/* //! falta swahili */}
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Estatutos Maisha Roots Spain'}
           {lang === 'EN' && 'Maisha Roots Spain Constitution'}
-          {lang === 'SW' && ''}
+          {lang === 'SW' && 'Katiba ya Maisha Roots Spain'}
           <Link href="/images/docs/estatutos-Maisha_Roots_Spain.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
         </Paragraph>
         <Paragraph isFullWidth>
