@@ -14,6 +14,7 @@ import theme from '../../styles/theme'
 import PolicyModal from '../PolicyModal'
 import InputText from '../../components/InputText'
 import Form from '../../components/Form'
+import { useHistory } from 'react-router'
 
 export interface Props extends BaseProps {
   selectedAmount: number
@@ -29,11 +30,11 @@ type FormData = {
 }
 
 const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, styles }) => {
+  const { push } = useHistory()
   const [ errors, setErrors ] = useState<string[]>([])
   const { register } = useForm()
   const [ selectedAmount, setSelectedAmount ] = useState(forcedAmount || null)
   const [ customAmount, setCustomAmount ] = useState(0)
-  // //! meterlo como error
   const [ isSmallerThanMin, setIsSmallerThanMin ] = useState(false)
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
   const [ isSending, setIsSending ] = useState(false)
@@ -80,12 +81,17 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
         <br>
         Dinerito al mes: ${data.amount}
       `
-    }).then(() => window.location.href = 'https://maisharoots.org/donate-success'
+    }).then(() => {
+      if (variant === '3') push('/thank-you')
+      //* here is the conversion pixel change in the future
+      else window.location.href = 'https://maisharoots.org/donate-success'
+    }
     ).catch((err: Error) => {
       if (hasFetchFailed) return setErrors([ ...errors, 'fail' ])
       setErrors([ ...errors, 'smtpjs' ])
       console.error(err)
-      window.location.href = 'https://maisharoots.org/donate-success'
+      if (variant === '3') push('/thank-you')
+      else window.location.href = 'https://maisharoots.org/donate-success'
     })
   }
 
@@ -106,9 +112,9 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
 
     setIsSending(true)
     const urls = {
-      1: `${process.env.REACT_APP_SPREADSHEET1}`,
-      2: `${process.env.REACT_APP_SPREADSHEET2}`,
-      3: `${process.env.REACT_APP_SPREADSHEET3}`
+      '1': `${process.env.REACT_APP_SPREADSHEET1}`,
+      '2': `${process.env.REACT_APP_SPREADSHEET2}`,
+      '3': `${process.env.REACT_APP_SPREADSHEET3}`
     }
 
     fetch(urls[variant], {
