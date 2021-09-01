@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 import Image from '../../components/Image'
+import Container from '../../components/Container'
 
 export const StructureCard = styled.div`
   width: 370px;
 	max-width: 650px;
 	margin: 0 25px;
+
+	@media ${({ theme }) => theme.breakpoints.sl} {
+		width: 100%;
+	}
 `
 
 export const GroupCard = styled.div`
@@ -38,5 +43,22 @@ export const CommissionIcon = styled(Image)`
 
 	@media ${({ theme }) => theme.breakpoints.s} {
 		height: 120px;
+	}
+`
+
+export const StructureContainer = styled(Container)`
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 60px;
+`
+
+export const StructureParagraphContainer = styled(Container)`
+	border-left: ${({ theme }) => `10px solid ${theme.colors.offRed}`};
+	padding: 0 20px 0 40px;
+	width: 55%;
+	padding-right: 20px;
+
+	@media ${({ theme }) => theme.breakpoints.m} {
+		width: 100%;
 	}
 `

@@ -61,6 +61,11 @@ const Complains: FC = () => {
       EN: 'Relationship with Maisha Roots Association',
       SW: ''
     },
+    emailError: {
+      ES: 'Por favor, incluye un email válido',
+      EN: 'Please, enter a valid email',
+      SW: ''
+    }
   }
 
   const sendEmail = async(data: Record<string, string>) => {
@@ -95,7 +100,6 @@ const Complains: FC = () => {
   return (
     <>
       <Navbar />
-      {/* //! hacer una Page */}
       <Section styles={{ minHeight: 'calc(100vh - 254px)' }}>
         <SubSection>
           <Subtitle styles={{ marginTop: 16 }}>
@@ -153,7 +157,7 @@ const Complains: FC = () => {
               type="email"
               autocomplete="email"
               isError={errors.includes('email')}
-              helper={errors.includes('email') ? 'Por favor, incluye un email válido' : ''}
+              helper={errors.includes('email') ? labelCopies.emailError[lang] : ''}
               isRequired
               isFullWidth
             />
@@ -180,7 +184,7 @@ const Complains: FC = () => {
             </Paragraph>
             <Text color="brightRed" weight="bold" styles={{ marginBottom: 32 }} isHidden={!errors.includes('fail')} isFullWidth>
               {lang === 'ES' && 'Ha ocurrido un error, por favor, vuelve a intentarlo más tarde o envía un email a info@maisharoots.org'}
-              {lang === 'EN' && ''}
+              {lang === 'EN' && 'An error has occurred, please try again later or send an email to info@maisharoots.org'}
               {lang === 'SW' && ''}
             </Text>
             <Button type="submit" isLoading={isSending} styles={{ margin: '0 auto' }}>
@@ -191,7 +195,7 @@ const Complains: FC = () => {
           </Form>
           <Text size="l" isHidden={!isSuccessful}>
             {lang === 'ES' && 'Tu denuncia ha sido emitida, nos pondremos pronto en contacto contigo.'}
-            {lang === 'EN' && ''}
+            {lang === 'EN' && 'Your complaint has been emitted, we will contact you soon.'}
             {lang === 'SW' && ''}
           </Text>
         </SubSection>

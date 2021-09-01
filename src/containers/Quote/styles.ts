@@ -23,4 +23,9 @@ export default styled(Text)<Props>`
     right: 40px;
     z-index: -1;
   }
+
+  @media ${({ theme }) => theme.breakpoints.s} {
+    font-size: 2rem;
+    line-height: 2.6rem;
+	}
 `

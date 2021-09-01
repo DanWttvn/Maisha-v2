@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components'
 import { SubSectionProps, SectionProps, BaseProps } from '../../models'
-import theme from '../../styles/theme'
 
 export const Section = styled.div<SectionProps & BaseProps>`
   position: relative;
   width: 100%;
 	max-width: 2500px;
 	margin: 0 auto;
-  padding-top: 100px;
-  margin-top: -50px;
+  padding-top: 90px;
+  padding-bottom: 20px;
+  margin-top: -40px;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -19,12 +20,13 @@ export const Section = styled.div<SectionProps & BaseProps>`
 export const SubSection = styled.div<SubSectionProps>`
   position: relative;
 	width: 100%;
-	padding-top: 100px;
-  margin-top: -50px;
+  padding-top: 90px;
+  padding-bottom: 20px;
+  margin-top: -40px;
 	display: flex;
 	flex-flow: row wrap;
 
-  ${({ isFullWidth }) => !isFullWidth && css`
+  ${({ isFullWidth, theme }) => !isFullWidth && css`
     padding-left: 120px; padding-right: 120px;
 
     @media ${theme.breakpoints.m} {
@@ -38,7 +40,7 @@ export const SubSection = styled.div<SubSectionProps>`
     }
   `}
 
-  ${({ isNarrow }) => isNarrow && css`
+  ${({ isNarrow, theme }) => isNarrow && css`
     padding-left: 170px; padding-right: 170px;
     justify-content: center;
 

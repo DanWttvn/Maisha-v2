@@ -19,6 +19,7 @@ export const ButtonsWrapper = styled.div`
 `
 
 export const NodesWrapper = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -26,11 +27,11 @@ export const NodesWrapper = styled.div`
 
 export const Line = styled.div`
 	position: absolute;
-	width: 90%;
+	width: 100%;
 	height: 2px;
 	border-radius: 50%;
 	background-color: ${({ theme }) => theme.colors.darkOrange};
-  bottom: 46px;
+  top: 22px;
 `
 
 export const NodeWrapper = styled.div`

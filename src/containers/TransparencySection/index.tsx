@@ -15,7 +15,7 @@ export const TransparencySection: FC<SectionProps> = () => {
 
   return (
     <Section id="transparency">
-      <Title firstPart={(lang === 'ES' && 'TRANSPARENCIA') || (lang === 'EN' && 'TRANSPARENCY') || (lang === 'SW' && 'UWAZI GHARAMA') || ''} />
+      <Title firstPart={(lang === 'ES' && 'TRANSPARENCIA') || (lang === 'EN' && 'TRANSPARENCY') || (lang === 'SW' && 'UWAZI GHARAMA') || ''} isSmall/>
       <SubSection id="good-practices">
         <Subtitle>
           {lang === 'ES' && 'Mecanismos de buen gobierno'}

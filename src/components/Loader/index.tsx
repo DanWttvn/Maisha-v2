@@ -5,7 +5,7 @@ import Styled, { Circle } from './styles'
 export type Props = BaseProps 
 
 //! rehacer
-const Loader: FC<Props> = ({ isHidden, styles, className = '' }) => {
+const Loader: FC<Props> = ({ isHidden, styles, className }) => {
   if (isHidden) return null
 
   return (

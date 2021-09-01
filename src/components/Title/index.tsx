@@ -1,14 +1,15 @@
 import React, { FC, useEffect, useState } from 'react'
 import { BaseProps } from '../../models'
 import useIntersection from '../../hooks/useIntersection'
-import Styled, {  Wrapper } from './styles'
+import Styled, { Wrapper } from './styles'
 
 export interface Props extends BaseProps {
   firstPart: string
   secondPart?: string
+  isSmall?: boolean
 }
 
-const Title: FC<Props> = ({ firstPart, secondPart, styles }) => {
+const Title: FC<Props> = ({ firstPart, secondPart, isSmall, styles }) => {
   const [ isVisible, setIsVisible ] = useState(false)
   const { isNear, elementRef } = useIntersection(false, '500px')
 
@@ -17,7 +18,7 @@ const Title: FC<Props> = ({ firstPart, secondPart, styles }) => {
   }, [ isNear ])
 
   return (
-    <Styled styles={styles} ref={elementRef}>
+    <Styled styles={styles} isSmall={isSmall} ref={elementRef}>
       <Wrapper content={firstPart} isVisible={isVisible}>
         {firstPart}
       </Wrapper>

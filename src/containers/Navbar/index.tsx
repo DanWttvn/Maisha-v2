@@ -121,6 +121,7 @@ const sectionsData: SectionData[] = [
       EN: 'How we work',
       SW: 'Fanya Kazi'
     },
+    // //! mirar los primeros de la subsection
     subsections: [
       {
         id: 'structure',

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { BaseProps } from '../../models'
+import styled, { css } from 'styled-components'
+import { Props } from '.'
 
-export default styled.h2<BaseProps>`
+export default styled.h2<Partial<Props>>`
 	width: fit-content;
 	font-size: 4.8rem;
 	letter-spacing: 4px;
@@ -13,6 +13,29 @@ export default styled.h2<BaseProps>`
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: center;
+  overflow: hidden;
+
+  @media ${({ theme }) => theme.breakpoints.s} {
+    font-size: 3.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.8rem;
+  }
+
+  ${({ isSmall }) => isSmall && css`
+    @media ${({ theme }) => theme.breakpoints.sl} {
+      font-size: 4rem;
+    }
+
+    @media ${({ theme }) => theme.breakpoints.s} {
+      font-size: 2.8rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2.1rem;
+    }
+  `};
 
   ${({ styles }) => ({ ...styles })}
 `
@@ -33,6 +56,7 @@ export const Wrapper = styled.span<{ content: string, isVisible: boolean }>`
 	transition-property: transform;
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(.23,1,.32,1);
+  font-size: inherit;
 
   &:first-of-type::after {
     transition-delay: .1s;
@@ -44,10 +68,7 @@ export const Wrapper = styled.span<{ content: string, isVisible: boolean }>`
 
   &::after { 
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0;
     padding: 0 10px;
 
     display: block;
