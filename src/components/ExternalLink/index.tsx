@@ -1,14 +1,15 @@
 import React, { FC } from 'react'
 import { TextProps } from '../../models'
+import { LinkProps } from '../AppLink'
 import Styled from './styles'
 
 export interface Props extends TextProps {
   href: string
   target?: string
-  variant?: 'A' | 'B'
+  variant?: LinkProps['variant']
 }
 
-const Link: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', variant = 'A', color, onClick, styles, size = 'inherit', isHidden, className }) => {
+const ExternalLink: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', variant = 'app', color, onClick, styles, size = 'inherit', isHidden, className }) => {
   if (isHidden) return null
 
   return (
@@ -18,4 +19,4 @@ const Link: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', v
   )
 }
 
-export default Link
+export default ExternalLink

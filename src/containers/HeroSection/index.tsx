@@ -1,14 +1,14 @@
 import React, { FC } from 'react'
 import { SectionProps } from '../../models'
 import { Section, Image, Icon } from './styles'
-import ScrollLink from '../../components/ScrollLink'
+import AppLink from '../../components/AppLink'
 
 const HeroSection: FC<SectionProps> = () => (
   <Section id="header" styles={{ justifyContent: 'center', marginTop: 20 }}>
     <Image src="/images/Header.png" />
-    <ScrollLink to="about">
+    <AppLink toSection="about" isSamePage>
       <Icon/>
-    </ScrollLink>
+    </AppLink>
   </Section>
 )
 

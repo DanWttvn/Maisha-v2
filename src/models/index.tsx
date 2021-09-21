@@ -34,7 +34,7 @@ export interface TextProps extends BaseProps {
   onClick?: (x?: any) => void
   isHighlighted?: boolean
   isCentered?: boolean
-  weight?: 'normal' | 'semibold' | 'bold' | 'black'
+  weight?: 'normal' | 'semibold' | 'bold' | 'black' | 'inherit'
   size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'inherit'
   color?: keyof Theme['colors'] | 'inherit'
 }

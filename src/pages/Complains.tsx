@@ -2,7 +2,7 @@ import React, { FC, useState, useContext } from 'react'
 import { LanguageOptions } from '../models'
 import Button from '../components/Button'
 import Text from '../components/Text'
-import Link from '../components/Link'
+import ExternalLink from '../components/ExternalLink'
 import Paragraph from '../components/Paragraph'
 import Subtitle from '../components/Subtitle'
 import SkipWrap from '../components/SkipWrap'
@@ -178,8 +178,9 @@ const Complains: FC = () => {
             />
             <SkipWrap/>
             <Paragraph size="s" styles={{ marginBottom: 32 }} isCentered isFullWidth>
-              {lang === 'ES' && <>Para adjuntar algún archivo, puedes enviarlo a <Link href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
-              {lang === 'EN' && <>To attach a file, you can send it to <Link href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
+              {lang === 'ES' && <>Para adjuntar algún archivo, puedes enviarlo a <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
+              {lang === 'EN' && <>To attach a file, you can send it to <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
+              {/* //! falta traduccion */}
               {lang === 'SW' && <></>}
             </Paragraph>
             <Text color="brightRed" weight="bold" styles={{ marginBottom: 32 }} isHidden={!errors.includes('fail')} isFullWidth>

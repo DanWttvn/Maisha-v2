@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import Link from '../../components/Link'
+import ExternalLink from '../../components/ExternalLink'
 import ImageRoot from '../../components/Image'
 import { Props } from '.'
 
-export default styled(Link)<Partial<Props>>`
+export default styled(ExternalLink)<Partial<Props>>`
 	position: relative;
   height: 120px;
 	margin: 0 8px 20px;
