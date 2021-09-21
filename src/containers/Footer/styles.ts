@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import LinkRoot from '../../components/Link'
+import Container from '../../components/Container'
 import { Props } from '.'
 
 export default styled.footer<Partial<Props>>`
@@ -7,6 +8,8 @@ export default styled.footer<Partial<Props>>`
 	margin-top: 50px;
 	background: ${({ theme }) => theme.colors.darkestRed};
 	padding: 40px 8%;
+	display: flex;
+	flex-flow: row wrap;
   
   ${({ styles }) => ({ ...styles })}
 `
@@ -19,13 +22,8 @@ export const InnerContainer = styled.div<Partial<Props>>`
 	justify-content: space-between;
 `
 
-//? no se está aplicando
 export const Link = styled(LinkRoot)`
-	color: ${({ theme }) => theme.colors.offOrange};
 	transition: color 0.2s ease-in-out;
-  &:hover {
-	  color: ${({ theme }) => theme.colors.brightRed};
-  }
 `
 
 export const HorizontalDivider = styled.div`
@@ -38,8 +36,13 @@ export const HorizontalDivider = styled.div`
 export const VerticalDivider = styled.div`
 	width: 1px;
 	height: 15px;
-	margin: 'auto 0';
+	margin: auto 0;
 	background-color: #ccc;
 	opacity: 0.5;
+`
+
+export const Section = styled(Container)`
+	flex: 1;
+	padding: 0 20px;
 `
 

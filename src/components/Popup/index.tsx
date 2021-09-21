@@ -7,7 +7,7 @@ export interface Props extends BaseProps {
   isShown?: boolean
 }
 
-const Popup: FC<Props> = ({ children, onClose, isShown = false, isHidden, styles }) => {
+const Popup: FC<Props> = ({ children, onClose, isShown = false, isHidden, styles, className }) => {
   const [ isOpen, setIsOpen ] = useState(isShown || false)
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Popup: FC<Props> = ({ children, onClose, isShown = false, isHidden, styles
   }
 
   return (
-    <Styled styles={styles}>
+    <Styled styles={styles} className={className}>
       <Cross onClick={handleClose}/>
       {children}
     </Styled>

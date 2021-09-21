@@ -8,7 +8,7 @@ export interface LanguageContext {
 
 const LanguageContext = React.createContext<LanguageContext>({
   lang: 'ES',
-  setLang: (lang: Language) => console.log(lang)
+  setLang: () => { return }
 })
 
 export const LanguageContextProvider = ({ children }) => {

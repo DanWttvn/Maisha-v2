@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 import { Props } from '.'
 import { TextStyles } from '../Text/styles'
 
-
 export default styled.a<Props>`
   ${TextStyles}
   margin: 0;
@@ -11,7 +10,7 @@ export default styled.a<Props>`
   color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.darkRed};
 
   ${({ variant }) => variant === 'A' && css`
-
+    text-decoration: underline;
   `};
 
   ${({ variant }) => variant === 'B' && css`
@@ -24,5 +23,3 @@ export default styled.a<Props>`
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''}
   ${({ styles }) => ({ ...styles })}
 `
-
-/* text-decoration: underline; */
