@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import LinkRoot from '../../components/ExternalLink'
 import Container from '../../components/Container'
 import { Props } from '.'
 
@@ -20,10 +19,6 @@ export const InnerContainer = styled.div<Partial<Props>>`
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
-`
-
-export const ExternalLink = styled(LinkRoot)`
-	transition: color 0.2s ease-in-out;
 `
 
 export const HorizontalDivider = styled.div`

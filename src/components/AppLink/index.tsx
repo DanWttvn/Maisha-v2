@@ -3,14 +3,17 @@ import { TextProps, SectionTitle, SubSectionTitle } from '../../models'
 import { urls } from '../../routes'
 import { ScrollLink, HashLink, RouteLink } from './styles'
 
-export interface Props extends TextProps {
+export interface LinkProps extends TextProps {
+  variant?: 'menu' | 'footer' | 'app'
+}
+
+export interface Props extends LinkProps {
   toPage?: string
   toSection?: SectionTitle | SubSectionTitle
-  variant?: 'menu' | 'footer' | 'app'
   isSamePage?: boolean
 }
 
-const AppLink: FC<Props> = ({ children, toPage, toSection, className, onClick, size, weight, variant = 'app', isSamePage, isHidden }) => {
+const AppLink: FC<Props> = ({ children, toPage, toSection, className, onClick, size = 'inherit', weight = 'bold', variant = 'app', isSamePage, isHidden }) => {
   if (isHidden) return null
 
   if (isSamePage) return <ScrollLink to={toSection} onClick={onClick} variant={variant} size={size} weight={weight} activeClass="active" spy={true} smooth={true} className={className}>{children}</ScrollLink>

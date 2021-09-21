@@ -8,7 +8,8 @@ import { BaseProps } from '../../models'
 import theme from '../../styles/theme'
 import NewsletterForm from '../NewsletterForm'
 import PolicyModal from '../PolicyModal'
-import Styled, { InnerContainer, ExternalLink, HorizontalDivider, VerticalDivider, Section } from './styles'
+import Styled, { InnerContainer, HorizontalDivider, VerticalDivider, Section } from './styles'
+import ExternalLink from '../../components/ExternalLink'
 
 export interface Props extends BaseProps {
   isHomePage?: boolean
@@ -48,17 +49,17 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
         <Section>
           <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>Síguenos</Text>
           <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isFullWidth>
-            <ExternalLink variant="B" size="xs" href="https://www.facebook.com/maisharoots/" color="offOrange">
+            <ExternalLink variant="footer" size="xs" href="https://www.facebook.com/maisharoots/">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-facebook-square"></i>
             </ExternalLink>
-            <ExternalLink size="xs" href="https://www.instagram.com/maisharoots/" color="offOrange">
+            <ExternalLink variant="footer" size="xs" href="https://www.instagram.com/maisharoots/">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-instagram"></i>
             </ExternalLink>
-            <ExternalLink size="xs" href="https://www.youtube.com/channel/UCuKDNl0yLjyZppYISnFrtZg" color="offOrange">
+            <ExternalLink variant="footer" size="xs" href="https://www.youtube.com/channel/UCuKDNl0yLjyZppYISnFrtZg">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-youtube"></i>
             </ExternalLink>
           </Container>
-          <ExternalLink size="xs" href="mailto:info@maisharoots.org" color="offOrange">info@maisharoots.org</ExternalLink>
+          <ExternalLink variant="footer" size="xs" href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>
         </Section>
         <Section>
           <Text size="s" weight="bold" color="offOrange" styles={{ marginBottom: 15, textAlign: 'center' }} isFullWidth>Languages</Text>
