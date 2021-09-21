@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import LinkRoot from '../../components/Link'
+import LinkRoot from '../../components/ExternalLink'
 import Container from '../../components/Container'
 import { Props } from '.'
 
@@ -22,7 +22,7 @@ export const InnerContainer = styled.div<Partial<Props>>`
 	justify-content: space-between;
 `
 
-export const Link = styled(LinkRoot)`
+export const ExternalLink = styled(LinkRoot)`
 	transition: color 0.2s ease-in-out;
 `
 

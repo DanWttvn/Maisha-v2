@@ -8,7 +8,7 @@ export interface Props extends TextProps {
   variant?: 'A' | 'B'
 }
 
-const Link: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', variant = 'A', color, onClick, styles, size = 'inherit', isHidden, className }) => {
+const ExternalLink: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', variant = 'A', color, onClick, styles, size = 'inherit', isHidden, className }) => {
   if (isHidden) return null
 
   return (
@@ -18,4 +18,4 @@ const Link: FC<Props> = ({ children, href, target = '_blank', weight = 'bold', v
   )
 }
 
-export default Link
+export default ExternalLink

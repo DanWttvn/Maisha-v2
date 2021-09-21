@@ -1,12 +1,10 @@
 import React, { useState, FC, useContext } from 'react'
 import NavItem from '../../components/NavItem'
-import ScrollLink from '../../components/ScrollLink'
-import Link from '../../components/Link'
 import Image from '../../components/Image'
 import LanguageContext from '../../contexts/language'
-import { urls } from '../../routes'
 import { BaseProps, sectionsData } from '../../models'
 import Styled, { Hamburger, Cross, ItemsWrapper, Menu, Backdrop } from './styles'
+import AppLink from '../../components/AppLink'
 
 interface Props extends BaseProps {
   isHomePage?: boolean
@@ -44,12 +42,9 @@ export const Navbar: FC<Props> = ({ isHomePage }) => {
 
   return (
     <Styled isOpen={isDesktopOpen}>
-      <ScrollLink to="header" offset={0} isHidden={!isHomePage}>
+      <AppLink toSection="header" isSamePage={isHomePage}>
         <Image styles={{ width: 200, marginTop: 16 }} src="./images/logo.png" />
-      </ScrollLink>
-      <Link href={urls.root} isHidden={isHomePage} target="">
-        <Image styles={{ width: 200, marginTop: 16 }} src="./images/logo.png" />
-      </Link>
+      </AppLink>
 
       <Hamburger onClick={setIsResponsiveOpen.bind(undefined, true)}/>
 

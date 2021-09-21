@@ -1,8 +1,6 @@
 import React, { useState, FC } from 'react'
 import { BaseProps, SectionTitle, SubSectionTitle } from '../../models'
-import Link from '../Link'
-import { urls } from '../../routes'
-import { Li, SubItemsWrapper, ScrollLink } from './styles'
+import { Li, SubItemsWrapper, AppLink } from './styles'
 
 export interface Props extends BaseProps {
   subItemsData?: { name: string, section: SubSectionTitle }[]
@@ -17,10 +15,7 @@ const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen
 
   const subItems = subItemsData?.map((x, i) => (
     <Li key={i} isSubItem>
-      {isHomePage
-        ? <ScrollLink to={x.section} onClick={onClick}>{x.name}</ScrollLink>
-        : <Link variant="B" href={`${urls.root}#${x.section}`} target="">{x.name}</Link>
-      }
+      <AppLink toSection={x.section} variant="menu" onClick={onClick} isSamePage={isHomePage}>{x.name}</AppLink>
     </Li>
   ))
 
@@ -32,10 +27,7 @@ const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen
 
   return (
     <Li onMouseEnter={handleToggle.bind(undefined, true)} onMouseLeave={handleToggle.bind(undefined, false)}>
-      {isHomePage
-        ? <ScrollLink to={sectionId} onClick={onClick}>{children}</ScrollLink>
-        : <Link variant="B" href={`${urls.root}#${sectionId}`} target="">{children}</Link>
-      }
+      <AppLink toSection={sectionId} variant="menu" onClick={onClick} isSamePage={isHomePage}>{children}</AppLink>
       <SubItemsWrapper isOpen={showSub}>{subItems}</SubItemsWrapper>
     </Li>
   )

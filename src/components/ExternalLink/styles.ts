@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { Props } from '.'
 import { TextStyles } from '../Text/styles'
 
+//! copiar estilos de AppLink
 export default styled.a<Props>`
   ${TextStyles}
   margin: 0;
