@@ -3,6 +3,7 @@ import { SectionProps } from '../../models'
 import { Section, Image, Icon } from './styles'
 import AppLink from '../../components/AppLink'
 
+//! ocultar cuando menos de 100vh
 const HeroSection: FC<SectionProps> = () => (
   <Section id="header" styles={{ justifyContent: 'center', marginTop: 20 }}>
     <Image src="/images/Header.png" />

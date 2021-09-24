@@ -12,7 +12,7 @@ export default styled(ExternalLink)<Partial<Props>>`
 
 export const Image = styled(ImageRoot)`
   height: 120px;
-	transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 
   &:hover {
     filter: brightness(80%);

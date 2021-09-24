@@ -1,5 +1,4 @@
 import React, { FC, useContext } from 'react'
-import Image from '../../components/Image'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
@@ -10,9 +9,9 @@ import theme from '../../styles/theme'
 import LanguageContext from '../../contexts/language'
 import Map from '../Map'
 import { Section, SubSection } from '../../components/Section/styles'
-import { BorderedBox, DataContainer, DataParagraph, SubtitleFullWidth } from './styles'
 import DataText from '../DataText'
 import { SectionProps } from '../../models'
+import { BorderedBox, DataContainer, DataParagraph, SubtitleFullWidth, OuterContainer, InnerContainer } from './styles'
 
 export const WhoSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
@@ -25,28 +24,28 @@ export const WhoSection: FC<SectionProps> = () => {
       />
 
       <SubSection id="know-us" isFullWidth>
-        <Container styles={{ position: 'relative', height: '70vh', maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
-          <Image src="/images/playing_kids.jpg" hasOverlay isFullWidth />
-          <Container styles={{ position: 'absolute', top: '20%', left: '15%', width: '70%', zIndex: 10 }}>
+        <OuterContainer>
+          <InnerContainer>
             <Subtitle color='white'>
               {lang === 'ES' && 'Conócenos'}
               {lang === 'EN' && 'Get to know us'}
               {lang === 'SW' && 'Pata kutufahamu'}
             </Subtitle>
-            <Paragraph color='white'>
+            <Paragraph color="white" weight="bold" size="inherit">
               {lang === 'ES' && 'Maisha Roots es una ONG que aúna los esfuerzos de dos entidades, una española (Maisha Roots Spain) y otra tanzana (FYWCO, Focus for Youth, Woman and Children Organization), con el fin de fomentar el desarrollo en Tanzania.'}
               {lang === 'EN' && 'Maisha Roots is an NGO that combines the efforts of two entities, a Spanish one (Maisha Roots Spain) and a Tanzanian one (FYWCO, Focus for Youth, Woman and Children Organization), with the common goal of fostering development in Tanzania.'}
               {lang === 'SW' && 'Maisha Roots ni Shirika Lisilo La Kiserikali ambalo linalounganisha nguvu za taasisi mbili Moja ya Uhispania (Maisha Roots Spain) na nyingine ya Tanzania (Focus for youth, women and children organisation kwa lengo la Pamoja la kuchochea maendeleo Tanzania.'}
             </Paragraph>
-            <Paragraph color='white'>
+            <Paragraph color="white" weight="bold" size="inherit">
               {lang === 'ES' && 'Nace de la decisión local de establecer un tejido comunitario fértil a través del cual lograr el desarrollo de la comunidad en la que trabajamos.'}
               {lang === 'EN' && 'Its origins are found in the local decision of establishing a prosperous community to achieve the development of the community where we work.'}
               {lang === 'SW' && 'Imezaliwa kutokana na maamuzi ya wenyeji kwa lengo la kuiboresha jamii tunayoifanyia kazi kimaendeleo.'}
             </Paragraph>
-          </Container>
-        </Container>
+          </InnerContainer>
+        </OuterContainer>
       </SubSection>
 
+      {/* //! meter imagen */}
       <SubSection>
         <Subtitle>
           {lang === 'ES' && 'Misión, Visión y Áreas de actuación'}
