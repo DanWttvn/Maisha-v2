@@ -10,9 +10,10 @@ import ColaborateSection from '../containers/ColaborateSection'
 import TransparencySection from '../containers/TransparencySection'
 import NewsletterPopup from '../containers/NewsletterPopup'
 import PolicyBanner from '../containers/PolicyBanner'
+import Page from '../components/Page'
 
 const Home: FC = () => (
-  <>
+  <Page>
     <Navbar isHomePage/>
 
     <HeroSection />
@@ -27,7 +28,7 @@ const Home: FC = () => (
 
     <NewsletterPopup />
     <PolicyBanner />
-  </>
+  </Page>
 )
 
 export default Home

@@ -25,19 +25,19 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
     <Styled className={className} styles={styles}>
       <InnerContainer>
         <Section>
-          <AppLink variant="footer" isSamePage={isHomePage} toSection="about">
+          <AppLink variant="footer" isSamePage={isHomePage} size="s" toSection="about">
             {lang === 'ES' && 'Quiénes somos'}
             {lang === 'EN' && 'Who we are'}
             {lang === 'SW' && 'Sisi ni nani'}
           </AppLink>
           <HorizontalDivider />
-          <AppLink variant="footer" isSamePage={isHomePage} toSection="donate">
+          <AppLink variant="footer" isSamePage={isHomePage} size="s" toSection="donate">
             {lang === 'ES' && 'Dona'}
             {lang === 'EN' && 'Donate'}
             {lang === 'SW' && 'Changia'}
           </AppLink>
           <HorizontalDivider />
-          <AppLink variant="footer" isSamePage={isHomePage} toSection="collaborate">
+          <AppLink variant="footer" isSamePage={isHomePage} size="s" toSection="collaborate">
             {lang === 'ES' && 'Colabora'}
             {lang === 'EN' && 'Collaborate'}
             {lang === 'SW' && 'Shiriki'}

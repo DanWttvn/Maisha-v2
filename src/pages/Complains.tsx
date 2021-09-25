@@ -12,6 +12,7 @@ import Form from '../components/Form'
 import { Section, SubSection } from '../components/Section/styles'
 import Navbar from '../containers/Navbar'
 import Footer from '../containers/Footer'
+import Page from '../components/Page'
 
 const Complains: FC = () => {
   const { lang } = useContext(LanguageContext)
@@ -98,7 +99,7 @@ const Complains: FC = () => {
   }
 
   return (
-    <>
+    <Page>
       <Navbar />
       <Section styles={{ minHeight: 'calc(100vh - 254px)' }}>
         <SubSection>
@@ -202,7 +203,7 @@ const Complains: FC = () => {
         </SubSection>
       </Section>
       <Footer />
-    </>
+    </Page>
   )
 }
 
