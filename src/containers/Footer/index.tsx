@@ -15,8 +15,6 @@ export interface Props extends BaseProps {
   isHomePage?: boolean
 }
 
-//! traducir
-
 const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
   const { lang, setLang } = useContext(LanguageContext)
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
@@ -62,15 +60,15 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
           <ExternalLink variant="footer" size="xs" href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>
         </Section>
         <Section>
-          <Text size="s" weight="bold" color="offOrange" styles={{ marginBottom: 15, textAlign: 'center' }} isFullWidth>Languages</Text>
-          <Container styles={{ marginBottom: 15, alignItems: 'center' }} isFullWidth>
+          <Text size="s" weight="bold" color="offOrange" styles={{ marginBottom: 15 }} isCentered isFullWidth>Languages</Text>
+          <Container styles={{ marginBottom: 15, justifyContent: 'center' }} isFullWidth>
             <Button variant="D" onClick={setLang?.bind(undefined, 'ES')}>ESP</Button>
             <VerticalDivider />
             <Button variant="D" onClick={setLang?.bind(undefined, 'EN')}>ENG</Button>
             <VerticalDivider />
             <Button variant="D" onClick={setLang?.bind(undefined, 'SW')}>SWA</Button>
           </Container>
-          <Text size="s" color="offOrange" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline', marginLeft: 8, cursor: 'pointer' }}>
+          <Text size="s" color="offOrange" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }} isCentered isFullWidth>
             {lang === 'ES' && 'Política de Privacidad'}
             {lang === 'EN' && 'Privacy Policy'}
             {/* //! falta */}

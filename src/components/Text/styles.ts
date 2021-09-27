@@ -50,6 +50,7 @@ export default styled.span<TextProps>`
   ${TextStyles}
   margin: 0;
   color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
+  cursor: ${({ onClick }) => onClick ? 'pointer' : 'inherit'};
 
   ${({ isHighlighted }) => isHighlighted && css`
     color: ${({ theme }) => theme.colors.darkRed};

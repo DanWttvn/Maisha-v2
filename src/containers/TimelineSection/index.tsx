@@ -31,11 +31,11 @@ export const TimelineSection: FC<SectionProps> = () => {
           isFullWidth
         >
           <Carousel.Item src="/images/photo1.jpg" hasOverlay>
-            {/* //! falta texto */}
             <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2021</Text>
             <Paragraph color='white' weight="semibold">
-              {lang === 'ES' && ''}
-              {lang === 'EN' && ''}
+              {lang === 'ES' && 'Tras el análisis de necesidades realizado en 2020, comenzamos un programa de desarrollo comunitario en Mkono, un barrio en expansión a las afueras de Arusha. En el marco de este programa desarrollamos proyectos que contribuyan al desarrollo en esta comunidad. Algunos de estos proyectos incluyen actividades deportivas y de salud en varios colegios, clases de refuerzo para reducir el fracaso escolar, formación en técnicas agrícolas sostenibles y clubes de debate sobre igualdad de género.'}
+              {lang === 'EN' && 'After the needs assessment was carried out in 2020, we started a community development program in Mkono, a sprawling neighborhood on the outskirts of Arusha. Within the framework of this program, we develop projects that contribute to development in this community. Some of these projects include sports and health activities in various schools, reinforcement classes to reduce school failure, training in sustainable agricultural techniques, and discussion clubs on gender equality.'}
+              {/* //! falta sw */}
               {lang === 'SW' && ''}
             </Paragraph>
           </Carousel.Item>

@@ -1,17 +1,20 @@
 import React, { useState, FC, useContext } from 'react'
 import NavItem from '../../components/NavItem'
+import { Li } from '../../components/NavItem/styles'
 import Image from '../../components/Image'
+import Container from '../../components/Container'
 import LanguageContext from '../../contexts/language'
 import { BaseProps, sectionsData } from '../../models'
 import Styled, { Hamburger, Cross, ItemsWrapper, Menu, Backdrop } from './styles'
 import AppLink from '../../components/AppLink'
+import { VerticalDivider } from '../Footer/styles'
 
 interface Props extends BaseProps {
   isHomePage?: boolean
 }
 
 export const Navbar: FC<Props> = ({ isHomePage }) => {
-  const { lang } = useContext(LanguageContext)
+  const { lang, setLang } = useContext(LanguageContext)
   const [ isDesktopOpen, setIsDesktopOpen ] = useState(false)
   const [ isResponsiveOpen, setIsResponsiveOpen ] = useState(false)
 
@@ -51,7 +54,16 @@ export const Navbar: FC<Props> = ({ isHomePage }) => {
       <ItemsWrapper>
         <Backdrop onClick={setIsResponsiveOpen.bind(undefined, false)} isResponsiveOpen={isResponsiveOpen}/>
         <Cross onClick={setIsResponsiveOpen.bind(undefined, false)} isResponsiveOpen={isResponsiveOpen}/>
-        <Menu isResponsiveOpen={isResponsiveOpen}>{items}</Menu>
+        <Menu isResponsiveOpen={isResponsiveOpen}>
+          {items}
+          <Container>
+            <Li onClick={setLang?.bind(undefined, 'ES')} style={{ fontWeight: 500, padding: '20px 10px'}} isSubItem>ESP</Li>
+            <VerticalDivider />
+            <Li onClick={setLang?.bind(undefined, 'EN')} style={{ fontWeight: 500, padding: '20px 10px'}} isSubItem>ENG</Li>
+            <VerticalDivider />
+            <Li onClick={setLang?.bind(undefined, 'SW')} style={{ fontWeight: 500, padding: '20px 10px'}} isSubItem>SWA</Li>
+          </Container>
+        </Menu>
       </ItemsWrapper>
     </Styled>
   )

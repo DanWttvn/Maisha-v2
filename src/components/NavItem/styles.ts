@@ -11,6 +11,7 @@ export const Li = styled.li<{ isSubItem?: boolean }>`
   white-space: nowrap;
   text-align: center;
   text-transform: uppercase;
+  cursor: pointer;
 	color: rgb(170, 170, 170);
 
   &:active {
