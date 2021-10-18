@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { ThemeProps } from '../../models'
+import { BaseProps } from '../../models'
 
-export default styled.figure<ThemeProps>`
+export default styled.figure<BaseProps>`
   width: 100%;
+  ${({ styles }) => ({ ...styles })};
 `

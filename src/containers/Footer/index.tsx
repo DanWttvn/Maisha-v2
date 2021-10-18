@@ -71,7 +71,7 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
           <Text size="s" color="offOrange" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }} isCentered isFullWidth>
             {lang === 'ES' && 'Política de Privacidad'}
             {lang === 'EN' && 'Privacy Policy'}
-            {/* //! falta */}
+            {/* //! missing */}
             {lang === 'SW' && ''}
           </Text>
         </Section>

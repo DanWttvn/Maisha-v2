@@ -20,7 +20,7 @@ const Complains: FC = () => {
   const [ isSending, setIsSending ] = useState(false)
   const [ isSuccessful, setIsSuccesful ] = useState(false)
 
-  //! faltan traducciones
+  //! missing
   const labelCopies: Record<string, LanguageOptions> = {
     complain: {
       ES: 'Acción a denunciar',
@@ -181,7 +181,7 @@ const Complains: FC = () => {
             <Paragraph size="s" styles={{ marginBottom: 32 }} isCentered isFullWidth>
               {lang === 'ES' && <>Para adjuntar algún archivo, puedes enviarlo a <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
               {lang === 'EN' && <>To attach a file, you can send it to <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
-              {/* //! falta traduccion */}
+              {/* //! missing */}
               {lang === 'SW' && <></>}
             </Paragraph>
             <Text color="brightRed" weight="bold" styles={{ marginBottom: 32 }} isHidden={!errors.includes('fail')} isFullWidth>

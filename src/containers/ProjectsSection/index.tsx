@@ -6,7 +6,8 @@ import LanguageContext from '../../contexts/language'
 import { Section, SubSection } from '../../components/Section/styles'
 import { SectionProps } from '../../models'
 
-//! falta swahili
+//! missing
+
 export const ProjectsSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
@@ -54,7 +55,7 @@ export const ProjectsSection: FC<SectionProps> = () => {
 
         <Subtitle>
           {lang === 'ES' && 'Desarrollo agrícola'}
-          {lang === 'EN' && ''}
+          {lang === 'EN' && 'Agricultural development'}
           {lang === 'SW' && ''}
         </Subtitle>
         <Paragraph>

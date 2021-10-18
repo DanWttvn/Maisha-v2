@@ -12,6 +12,7 @@ import { Section, SubSection } from '../../components/Section/styles'
 import DataText from '../DataText'
 import { SectionProps } from '../../models'
 import { BorderedBox, DataContainer, DataParagraph, SubtitleFullWidth, OuterContainer, InnerContainer } from './styles'
+import Image from '../../components/Image'
 
 export const WhoSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
@@ -45,29 +46,26 @@ export const WhoSection: FC<SectionProps> = () => {
         </OuterContainer>
       </SubSection>
 
-      {/* //! meter imagen */}
       <SubSection>
         <Subtitle>
           {lang === 'ES' && 'Misión, Visión y Áreas de actuación'}
           {lang === 'EN' && 'Mission, Vision and Action areas'}
           {lang === 'SW' && 'Malengo, Matarajio na Maeneo ya kimkakati'}
         </Subtitle>
-        <Paragraph >
+        <Paragraph>
+          <Image src="/images/photo8.jpg" styles={{ float: 'right', maxWidth: 700, minWidth: 550, width: '55%', padding: '0 0 40px 40px' }}/>
           {lang === 'ES' && 'Maisha Roots cree en la cooperación al desarrollo como forma de acompañamiento y empoderamiento local, siempre a través de un enfoque participativo. Por ello, nuestra misión se centra en la mejora de la calidad de vida de sus beneficiarios en las áreas de medios de vida y educación, teniendo en cuenta que para ello es necesario promover también otras áreas.'}
           {lang === 'EN' && 'Maisha roots believes in development cooperation as a tool of accompaniment and local empowerment, always through a participative approach. Thus, our mission focuses on the improvement of the life quality of its beneficiaries in the areas of livelihood and education. We also consider that, in order to achieve it, it is also necessary to promote other areas.'}
           {lang === 'SW' && 'Maisha Roots inaamini katika ushirikiano katika maendeleo na uwezeshwaji wa jamii, daima kupitia njia shirikishi. Kwa hivyo, malengo yetu yanazingatia uboreshaji wa hali ya maisha ya wanufaika katika nyanja za kijamii na elimu. Tunazingatia pia kuwa, ili kufanikisha, ni muhimu kukuza nyanja zingine pia.'}
-        </Paragraph>
-        <Paragraph>
+          <SkipWrap styles={{ marginBottom: 16 }} />
           {lang === 'ES' && <>El nombre Maisha Roots procede de la palabra swahili<strong> ‘maisha’</strong>, que significa vida, y de la palabra inglesa<strong> ‘roots’,</strong> que significa raíces formando la expresión ‘raíces de vida’. Y representa los dos pilares de actuación de la organización: la educación y los medios de vida.</>}
           {lang === 'EN' && <>The name Maisha Roots comes from the Swahili word<strong> ‘maisha’</strong>, which means life, and the English word<strong> ‘roots’</strong>, forming the expression ‘life roots’. It represents the two main action pillars of the organization: education and livelihood.</>}
           {lang === 'SW' && <>Jina Maisha Roots linatokana na neno la Kiswahili ‘<strong> ‘maisha’</strong>, na neno la Kingereza<strong> ‘roots’ </strong>(mzizi), huunda usemi ‘Maisha Roots’. Inawakilisha nguzo kuu mbili za shirika: elimu na uinuaji wa maisha.</>}
-        </Paragraph>
-        <Paragraph>
+          <SkipWrap styles={{ marginBottom: 16 }} />
           {lang === 'ES' && 'Creemos que el desarrollo de las personas y de las comunidades está estrechamente ligado con los medios de vida y la educación, por lo que ambas áreas constituyen los pilares de actuación de la organización.'}
           {lang === 'EN' && 'We have chosen livelihood and education to be our core action areas because we believe the development of people and communities is closely linked to both of them.'}
           {lang === 'SW' && 'Tumechagua uinuaji wa maisha na elimu kuwa maeneo yetu ya hatua za msingi kwasababu tunaamini maendeleo ya watu na jamii yote kwa pamoja yanauhusiano wa karibu.'}
-        </Paragraph>
-        <Paragraph>
+          <SkipWrap styles={{ marginBottom: 16 }} />
           {lang === 'ES' && <>Entendemos<strong> ‘medios de vida’ </strong>como toda aquella actividad que desarrolla el aspecto productivo de una persona, a través de la cual obtiene experiencia y remuneración. Y entendemos la<strong> ‘educación’ </strong>como toda formación destinada a desarrollar la capacidad intelectual, moral y afectiva de una persona y como el derecho de toda la ciudadanía a una enseñanza básica gratuita.</>}
           {lang === 'EN' && <>We understand<strong> ‘livelihood’ </strong>as every activity developing the productive aspect of a person, through which the person obtains experience and remuneration. We understand <strong> ‘education’ </strong>as every training or formation dedicated to developing the intellectual, moral, and affective capacity of a person as well as the civil right to receive basic and free education.</>}
           {lang === 'SW' && <>Tunaelewa<strong> ‘uinuaji wa maisha’ </strong>kama kila shughuli inayokuza hali ya uchumi wa mtu, ambayo kupitia yeye mtu hupata uzoefu na ujira. Tunaelewa<strong> ‘elimu’ </strong>kama mafunzo yote yanayolenga kumletea maendeleo mtu kifikra, kimaadili na uwezo wa kihisia kama haki ya kila raia kupata elimu ya msingi na ya bure.</>}
@@ -176,7 +174,7 @@ export const WhoSection: FC<SectionProps> = () => {
 
         <DataParagraph styles={{ flex: 1, minWidth: 200, margin: '0 30px', marginBottom: 30 }}>
           {lang === 'ES' && 'Son los idiomas oficiales, aunque sólo las personas que han recibido educación hablan este último. La educación primaria se ofrece en swahili, y la secundaria en inglés, uno de los motivos por los cuales muchos estudiantes dejan la escuela en los niveles de secundaria.'}
-          {/* //! falta sw */}
+          {/* //! missing */}
           {lang === 'EN' && 'They are the official languages, although only educated people speak the latter. Primary education is offered in Swahili, and secondary education in English, one of the reasons why many students leave school at the secondary levels.'}
           {lang === 'SW' && ''}
         </DataParagraph>

@@ -114,7 +114,6 @@ export const ColaborateSection: FC<SectionProps> = () => {
           </Text>
         </Accordion>
         <Accordion title="Dona con Bizum" isHidden={lang !== 'ES'} isFullWidth>
-          {/* //! cómo es???? */}
           <Text styles={{ marginBottom: 16 }}>Desde tu móvil usando la aplicación Bizum la app de tu banco, introduce manualmente el número <Text color="darkRed" weight="black">02780</Text>.</Text>
           <Text styles={{ marginBottom: 8 }}>En caso de que quieras solicitar el certificado de donaciones, envíanos un correo a <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>, con los siguientes datos:</Text>
           <ul>

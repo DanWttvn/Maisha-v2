@@ -48,7 +48,8 @@ const Join: FC<Props> = ({ variant }) => {
     setIsFormModalOpen(true)
   }
 
-  //! recaptcha
+  //TODO: add recaptcha
+
   return (
     <>
       <Container direction="vertical" styles={{ margin: '-80px auto 24px', zIndex: defaultTheme.zIndex.medium }}>

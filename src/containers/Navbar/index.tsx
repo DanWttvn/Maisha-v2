@@ -1,13 +1,13 @@
-import React, { useState, FC, useContext } from 'react'
+import React, { useState, FC, useContext, useEffect } from 'react'
 import NavItem from '../../components/NavItem'
 import { Li } from '../../components/NavItem/styles'
 import Image from '../../components/Image'
 import Container from '../../components/Container'
 import LanguageContext from '../../contexts/language'
 import { BaseProps, sectionsData } from '../../models'
-import Styled, { Hamburger, Cross, ItemsWrapper, Menu, Backdrop } from './styles'
 import AppLink from '../../components/AppLink'
 import { VerticalDivider } from '../Footer/styles'
+import Styled, { Hamburger, Cross, ItemsWrapper, Menu, Backdrop } from './styles'
 
 interface Props extends BaseProps {
   isHomePage?: boolean
@@ -17,6 +17,19 @@ export const Navbar: FC<Props> = ({ isHomePage }) => {
   const { lang, setLang } = useContext(LanguageContext)
   const [ isDesktopOpen, setIsDesktopOpen ] = useState(false)
   const [ isResponsiveOpen, setIsResponsiveOpen ] = useState(false)
+  const [ isHeroSection, setIsHeroSection ] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = ()  => {
+      if (window.scrollY > (window.innerHeight - 120)) setIsHeroSection(false)
+      else setIsHeroSection(true)
+    }
+
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const handleOpen = (isOpen: boolean) => {
     setIsDesktopOpen(isOpen)
@@ -44,7 +57,7 @@ export const Navbar: FC<Props> = ({ isHomePage }) => {
   })
 
   return (
-    <Styled isOpen={isDesktopOpen}>
+    <Styled isOpen={isDesktopOpen} isHeroSection={isHeroSection}>
       <AppLink toSection="header" isSamePage={isHomePage}>
         <Image styles={{ width: 200, marginTop: 16 }} src="./images/logo.png" />
       </AppLink>

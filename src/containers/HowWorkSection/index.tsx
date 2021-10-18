@@ -111,7 +111,7 @@ export const HowWorkSection: FC<SectionProps> = () => {
           </GroupCard>
 
           <GroupCard>
-            {/* //! falta sw */}
+            {/* //! missing */}
             <CommissionIcon src="./images/icons/fundraising-orange.svg" />
             <Text weight="bold" styles={{ textAlign: 'center' }}>
               {lang === 'ES' && 'Eventos y recaudación de fondos'}
