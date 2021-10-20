@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import Subtitle from '../../components/Subtitle'
 import Container from '../../components/Container'
 import Paragraph from '../../components/Paragraph'
+import ImageRoot from '../../components/Image'
 
 
 export const OuterContainer = styled(Container)`
@@ -61,5 +62,20 @@ export const DataContainer = styled(Container)`
 export const DataParagraph = styled(Paragraph)`
 	@media ${({ theme }) => theme.breakpoints.sl} {
     width: 100%;
+	}
+`
+
+export const Image = styled(ImageRoot)`
+  float: right;
+  max-width: 700px;
+  min-width: 550px;
+  width: 55%;
+  padding: 0 0 40px 40px;
+
+	@media ${({ theme }) => theme.breakpoints.m} {
+    min-width: 0;
+    width: 100%;
+		padding: 0;
+    margin-bottom: 30px;
 	}
 `

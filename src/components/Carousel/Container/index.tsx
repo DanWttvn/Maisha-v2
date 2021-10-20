@@ -1,9 +1,8 @@
 import React, { Children, cloneElement, FC, ReactElement, useEffect, useRef, useState } from 'react'
 import { BaseProps } from '../../../models'
-import Subtitle from '../../Subtitle'
 import Control from '../Control'
 import { Props as ItemProps } from '../Item'
-import Styled, { Content, Wrapper } from './styles'
+import Styled, { Content, Wrapper, Subtitle } from './styles'
 
 export interface Props extends BaseProps {
   title?: string
@@ -40,7 +39,7 @@ const Container: FC<Props> = ({ children, isHidden, title, sectionTitles, styles
 
   return (
     <Styled styles={styles} isFullWidth={isFullWidth}>
-      <Subtitle color='white' styles={{ position: 'absolute', top: 10, left: '5rem', zIndex: 1 }}>{title}</Subtitle>
+      <Subtitle color="white">{title}</Subtitle>
       <Content ref={ref} isFullWidth>
         <Wrapper>
           {items}

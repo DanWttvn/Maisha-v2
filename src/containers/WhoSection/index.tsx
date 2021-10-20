@@ -11,8 +11,7 @@ import Map from '../Map'
 import { Section, SubSection } from '../../components/Section/styles'
 import DataText from '../DataText'
 import { SectionProps } from '../../models'
-import { BorderedBox, DataContainer, DataParagraph, SubtitleFullWidth, OuterContainer, InnerContainer } from './styles'
-import Image from '../../components/Image'
+import { BorderedBox, DataContainer, DataParagraph, SubtitleFullWidth, OuterContainer, InnerContainer, Image } from './styles'
 
 export const WhoSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
@@ -53,7 +52,7 @@ export const WhoSection: FC<SectionProps> = () => {
           {lang === 'SW' && 'Malengo, Matarajio na Maeneo ya kimkakati'}
         </Subtitle>
         <Paragraph>
-          <Image src="/images/photo8.jpg" styles={{ float: 'right', maxWidth: 700, minWidth: 550, width: '55%', padding: '0 0 40px 40px' }}/>
+          <Image src="/images/photo8.jpg" />
           {lang === 'ES' && 'Maisha Roots cree en la cooperación al desarrollo como forma de acompañamiento y empoderamiento local, siempre a través de un enfoque participativo. Por ello, nuestra misión se centra en la mejora de la calidad de vida de sus beneficiarios en las áreas de medios de vida y educación, teniendo en cuenta que para ello es necesario promover también otras áreas.'}
           {lang === 'EN' && 'Maisha roots believes in development cooperation as a tool of accompaniment and local empowerment, always through a participative approach. Thus, our mission focuses on the improvement of the life quality of its beneficiaries in the areas of livelihood and education. We also consider that, in order to achieve it, it is also necessary to promote other areas.'}
           {lang === 'SW' && 'Maisha Roots inaamini katika ushirikiano katika maendeleo na uwezeshwaji wa jamii, daima kupitia njia shirikishi. Kwa hivyo, malengo yetu yanazingatia uboreshaji wa hali ya maisha ya wanufaika katika nyanja za kijamii na elimu. Tunazingatia pia kuwa, ili kufanikisha, ni muhimu kukuza nyanja zingine pia.'}

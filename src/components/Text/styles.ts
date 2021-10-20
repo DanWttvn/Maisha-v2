@@ -61,20 +61,3 @@ export default styled.span<TextProps>`
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `
-
-export const OpenQuote = styled.span<BaseProps>`
-  position: relative;
-  &::before {
-    content: "“";
-  }
-  ${({ styles }) => ({ ...styles })}
-`
-
-export const CloseQuote = styled.span<BaseProps>`
-  position: relative;
-  &::before {
-    content: "”";
-  }
-  ${({ styles }) => ({ ...styles })}
-`
-

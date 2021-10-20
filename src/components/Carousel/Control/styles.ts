@@ -9,6 +9,10 @@ export default styled.div`
 	bottom: 60px;
 	width: 100%;
   padding: 0 50px;
+
+  @media ${({ theme }) => theme.breakpoints.s} {
+    padding: 0 2rem;
+  }
 `
 
 export const ButtonsWrapper = styled.div`

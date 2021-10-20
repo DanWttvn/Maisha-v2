@@ -84,6 +84,7 @@ export const Map: FC = () => {
     </Marker>
   ))
 
+  //TODO: fix responsive
   return (
     <>
       <ReactMapGL

@@ -1,5 +1,6 @@
 import styled, { StyledProps } from 'styled-components'
 import { BaseProps } from '../../../models'
+import SubtitleRoot from '../../Subtitle'
 
 export default styled.section<StyledProps<BaseProps>>`
   display: flex;
@@ -30,4 +31,15 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+`
+
+export const Subtitle = styled(SubtitleRoot)`
+  position: absolute;
+  top: 10px;
+  left: 5rem;
+  z-index: 1;
+
+  @media ${({ theme }) => theme.breakpoints.s} {
+    left: 2rem;
+  }
 `

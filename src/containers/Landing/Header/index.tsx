@@ -1,22 +1,22 @@
 import React, { FC } from 'react'
-import Container from '../../../components/Container'
 import Image from '../../../components/Image'
 import Text from '../../../components/Text'
-import { OpenQuote, CloseQuote } from '../../../components/Text/styles'
 import defaultTheme from '../../../styles/theme'
 import Paragraph from '../../../components/Paragraph'
+import Styled, { OpenQuote, CloseQuote } from './styles'
 
 const Header: FC = () => {
   return (
-    <Container styles={{ position: 'relative', height: '70vh', minHeight: 600, maxHeight: 1000, overflow: 'hidden' }} isFullWidth>
+    <Styled isFullWidth>
       <Paragraph styles={{ zIndex: defaultTheme.zIndex.medium, width: '70%', margin: 'auto' }}>
-        <OpenQuote styles={{ color: 'white', fontSize: 120, top: 1, lineHeight: '75px', fontStyle: 'italic', fontWeight: 800, marginRight: -20, left: 7 }} />
+        <OpenQuote />
         <Text weight="black" color="white" styles={{ fontStyle: 'italic', fontSize: '3.5rem', lineHeight: '4.7rem' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
-        <CloseQuote styles={{ color: 'white', fontSize: 120, top: 20, lineHeight: '55px', fontStyle: 'italic', fontWeight: 800 }} />
+        <CloseQuote />
         <Text weight="black" color="white" styles={{ marginLeft: 24, fontWeight: 800, fontSize: '3.5rem', lineHeight: '4.7rem' }}>E. Galeno</Text>
       </Paragraph>
+      {/* //! fix responsive */}
       <Image src="/images/playing_kids.jpg" styles={{ position: 'absolute' }} hasOverlay isFullWidth />
-    </Container>
+    </Styled>
   )
 }
 export default Header

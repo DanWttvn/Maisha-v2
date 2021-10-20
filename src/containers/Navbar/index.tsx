@@ -20,6 +20,8 @@ export const Navbar: FC<Props> = ({ isHomePage }) => {
   const [ isHeroSection, setIsHeroSection ] = useState(true)
 
   useEffect(() => {
+    if (!isHomePage) return setIsHeroSection(false)
+
     const handleScroll = ()  => {
       if (window.scrollY > (window.innerHeight - 120)) setIsHeroSection(false)
       else setIsHeroSection(true)

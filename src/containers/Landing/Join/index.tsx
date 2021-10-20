@@ -6,12 +6,12 @@ import Dialog from '../../../components/Dialog'
 import Subtitle from '../../../components/Subtitle'
 import Text from '../../../components/Text'
 import JoinForm from '../../../containers/JoinForm'
-import defaultTheme from '../../../styles/theme'
 import SkipWrap from '../../../components/SkipWrap'
 import theme from '../../../styles/theme'
 import Banner from '../../../components/Banner'
 import useIntersection from '../../../hooks/useIntersection'
 import { handleScrollToTop } from '../../../helpers/screen'
+import Styled from './styles'
 
 type Props = {
   variant: '1' | '2'
@@ -52,8 +52,8 @@ const Join: FC<Props> = ({ variant }) => {
 
   return (
     <>
-      <Container direction="vertical" styles={{ margin: '-80px auto 24px', zIndex: defaultTheme.zIndex.medium }}>
-        <Container>
+      <Styled direction="vertical">
+        <Container styles={{ justifyContent: 'center' }}>
           <Button onClick={handleSelectAmount.bind(undefined, 5)} isSelected={selectedAmount === 5 && customAmount !== 5} variant="C">5€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 10)} isSelected={selectedAmount === 10 && customAmount !== 10} variant="C">10€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} variant="C">15€</Button>
@@ -67,7 +67,7 @@ const Join: FC<Props> = ({ variant }) => {
         <SkipWrap />
         <Text isHidden={!isError} color="brightRed" weight="black" isFullWidth>*Por favor, selecciona una cantidad mensual</Text>
         <Text isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>*La cantidad mínima es de 5€</Text>
-      </Container>
+      </Styled>
 
       <SkipWrap />
       <Button variant="B" onClick={handleOpenForm} ref={elementRef} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, border: `${theme.colors.darkRed} 2px solid` }}>HAZTE SOCIA/O</Button>

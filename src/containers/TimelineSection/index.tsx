@@ -30,7 +30,8 @@ export const TimelineSection: FC<SectionProps> = () => {
           styles={{ height: 690 }}
           isFullWidth
         >
-          <Carousel.Item src="/images/photo1.jpg" hasOverlay>
+          {/* //! change photo */}
+          <Carousel.Item src="" hasOverlay>
             <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2021</Text>
             <Paragraph color='white' weight="semibold">
               {lang === 'ES' && 'Tras el análisis de necesidades realizado en 2020, comenzamos un programa de desarrollo comunitario en Mkono, un barrio en expansión a las afueras de Arusha. En el marco de este programa desarrollamos proyectos que contribuyan al desarrollo en esta comunidad. Algunos de estos proyectos incluyen actividades deportivas y de salud en varios colegios, clases de refuerzo para reducir el fracaso escolar, formación en técnicas agrícolas sostenibles y clubes de debate sobre igualdad de género.'}

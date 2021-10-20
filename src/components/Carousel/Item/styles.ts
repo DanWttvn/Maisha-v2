@@ -13,5 +13,9 @@ export default styled.div<Props>`
 	background-size: cover;
   background-image: ${({ src, hasOverlay }) => hasOverlay ? `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${src})` : `url(${src})`};
 
+  @media ${({ theme }) => theme.breakpoints.s} {
+    padding: 60px 2rem;
+	}
+
   ${({ styles }) => ({ ...styles })}
 `
