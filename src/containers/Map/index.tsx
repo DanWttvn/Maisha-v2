@@ -79,11 +79,12 @@ export const Map: FC = () => {
 
   const points = data.map(x => (
     <Marker key={x.city} latitude={x.latitude} longitude={x.longitude}>
-      <Button onClick={setSelected.bind(undefined, x.city)} isHidden={![ 'Madrid', 'Arusha' ].includes(x.city)} styles={{ left: x.city === 'Madrid' ? '-60px' : '-25px', top: x.city === 'Madrid' ? '-15px' : '-25px' }} variant="F">+</Button>
+      <Button onClick={setSelected.bind(undefined, x.city)} isHidden={![ 'Madrid', 'Arusha' ].includes(x.city) || window.innerWidth > 1080} styles={{ left: x.city === 'Madrid' ? '-60px' : '-25px', top: x.city === 'Madrid' ? '-15px' : '-25px' }} variant="F">+</Button>
       <Point />
     </Marker>
   ))
 
+  //TODO: fix responsive
   return (
     <>
       <ReactMapGL

@@ -1,6 +1,4 @@
 import React, { FC } from 'react'
-import { Link } from 'react-router-dom'
-import Button from '../components/Button'
 import Footer from '../containers/Footer'
 import Navbar from '../containers/Navbar'
 import HeroSection from '../containers/HeroSection'
@@ -12,20 +10,11 @@ import ColaborateSection from '../containers/ColaborateSection'
 import TransparencySection from '../containers/TransparencySection'
 import NewsletterPopup from '../containers/NewsletterPopup'
 import PolicyBanner from '../containers/PolicyBanner'
+import Page from '../components/Page'
 
 const Home: FC = () => (
-  <>
+  <Page>
     <Navbar isHomePage/>
-    <Link to="/landing">Router Link</Link>
-
-    <Button variant="A">Variant A</Button>
-    <Button variant="A" styles={{ padding: 15 }}>Ahgdf</Button>
-    <Button variant="B">Variant B</Button>
-    <Button variant="C">Variant C</Button>
-    <Button variant="D">Variant D</Button>
-    <Button variant="E">Variant E</Button>
-    <Button variant="F">Variant F</Button>
-    <Button variant="G">Variant G</Button>
 
     <HeroSection />
     <WhoSection/>
@@ -39,7 +28,7 @@ const Home: FC = () => (
 
     <NewsletterPopup />
     <PolicyBanner />
-  </>
+  </Page>
 )
 
 export default Home

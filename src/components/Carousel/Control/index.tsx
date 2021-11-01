@@ -11,7 +11,7 @@ export interface Props extends BaseProps {
   sectionTitles: string[]
 }
 
-const Control: FC<Props> = ({ isHidden, control, sectionTitles, onChange, styles }) => {
+const Control: FC<Props> = ({ isHidden, control, sectionTitles, onChange }) => {
   const { currentIndex, totalItems } = control
 
   if (isHidden) return null
@@ -26,21 +26,20 @@ const Control: FC<Props> = ({ isHidden, control, sectionTitles, onChange, styles
     )
   })
 
+  const handleChange = (index: number) => {
+    let nextIndex = index
+    if (index > totalItems - 1) nextIndex = 0
+    if (index < 0) nextIndex = totalItems - 1
+    onChange(nextIndex)
+  }
+
   return (
-    <Styled style={styles}>
+    <Styled>
       <ButtonsWrapper>
-        <Button
-          variant="E"
-          onClick={onChange.bind(undefined, currentIndex - 1)}
-          isDisabled={currentIndex === 0}
-        >
+        <Button variant="E" onClick={handleChange.bind(undefined, currentIndex - 1)} >
           <Icon isLeft/>
         </Button>
-        <Button
-          variant="E"
-          onClick={onChange.bind(undefined, currentIndex + 1)}
-          isDisabled={!totalItems || currentIndex === totalItems - 1}
-        >
+        <Button variant="E" onClick={handleChange.bind(undefined, currentIndex + 1)} >
           <Icon/>
         </Button>
       </ButtonsWrapper>

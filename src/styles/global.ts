@@ -9,7 +9,7 @@ export default createGlobalStyle<ThemeProps>`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; 
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
@@ -17,12 +17,6 @@ export default createGlobalStyle<ThemeProps>`
     background-color: white;
 
     ${({ theme }) => css`
-      /* @media (max-width: 1500px) {
-        font-size: 16px;
-      } */
-      /* @media ${theme.breakpoints.l} {
-        font-size: 15px;
-      } */
       @media ${theme.breakpoints.m} {
         font-size: 15.5px;
       }
@@ -32,8 +26,6 @@ export default createGlobalStyle<ThemeProps>`
       @media ${theme.breakpoints.s} {
         font-size: 14px;
       }
-      /* @media ${theme.breakpoints.xs} {
-      } */
     `}
   }
 

@@ -6,12 +6,12 @@ import Dialog from '../../../components/Dialog'
 import Subtitle from '../../../components/Subtitle'
 import Text from '../../../components/Text'
 import JoinForm from '../../../containers/JoinForm'
-import defaultTheme from '../../../styles/theme'
 import SkipWrap from '../../../components/SkipWrap'
 import theme from '../../../styles/theme'
 import Banner from '../../../components/Banner'
 import useIntersection from '../../../hooks/useIntersection'
 import { handleScrollToTop } from '../../../helpers/screen'
+import Styled from './styles'
 
 type Props = {
   variant: '1' | '2'
@@ -48,17 +48,18 @@ const Join: FC<Props> = ({ variant }) => {
     setIsFormModalOpen(true)
   }
 
-  //! recaptcha
+  //TODO: add recaptcha
+
   return (
     <>
-      <Container direction="vertical" styles={{ margin: '-80px auto 24px', zIndex: defaultTheme.zIndex.medium }}>
-        <Container>
+      <Styled direction="vertical">
+        <Container styles={{ justifyContent: 'center' }}>
           <Button onClick={handleSelectAmount.bind(undefined, 5)} isSelected={selectedAmount === 5 && customAmount !== 5} variant="C">5€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 10)} isSelected={selectedAmount === 10 && customAmount !== 10} variant="C">10€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} variant="C">15€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} variant="C">25€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} variant="C">
-            <Input type="number" min={5} onChange={handleInputChange} styles={{ marginRight: 12 }} />€
+            <Input type="number" min={5} onChange={handleInputChange} styles={{ marginRight: 12, fontSize: '2.5rem', width: '100px' }} />€
           </Button>
         </Container>
         <Text isHidden={isError} color="black" weight="semibold" isFullWidth>Elige tu aportación mensual</Text>
@@ -66,17 +67,18 @@ const Join: FC<Props> = ({ variant }) => {
         <SkipWrap />
         <Text isHidden={!isError} color="brightRed" weight="black" isFullWidth>*Por favor, selecciona una cantidad mensual</Text>
         <Text isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>*La cantidad mínima es de 5€</Text>
-      </Container>
+      </Styled>
 
       <SkipWrap />
-      <Button variant="B" onClick={handleOpenForm} ref={elementRef} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, border: `${theme.colors.darkRed} 2px solid` }}>HAZTE SOCIA/O</Button>
+      <Button variant="B" onClick={handleOpenForm} ref={elementRef} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, border: `${theme.colors.darkRed} 2px solid`, zIndex: theme.zIndex.medium }}>HAZTE SOCIA/O</Button>
       <SkipWrap />
 
       <Dialog isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
         <Subtitle>Hazte socia/o</Subtitle>
         <Text color="black" weight="semibold" styles={{ marginRight: 8 }}>Tu aportación mensual seleccionada es de <strong>{selectedAmount}</strong>€.</Text>
         <Text size="s" color="lightGrey" onClick={setIsFormModalOpen.bind(undefined, false)} styles={{ textDecoration: 'underline', cursor: 'pointer', marginTop: 2 }}>Cambiar</Text>
-        <JoinForm amountSelected={selectedAmount || 0} variant={variant} />
+        <SkipWrap />
+        <JoinForm selectedAmount={selectedAmount || 0} variant={variant} />
       </Dialog>
 
       <Banner variant="B" isShown={!isCTAVisible} styles={{ padding: '20px 20%', alignItems: 'center' }}>

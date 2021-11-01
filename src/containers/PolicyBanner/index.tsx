@@ -29,19 +29,17 @@ const PolicyBanner: FC<BaseProps> = () => {
         <Text size="s" styles={{ flex: 1 }}>
           {lang === 'ES' && 'Esta web utiliza cookies para proporcionar un uso personalizado al usuario del Web. Si continuas la navegación consideramos que aceptas su uso.'}
           {lang === 'EN' && 'This website uses cookies to provide personalized use to the Web user. If you continue browsing we consider that you accept its use.'}
-          {/* ///!falta */}
+          {/* ///!falta sw */}
           {lang === 'SW' && ''}
           <Text size="s" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline', marginLeft: 8 }}>
             {lang === 'ES' && 'Política de Privacidad'}
             {lang === 'EN' && 'Privacy Policy'}
-            {/* ///!falta */}
             {lang === 'SW' && ''}
           </Text>
         </Text>
         <Button variant="G" onClick={handleAccept} styles={{ marginLeft: 'auto' }}>
           {lang === 'ES' && 'Aceptar'}
           {lang === 'EN' && 'Accept'}
-          {/* ///!falta */}
           {lang === 'SW' && ''}
         </Button>
       </Banner>

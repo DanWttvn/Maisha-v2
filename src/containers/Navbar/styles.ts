@@ -3,12 +3,13 @@ import { Bars as BarsRoot } from '@styled-icons/fa-solid/Bars'
 import { Cross as CrossRoot } from 'styled-icons/entypo'
 import { colorFadeInAnimation } from '../../styles/animations'
 
-export default styled.nav<{ isOpen: boolean }>`
+export default styled.nav<{ isOpen: boolean, isHeroSection: boolean }>`
 	width: 100%;
 	position: fixed;
 	top: 0;
 	padding: 20px 50px;
 	background: #fff;
+	opacity: ${({ isHeroSection }) => isHeroSection ? 0 : 1};
 	box-shadow: ${({ theme }) => theme.shadows.elevation2};
   z-index: ${({ theme }) => theme.zIndex.medium};
 
@@ -19,11 +20,7 @@ export default styled.nav<{ isOpen: boolean }>`
   align-content: center;
 
 	height: ${({ isOpen }) => isOpen ? '115px' : '90px'};
-	transition: height 0.4s ease-in-out;
-
-  /* @media ${({ theme }) => theme.breakpoints.l} {
-    padding: 0 24px;
-  } */
+	transition: all 0.4s ease-in-out;
 `
 
 
@@ -37,7 +34,7 @@ export const Hamburger = styled(BarsRoot)`
   cursor: pointer;
 	display: none;
 
-	@media ${({ theme }) => theme.breakpoints.l} {
+	@media (max-width: 1470px) {
 		display: block;
 	}
 `
@@ -63,7 +60,7 @@ export const Menu = styled.ul<{ isResponsiveOpen: boolean }>`
 	text-align: center;
 	list-style: none;
 
-	@media ${({ theme }) => theme.breakpoints.l} {
+	@media (max-width: 1470px) {
 		position: absolute;
 		top: 0;
 		height: 100vh;

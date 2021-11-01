@@ -5,7 +5,7 @@ export const TextStyles = css<TextProps>`
   text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
   ${({ size }) => size === 'xs' && css`
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     line-height: 24px;
   `}
 
@@ -50,6 +50,7 @@ export default styled.span<TextProps>`
   ${TextStyles}
   margin: 0;
   color: ${({ theme, color }) => color ? theme.colors[color] : 'inherit'};
+  cursor: ${({ onClick }) => onClick ? 'pointer' : 'inherit'};
 
   ${({ isHighlighted }) => isHighlighted && css`
     color: ${({ theme }) => theme.colors.darkRed};
@@ -60,20 +61,3 @@ export default styled.span<TextProps>`
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `
-
-export const OpenQuote = styled.span<BaseProps>`
-  position: relative;
-  &::before {
-    content: "“";
-  }
-  ${({ styles }) => ({ ...styles })}
-`
-
-export const CloseQuote = styled.span<BaseProps>`
-  position: relative;
-  &::before {
-    content: "”";
-  }
-  ${({ styles }) => ({ ...styles })}
-`
-

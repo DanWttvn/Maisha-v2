@@ -1,19 +1,22 @@
 import React, { FC, useContext } from 'react'
-import RouteLink from '../../components/RouteLink'
+import AppLink from '../../components/AppLink'
 import Image from '../../components/Image'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import Text from '../../components/Text'
+import Quote from '../../containers/Quote'
 import Button from '../../components/Button'
 import theme from '../../styles/theme'
 import LanguageContext from '../../contexts/language'
 import { Section, SubSection } from '../../components/Section/styles'
 import { SectionProps } from '../../models'
-import Link from '../../components/Link'
+import ExternalLink from '../../components/ExternalLink'
 import Accordion from '../../components/Accordion'
 import Container from '../../components/Container'
 import Li from '../../components/Li'
+import ColabLink from '../ColabLink'
+import { urls } from '../../routes'
 
 export const ColaborateSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
@@ -29,9 +32,9 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'SW' && 'Kuwa wa kujitolea'}
         </Subtitle>
         <Paragraph>
-          {lang === 'ES' && <>El voluntariado es uno de los pilares de Maisha Roots y necesitamos personal voluntario, tanto en España como en Tanzania. Envíanos tu <strong>CV</strong> y una <strong>carta explicándonos tu motivación</strong> a <Link href="mailto:info@maisharoots.org">info@maisharoots.org</Link>, y estaremos encantadas/os de que te unas a nuestro equipo.</>}
-          {lang === 'EN' && <>Volunteering is one of the most important roots of this organization, therefore we need volunteers to join our teams both in Spain and Tanzania. Send us your <strong>CV</strong> and a <strong>letter in which you explain to us your motivation</strong> to <Link href="mailto:info@maisharoots.org">info@maisharoots.org</Link>. We are happy that you join our team.</>}
-          {lang === 'SW' && <>Kujitolea ni moja ya mzizi muhimu wa shirika hili, kwa hivyo tunahitaji kujitolea kuungana na timu zetu zote nchini Uhispania na Tanzania. Tutumie <strong>wasifu</strong> wako na <strong>barua ambayo utatuelezea motisha yako</strong> kwa <Link href="mailto:info@maisharoots.org">info@maisharoots.org</Link>. Tunafurahi kwamba unajiunga na timu yetu.</>}
+          {lang === 'ES' && <>El voluntariado es uno de los pilares de Maisha Roots y necesitamos personal voluntario, tanto en España como en Tanzania. Envíanos tu <strong>CV</strong> y una <strong>carta explicándonos tu motivación</strong> a <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>, y estaremos encantadas/os de que te unas a nuestro equipo.</>}
+          {lang === 'EN' && <>Volunteering is one of the most important roots of this organization, therefore we need volunteers to join our teams both in Spain and Tanzania. Send us your <strong>CV</strong> and a <strong>letter in which you explain to us your motivation</strong> to <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>. We are happy that you join our team.</>}
+          {lang === 'SW' && <>Kujitolea ni moja ya mzizi muhimu wa shirika hili, kwa hivyo tunahitaji kujitolea kuungana na timu zetu zote nchini Uhispania na Tanzania. Tutumie <strong>wasifu</strong> wako na <strong>barua ambayo utatuelezea motisha yako</strong> kwa <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>. Tunafurahi kwamba unajiunga na timu yetu.</>}
         </Paragraph>
       </SubSection>
       <SubSection>
@@ -51,19 +54,20 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'SW' && <><strong>Tunatafuta wanafunzi wakujitolea ambao watajiunga na timu zetu</strong> za Tanzania na Uhispania kusaidia maeneo yetu ya usimamizi wa miradi, fedha na uhasibu, sheria, mawasiliano na habari, n.k.</>}
         </Paragraph>
         <Paragraph>
-          {lang === 'ES' && <>Si te interesa envíanos un correo a <Link href="mailto:info@maisharoots.org">info@maisharoots.org</Link> y estudiaremos la forma de ponernos en contacto con tu universidad para realizar todos los trámites pertinentes, o si ya existiera convenio, contacta con tu gestor de prácticas para solicitar plaza en nuestras vacantes.</>}
-          {lang === 'EN' && <>If you are interested, send an email to <Link href="mailto:info@maisharoots.org">info@maisharoots.org</Link> and we will contact your University to do all the paperwork, and if we already have an agreement with your University, please contact the internship manager to ask for our vacancies and the procedure to apply to it.</>}
-          {lang === 'SW' && <>Ukiwa una nia, tuma barua pepe kwa <Link href="mailto:info@maisharoots.org">info@maisharoots.org</Link> na tutawasiliana na Chuo Kikuu chako, tafadhali wasiliana na msimamizi wa kitengo cha kuuliza kazi zetu na utaratibu wa kuomba ndani yake.</>}
+          {lang === 'ES' && <>Si te interesa envíanos un correo a <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink> y estudiaremos la forma de ponernos en contacto con tu universidad para realizar todos los trámites pertinentes, o si ya existiera convenio, contacta con tu gestor de prácticas para solicitar plaza en nuestras vacantes.</>}
+          {lang === 'EN' && <>If you are interested, send an email to <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink> and we will contact your University to do all the paperwork, and if we already have an agreement with your University, please contact the internship manager to ask for our vacancies and the procedure to apply to it.</>}
+          {lang === 'SW' && <>Ukiwa una nia, tuma barua pepe kwa <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink> na tutawasiliana na Chuo Kikuu chako, tafadhali wasiliana na msimamizi wa kitengo cha kuuliza kazi zetu na utaratibu wa kuomba ndani yake.</>}
         </Paragraph>
         <Text isFullWidth isCentered>
           {lang === 'ES' && 'Como Eduardo Galeano, creemos que...'}
           {lang === 'EN' && 'As Eduardo Galeano said, we believe that...'}
-          {lang === 'SW' && 'Kama Eduardo Galeano alivyosema, tunamini hivyo...s'}
+          {lang === 'SW' && 'Kama Eduardo Galeano alivyosema, tunamini hivyo...'}
         </Text>
-        {/* //! falta quote */}
-        {/* mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo */}
-        {/* many small people, in small places, doing small things, can change the world */}
-        {/* watu wengi kwenye maeneo madogo madogo, wanaofanya shughuli ndogo ndogo, wanaweza kuibadilisha dunia */}
+        <Quote color="darkRed" quotesColor="offOrange" weight="black" size="xl" isFullWidth isCentered>
+          {lang === 'ES' && 'mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo'}
+          {lang === 'EN' && 'many small people, in small places, doing small things, can change the world'}
+          {lang === 'SW' && 'watu wengi kwenye maeneo madogo madogo, wanaofanya shughuli ndogo ndogo, wanaweza kuibadilisha dunia'}
+        </Quote>
       </SubSection>
       <SubSection id="donate">
         <Subtitle>
@@ -73,10 +77,9 @@ export const ColaborateSection: FC<SectionProps> = () => {
         </Subtitle>
         <Accordion title="Hazte socia/o" isHidden={lang !== 'ES'} isFullWidth>
           <Text styles={{ marginBottom: 8 }}>Puedes donarnos una cantidad fija al mes. Uno de los pilares de nuestra asociación es la estabilidad económica. Si conseguimos una financiación estable, contribuiremos activamente a la sostenibilidad de nuestros proyectos. Por ello, te animamos a que colabores con una aportación mensual.</Text>
-          {/* //! linkar */}
-          <RouteLink to="">
-            <Button onClick={() => console.log('a pag de donar')} styles={{ marginBottom: 16 }}>Hazte socia/o aquí</Button>
-          </RouteLink>
+          <AppLink toPage={urls.join}>
+            <Button styles={{ marginBottom: 16 }}>Hazte socia/o aquí</Button>
+          </AppLink>
         </Accordion>
         <Accordion title={(lang === 'ES' && 'Haz una transferencia') || (lang === 'EN' && 'Make a transfer') || (lang === 'SW' && 'Fanya uhamishaji') || ''} isFullWidth>
           <Text styles={{ marginBottom: 8 }}>
@@ -111,9 +114,8 @@ export const ColaborateSection: FC<SectionProps> = () => {
           </Text>
         </Accordion>
         <Accordion title="Dona con Bizum" isHidden={lang !== 'ES'} isFullWidth>
-          {/* //! cómo es???? */}
           <Text styles={{ marginBottom: 16 }}>Desde tu móvil usando la aplicación Bizum la app de tu banco, introduce manualmente el número <Text color="darkRed" weight="black">02780</Text>.</Text>
-          <Text styles={{ marginBottom: 8 }}>En caso de que quieras solicitar el certificado de donaciones, envíanos un correo a <Link href="mailto:info@maisharoots.org">info@maisharoots.org</Link>, con los siguientes datos:</Text>
+          <Text styles={{ marginBottom: 8 }}>En caso de que quieras solicitar el certificado de donaciones, envíanos un correo a <ExternalLink href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>, con los siguientes datos:</Text>
           <ul>
             <Li>Nombre y apellidos</Li>
             <Li>DNI</Li>
@@ -132,9 +134,9 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'ES' && <>En Maisha Roots creemos que la estabilidad económica es la base para el éxito de cualquier proyecto de cooperación al desarrollo. Consideramos que las micro donaciones tienen un gran impacto en la estabilidad económica de la ONG y nos hemos sumado a la plataforma Teaming. Con menos de lo que cuesta un café, estarás colaborando a la sostenibilidad de nuestros proyectos. <strong>Dona 1€ al mes y ayúdanos a seguir creciendo.</strong></>}
           {lang === 'EN' && <>In Maisha Roots we believe that economic sustainability is the key to success in any development project. We consider that microdonations have a bigger impact on the sustainability of the NGO, so we have created a profile in Teaming. For less than the price of a coffee, you will be collaborating on the sustainability of our projects. <strong>Donate 1€ monthly and help us keep on growing.</strong></>}
         </Paragraph>
-        <Link href="https://www.teaming.net/maisharoots" styles={{ borderRadius: '50%', margin: '0 auto', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: theme.shadows.elevation2 }}>
+        <ExternalLink href="https://www.teaming.net/maisharoots" styles={{ borderRadius: '50%', margin: '0 auto', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: theme.shadows.elevation2 }}>
           <Image src="/images/colabora-teaming.jpg" styles={{ height: 150, width: 150 }}/>
-        </Link>
+        </ExternalLink>
       </SubSection>
       <SubSection>
         <Subtitle>
@@ -148,9 +150,9 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'SW' && <>Ikiwa wewe ni mwanachama wa shule yoyote au kituo cha elimu, unaweza kuungana nasi kushirikiana na miradi yetu. Katika Maisha Roots tunakuza shughuli katika baadhi ya vituo vya elimu nchini Uhispania, kwa madhumuni ya kufikia uhamasishaji wa wanafunzi katika bara la Afrika, hali nchini Tanzania na umuhimu wa elimu kwa maendeleo. </>}
         </Paragraph>
         <Paragraph>
-          {lang === 'ES' && <>Actualmente, nuestro hermanamiento más sólido es con el <Link href="https://colegioarcadia.com/">Colegio Arcadia</Link>, con quien tenemos una colaboración activa y realizamos actividades de sensibilización a lo largo del curso. También hemos llevado a cabo colaboraciones puntuales de sensibilización con otros centros, como el <strong>Colegio Público de Valdepiélagos</strong> o el <strong>Colegio Manuel Núñez de Arenas</strong> en Getafe. Además, estamos iniciando una relación colaborativa con el <strong>Colegio Mayor Antonio de Nebrija</strong>, adscrito a la Universidad Complutense de Madrid.</>}
-          {lang === 'EN' && <>Our most solid school partner nowadays is <Link href="https://colegioarcadia.com/">Arcadia School</Link>, with whom we have an active collaboration and we develop sensitization activities during the school year. We have also developed punctual collaborations in other schools, such as African Day in <strong>Valdepiélagos Public School</strong>, solidarity race in <strong>Manuel Núñez de Arenas Public School</strong>.</>}
-          {lang === 'SW' && <>Wenzetu wa shule hivi sasa ni <Link href="https://colegioarcadia.com/">schule ya Arcadia</Link>, ambayo tunashirikiana nao kwa bidii na tunakuza shughuli za uhamasishaji kwa wakati wa mwaka wa shule. Tumeendeleza pia kushirikiana kwa muda katika shule zingine, kama vile siku ya Kiafrika katika <strong>shule ya Umma ya Valdepielagos</strong>, mbio za mshikamano katika shule ya Umma ya <strong>Manuel Nuñez de Arenas</strong>.</>}
+          {lang === 'ES' && <>Actualmente, nuestro hermanamiento más sólido es con el <ExternalLink href="https://colegioarcadia.com/">Colegio Arcadia</ExternalLink>, con quien tenemos una colaboración activa y realizamos actividades de sensibilización a lo largo del curso. También hemos llevado a cabo colaboraciones puntuales de sensibilización con otros centros, como el <strong>Colegio Público de Valdepiélagos</strong> o el <strong>Colegio Manuel Núñez de Arenas</strong> en Getafe. Además, estamos iniciando una relación colaborativa con el <strong>Colegio Mayor Antonio de Nebrija</strong>, adscrito a la Universidad Complutense de Madrid.</>}
+          {lang === 'EN' && <>Our most solid school partner nowadays is <ExternalLink href="https://colegioarcadia.com/">Arcadia School</ExternalLink>, with whom we have an active collaboration and we develop sensitization activities during the school year. We have also developed punctual collaborations in other schools, such as African Day in <strong>Valdepiélagos Public School</strong>, solidarity race in <strong>Manuel Núñez de Arenas Public School</strong>.</>}
+          {lang === 'SW' && <>Wenzetu wa shule hivi sasa ni <ExternalLink href="https://colegioarcadia.com/">schule ya Arcadia</ExternalLink>, ambayo tunashirikiana nao kwa bidii na tunakuza shughuli za uhamasishaji kwa wakati wa mwaka wa shule. Tumeendeleza pia kushirikiana kwa muda katika shule zingine, kama vile siku ya Kiafrika katika <strong>shule ya Umma ya Valdepielagos</strong>, mbio za mshikamano katika shule ya Umma ya <strong>Manuel Nuñez de Arenas</strong>.</>}
         </Paragraph>
       </SubSection>
       <SubSection id="entities">
@@ -160,9 +162,9 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'SW' && 'Washirika wa mashirika'}
         </Subtitle>
         <Paragraph>
-          {lang === 'ES' && <>Maisha Roots busca entidades que quieran colaborar para el desarrollo de la comunidad tanzana. Tratamos de establecer relaciones duraderas que vayan más allá de la donación económica y que aporten beneficios a ambas partes, ya sea a través del voluntariado corporativo, la cesión de servicios o espacios, o la simple donación. Además, buscamos entidades éticas, que cumplan con nuestros <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">mecanismos de selección de colaboradores</Link>.</>}
-          {lang === 'EN' && <>Maisha Roots looks for organizations that aim to collaborate in the development of Tanzanian societies. We try to establish long-duration relations that go further than economic donations, based on a win-win strategy for both organizations. It can be through corporative volunteering, pro bono services, or economic donation. We also look for ethical corporations, that accomplish with our <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">partnership selection mechanisms</Link>.</>}
-          {lang === 'SW' && <>Maisha Roots inatafuta shirika ambalo linalenga kushirikiana katika maendeleo ya jamii za Kitanzania. Tunajaribu kuweka uhusiano wa mda mrefu ambao huenda zaidi kuliko michango ya kiuchumi, kwa msingi wa mkakati wa kushinda kwa mashirika yote mawili. Inaweza kujitolea kupitia kwa ushirika, huduma za bro bono, au mchango wa kiuchumi. Tunatafuta pia mashirika ya maadili, ambayo hutimiza kwa <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">njia za uteuzi kwa ushirikiano wetu</Link>.</>}
+          {lang === 'ES' && <>Maisha Roots busca entidades que quieran colaborar para el desarrollo de la comunidad tanzana. Tratamos de establecer relaciones duraderas que vayan más allá de la donación económica y que aporten beneficios a ambas partes, ya sea a través del voluntariado corporativo, la cesión de servicios o espacios, o la simple donación. Además, buscamos entidades éticas, que cumplan con nuestros <ExternalLink href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">mecanismos de selección de colaboradores</ExternalLink>.</>}
+          {lang === 'EN' && <>Maisha Roots looks for organizations that aim to collaborate in the development of Tanzanian societies. We try to establish long-duration relations that go further than economic donations, based on a win-win strategy for both organizations. It can be through corporative volunteering, pro bono services, or economic donation. We also look for ethical corporations, that accomplish with our <ExternalLink href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">partnership selection mechanisms</ExternalLink>.</>}
+          {lang === 'SW' && <>Maisha Roots inatafuta shirika ambalo linalenga kushirikiana katika maendeleo ya jamii za Kitanzania. Tunajaribu kuweka uhusiano wa mda mrefu ambao huenda zaidi kuliko michango ya kiuchumi, kwa msingi wa mkakati wa kushinda kwa mashirika yote mawili. Inaweza kujitolea kupitia kwa ushirika, huduma za bro bono, au mchango wa kiuchumi. Tunatafuta pia mashirika ya maadili, ambayo hutimiza kwa <ExternalLink href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">njia za uteuzi kwa ushirikiano wetu</ExternalLink>.</>}
         </Paragraph>
         <Paragraph>
           {lang === 'ES' && <>Hemos colaborado con empresas como Gajo, una marca de ropa ética con un gran sentido de la responsabilidad social. Mantenemos también una colaboración sólida con Proyecto Amanecer, una ONG que colabora en el desarrollo de proyectos de cooperación al desarrollo. De manera puntual, también han colaborado con nosotros dos compañías teatrales (La Locandiera Teatro y Katharsis Teatro), la Diputación de Deportes de Palencia, la Asociación Mbuyu y la Exposición de Arte 50x50x50.</>}
@@ -170,7 +172,18 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'SW' && <>Tumeshirikiana na biashara kama GAJO, alama za biashara za jukumu la maendeleo ya kijamii. Pia tunaushirikiano na Proyecto Amanecer, Shirika lisilo la Kiserikali la Uhispania ambalo linashiriki katika utekelezaji wa miradi ya maendeleo. Kwa wakati, mashirika mengine yameshiriki katika baadhi ya vitendo vyetu, kama vile kampuni mbili za maonyesho (La Locandiera Teatro y Katharsis Teatro), Palencia’s Diputacion de Deportes, Mbuyu Association and an Arts exhibition ‘50x50x50.</>}
         </Paragraph>
 
-        {/* //! fotos y links mirando el css  */}
+        <Container styles={{ justifyContent: 'space-around' }} isFullWidth>
+          <ColabLink src="/images/colab-logos/1.png" href="https://www.facebook.com/katharsismedicinaucm" />
+          <ColabLink src="/images/colab-logos/2.png" href="https://colegioarcadia.com/" />
+          <ColabLink src="/images/colab-logos/3.png" href="https://www.facebook.com/lalocandierateatro/" />
+          <ColabLink src="/images/colab-logos/4.png" href="https://asociacionmbuyu.org/"/>
+          <ColabLink src="/images/colab-logos/5.png" href="https://www.urjc.es/"/>
+          <ColabLink src="/images/colab-logos/6.png" href="https://www.diputaciondepalencia.es/"/>
+          <ColabLink src="/images/colab-logos/7.png" href="#"/>
+          <ColabLink src="/images/colab-logos/8.png" href="https://www.nodo50.org/pamanecer/"/>
+          <ColabLink src="/images/colab-logos/9.png" href="https://www.uc3m.es/"/>
+          <ColabLink src="/images/colab-logos/10.png" href="https://www.instagram.com/thegajosociety/"/>
+        </Container>
       </SubSection>
     </Section>
   )

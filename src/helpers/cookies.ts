@@ -1,4 +1,6 @@
-export const checkCookie = (name: string): string | undefined => {
+import { Cookies } from '../models'
+
+export const checkCookie = (name: Cookies): string | undefined => {
   const decodedCookies = decodeURIComponent(document.cookie).split(';')
   const cookie = decodedCookies.find(x => x.includes(name))
   const value = cookie?.trim().replace(name + '=', '')

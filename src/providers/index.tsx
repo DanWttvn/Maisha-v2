@@ -4,17 +4,14 @@ import { ThemeProvider } from 'styled-components'
 import theme from '../styles/theme'
 import { LanguageContextProvider } from '../contexts/language'
 
-const Provider: FC = ({ children }) => {
-
-  return (
-    <ThemeProvider theme={theme}>
-      <LanguageContextProvider>
-        <BrowserRouter>
-          {children}
-        </BrowserRouter>
-      </LanguageContextProvider>
-    </ThemeProvider>
-  )
-}
+const Provider: FC = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <LanguageContextProvider>
+      <BrowserRouter>
+        {children}
+      </BrowserRouter>
+    </LanguageContextProvider>
+  </ThemeProvider>
+)
 
 export default Provider

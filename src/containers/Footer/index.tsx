@@ -1,55 +1,82 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useContext, useState } from 'react'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
 import Text from '../../components/Text'
+import AppLink from '../../components/AppLink'
 import LanguageContext from '../../contexts/language'
 import { BaseProps } from '../../models'
 import theme from '../../styles/theme'
-import Styled, { InnerContainer, Link, HorizontalDivider, VerticalDivider } from './styles'
+import NewsletterForm from '../NewsletterForm'
+import PolicyModal from '../PolicyModal'
+import Styled, { InnerContainer, HorizontalDivider, VerticalDivider, Section } from './styles'
+import ExternalLink from '../../components/ExternalLink'
 
-export type Props = BaseProps
+export interface Props extends BaseProps {
+  isHomePage?: boolean
+}
 
-const Footer: FC<Props> = ({ className, styles }) => {
+const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
   const { lang, setLang } = useContext(LanguageContext)
+  const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
 
   return (
     <Styled className={className} styles={styles}>
       <InnerContainer>
-        <Container styles={{ justifyContent: 'space-between', maxWidth: 200, }}>
-          <Link size="xs" href="https://maisharoots.org/#about" target="_blank" styles={{ color: theme.colors.offOrange }}>Quiénes somos</Link>
+        <Section>
+          <AppLink variant="footer" isSamePage={isHomePage} size="s" toSection="about">
+            {lang === 'ES' && 'Quiénes somos'}
+            {lang === 'EN' && 'Who we are'}
+            {lang === 'SW' && 'Sisi ni nani'}
+          </AppLink>
           <HorizontalDivider />
-          <Link size="xs" href="https://maisharoots.org/#donate" target="_blank" styles={{ color: theme.colors.offOrange }}>Dona</Link>
+          <AppLink variant="footer" isSamePage={isHomePage} size="s" toSection="donate">
+            {lang === 'ES' && 'Dona'}
+            {lang === 'EN' && 'Donate'}
+            {lang === 'SW' && 'Changia'}
+          </AppLink>
           <HorizontalDivider />
-          <Link size="xs" href="https://maisharoots.org/#collaborate" target="_blank" styles={{ color: theme.colors.offOrange }}>Hazte voluntaria/o</Link>
-        </Container>
-        {/* Pending: Newsletter secction */}
-        <Container styles={{ padding: '0 10px', maxWidth: 200 }}>
+          <AppLink variant="footer" isSamePage={isHomePage} size="s" toSection="collaborate">
+            {lang === 'ES' && 'Colabora'}
+            {lang === 'EN' && 'Collaborate'}
+            {lang === 'SW' && 'Shiriki'}
+          </AppLink>
+        </Section>
+        <Section>
+          <NewsletterForm />
+        </Section>
+        <Section>
           <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>Síguenos</Text>
           <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isFullWidth>
-            <Link size="xs" href="https://www.facebook.com/maisharoots/" styles={{ color: theme.colors.offOrange }} target="_blank">
+            <ExternalLink variant="footer" size="xs" href="https://www.facebook.com/maisharoots/">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-facebook-square"></i>
-            </Link>
-            <Link size="xs" href="https://www.instagram.com/maisharoots/" styles={{ color: theme.colors.offOrange }} target="_blank">
+            </ExternalLink>
+            <ExternalLink variant="footer" size="xs" href="https://www.instagram.com/maisharoots/">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-instagram"></i>
-            </Link>
-            <Link size="xs" href="https://www.youtube.com/channel/UCuKDNl0yLjyZppYISnFrtZg" styles={{ color: theme.colors.offOrange }} target="_blank">
+            </ExternalLink>
+            <ExternalLink variant="footer" size="xs" href="https://www.youtube.com/channel/UCuKDNl0yLjyZppYISnFrtZg">
               <i style={{ fontSize: '1.5rem' }} className="fab fa-youtube"></i>
-            </Link>
+            </ExternalLink>
           </Container>
-          <Link size="xs" href="mailto:info@maisharoots.org" styles={{ color: theme.colors.offOrange }} target="_blank">info@maisharoots.org</Link>
-        </Container>
-        <Container styles={{ padding: '0 10px', maxWidth: 180, alignItems: 'flex-start' }}>
-          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15, textAlign: 'center' }} isFullWidth>Languages</Text>
-          <Container styles={{ marginBottom: 15, alignItems: 'center' }} isFullWidth>
+          <ExternalLink variant="footer" size="xs" href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>
+        </Section>
+        <Section>
+          <Text size="s" weight="bold" color="offOrange" styles={{ marginBottom: 15 }} isCentered isFullWidth>Languages</Text>
+          <Container styles={{ marginBottom: 15, justifyContent: 'center' }} isFullWidth>
             <Button variant="D" onClick={setLang?.bind(undefined, 'ES')}>ESP</Button>
             <VerticalDivider />
             <Button variant="D" onClick={setLang?.bind(undefined, 'EN')}>ENG</Button>
             <VerticalDivider />
             <Button variant="D" onClick={setLang?.bind(undefined, 'SW')}>SWA</Button>
           </Container>
-          {/* // política de privacidad */}
-        </Container>
-        <Text styles={{ fontSize: 11, color: '#ccc' }} isFullWidth>CIF G87557476 - Registro de Fundaciones de competencia estatal</Text>
+          <Text size="s" color="offOrange" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }} isCentered isFullWidth>
+            {lang === 'ES' && 'Política de Privacidad'}
+            {lang === 'EN' && 'Privacy Policy'}
+            {/* //! missing */}
+            {lang === 'SW' && ''}
+          </Text>
+        </Section>
+        <Text styles={{ fontSize: 11, color: '#ccc', marginTop: 12 }} isFullWidth>CIF G87557476 - Registro de Fundaciones de competencia estatal</Text>
+        <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
       </InnerContainer>
     </Styled>
   )

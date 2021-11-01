@@ -12,6 +12,10 @@ export const H3 = styled.h3<Props>`
   word-wrap: break-word;
   text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};
 
+  @media ${({ theme }) => theme.breakpoints.sl} {
+    font-size: 2.2rem;
+  }
+
   ${({ isFullWidth }) => isFullWidth ? 'width: 100%;' : ''};
   ${({ styles }) => ({ ...styles })}
 `

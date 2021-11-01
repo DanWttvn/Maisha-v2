@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import RouteLink from '../../components/RouteLink'
+import AppLink from '../../components/AppLink'
 import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
@@ -7,14 +7,15 @@ import LanguageContext from '../../contexts/language'
 import { Section, SubSection } from '../../components/Section/styles'
 import { SectionProps } from '../../models'
 import Li from '../../components/Li'
-import Link from '../../components/Link'
+import ExternalLink from '../../components/ExternalLink'
+import { urls } from '../../routes'
 
 export const TransparencySection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
   return (
     <Section id="transparency">
-      <Title firstPart={(lang === 'ES' && 'TRANSPARENCIA') || (lang === 'EN' && 'TRANSPARENCY') || (lang === 'SW' && 'UWAZI GHARAMA') || ''} />
+      <Title firstPart={(lang === 'ES' && 'TRANSPARENCIA') || (lang === 'EN' && 'TRANSPARENCY') || (lang === 'SW' && 'UWAZI GHARAMA') || ''} isSmall/>
       <SubSection id="good-practices">
         <Subtitle>
           {lang === 'ES' && 'Mecanismos de buen gobierno'}
@@ -33,22 +34,22 @@ export const TransparencySection: FC<SectionProps> = () => {
         </Paragraph>
         <ul style={{ marginBottom: 16 }}>
           <Li>
-            {lang === 'ES' && <Link href="/images/docs/Mecan%C3%ADsmo_de_gesti%C3%B3n_de_conflictos_de_inter%C3%A9s-Maisha_Roots.pdf">Gestión de conflictos de interés en el órgano de gobierno</Link>}
+            {lang === 'ES' && <ExternalLink href="/images/docs/Mecan%C3%ADsmo_de_gesti%C3%B3n_de_conflictos_de_inter%C3%A9s-Maisha_Roots.pdf">Gestión de conflictos de interés en el órgano de gobierno</ExternalLink>}
             {lang === 'EN' && 'Management of conflicts of interest in the Management team'}
             {lang === 'SW' && 'Usimamizi wa migogoro ya kimaslahi katika timu ya usimamizi'}
           </Li>
           <Li>
-            {lang === 'ES' && <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">Selección responsable de contrapartes y colaboradores</Link>}
+            {lang === 'ES' && <ExternalLink href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">Selección responsable de contrapartes y colaboradores</ExternalLink>}
             {lang === 'EN' && 'Responsible selection of partners and collaboration'}
             {lang === 'SW' && 'Uwajibikaji wa uteuzi wa washirika'}
           </Li>
           <Li>
-            {lang === 'ES' && <Link href="/images/docs/Aprobaci%C3%B3n_de_gastos_y_selecci%C3%B3n_de_proveedores-Maisha_Roots.pdf">Aprobación razonada de gastos y proveedores</Link>}
+            {lang === 'ES' && <ExternalLink href="/images/docs/Aprobaci%C3%B3n_de_gastos_y_selecci%C3%B3n_de_proveedores-Maisha_Roots.pdf">Aprobación razonada de gastos y proveedores</ExternalLink>}
             {lang === 'EN' && 'Reasoned approval of expenses and suppliers'}
             {lang === 'SW' && 'Uidhinishwaji wa gharama na usambazaji'}
           </Li>
           <Li>
-            {lang === 'ES' && <Link href="/images/docs/Control_de_donaciones-Maisha_Roots.pdf">Control de Donaciones</Link>}
+            {lang === 'ES' && <ExternalLink href="/images/docs/Control_de_donaciones-Maisha_Roots.pdf">Control de Donaciones</ExternalLink>}
             {lang === 'EN' && 'Donations control'}
             {lang === 'SW' && 'Udhibiti wa michango'}
           </Li>
@@ -106,11 +107,10 @@ export const TransparencySection: FC<SectionProps> = () => {
           {lang === 'EN' && <>With the aim of accomplishing our commitment with transparency and good governance, Maisha Roots makes available to the employed and volunteering staff, donors, suppliers, partners, etc. a complaints channel that allows us to identify irregular behavior within the organization. This irregular behavior includes any illegal action, irregular or against law- both intern and extern- undertaken by the organization Maisha Roots or any of its members. In this link you might find the related document to our complaints channel: Complaints channel.</>}
           {lang === 'SW' && <>Kwa kusudi la kukamilisha kujitolea kwetu kwa uwazi na utawala bora, Maisha Roots hutengeneza wafanyakazi walioajiriwa, wafadhili, wauzaji, washirika, n.k. njia ya malalamiko ambayo inaruhusu tabia isiyo ya kawaida inajumuisha hatua yoyote haramu, isiyo ya kawaida au dhidi ya sharia zote za ndani na nje zinazofanywa na shirika Maisha Roots au mtu yeyote wa washiriki wake. Kwenye kiunga hiki unaeza kupata hati inayohusiana na kituo chetu cha malalamiko: kituo cha malalamiko.</>}
         </Paragraph>
-        {/* //! linkar y estilos */}
         <Paragraph>
-          {lang === 'ES' && <>Para establecer tu denuncia, puedes rellenar las indicaciones del documento, o rellenar <RouteLink to="">este formulario</RouteLink> o envía <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">esta ficha rellena</Link> a la dirección de correo electrónico <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
-          {lang === 'EN' && <>To present your complaint, you might fill in the indications in the document, or fill in <RouteLink to="">this form</RouteLink> or send <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">this completed draft</Link> to the email address <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
-          {lang === 'SW' && <>Ili kuwasilisha malalamiko yako, unaweza kujaza dalili kwenye hati, au ujaze <RouteLink to="">fomu hii</RouteLink>, au utume <Link href="/images/docs/Criterios_de_selecci%C3%B3n_de_colaboradores_y_contrapartes-Maisha_Roots.pdf">rasimu hii iliyosimamiwa</Link> kwa anwani ya barua pepe <Link href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</Link></>}
+          {lang === 'ES' && <>Para establecer tu denuncia, puedes rellenar las indicaciones del documento, o rellenar <AppLink toPage={urls.complains}>este formulario</AppLink> o envía <ExternalLink href="/images/docs/Canal_de_denuncias-Maisha_Roots.pdf">esta ficha rellena</ExternalLink> a la dirección de correo electrónico <ExternalLink href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
+          {lang === 'EN' && <>To present your complaint, you might fill in the indications in the document, or fill in <AppLink toPage={urls.complains}>this form</AppLink> or send <ExternalLink href="/images/docs/Canal_de_denuncias-Maisha_Roots.pdf">this completed draft</ExternalLink> to the email address <ExternalLink href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
+          {lang === 'SW' && <>Ili kuwasilisha malalamiko yako, unaweza kujaza dalili kwenye hati, au ujaze <AppLink toPage={urls.complains}>fomu hii</AppLink>, au utume <ExternalLink href="/images/docs/Canal_de_denuncias-Maisha_Roots.pdf">rasimu hii iliyosimamiwa</ExternalLink> kwa anwani ya barua pepe <ExternalLink href="mailto:info@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
         </Paragraph>
       </SubSection>
 
@@ -125,70 +125,69 @@ export const TransparencySection: FC<SectionProps> = () => {
           {lang === 'ES' && 'Dossier 2017'}
           {lang === 'EN' && 'Dossier 2017'}
           {lang === 'SW' && 'Dossier 2017'}
-          <Link href="/images/docs/Dossier_es_2017-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
-          <Link href="/images/docs/Dossier_en_2017-MR.pdf">ENG</Link>
+          <ExternalLink href="/images/docs/Dossier_es_2017-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
+          <ExternalLink href="/images/docs/Dossier_en_2017-MR.pdf">ENG</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Memoria de Actividades 2017'}
           {lang === 'EN' && 'Report of Activities 2017'}
           {lang === 'SW' && 'Ripoti ya Shughuli 2017'}
-          <Link href="/images/docs/Memoria_de_Actividades2016-2017-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <ExternalLink href="/images/docs/Memoria_de_Actividades2016-2017-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Dossier 2018'}
           {lang === 'EN' && 'Dossier 2018'}
           {lang === 'SW' && 'Dossier 2018'}
-          <Link href="/images/docs/Dossier_es_2018-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
-          <Link href="/images/docs/Dossier_en_2018-MR.pdf">ENG</Link>
+          <ExternalLink href="/images/docs/Dossier_es_2018-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
+          <ExternalLink href="/images/docs/Dossier_en_2018-MR.pdf">ENG</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Memoria de Actividades 2018'}
           {lang === 'EN' && 'Report of Activities 2018'}
           {lang === 'SW' && 'Ripoti ya Shughuli 2018'}
-          <Link href="/images/docs/Memoria_de_Actividades2017-2018-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <ExternalLink href="/images/docs/Memoria_de_Actividades2017-2018-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Memoria actividades 2019'}
           {lang === 'EN' && 'Report of Activities 2019'}
           {lang === 'SW' && 'Ripoti ya Shughuli 2019'}
-          <Link href="/images/docs/Memoria_de_Actividades2019-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <ExternalLink href="/images/docs/Memoria_de_Actividades2019-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Memoria actividades 2020'}
           {lang === 'EN' && 'Report of Activities 2020'}
           {lang === 'SW' && 'Ripoti ya Shughuli 2020'}
-          <Link href="/images/docs/Memoria_de_Actividades2020-MR.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <ExternalLink href="/images/docs/Memoria_de_Actividades2020-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
-        {/* //! falta swahili */}
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Estatutos Maisha Roots Spain'}
           {lang === 'EN' && 'Maisha Roots Spain Constitution'}
-          {lang === 'SW' && ''}
-          <Link href="/images/docs/estatutos-Maisha_Roots_Spain.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          {lang === 'SW' && 'Katiba ya Maisha Roots Spain'}
+          <ExternalLink href="/images/docs/estatutos-Maisha_Roots_Spain.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Constitución FYWCO'}
           {lang === 'EN' && 'FYWCO Constitution'}
           {lang === 'SW' && ''}
-          <Link href="/images/docs/FYWCO_constitution.pdf" styles={{ margin: '0 4px' }}>ENG</Link>
+          <ExternalLink href="/images/docs/FYWCO_constitution.pdf" styles={{ margin: '0 4px' }}>ENG</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Memorandum of Understanding'}
           {lang === 'EN' && 'Memorandum of Understanding'}
           {lang === 'SW' && 'Memorandum of Understanding'}
-          <Link href="/images/docs/MOU-FYWCO_MRS.pdf" styles={{ margin: '0 4px' }}>ENG</Link>
+          <ExternalLink href="/images/docs/MOU-FYWCO_MRS.pdf" styles={{ margin: '0 4px' }}>ENG</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Plan de voluntariado'}
           {lang === 'EN' && 'Volunteer Plan'}
           {lang === 'SW' && ''}
-          <Link href="/images/docs/plan_de_voluntariado-Maisha_Roots.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <ExternalLink href="/images/docs/plan_de_voluntariado-Maisha_Roots.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Utilidad Pública Maisha Roots Spain'}
           {lang === 'EN' && 'Maisha Roots Spain Public Utility'}
           {lang === 'SW' && ''}
-          <Link href="/images/docs/utilidad_publica.pdf" styles={{ margin: '0 4px' }}>ESP</Link>
+          <ExternalLink href="/images/docs/utilidad_publica.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
       </SubSection>
     </Section>

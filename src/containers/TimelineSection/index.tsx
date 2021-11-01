@@ -30,22 +30,23 @@ export const TimelineSection: FC<SectionProps> = () => {
           styles={{ height: 690 }}
           isFullWidth
         >
-          <Carousel.Item src="/images/photo1.jpg" hasOverlay>
-            {/* //! falta texto */}
+          {/* //! change photo */}
+          <Carousel.Item src="" hasOverlay>
             <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2021</Text>
             <Paragraph color='white' weight="semibold">
-              {lang === 'ES' && ''}
-              {lang === 'EN' && ''}
+              {lang === 'ES' && 'Tras el análisis de necesidades realizado en 2020, comenzamos un programa de desarrollo comunitario en Mkono, un barrio en expansión a las afueras de Arusha. En el marco de este programa desarrollamos proyectos que contribuyan al desarrollo en esta comunidad. Algunos de estos proyectos incluyen actividades deportivas y de salud en varios colegios, clases de refuerzo para reducir el fracaso escolar, formación en técnicas agrícolas sostenibles y clubes de debate sobre igualdad de género.'}
+              {lang === 'EN' && 'After the needs assessment was carried out in 2020, we started a community development program in Mkono, a sprawling neighborhood on the outskirts of Arusha. Within the framework of this program, we develop projects that contribute to development in this community. Some of these projects include sports and health activities in various schools, reinforcement classes to reduce school failure, training in sustainable agricultural techniques, and discussion clubs on gender equality.'}
+              {/* //! missing */}
               {lang === 'SW' && ''}
             </Paragraph>
           </Carousel.Item>
           <Carousel.Item src="/images/photo1.jpg" hasOverlay>
             <Text color='white' size="xl" weight="black" styles={{ marginBottom: 25 }} isFullWidth>2020</Text>
             <Paragraph color='white' weight="semibold">
+              {/* //! missing */}
               {lang === 'ES' && 'En 2020 decidimos lanzarnos hacia nuevos proyectos de la mano de un grupo de chicos y chicas tanzanos que también participaron en Chagua Maisha y que, desde hace años, están centrados en la cooperación al desarrollo. Junto a este equipo, comenzamos un estudio poblacional en Arusha, con el fin de evaluar las necesidades y fortalezas de las comunidades de la ciudad. Tras esto, y con la emergencia sanitaria de la pandemia, llevamos a cabo una campaña de prevención del COVID-19 con la que conseguimos reducir la vulnerabilidad de 118 familias a través del reparto de bienes de limpieza, cubos de agua para el lavado de mano y material informativo.'}
-              {/* //! traducir nuevo */}
-              {lang === 'EN' && 'In 2020, we have started a new project together with a group of local people, who participated in Chagua Maisha and who have worked in development cooperation for several years.'}
-              {lang === 'SW' && 'Mnamo mwaka 2020, tumeanza mradi mpya pamoja na kikundi cha watu wa ndani, walioshiriki Chagua Maisha na ambao wamefanya kazi kwa ushirikiano wa maendeleo kwa miaka kadhaa.'}
+              {lang === 'EN' && 'In 2020 we decided to launch into new projects with the help of a group of Tanzanian boys and girls who also participated in Chagua Maisha and who, for years, have focused on development cooperation. Together with this team, we began a population study in Arusha, to assess the needs and strengths of the city\'s communities. After this, and with the health emergency of the pandemic, we carried out a COVID-19 prevention campaign with which we managed to reduce the vulnerability of 118 families through the distribution of cleaning goods, water buckets for hand washing, and informative material.'}
+              {lang === 'SW' && ''}
             </Paragraph>
           </Carousel.Item>
           <Carousel.Item src="/images/photo4.jpg" hasOverlay>
