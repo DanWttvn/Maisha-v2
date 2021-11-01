@@ -14,7 +14,7 @@ const Header: FC = () => {
         <CloseQuote />
         <Text weight="black" color="white" styles={{ marginLeft: 24, fontWeight: 800, fontSize: '3.5rem', lineHeight: '4.7rem' }}>E. Galeno</Text>
       </Paragraph>
-      {/* //! fix responsive */}
+      {/* //TODO: fix responsive */}
       <Image src="/images/playing_kids.jpg" styles={{ position: 'absolute' }} hasOverlay isFullWidth />
     </Styled>
   )

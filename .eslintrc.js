@@ -48,6 +48,10 @@ module.exports = {
       'off',
       'never'
     ],
+    'no-irregular-whitespace': [
+      'off',
+      'never'
+    ],
     'array-bracket-spacing': [ 'warn', 'always' ]
   }
 }
