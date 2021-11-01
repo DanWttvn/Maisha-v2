@@ -12,7 +12,7 @@ export const Li = styled.li<{ isSubItem?: boolean }>`
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-	color: rgb(170, 170, 170);
+  color: rgb(170, 170, 170);
 
   &:active {
 	  color: rgb(165,42,42);

@@ -8,12 +8,12 @@ export const Project = styled(Container)`
 
   @media ${({ theme }) => theme.breakpoints.sl} {
     width: 50%;
-	}
+  }
 
   @media ${({ theme }) => theme.breakpoints.s} {
     width: 100%;
     padding: 0;
-	}
+  }
 `
 
 export const ProjectContainer = styled(Container)`
@@ -22,5 +22,5 @@ export const ProjectContainer = styled(Container)`
 
   @media ${({ theme }) => theme.breakpoints.sl} {
     justify-content: center;
-	}
+  }
 `

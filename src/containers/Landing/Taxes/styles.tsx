@@ -8,7 +8,7 @@ export const Image = styled(ImageRoot)`
   @media ${({ theme }) => theme.breakpoints.s} {
     width: 100%;
     height: fit-content;
-	}
+  }
 `
 
 export const TextContainer = styled(Container)`
@@ -18,5 +18,5 @@ export const TextContainer = styled(Container)`
   @media ${({ theme }) => theme.breakpoints.s} {
     margin-left: 0;
     margin-top: 40px;
-	}
+  }
 `

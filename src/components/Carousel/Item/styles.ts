@@ -15,7 +15,7 @@ export default styled.div<Props>`
 
   @media ${({ theme }) => theme.breakpoints.s} {
     padding: 60px 2rem;
-	}
+  }
 
   ${({ styles }) => ({ ...styles })}
 `
