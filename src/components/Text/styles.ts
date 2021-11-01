@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { TextProps, BaseProps } from '../../models'
+import { TextProps } from '../../models'
 
 export const TextStyles = css<TextProps>`
   text-align: ${({ isCentered }) => isCentered ? 'center' : 'inherit'};

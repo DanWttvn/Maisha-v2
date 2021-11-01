@@ -21,7 +21,7 @@ export const InnerContainer = styled(Container)`
     padding: 10% 8% 10% 15%;
 	}
 
-  background-image: url('/images/playing_kids.jpg');
+  background-image: url('/images/playing_kids.webp');
   background-size: cover;
   background-position: center;
   filter: brightness(90%);

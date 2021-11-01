@@ -49,7 +49,7 @@ export const TimelineSection: FC<SectionProps> = () => {
               {lang === 'SW' && ''}
             </Paragraph>
           </Carousel.Item>
-          <Carousel.Item src="/images/photo4.jpg" hasOverlay>
+          <Carousel.Item src="/images/photo4.webp" hasOverlay>
             <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2019</Text>
             <Paragraph color='white' weight="semibold">
               {lang === 'ES' && 'En 2019 empezó a funcionar, en el espacio de Chagua Maisha, un huerto ecológico de uso comunitario con el que, además, los estudiantes aprendían técnicas agrícolas. A finales de año, decidimos ceder la gestión de Chagua Maisha por completo a la contraparte local para poder emprender nuevos proyectos.'}
