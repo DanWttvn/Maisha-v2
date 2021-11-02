@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, lazy, Suspense } from 'react'
 import { BaseProps } from '../../models'
-import VideoPlayer from 'react-video-js-player'
 import './styles.css'
+const VideoPlayer = lazy(() => import('react-video-js-player'))
 
 export interface Props extends BaseProps {
   src: string
@@ -9,14 +9,16 @@ export interface Props extends BaseProps {
 }
 
 const Video: FC<Props>  = ({ src, poster }) => (
-  <VideoPlayer
-    src={src}
-    poster={poster}
-    autoplay={false}
-    bigPlayButton={true}
-    bigPlayButtonCentered={true}
-    className="vjs-fill vjs-fluid video-js vjs-matrix"
-  />
+  <Suspense fallback={<></>}>
+    <VideoPlayer
+      src={src}
+      poster={poster}
+      autoplay={false}
+      bigPlayButton={true}
+      bigPlayButtonCentered={true}
+      className="vjs-fill vjs-fluid video-js vjs-matrix"
+    />
+  </Suspense>
 )
 
 Video.displayName = 'Video'

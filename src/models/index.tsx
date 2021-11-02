@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from 'react'
+import { CSSProperties } from 'react'
 
 export interface BaseProps {
   styles?: CSSProperties
@@ -11,11 +11,6 @@ export interface BaseProps {
 export interface InputProps {
   isError?: boolean
   isRequired?: boolean
-}
-
-export interface Route {
-  url: string
-  content: FC
 }
 
 export type SectionTitle = 'header' | 'about' | 'timeline' | 'how-work' | 'projects' | 'collaborate' | 'transparency'
