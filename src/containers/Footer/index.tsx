@@ -8,7 +8,7 @@ import { BaseProps } from '../../models'
 import theme from '../../styles/theme'
 import NewsletterForm from '../NewsletterForm'
 import PolicyModal from '../PolicyModal'
-import Styled, { InnerContainer, HorizontalDivider, VerticalDivider, Section } from './styles'
+import Styled, { InnerContainer, HorizontalDivider, VerticalDivider, Section, NewsletterSection, FacebookIcon, InstagramIcon, YoutubeIcon } from './styles'
 import ExternalLink from '../../components/ExternalLink'
 
 export interface Props extends BaseProps {
@@ -41,20 +41,20 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
             {lang === 'SW' && 'Shiriki'}
           </AppLink>
         </Section>
-        <Section>
+        <NewsletterSection>
           <NewsletterForm />
-        </Section>
+        </NewsletterSection>
         <Section>
           <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>Síguenos</Text>
           <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isFullWidth>
             <ExternalLink variant="footer" size="xs" href="https://www.facebook.com/maisharoots/">
-              <i style={{ fontSize: '1.5rem' }} className="fab fa-facebook-square"></i>
+              <FacebookIcon />
             </ExternalLink>
             <ExternalLink variant="footer" size="xs" href="https://www.instagram.com/maisharoots/">
-              <i style={{ fontSize: '1.5rem' }} className="fab fa-instagram"></i>
+              <InstagramIcon />
             </ExternalLink>
             <ExternalLink variant="footer" size="xs" href="https://www.youtube.com/channel/UCuKDNl0yLjyZppYISnFrtZg">
-              <i style={{ fontSize: '1.5rem' }} className="fab fa-youtube"></i>
+              <YoutubeIcon />
             </ExternalLink>
           </Container>
           <ExternalLink variant="footer" size="xs" href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>
@@ -71,13 +71,12 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
           <Text size="s" color="offOrange" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }} isCentered isFullWidth>
             {lang === 'ES' && 'Política de Privacidad'}
             {lang === 'EN' && 'Privacy Policy'}
-            {/* //! missing */}
-            {lang === 'SW' && ''}
+            {lang === 'SW' && 'Sera ya faragha'}
           </Text>
         </Section>
-        <Text styles={{ fontSize: 11, color: '#ccc', marginTop: 12 }} isFullWidth>CIF G87557476 - Registro de Fundaciones de competencia estatal</Text>
-        <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
       </InnerContainer>
+      <Text styles={{ fontSize: 11, color: '#ccc', marginTop: 12 }} isFullWidth>CIF G87557476 - Registro de Fundaciones de competencia estatal</Text>
+      <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
     </Styled>
   )
 }

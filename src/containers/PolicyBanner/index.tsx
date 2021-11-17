@@ -29,18 +29,17 @@ const PolicyBanner: FC<BaseProps> = () => {
         <Text size="s" styles={{ flex: 1 }}>
           {lang === 'ES' && 'Esta web utiliza cookies para proporcionar un uso personalizado al usuario del Web. Si continuas la navegación consideramos que aceptas su uso.'}
           {lang === 'EN' && 'This website uses cookies to provide personalized use to the Web user. If you continue browsing we consider that you accept its use.'}
-          {/* ///!falta sw */}
-          {lang === 'SW' && ''}
+          {lang === 'SW' && 'Tovuti hii hutumia kuki kutoa matumizi ya kibinafsi kwa mtumiaji wa Wavuti. Ukiendelea kuvinjari tunathibitisha kuwa unakubali matumizi yake.'}
           <Text size="s" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline', marginLeft: 8 }}>
             {lang === 'ES' && 'Política de Privacidad'}
             {lang === 'EN' && 'Privacy Policy'}
-            {lang === 'SW' && ''}
+            {lang === 'SW' && 'Sera ya faragha'}
           </Text>
         </Text>
         <Button variant="G" onClick={handleAccept} styles={{ marginLeft: 'auto' }}>
           {lang === 'ES' && 'Aceptar'}
           {lang === 'EN' && 'Accept'}
-          {lang === 'SW' && ''}
+          {lang === 'SW' && 'Kubali'}
         </Button>
       </Banner>
       <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />

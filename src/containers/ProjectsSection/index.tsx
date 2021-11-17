@@ -18,7 +18,6 @@ export const ProjectsSection: FC<SectionProps> = () => {
         secondPart={(lang === 'ES' && 'HACEMOS') || (lang === 'EN' && 'WE DO') || (lang === 'SW' && '') || ''}
       />
 
-      {/* //! tengo fotos en el email */}
       <SubSection>
         <Subtitle>
           {lang === 'ES' && 'Deporte y salud'}

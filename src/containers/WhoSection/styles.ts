@@ -67,12 +67,10 @@ export const DataParagraph = styled(Paragraph)`
 
 export const Image = styled(ImageRoot)`
   float: right;
-  max-width: 700px;
-  min-width: 550px;
   width: 55%;
   padding: 0 0 40px 40px;
 
-	@media ${({ theme }) => theme.breakpoints.m} {
+	@media ${({ theme }) => theme.breakpoints.sl} {
     min-width: 0;
     width: 100%;
 		padding: 0;

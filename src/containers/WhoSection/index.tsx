@@ -173,9 +173,8 @@ export const WhoSection: FC<SectionProps> = () => {
 
         <DataParagraph styles={{ flex: 1, minWidth: 200, margin: '0 30px', marginBottom: 30 }}>
           {lang === 'ES' && 'Son los idiomas oficiales, aunque sólo las personas que han recibido educación hablan este último. La educación primaria se ofrece en swahili, y la secundaria en inglés, uno de los motivos por los cuales muchos estudiantes dejan la escuela en los niveles de secundaria.'}
-          {/* //! missing */}
           {lang === 'EN' && 'They are the official languages, although only educated people speak the latter. Primary education is offered in Swahili, and secondary education in English, one of the reasons why many students leave school at the secondary levels.'}
-          {lang === 'SW' && ''}
+          {lang === 'SW' && 'Ndio lugha rasmi, ingawa ni watu wenye elimu tu ndio huzungumza lugha ya mwisho. Elimu ya msingi hutolewa kwa Kiswahili, na sekondari kwa Kiingereza, moja ya sababu kwa nini wanafunzi wengi huacha shule katika ngazi za sekondari.'}
         </DataParagraph>
 
         <Container direction="vertical" styles={{ marginBottom: 30 }}>

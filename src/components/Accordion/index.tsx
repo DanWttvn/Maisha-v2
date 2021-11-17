@@ -22,8 +22,10 @@ const Accordion: FC<Props> = ({ isHidden, title, styles, children, isFullWidth }
   return (
     <Styled styles={styles} isFullWidth={isFullWidth}>
       <Header onClick={handleToggle} >
-        <Icon isOpen={isOpen} onClick={handleToggle}/>
-        <Text weight="bold" styles={{ marginTop: 4 }}>{title}</Text>
+        <Text weight="bold" styles={{ marginTop: 4 }}>
+          <Icon isOpen={isOpen} onClick={handleToggle}/>
+          {title}
+        </Text>
         <Separator styles={{ margin: '5px 0' }} />
       </Header>
       <Content isOpen={isOpen} height={contentRef?.current?.clientHeight || 0}>

@@ -101,27 +101,26 @@ export const HowWorkSection: FC<SectionProps> = () => {
             <Text weight="bold" styles={{ textAlign: 'center' }}>
               {lang === 'ES' && 'Grupo de Educación para el Desarrollo'}
               {lang === 'EN' && 'Education for Development Group'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Kikundi cha Elimu kwa Maendeleo'}
             </Text>
             <Paragraph  styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Coordina la relación con los distintos centros educativos con los que colaboramos. Transmite a colegios, universidades y otros centros educativos la realidad que se vive en Tanzania y las actividades de la organización, y promueve una ciudadanía global, crítica, responsable y comprometida con la lucha contra la pobreza y la exclusión.'}
               {lang === 'EN' && 'It coordinates the relationship with educational centers. It transmits among schools, universities, student residencies, and other educational centers (through different sensitization activities such as talks, workshops, or games) the reality lived in Tanzania as well as the organization’s activities.'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Kinaratibu uhusiano na vituo vya kielimu. kinazifikia shule, vyuo vikuu, makazi ya wanafunzi, na vituo vingine vya kielimu (kupitia shughuli tofauti za uhamasishaji kama mazungumzo, semina, au michezo) uhalisia uliopo Tanzania na pia shughuli za shirika.'}
             </Paragraph>
           </GroupCard>
 
           <GroupCard>
-            {/* //! missing */}
             <CommissionIcon src="./images/icons/fundraising-orange.svg" />
             <Text weight="bold" styles={{ textAlign: 'center' }}>
               {lang === 'ES' && 'Eventos y recaudación de fondos'}
               {lang === 'EN' && 'Fundraising and events'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Harambee na hafla'}
             </Text>
             <Paragraph  styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Promueve eventos, iniciativas solidarias y colaboraciones con otras entidades, con el fin de conseguir fuentes de financiación para nuestros proyectos.'}
               {lang === 'EN' && 'It promotes events, charitable initiatives, and collaborations with other entities, with the aim of raising funds for our projects.'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Inahamasisha hafla, mipango ya hisani, na ushirikiano na taasisi zingine, kwa lengo la kukusanya fedha kwaajili ya miradi yetu.'}
             </Paragraph>
           </GroupCard>
           <GroupCard>
@@ -129,12 +128,12 @@ export const HowWorkSection: FC<SectionProps> = () => {
             <Text weight="bold" styles={{ textAlign: 'center' }}>
               {lang === 'ES' && 'Estrategia Global'}
               {lang === 'EN' && 'Global Strategy'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Mkakati wa Ulimwenguni'}
             </Text>
             <Paragraph  styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Coordina las acciones de los distintos grupos de trabajo, con el fin de proporcionar una visión global de las actividades llevadas a cabo en el seno de la organización. Se encarga de la recopilación de información y de la puesta en común de la misma.'}
               {lang === 'EN' && 'It coordinates the actions of the different working groups, with the aim of providing a global view of the organization’s activities. It is in charge of compiling information.'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Inaratibu vitendo vya vikundi anuwai vya utendaji kazi, kwa lengo la kutoa mtazamo wa ulimwengu kwa shughuli za shirika. Inasimamia ukusanyaji taarifa.'}
             </Paragraph>
           </GroupCard>
           <GroupCard>
@@ -142,12 +141,12 @@ export const HowWorkSection: FC<SectionProps> = () => {
             <Text weight="bold" styles={{ textAlign: 'center' }}>
               {lang === 'ES' && 'Grupo de cuestiones agrícolas'}
               {lang === 'EN' && 'Agricultural Group'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Kikundi cha Kilimo'}
             </Text>
             <Paragraph  styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Da apoyo al proyecto de empoderamiento agrícola, a través del estudio de nuevas técnicas y el fomento de prácticas sostenibles y ecológicas.'}
               {lang === 'EN' && 'It supports the agricultural empowerment project, through the study of new techniques and the promotion of sustainable and ecological practices.'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Inasaidia mradi wa uwezeshaji wa kilimo, kupitia utafiti wa mbinu mpya za kukuza kipato na kutunza mazingira.'}
             </Paragraph>
           </GroupCard>
           <GroupCard>
@@ -155,12 +154,12 @@ export const HowWorkSection: FC<SectionProps> = () => {
             <Text weight="bold" styles={{ textAlign: 'center' }}>
               {lang === 'ES' && 'Grupo por la Equidad de género'}
               {lang === 'EN' && 'Group for Gender Equality'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Kikundi cha Usawa wa Kijinsia'}
             </Text>
             <Paragraph  styles={{ textAlign: 'justify' }}>
               {lang === 'ES' && 'Garantiza el enfoque de género en todas las acciones de la asociación y trabaja por la equidad entre mujeres y hombres, internamente y en los diferentes proyectos que llevamos a cabo.'}
               {lang === 'EN' && 'It guarantees the gender approach in all the actions of the association and works for equality between women and men, internally and in the different projects we carry out.'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Inabeba dhamana ya mtazamo wa kijinsia katika shughuli zote za shirika na inafanya kazi kwaajili ya usawa kati ya wanawake na wanaume, ndani na katika miradi tofauti tunayofanya.'}
             </Paragraph>
           </GroupCard>
         </GroupsBlock>
