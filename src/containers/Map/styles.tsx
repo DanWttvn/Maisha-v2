@@ -53,12 +53,12 @@ const Card = styled.div<BaseProps>`
 
 export const CardSp = styled(Card)`
   top: 26%;
-	left: 8%;
+  left: 8%;
 `
 
 export const CardTz = styled(Card)`
   right: 8%;
-	bottom: 20%;
+  bottom: 20%;
 `
 
 const Modal = styled(ModalRoot)`

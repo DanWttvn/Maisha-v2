@@ -8,7 +8,7 @@ export interface Props extends BaseProps {
   min?: number
 }
 
-const Input: FC<Props> = ({ type = 'text', styles, min, onChange, isFullWidth }) => {
+const Input: FC<Props> = ({ type = 'text', styles, className, min, onChange, isFullWidth }) => {
   const handleInput = (e: any) => {
     if (e.key === '.' || e.key === ',') e.preventDefault()
   }
@@ -17,7 +17,7 @@ const Input: FC<Props> = ({ type = 'text', styles, min, onChange, isFullWidth })
     onChange(e.currentTarget.value)
   }
 
-  return <Styled step="1" min={min} onKeyDown={handleInput} onChange={handleChange} type={type} styles={styles} isFullWidth={isFullWidth}/>
+  return <Styled step="1" min={min} onKeyDown={handleInput} onChange={handleChange} type={type} styles={styles} className={className} isFullWidth={isFullWidth}/>
 }
 
 export default Input

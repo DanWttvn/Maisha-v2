@@ -21,5 +21,10 @@ export default styled.div<Props & { height: number }>`
     background: ${({ theme }) => theme.colors.darkOrange};
   `};
 
+
+  @media ${({ theme }) => theme.breakpoints.sl} {
+    padding: 20px;
+  }
+
   ${({ styles }) => ({ ...styles })};
 `
