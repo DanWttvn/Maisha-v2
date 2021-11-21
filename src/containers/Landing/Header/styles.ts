@@ -63,5 +63,5 @@ export const Text = styled(TextRoot)`
   @media ${({ theme }) => theme.breakpoints.sl} {
     font-size: 2rem;
     line-height: 3rem;
-	}
+  }
 `

@@ -51,7 +51,7 @@ export const ButtonC = styled(ButtonA)`
   @media ${({ theme }) => theme.breakpoints.sl} {
     font-size: 2rem;
     padding: 15px 22px;
-	}
+  }
 
   ${({ styles }) => ({ ...styles })}
 `

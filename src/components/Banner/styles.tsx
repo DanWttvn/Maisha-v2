@@ -24,7 +24,7 @@ export default styled.div<Props & { height: number }>`
 
   @media ${({ theme }) => theme.breakpoints.sl} {
     padding: 20px;
-	}
+  }
 
   ${({ styles }) => ({ ...styles })};
 `

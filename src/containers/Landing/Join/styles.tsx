@@ -17,13 +17,13 @@ export const Input = styled(InputRoot)`
 
   @media ${({ theme }) => theme.breakpoints.sl} {
     font-size: 2rem;
-	}
+  }
 `
 
 export const HelperText = styled(Text)`
   @media ${({ theme }) => theme.breakpoints.sl} {
     text-align: center;
-	}
+  }
 `
 
 export const JoinButton = styled(Button)`
@@ -40,5 +40,5 @@ export const JoinButton = styled(Button)`
 
   @media ${({ theme }) => theme.breakpoints.sl} {
     font-size: 1.8rem;
-	}
+  }
 `

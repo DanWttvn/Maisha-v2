@@ -13,7 +13,7 @@ export default styled(Text)<Props>`
   @media ${({ theme }) => theme.breakpoints.sl} {
     font-size: ${({ type }) => type === 'number' ? '5rem' : '3rem'};
     line-height: ${({ type }) => type === 'number' ? '5.3rem' : '3rem'};
-	}
+  }
 
   ${({ styles }) => ({ ...styles })}
 `
