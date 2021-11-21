@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components'
-import Subtitle from '../../components/Subtitle'
+import styled from 'styled-components'
 import Container from '../../components/Container'
 import Paragraph from '../../components/Paragraph'
 import ImageRoot from '../../components/Image'
@@ -32,22 +31,6 @@ export const BorderedBox = styled.div`
 	border-radius: 10px;
 	padding: 30px 40px;
 	margin: 20px 0;
-`
-
-export const SubtitleFullWidth = styled(Subtitle)`
-  ${({ theme }) => theme && css`
-    padding-left: 120px; padding-right: 120px;
-
-    @media ${theme.breakpoints.m} {
-      padding-left: 80px; padding-right: 80px;
-    }
-    @media ${theme.breakpoints.s} {
-      padding-left: 40px; padding-right: 40px;
-    }
-    @media ${theme.breakpoints.xs} {
-      padding-left: 20px; padding-right: 20px;
-    }
-  `}
 `
 
 export const DataContainer = styled(Container)`
