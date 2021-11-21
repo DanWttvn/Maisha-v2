@@ -1,21 +1,16 @@
 import React, { FC } from 'react'
-import Image from '../../../components/Image'
-import Text from '../../../components/Text'
-import defaultTheme from '../../../styles/theme'
 import Paragraph from '../../../components/Paragraph'
-import Styled, { OpenQuote, CloseQuote } from './styles'
+import Styled, { OpenQuote, CloseQuote, Text } from './styles'
 
 const Header: FC = () => {
   return (
-    <Styled isFullWidth>
-      <Paragraph styles={{ zIndex: defaultTheme.zIndex.medium, width: '70%', margin: 'auto' }}>
+    <Styled>
+      <Paragraph>
         <OpenQuote />
-        <Text weight="black" color="white" styles={{ fontStyle: 'italic', fontSize: '3.5rem', lineHeight: '4.7rem' }}>Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
+        <Text weight="black" color="white" size="xl" styles={{ fontStyle: 'italic' }} >Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
         <CloseQuote />
-        <Text weight="black" color="white" styles={{ marginLeft: 24, fontWeight: 800, fontSize: '3.5rem', lineHeight: '4.7rem' }}>E. Galeno</Text>
+        <Text weight="black" color="white" size="xl" styles={{ marginLeft: 18 }}>E. Galeno</Text>
       </Paragraph>
-      {/* //TODO: fix responsive */}
-      <Image src="/images/playing_kids.webp" styles={{ position: 'absolute' }} hasOverlay isFullWidth />
     </Styled>
   )
 }

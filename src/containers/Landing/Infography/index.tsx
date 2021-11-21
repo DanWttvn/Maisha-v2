@@ -2,52 +2,51 @@ import React, { FC } from 'react'
 import Container from '../../../components/Container'
 import Text from '../../../components/Text'
 import DataText from '../../DataText'
-import { SubSection } from '../../../components/Section/styles'
+import { SubSection, DataContainer } from './styles'
 
 const Infography: FC = () => {
   return (
     <SubSection isNarrow>
       <Container direction="horizontal" styles={{ justifyContent: 'space-around' }} isFullWidth>
         <Container>
-          <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+          <DataContainer direction="vertical">
             <DataText>320</DataText>
             <Text weight="bold" isCentered>menores</Text>
             <Text weight="bold" isCentered>beneficiarios</Text>
-          </Container>
+          </DataContainer>
           <DataText styles={{ margin: '34px 16px 0 16px' }}>/</DataText>
-          <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+          <DataContainer direction="vertical">
             <DataText>44</DataText>
             <Text weight="bold" isCentered>personas adultas</Text>
             <Text weight="bold" isCentered>beneficiarias</Text>
-          </Container>
+          </DataContainer>
         </Container>
-        <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+        <DataContainer direction="vertical">
           <DataText>+250</DataText>
           <Text weight="bold" isCentered>personas sensibilizadas</Text>
-        </Container>
+        </DataContainer>
       </Container>
-
       <Container styles={{ justifyContent: 'space-around' }} isFullWidth>
-        <Container direction="vertical" styles={{ margin: '30px 0' }}>
+        <DataContainer direction="vertical">
           <DataText>120</DataText>
           <Text weight="bold" isCentered>Voluntarios/as</Text>
-        </Container>
+        </DataContainer>
         <Container>
-          <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+          <DataContainer direction="vertical">
             <DataText>5</DataText>
             <Text weight="bold" isCentered>convenios con</Text>
             <Text weight="bold" isCentered>universidades</Text>
-          </Container>
+          </DataContainer>
           <DataText styles={{ margin: '34px 16px 0 16px' }}>/</DataText>
-          <Container direction="vertical" styles={{ margin: '30px 0px' }}>
+          <DataContainer direction="vertical">
             <DataText>3</DataText>
             <Text weight="bold" isCentered>Colegios amigos</Text>
-          </Container>
+          </DataContainer>
         </Container>
-        <Container direction="vertical" styles={{ margin: '30px 0' }}>
+        <DataContainer direction="vertical">
           <DataText>40</DataText>
           <Text weight="bold" isCentered>Socios/as</Text>
-        </Container>
+        </DataContainer>
       </Container>
     </SubSection>
   )

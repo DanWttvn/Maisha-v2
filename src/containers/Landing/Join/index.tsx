@@ -1,17 +1,15 @@
 import React, { FC, useEffect, useState } from 'react'
 import Button from '../../../components/Button'
 import Container from '../../../components/Container'
-import Input from '../../../components/Input'
 import Dialog from '../../../components/Dialog'
 import Subtitle from '../../../components/Subtitle'
 import Text from '../../../components/Text'
 import JoinForm from '../../../containers/JoinForm'
 import SkipWrap from '../../../components/SkipWrap'
-import theme from '../../../styles/theme'
 import Banner from '../../../components/Banner'
 import useIntersection from '../../../hooks/useIntersection'
 import { handleScrollToTop } from '../../../helpers/screen'
-import Styled from './styles'
+import Styled, { Input, HelperText, JoinButton } from './styles'
 
 type Props = {
   variant: '1' | '2'
@@ -59,18 +57,18 @@ const Join: FC<Props> = ({ variant }) => {
           <Button onClick={handleSelectAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} variant="C">15€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} variant="C">25€</Button>
           <Button onClick={handleSelectAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} variant="C">
-            <Input type="number" min={5} onChange={handleInputChange} styles={{ marginRight: 12, fontSize: '2.5rem', width: '100px' }} />€
+            <Input type="number" min={5} onChange={handleInputChange}/>€
           </Button>
         </Container>
-        <Text isHidden={isError} color="black" weight="semibold" isFullWidth>Elige tu aportación mensual</Text>
-        <Text isHidden={selectedAmount !== 5} color="black" size="s" styles={{ width: 860 }}>*Para evitar comisiones del banco y sacar el máximo provecho a tu aportación, retiraremos cada dos meses 10€ de tu cuenta</Text>
+        <HelperText isHidden={isError} color="black" weight="semibold" isFullWidth>Elige tu aportación mensual</HelperText>
+        <HelperText isHidden={selectedAmount !== 5} color="black" size="s" isFullWidth>*Para evitar comisiones del banco y sacar el máximo provecho a tu aportación, retiraremos cada dos meses 10€ de tu cuenta</HelperText>
         <SkipWrap />
-        <Text isHidden={!isError} color="brightRed" weight="black" isFullWidth>*Por favor, selecciona una cantidad mensual</Text>
-        <Text isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>*La cantidad mínima es de 5€</Text>
+        <HelperText isHidden={!isError} color="brightRed" weight="black" isFullWidth>*Por favor, selecciona una cantidad mensual</HelperText>
+        <HelperText isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>*La cantidad mínima es de 5€</HelperText>
       </Styled>
 
       <SkipWrap />
-      <Button variant="B" onClick={handleOpenForm} ref={elementRef} styles={{ margin: '0 auto', fontSize: 36, fontWeight: 800, borderRadius: 40, padding: '20px 35px', background: theme.colors.offOrange, color: theme.colors.white, border: `${theme.colors.darkRed} 2px solid`, zIndex: theme.zIndex.medium }}>HAZTE SOCIA/O</Button>
+      <JoinButton variant="B" onClick={handleOpenForm} ref={elementRef}>HAZTE SOCIA/O</JoinButton>
       <SkipWrap />
 
       <Dialog isHidden={!isFormModalOpen} onClose={setIsFormModalOpen.bind(undefined, false)}>
