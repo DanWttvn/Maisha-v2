@@ -1,57 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { FC } from 'react'
-// import ReactMapGL, { Marker } from 'react-map-gl'
 import Paragraph from '../../components/Paragraph'
 import Subtitle from '../../components/Subtitle'
 import LanguageContext from '../../contexts/language'
-import { Point, Card, Button, Modal } from './styles'
+import Styled, { CardSp, CardTz, ButtonSp, ButtonTz, ModalSp, ModalTz, SectionSubtitle } from './styles'
 
-interface City {
-  city: string
-  latitude: number
-  longitude: number
-  info?: {
-    ES: string
-    EN: string
-    SW: string
-  }
-}
-
-const data: City[] = [
-  {
-    city: 'Cambrils',
-    latitude: 40.4167,
-    longitude: -3.70325,
-  },
-  {
-    city: 'Valladolid',
-    latitude: 41.65518,
-    longitude: -4.72372,
-  },
-  {
-    city: 'Madrid',
-    latitude: 41.0671,
-    longitude: 1.05642,
-  },
-  {
-    city: 'Arusha',
-    latitude: -3.36667,
-    longitude: 36.68333
-  }
-]
-
-//TODO: should be changed to a static image to reduce bundle size
 
 export const Map: FC = () => {
   const { lang } = useContext(LanguageContext)
-  const [ selected, setSelected ] = useState<'Madrid' | 'Arusha'>()
-  const [ viewport ] = useState({
-    latitude: 18,
-    longitude: 20,
-    zoom: 2.6,
-    width: '100%',
-    height: '600px'
-  })
+  const [ selected, setSelected ] = useState<'Sp' | 'Tz'>()
 
   const spainCopy = (
     <>
@@ -79,28 +36,24 @@ export const Map: FC = () => {
     </>
   )
 
-  // const points = data.map(x => (
-  //   <Marker key={x.city} latitude={x.latitude} longitude={x.longitude}>
-  //     <Button onClick={setSelected.bind(undefined, x.city)} isHidden={![ 'Madrid', 'Arusha' ].includes(x.city) || window.innerWidth > 1080} styles={{ left: x.city === 'Madrid' ? '-60px' : '-25px', top: x.city === 'Madrid' ? '-15px' : '-25px' }} variant="F">+</Button>
-  //     <Point />
-  //   </Marker>
-  // ))
-
   return (
     <>
-      {/* <ReactMapGL
-        {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN_PROD}
-        mapStyle="mapbox://styles/danielawg/ckosute2r1crk17senzuyxoct"
-      >
-        {points}
-      </ReactMapGL> */}
+      <Styled>
+        <SectionSubtitle color="white">
+          {lang === 'ES' && 'Dónde trabajamos'}
+          {lang === 'EN' && 'Where do we work'}
+          {lang === 'SW' && 'Tunafanya kazi wapi'}
+        </SectionSubtitle>
 
-      <Card styles={{ top: 290, left: 50 }}>{spainCopy}</Card>
-      <Card styles={{ right: 50, bottom: 120 }}>{tanzaniaCopy}</Card>
+        <CardSp>{spainCopy}</CardSp>
+        <CardTz>{tanzaniaCopy}</CardTz>
 
-      <Modal variant="B" isHidden={selected !== 'Madrid'} styles={{ top: 290, left: 50 }} onClose={setSelected.bind(undefined, undefined)}>{spainCopy}</Modal>
-      <Modal variant="B" isHidden={selected !== 'Arusha'} styles={{ right: 50, bottom: 120 }} onClose={setSelected.bind(undefined, undefined)}>{tanzaniaCopy}</Modal>
+        <ButtonSp variant="F" onClick={() => setSelected('Sp')}>+</ButtonSp>
+        <ButtonTz variant="F" onClick={() => setSelected('Tz')}>+</ButtonTz>
+
+        <ModalSp isHidden={selected !== 'Sp'} variant="B" onClose={() => setSelected(undefined)}>{spainCopy}</ModalSp>
+        <ModalTz isHidden={selected !== 'Tz'} variant="B" onClose={() => setSelected(undefined)}>{tanzaniaCopy}</ModalTz>
+      </Styled>
     </>
   )
 }

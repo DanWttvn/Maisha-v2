@@ -30,7 +30,7 @@ export const TimelineSection: FC<SectionProps> = () => {
           styles={{ height: 690 }}
           isFullWidth
         >
-          {/* //! change photo */}
+          {/* //! add photo */}
           <Carousel.Item src="" hasOverlay>
             <Text size="xl" weight="black" color="white" styles={{ marginBottom: 25 }} isFullWidth>2021</Text>
             <Paragraph color='white' weight="semibold">

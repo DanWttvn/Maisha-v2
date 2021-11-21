@@ -11,7 +11,7 @@ import Map from '../Map'
 import { Section, SubSection } from '../../components/Section/styles'
 import DataText from '../DataText'
 import { SectionProps } from '../../models'
-import { BorderedBox, DataContainer, DataParagraph, SubtitleFullWidth, OuterContainer, InnerContainer, Image } from './styles'
+import { BorderedBox, DataContainer, DataParagraph, OuterContainer, InnerContainer, Image } from './styles'
 
 export const WhoSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
@@ -77,11 +77,6 @@ export const WhoSection: FC<SectionProps> = () => {
       </SubSection>
 
       <SubSection id="where" isFullWidth>
-        <SubtitleFullWidth color='black'>
-          {lang === 'ES' && 'Dónde trabajamos'}
-          {lang === 'EN' && 'Where do we work'}
-          {lang === 'SW' && 'Tunafanya kazi wapi'}
-        </SubtitleFullWidth>
         <Map />
       </SubSection>
 
