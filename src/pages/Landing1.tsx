@@ -10,7 +10,7 @@ const Landing1: FC = () => {
       <Landing.Join variant="1" />
       <Landing.Projects />
       <Container isFullWidth>
-        <Video src="/images/videos/CampañaSocios.mp4" />
+        <Video poster="/images/video2-poster.webp" src="/images/videos/CampañaSocios2.mov" />
       </Container>
       <Landing.Infography />
       <Landing.Taxes />
