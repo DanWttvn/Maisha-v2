@@ -10,12 +10,15 @@ import NewsletterForm from '../NewsletterForm'
 import PolicyModal from '../PolicyModal'
 import Styled, { InnerContainer, HorizontalDivider, VerticalDivider, Section, NewsletterSection, FacebookIcon, InstagramIcon, YoutubeIcon } from './styles'
 import ExternalLink from '../../components/ExternalLink'
+import Image from '../../components/Image'
+import Paragraph from '../../components/Paragraph'
 
 export interface Props extends BaseProps {
   isHomePage?: boolean
+  isSimplified?: boolean
 }
 
-const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
+const Footer: FC<Props> = ({ isHomePage, isSimplified, className, styles }) => {
   const { lang, setLang } = useContext(LanguageContext)
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
 
@@ -41,9 +44,14 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
             {lang === 'SW' && 'Shiriki'}
           </AppLink>
         </Section>
-        <NewsletterSection>
+        <NewsletterSection isHidden={isSimplified}>
           <NewsletterForm />
         </NewsletterSection>
+        <Section isHidden={!isSimplified} styles={{ justifyContent: 'center' }}>
+          <AppLink toSection="header">
+            <Image src="/images/MR-orange.png" styles={{ width: 100, height: 100 }} />
+          </AppLink>
+        </Section>
         <Section>
           <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>Síguenos</Text>
           <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isFullWidth>
@@ -59,7 +67,7 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
           </Container>
           <ExternalLink variant="footer" size="xs" href="mailto:info@maisharoots.org">info@maisharoots.org</ExternalLink>
         </Section>
-        <Section>
+        <Section isHidden={isSimplified}>
           <Text size="s" weight="bold" color="offOrange" styles={{ marginBottom: 15 }} isCentered isFullWidth>Languages</Text>
           <Container styles={{ marginBottom: 15, justifyContent: 'center' }} isFullWidth>
             <Button variant="D" onClick={setLang?.bind(undefined, 'ES')}>ESP</Button>
@@ -75,7 +83,7 @@ const Footer: FC<Props> = ({ isHomePage, className, styles }) => {
           </Text>
         </Section>
       </InnerContainer>
-      <Text styles={{ fontSize: 11, color: '#ccc', marginTop: 12 }} isFullWidth>CIF G87557476 - Registro de Fundaciones de competencia estatal</Text>
+      <Paragraph styles={{ fontSize: 11, color: '#ccc', margin: '16px 0 0' }} isCentered isFullWidth>CIF G87557476 - Registro de Fundaciones de competencia estatal</Paragraph>
       <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
     </Styled>
   )

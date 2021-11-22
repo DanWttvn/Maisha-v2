@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import Container from '../components/Container'
 import Video from '../components/Video'
+import Footer from '../containers/Footer'
 import Landing from '../containers/Landing'
 
 const Landing1: FC = () => {
@@ -15,7 +16,7 @@ const Landing1: FC = () => {
       <Landing.Infography />
       <Landing.Taxes />
       <Landing.Faq />
-      <Landing.Footer styles={{ marginBottom: 83 }}/>
+      <Footer styles={{ marginBottom: 83 }} isSimplified/>
     </Container>
   )
 }
