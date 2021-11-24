@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Link as ScrollLinkRoot } from 'react-scroll'
+import { Link as ScrollLinkRoot, LinkProps } from 'react-scroll'
 import { HashLink as HashLinkRoot } from 'react-router-hash-link'
 import { Link as RouterLink } from 'react-router-dom'
 import { Props } from '.'
@@ -35,7 +35,7 @@ export const LinkStyles = css<Props>`
   ${({ styles }) => ({ ...styles })}
 `
 
-export const ScrollLink = styled(ScrollLinkRoot)<Props>`
+export const ScrollLink = styled(ScrollLinkRoot)<Props & LinkProps>`
   ${TextStyles}
   ${LinkStyles}
 `
