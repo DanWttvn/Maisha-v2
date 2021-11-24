@@ -1,5 +1,5 @@
 export const urls = {
-  root: '/root',
+  root: '/',
   complains: '/complains',
   join: '/join',
   thanks: '/thank-you',
