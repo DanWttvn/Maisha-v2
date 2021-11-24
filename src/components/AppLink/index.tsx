@@ -13,10 +13,10 @@ export interface Props extends LinkProps {
   isSamePage?: boolean
 }
 
-const AppLink: FC<Props> = ({ children, toPage, toSection, className, onClick, size = 'inherit', weight = 'bold', variant = 'app', isSamePage, isHidden }) => {
+const AppLink: FC<Props> = ({ children, toPage, toSection, className = '', onClick, size = 'inherit', weight = 'bold', variant = 'app', isSamePage, isHidden }) => {
   if (isHidden) return null
 
-  if (isSamePage) return <ScrollLink to={toSection} onClick={onClick} variant={variant} size={size} weight={weight} activeClass="active" spy={true} smooth={true} className={className}>{children}</ScrollLink>
+  if (isSamePage && !!toSection) return <ScrollLink to={toSection} onClick={onClick} variant={variant} weight={weight} activeClass="active" spy={true} smooth={true} className={className}>{children}</ScrollLink>
 
   if (!!toSection) return <HashLink to={`${urls.root}#${toSection}`} onClick={onClick} variant={variant} size={size} weight={weight}>{children}</HashLink>
 
