@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import Text from '../../../components/Text'
 import Paragraph from '../../../components/Paragraph'
-import { SubSection } from '../../../components/Section/styles'
+import SubSection from '../../../components/SubSection'
 import Subtitle from '../../../components/Subtitle'
 import Accordion from '../../../components/Accordion'
 

@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import Subtitle from '../components/Subtitle'
-import { Section, SubSection } from '../components/Section/styles'
+import Section from '../components/Section'
+import SubSection from '../components/SubSection'
 import Navbar from '../containers/Navbar'
 import Footer from '../containers/Footer'
 import JoinForm from '../containers/JoinForm'

@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react'
 import Paragraph from '../components/Paragraph'
 import Container from '../components/Container'
-import { SubSection } from '../components/Section/styles'
+import SubSection from '../components/SubSection'
 import DataText from '../containers/DataText'
 import Footer from '../containers/Footer'
 import Navbar from '../containers/Navbar'

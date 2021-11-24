@@ -4,7 +4,8 @@ import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import LanguageContext from '../../contexts/language'
-import { Section, SubSection } from '../../components/Section/styles'
+import Section from '../../components/Section'
+import SubSection from '../../components/SubSection'
 import { SectionProps } from '../../models'
 import Li from '../../components/Li'
 import ExternalLink from '../../components/ExternalLink'
@@ -168,7 +169,7 @@ export const TransparencySection: FC<SectionProps> = () => {
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Constitución FYWCO'}
           {lang === 'EN' && 'FYWCO Constitution'}
-          {lang === 'SW' && ''}
+          {lang === 'SW' && 'Katiba ya FYWCO'}
           <ExternalLink href="/images/docs/FYWCO_constitution.pdf" styles={{ margin: '0 4px' }}>ENG</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
@@ -180,13 +181,13 @@ export const TransparencySection: FC<SectionProps> = () => {
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Plan de voluntariado'}
           {lang === 'EN' && 'Volunteer Plan'}
-          {lang === 'SW' && ''}
+          {lang === 'SW' && 'Mpango wa Kujitolea'}
           <ExternalLink href="/images/docs/plan_de_voluntariado-Maisha_Roots.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
           {lang === 'ES' && 'Utilidad Pública Maisha Roots Spain'}
           {lang === 'EN' && 'Maisha Roots Spain Public Utility'}
-          {lang === 'SW' && ''}
+          {lang === 'SW' && 'Maisha Roots Spain Public Utility'}
           <ExternalLink href="/images/docs/utilidad_publica.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
       </SubSection>

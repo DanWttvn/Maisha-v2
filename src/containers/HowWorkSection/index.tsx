@@ -6,7 +6,8 @@ import Paragraph from '../../components/Paragraph'
 import Text from '../../components/Text'
 import Container from '../../components/Container'
 import LanguageContext from '../../contexts/language'
-import { Section, SubSection } from '../../components/Section/styles'
+import Section from '../../components/Section'
+import SubSection from '../../components/SubSection'
 import { StructureCard, GroupCard, GroupsBlock, CommissionIcon, StructureContainer, StructureParagraphContainer } from './styles'
 import { SectionProps } from '../../models'
 
@@ -14,9 +15,9 @@ export const HowWorkSection: FC<SectionProps> = () => {
   const { lang } = useContext(LanguageContext)
 
   const imgSrcs = {
-    ES: './images/esquema-organizacion-ES.png',
-    EN: './images/esquema-organizacion-EN.png',
-    SW: './images/esquema-organizacion-EN.png'
+    ES: './images/esquema-organizacion-ES.webp',
+    EN: './images/esquema-organizacion-EN.webp',
+    SW: './images/esquema-organizacion-EN.webp'
   }
 
   return (

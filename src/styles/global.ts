@@ -3,7 +3,7 @@ import { ThemeProps } from '../models'
 
 export default createGlobalStyle<ThemeProps>`
   * {
-    font-family: ${({ theme }) => theme.fonts.main};
+    font-family: ${({ theme }) => `${theme.fonts.main}, ${theme.fonts.fallback}`};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
