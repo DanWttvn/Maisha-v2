@@ -82,16 +82,13 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
         Dinerito al mes: ${data.amount}
       `
     }).then(() => {
-      if (variant === '3') push('/thank-you')
-      //* here is the conversion pixel change in the future
-      else window.location.href = 'https://maisharoots.org/donate-success'
+      push('/thank-you')
     }
     ).catch((err: Error) => {
       if (hasFetchFailed) return setErrors([ ...errors, 'fail' ])
       setErrors([ ...errors, 'smtpjs' ])
       console.error(err)
-      if (variant === '3') push('/thank-you')
-      else window.location.href = 'https://maisharoots.org/donate-success'
+      push('/thank-you')
     })
   }
 
