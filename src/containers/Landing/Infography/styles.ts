@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Container from '../../../components/Container'
-import { SubSection as SubSectionRoot } from '../../../components/Section/styles'
+import SubSectionRoot from '../../../components/SubSection'
 
 export const SubSection = styled(SubSectionRoot)`
   @media ${({ theme }) => theme.breakpoints.sl} {

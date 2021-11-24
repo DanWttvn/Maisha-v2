@@ -9,7 +9,8 @@ import SkipWrap from '../components/SkipWrap'
 import InputText from '../components/InputText'
 import LanguageContext from '../contexts/language'
 import Form from '../components/Form'
-import { Section, SubSection } from '../components/Section/styles'
+import Section from '../components/Section'
+import SubSection from '../components/SubSection'
 import Navbar from '../containers/Navbar'
 import Footer from '../containers/Footer'
 import Page from '../components/Page'
@@ -135,7 +136,7 @@ const Complains: FC = () => {
             <Subtitle isCentered isFullWidth isSmall>
               {lang === 'ES' && 'Datos de contacto'}
               {lang === 'EN' && 'Contact information'}
-              {lang === 'SW' && ''}
+              {lang === 'SW' && 'Maelezo ya mawasiliano'}
             </Subtitle>
             <InputText
               label={labelCopies.name[lang]}

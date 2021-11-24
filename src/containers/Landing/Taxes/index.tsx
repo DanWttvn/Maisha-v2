@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Paragraph from '../../../components/Paragraph'
-import { SubSection } from '../../../components/Section/styles'
+import SubSection from '../../../components/SubSection'
 import Subtitle from '../../../components/Subtitle'
 import { TextContainer, Image } from './styles'
 

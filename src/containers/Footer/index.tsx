@@ -44,7 +44,7 @@ const Footer: FC<Props> = ({ isHomePage, isSimplified, className, styles }) => {
             {lang === 'SW' && 'Shiriki'}
           </AppLink>
         </Section>
-        <NewsletterSection isHidden={isSimplified}>
+        <NewsletterSection isHidden={isSimplified || lang !== 'ES'}>
           <NewsletterForm />
         </NewsletterSection>
         <Section isHidden={!isSimplified} styles={{ justifyContent: 'center' }}>
@@ -53,7 +53,11 @@ const Footer: FC<Props> = ({ isHomePage, isSimplified, className, styles }) => {
           </AppLink>
         </Section>
         <Section>
-          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>Síguenos</Text>
+          <Text size="s" weight="bold" styles={{ color: theme.colors.offOrange, marginBottom: 15 }} isFullWidth>
+            {lang === 'ES' && 'Sígenos'}
+            {lang === 'EN' && 'Follow us'}
+            {lang === 'SW' && 'Follow us'}
+          </Text>
           <Container styles={{ marginBottom: 15, justifyContent: 'space-around'}} isFullWidth>
             <ExternalLink variant="footer" size="xs" href="https://www.facebook.com/maisharoots/">
               <FacebookIcon />

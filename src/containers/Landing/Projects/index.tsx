@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Image from '../../../components/Image'
 import Text from '../../../components/Text'
 import Paragraph from '../../../components/Paragraph'
-import { SubSection } from '../../../components/Section/styles'
+import SubSection from '../../../components/SubSection'
 import { ProjectContainer, Project } from './styles'
 
 const Projects: FC = () => {

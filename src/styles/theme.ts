@@ -2,7 +2,8 @@ import { Theme } from '../models'
 
 const theme: Theme = {
   fonts: {
-    main: 'Montserrat'
+    main: 'Montserrat',
+    fallback: 'sans-serif'
   }, 
   colors: {
     black: '#000',

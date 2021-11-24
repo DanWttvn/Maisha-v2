@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import RootImage from '../../components/Image'
-import { Section as SectionRoot } from '../../components/Section/styles'
+import SectionRoot from '../../components/Section'
 import { headerAnimation, scrollIconAnimation } from '../../styles/animations'
 import { KeyboardArrowDown } from '@styled-icons/material/KeyboardArrowDown'
 

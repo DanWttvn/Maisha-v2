@@ -5,10 +5,10 @@ import SubtitleRoot from '../../components/Subtitle'
 import { BaseProps } from '../../models'
 
 export default styled.div`
-position: relative;
+  position: relative;
 	width: 100%;
   height: 80vh;
-	background: url(/images/map.jpg);
+	background: url(/images/map.webp);
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;

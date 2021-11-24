@@ -3,7 +3,8 @@ import Title from '../../components/Title'
 import Subtitle from '../../components/Subtitle'
 import Paragraph from '../../components/Paragraph'
 import LanguageContext from '../../contexts/language'
-import { Section, SubSection } from '../../components/Section/styles'
+import Section from '../../components/Section'
+import SubSection from '../../components/SubSection'
 import { SectionProps } from '../../models'
 
 export const ProjectsSection: FC<SectionProps> = () => {

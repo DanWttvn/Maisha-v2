@@ -20,7 +20,7 @@ export interface SectionProps {
   id?: SectionTitle
 }
 
-export interface SubSectionProps extends BaseProps {
+export interface SubSectionProps {
   id?: SubSectionTitle
   isNarrow?: boolean
 }
@@ -37,6 +37,7 @@ export interface TextProps extends BaseProps {
 export interface Theme {
   fonts: {
     main: string
+    fallback: string
   }
   colors: {
     black: string
@@ -225,7 +226,7 @@ export const sectionsData: SectionData[] = [
         title: {
           ES: 'Memorias',
           EN: 'Reports',
-          SW: ''
+          SW: 'Ripoti'
         }
       }
     ]
