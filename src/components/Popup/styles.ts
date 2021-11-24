@@ -13,7 +13,7 @@ export default styled.div<BaseProps>`
 	border-radius: 5px;
 	bottom: 30px;
 	right: 30px; 
-	box-shadow: ${({ theme }) => theme.colors.elevation3};
+	box-shadow: ${({ theme }) => theme.shadows.elevation3};
 
   ${({ styles }) => ({ ...styles })}
 `

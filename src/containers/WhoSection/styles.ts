@@ -8,14 +8,13 @@ export const InnerContainer = styled(Container)`
 	padding: 10% 13% 10% 23%;
   font-size: 1rem;
   line-height: 1.59rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/playing_kids.webp');
+  background-size: cover;
+  background-position: center;
 
   @media ${({ theme }) => theme.breakpoints.sl} {
     padding: 10% 8% 10% 15%;
 	}
-
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/images/playing_kids.webp');
-  background-size: cover;
-  background-position: center;
 `
 
 export const BorderedBox = styled.div`
