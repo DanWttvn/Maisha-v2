@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { BaseProps } from '../../../models'
 import TextRoot from '../../../components/Text'
+import ImageRoot from '../../../components/Image'
 
 export default styled.div`
   position: relative;
@@ -11,12 +12,20 @@ export default styled.div`
   width: 100%;
 	padding: 7% 7% 10%;
   line-height: 1.59rem;
-
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/playing_kids.webp');
-  background-size: cover;
-  background-position: center;
   height: 70vh;
+  overflow: hidden;
   max-height: 600px;
+`
+
+export const Image = styled(ImageRoot)`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(70%);
+  z-index: -1;
 `
 
 const Quote =  styled.span<BaseProps>`
