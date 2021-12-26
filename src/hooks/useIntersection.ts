@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, MutableRefObject } from 'react'
 
-export default (first = true, distance = '100px'): { isNear: boolean, elementRef: MutableRefObject<any> } => {
-  const [ isNear, setNear ] = useState(false)
+export default (first = true, distance = '100px', initialValue?: boolean): { isNear: boolean, elementRef: MutableRefObject<any> } => {
+  const [ isNear, setNear ] = useState(initialValue || false)
   const elementRef = useRef()
 
   useEffect(() => {

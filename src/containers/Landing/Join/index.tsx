@@ -22,7 +22,7 @@ const Join: FC<Props> = ({ variant }) => {
   const [ isError, setIsError ] = useState(false)
   const [ isSmallerThanMin, setIsSmallerThanMin ] = useState(false)
   const [ isCTAVisible, setIsCTAVisible ] = useState(true)
-  const { isNear, elementRef } = useIntersection(false, '350px')
+  const { isNear, elementRef } = useIntersection(false, '350px', true)
 
   useEffect(() => {
     setIsCTAVisible(isNear)
