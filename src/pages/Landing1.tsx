@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, lazy, Suspense } from 'react'
 import Container from '../components/Container'
-import Video from '../components/Video'
 import Footer from '../containers/Footer'
 import Landing from '../containers/Landing'
+const Video = lazy(() => import('../components/Video'))
 
 const Landing1: FC = () => {
   return (
@@ -11,7 +11,9 @@ const Landing1: FC = () => {
       <Landing.Join variant="1" />
       <Landing.Projects />
       <Container isFullWidth>
-        <Video src="/images/videos/CampañaSocios.mp4" />
+        <Suspense fallback={<></>}>
+          <Video src="/images/videos/CampanaSocios.mp4" />
+        </Suspense>
       </Container>
       <Landing.Infography />
       <Landing.Taxes />
