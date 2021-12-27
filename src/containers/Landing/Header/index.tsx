@@ -19,7 +19,7 @@ const Header: FC = () => {
         <OpenQuote />
         <Text weight="black" color="white" size="xl" styles={{ fontStyle: 'italic' }} >Mucha gente pequeña, en lugares pequeños, haciendo cosas pequeñas, puede cambiar el mundo</Text>
         <CloseQuote />
-        <Text weight="black" color="white" size="xl" styles={{ marginLeft: 18 }}>E. Galeno</Text>
+        <Text weight="black" color="white" size="xl" styles={{ marginLeft: 16 }}>E. Galeano</Text>
       </Paragraph>
     </Styled>
   )
