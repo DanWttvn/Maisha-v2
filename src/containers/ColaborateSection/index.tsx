@@ -76,7 +76,7 @@ export const ColaborateSection: FC<SectionProps> = () => {
           {lang === 'EN' && 'Make a donation'}
           {lang === 'SW' && 'Changia'}
         </Subtitle>
-        <Accordion title="Hazte socia/o" isHidden={lang !== 'ES'} isFullWidth>
+        <Accordion title="Hazte socia/o" isHidden={lang !== 'ES'} isFullWidth isDefaultOpen>
           <Text styles={{ marginBottom: 8 }}>Puedes donarnos una cantidad fija al mes. Uno de los pilares de nuestra asociación es la estabilidad económica. Si conseguimos una financiación estable, contribuiremos activamente a la sostenibilidad de nuestros proyectos. Por ello, te animamos a que colabores con una aportación mensual.</Text>
           <AppLink toPage={urls.join}>
             <Button styles={{ marginBottom: 16 }}>Hazte socia/o aquí</Button>

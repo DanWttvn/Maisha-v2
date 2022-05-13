@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, useState, useRef, useEffect } from 'react'
 import { BaseProps } from '../../models'
 import Text from '../Text'
 import Separator from '../Separator'
@@ -7,10 +7,12 @@ import Styled, { Icon, Content, Wrapper, Header } from './styles'
 
 export interface Props extends BaseProps {
   title: string
+  isDefaultOpen?: boolean
 }
 
-const Accordion: FC<Props> = ({ isHidden, title, styles, children, isFullWidth }) => {
-  const [ isOpen, setIsOpen ] = useState(false)
+const Accordion: FC<Props> = ({ isHidden, title, styles, children, isFullWidth, isDefaultOpen }) => {
+  const [ isOpen, setIsOpen ] = useState(!!isDefaultOpen)
+  const [ height, setHeight ] = useState(0)
   const contentRef = useRef<HTMLDivElement>()
 
   if (isHidden) return null
@@ -19,6 +21,11 @@ const Accordion: FC<Props> = ({ isHidden, title, styles, children, isFullWidth }
     setIsOpen(!isOpen)
   }
 
+  useEffect(() => {
+    if (!contentRef.current) return
+    setHeight(contentRef.current.clientHeight)
+  }, [ contentRef ])
+  
   return (
     <Styled styles={styles} isFullWidth={isFullWidth}>
       <Header onClick={handleToggle} >
@@ -28,7 +35,7 @@ const Accordion: FC<Props> = ({ isHidden, title, styles, children, isFullWidth }
         </Text>
         <Separator styles={{ margin: '5px 0' }} />
       </Header>
-      <Content isOpen={isOpen} height={contentRef?.current?.clientHeight || 0}>
+      <Content isOpen={isOpen} height={height}>
         <Wrapper ref={contentRef}>{children}</Wrapper>
       </Content>
     </Styled>

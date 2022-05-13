@@ -58,10 +58,9 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
     (window as any).Email.send({
       SecureToken: `${process.env.REACT_APP_SMPT_TOKEN}`,
       To : [ `${process.env.REACT_APP_EMAIL1}`, `${process.env.REACT_APP_EMAIL2}` ],
-      From : 'info@maisharoots.org',
-      Subject : 'Nuevo socio!',
-      Body : `
-        ${!!hasFetchFailed ? `¡CUIDADO! Se ha producido un error al intentar meter los datos en el excel. INTRODUCIR A MANO. <br> Error: ${errorInfo}` : ''}
+      From: 'info@maisharoots.org',
+      Subject: 'Nuevo socio!',
+      Body: `${!!hasFetchFailed ? `¡CUIDADO! Se ha producido un error al intentar meter los datos en el excel. INTRODUCIR A MANO. <br> Error: ${errorInfo}` : ''}
         Nuevo socio desde la Landing variante ${variant} !
         Sus datos:
         <br>
@@ -83,8 +82,7 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
       `
     }).then(() => {
       push('/thank-you')
-    }
-    ).catch((err: Error) => {
+    }).catch((err: Error) => {
       if (hasFetchFailed) return setErrors([ ...errors, 'fail' ])
       setErrors([ ...errors, 'smtpjs' ])
       console.error(err)
@@ -108,13 +106,10 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
     if (nextErrors.length) return setErrors(nextErrors)
 
     setIsSending(true)
-    const urls = {
-      '1': `${process.env.REACT_APP_SPREADSHEET1}`,
-      '2': `${process.env.REACT_APP_SPREADSHEET2}`,
-      '3': `${process.env.REACT_APP_SPREADSHEET3}`
-    }
 
-    fetch(urls[variant], {
+    const url = `${process.env.REACT_APP_SPREADSHEET}`
+
+    fetch(url, {
       method: 'post',
       body: JSON.stringify({ 'data': data }),
     }).then(res => {
