@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState, MutableRefObject } from 'react'
 
-export default (first = true, distance = '100px', initialValue?: boolean): { isNear: boolean, elementRef: MutableRefObject<any> } => {
+function useIntersection(
+  first = true,
+  distance = '100px',
+  initialValue?: boolean
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+):{ isNear: boolean, elementRef: MutableRefObject<any> } {
   const [ isNear, setNear ] = useState(initialValue || false)
   const elementRef = useRef()
 
@@ -28,3 +33,5 @@ export default (first = true, distance = '100px', initialValue?: boolean): { isN
   
   return { isNear, elementRef }
 }
+
+export default useIntersection

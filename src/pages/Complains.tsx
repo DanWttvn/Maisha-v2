@@ -70,6 +70,7 @@ const Complains: FC = () => {
   }
 
   const sendEmail = async(data: Record<string, string>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await (window as any).Email.send({
       SecureToken: `${process.env.REACT_APP_SMPT_TOKEN}`,
       To : [ `${process.env.REACT_APP_EMAIL1}`, `${process.env.REACT_APP_EMAIL2}` ],
@@ -179,9 +180,10 @@ const Complains: FC = () => {
             />
             <SkipWrap/>
             <Paragraph size="s" styles={{ marginBottom: 32 }} isCentered isFullWidth>
-              {lang === 'ES' && <>Para adjuntar algún archivo, puedes enviarlo a <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
-              {lang === 'EN' && <>To attach a file, you can send it to <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
-              {lang === 'SW' && <>Kuambatisha faili, unaweza kuituma kwa <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink></>}
+              {lang === 'ES' && 'Para adjuntar algún archivo, puedes enviarlo a'}
+              {lang === 'EN' && 'To attach a file, you can send it to'}
+              {lang === 'SW' && 'Kuambatisha faili, unaweza kuituma kwa'}
+              <ExternalLink href="canaldenuncias@maisharoots.org">canaldenuncias@maisharoots.org</ExternalLink>
             </Paragraph>
             <Text color="brightRed" weight="bold" styles={{ marginBottom: 32 }} isHidden={!errors.includes('fail')} isFullWidth>
               {lang === 'ES' && 'Ha ocurrido un error, por favor, vuelve a intentarlo más tarde o envía un email a info@maisharoots.org'}

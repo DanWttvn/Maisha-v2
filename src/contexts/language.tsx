@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Language } from '../models'
 
 export interface LanguageContext {
@@ -11,7 +11,7 @@ const LanguageContext = React.createContext<LanguageContext>({
   setLang: () => undefined
 })
 
-export const LanguageContextProvider = ({ children }) => {
+export const LanguageContextProvider: FC = ({ children }) => {
   const [ lang, setLang ] = useState<Language>('ES')
 
   return (

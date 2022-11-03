@@ -8,13 +8,13 @@ import Button from '../../components/Button'
 import Text from '../../components/Text'
 import Container from '../../components/Container'
 import SkipWrap from '../../components/SkipWrap'
-import Input from '../../components/Input'
 import { isEmailValid, isBankAccountValid } from '../../helpers/form'
 import theme from '../../styles/theme'
 import PolicyModal from '../PolicyModal'
 import InputText from '../../components/InputText'
 import Form from '../../components/Form'
 import { useHistory } from 'react-router'
+import { OptionsButton, AmountInput } from './styles'
 
 export interface Props extends BaseProps {
   selectedAmount: number
@@ -32,29 +32,30 @@ type FormData = {
 const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, styles }) => {
   const { push } = useHistory()
   const [ errors, setErrors ] = useState<string[]>([])
-  const { register } = useForm()
-  const [ selectedAmount, setSelectedAmount ] = useState(forcedAmount || null)
+  const [ selectedAmount, setSelectedAmount ] = useState<number | null>(forcedAmount || null)
   const [ customAmount, setCustomAmount ] = useState(0)
   const [ isSmallerThanMin, setIsSmallerThanMin ] = useState(false)
   const [ isPolicyModalOpen, setIsPolicyModalOpen ] = useState(false)
   const [ isSending, setIsSending ] = useState(false)
+  const { register } = useForm()
 
   if (isHidden) return null
 
-  const handleSelectAmount = (value: string) => {
-    setSelectedAmount(Number(value))
-    if (value !== '0') setErrors([])
+  const handleSelectAmount = (value: number) => {
+    setSelectedAmount(value)
+    if (value !== 0) setErrors([])
     setIsSmallerThanMin(false)
   }
 
   const handleInputChange = (value: string) => {
     setCustomAmount(Number(value))
-    handleSelectAmount(value)
+    handleSelectAmount(Number(value))
     setIsSmallerThanMin(false)
     if (value !== '0') setErrors([])
   }
 
   const sendEmail = (data: FormData & { amount: number, date: string }, hasFetchFailed?: boolean, errorInfo?: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).Email.send({
       SecureToken: `${process.env.REACT_APP_SMPT_TOKEN}`,
       To : [ `${process.env.REACT_APP_EMAIL1}`, `${process.env.REACT_APP_EMAIL2}` ],
@@ -107,9 +108,9 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
 
     setIsSending(true)
 
-    const url = `${process.env.REACT_APP_SPREADSHEET}`
+    const spreadSheetUrl = `${process.env.REACT_APP_SPREADSHEET}`
 
-    fetch(url, {
+    fetch(spreadSheetUrl, {
       method: 'post',
       body: JSON.stringify({ 'data': data }),
     }).then(res => {
@@ -127,11 +128,6 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
       console.error(err)
     })
   }
-
-  const label = <>
-    <Text size="xs" styles={{ marginRight: 6 }}>He leído y acepto la</Text>
-    <Text size="xs" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }}>Política de Privacidad</Text>
-  </>
 
   return (
     <>
@@ -182,30 +178,54 @@ const JoinForm: FC<Props> = ({ selectedAmount: forcedAmount, variant, isHidden, 
         <Container isHidden={variant !== '3'} styles={{ marginBottom: 16 }} isFullWidth>
           <Container styles={{ margin: '0 auto' }}>
             <Text weight="bold" styles={{ marginBottom: 8 }} isFullWidth>Donación mensual</Text>
-            <Button onClick={handleSelectAmount.bind(undefined, 5)} isSelected={selectedAmount === 5 && customAmount !== 5} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>5€</Button>
-            <Button onClick={handleSelectAmount.bind(undefined, 10)} isSelected={selectedAmount === 10 && customAmount !== 10} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>10€</Button>
-            <Button onClick={handleSelectAmount.bind(undefined, 15)} isSelected={selectedAmount === 15 && customAmount !== 15} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>15€</Button>
-            <Button onClick={handleSelectAmount.bind(undefined, 20)} isSelected={selectedAmount === 20 && customAmount !== 20} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>20€</Button>
-            <Button onClick={handleSelectAmount.bind(undefined, 25)} isSelected={selectedAmount === 25 && customAmount !== 25} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>25€</Button>
-            <Button onClick={handleSelectAmount.bind(undefined, customAmount)} isSelected={selectedAmount === customAmount} variant="A" styles={{ margin: '10px 5px', fontWeight: 'bold', fontSize: '1.3rem' }}>
-              <Input type="number" onChange={handleInputChange} styles={{ marginRight: 12, fontSize: '1.1rem', width: '50px' }} />€
-            </Button>
+            {[ 5, 10, 15, 20, 25 ].map(amount => (
+              <OptionsButton
+                key={amount}
+                onClick={() => handleSelectAmount(amount)}
+                isSelected={selectedAmount === amount && customAmount !== amount}
+              >
+                {amount}€
+              </OptionsButton>
+            ))}
+            <OptionsButton
+              onClick={() => handleSelectAmount(customAmount)}
+              isSelected={selectedAmount === customAmount}
+            >
+              <AmountInput type="number" onChange={handleInputChange} />€
+            </OptionsButton>
           </Container>
 
-          <Text isHidden={selectedAmount !== 5} color="black" size="s" styles={{ width: 860 }}>*Para evitar comisiones del banco y sacar el máximo provecho a tu aportación, retiraremos cada dos meses 10€ de tu cuenta</Text>
+          <Text isHidden={selectedAmount !== 5} color="black" size="s" styles={{ width: 860 }}>
+            *Para evitar comisiones del banco y sacar el máximo provecho a tu aportación, retiraremos cada dos meses 10€ de tu cuenta
+          </Text>
           <SkipWrap />
-          <Text isHidden={!errors.includes('no-amount')} color="brightRed" weight="black" isFullWidth>*Por favor, selecciona una cantidad mensual</Text>
-          <Text isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>*La cantidad mínima es de 5€</Text>
+          <Text isHidden={!errors.includes('no-amount')} color="brightRed" weight="black" isFullWidth>
+            *Por favor, selecciona una cantidad mensual
+          </Text>
+          <Text isHidden={!isSmallerThanMin} color="brightRed" weight="black" isFullWidth>
+            *La cantidad mínima es de 5€
+          </Text>
         </Container>
 
         <FormControlLabel
           control={<Checkbox inputRef={register} name="privacy" defaultChecked={false} color="primary" required/>}
-          label={label}
+          label={
+            <>
+              <Text size="xs" styles={{ marginRight: 6 }}>He leído y acepto la</Text>
+              <Text size="xs" onClick={setIsPolicyModalOpen.bind(undefined, true)} styles={{ textDecoration: 'underline' }}>
+                Política de Privacidad
+              </Text>
+            </>
+          }
           style={{ fontFamily: theme.fonts.main, marginBottom: 8 }}
         />
         <SkipWrap/>
-        <Text color="brightRed" weight="bold" styles={{ marginBottom: 16 }} isHidden={!errors.includes('fail')} isFullWidth>Ha ocurrido un error, por favor, vuelve a intentarlo más tarde o envía un email a info@maisharoots.org</Text>
-        <Button type="submit" isLoading={isSending} styles={{ margin: '0 auto' }}>Enviar</Button>
+        <Text color="brightRed" weight="bold" styles={{ marginBottom: 16 }} isHidden={!errors.includes('fail')} isFullWidth>
+          Ha ocurrido un error, por favor, vuelve a intentarlo más tarde o envía un email a info@maisharoots.org
+        </Text>
+        <Button type="submit" isLoading={isSending} styles={{ margin: '0 auto' }}>
+          Enviar
+        </Button>
       </Form>
       <PolicyModal isHidden={!isPolicyModalOpen} onClose={setIsPolicyModalOpen.bind(undefined, false)} />
     </>
