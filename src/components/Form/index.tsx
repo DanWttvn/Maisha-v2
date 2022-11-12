@@ -5,10 +5,11 @@ import Styled from './styles'
 
 export interface Props extends BaseProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  handleSubmit: (data: any) => void
+  handleSubmit: (data: Record<string, any>) => void
+  id?: string
 }
 
-const Form: FC<Props> = ({ children, handleSubmit, isFullWidth, isHidden, styles }) => {
+const Form: FC<Props> = ({ children, handleSubmit, id, isFullWidth, isHidden, styles }) => {
   const { register, handleSubmit: handleFormSubmit } = useForm()
 
   const inputs = Children.map(children, (x: ReactElement) => {
@@ -21,7 +22,7 @@ const Form: FC<Props> = ({ children, handleSubmit, isFullWidth, isHidden, styles
   if (isHidden) return null
 
   return (
-    <Styled onSubmit={handleFormSubmit(handleSubmit)} isFullWidth={isFullWidth} styles={styles}>
+    <Styled id={id} onSubmit={handleFormSubmit(handleSubmit)} isFullWidth={isFullWidth} styles={styles}>
       {inputs}
     </Styled>
   )
