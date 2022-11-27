@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, KeyboardEvent } from 'react'
 import { BaseProps } from '../../models'
 import Styled from './styles'
 
@@ -9,15 +9,22 @@ export interface Props extends BaseProps {
 }
 
 const Input: FC<Props> = ({ type = 'text', styles, className, min, onChange, isFullWidth }) => {
-  const handleInput = (e: any) => {
+  const preventSymbols = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === '.' || e.key === ',') e.preventDefault()
   }
 
-  const handleChange = (e: any) => {
-    onChange(e.currentTarget.value)
-  }
-
-  return <Styled step="1" min={min} onKeyDown={handleInput} onChange={handleChange} type={type} styles={styles} className={className} isFullWidth={isFullWidth}/>
+  return(
+    <Styled
+      step="1"
+      min={min}
+      onKeyDown={preventSymbols}
+      onChange={(e) => onChange(e.currentTarget.value)}
+      type={type}
+      styles={styles}
+      className={className}
+      isFullWidth={isFullWidth}
+    />
+  )
 }
 
 export default Input

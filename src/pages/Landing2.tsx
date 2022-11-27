@@ -4,7 +4,7 @@ import Footer from '../containers/Footer'
 import Landing from '../containers/Landing'
 const Video = lazy(() => import('../components/Video'))
 
-const Landing1: FC = () => {
+const Landing2: FC = () => {
   return (
     <Container>
       <Landing.Header />
@@ -23,4 +23,4 @@ const Landing1: FC = () => {
   )
 }
 
-export default Landing1
+export default Landing2
