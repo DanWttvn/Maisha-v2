@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Props } from '.'
 
-export default styled.input<Props>`
+export default styled.input<Pick<Props, 'isFullWidth' | 'styles'>>`
   height: 100%;
   font-size: 2.5rem;
   font-weight: 700;

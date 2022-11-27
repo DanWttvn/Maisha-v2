@@ -4,14 +4,17 @@ import { BaseProps } from '../../models'
 import Styled from './styles'
 
 export interface Props extends BaseProps {
-  handleSubmit: (data: any) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  handleSubmit: (data: Record<string, any>) => void
+  id?: string
 }
 
-const Form: FC<Props> = ({ children, handleSubmit, isFullWidth, isHidden, styles }) => {
+const Form: FC<Props> = ({ children, handleSubmit, id, isFullWidth, isHidden, styles }) => {
   const { register, handleSubmit: handleFormSubmit } = useForm()
 
   const inputs = Children.map(children, (x: ReactElement) => {
     const inputTypes = [ 'InputText' ]
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (!inputTypes.includes((x?.type as any)?.displayName)) return x
     return cloneElement(x, { register })
   })
@@ -19,7 +22,7 @@ const Form: FC<Props> = ({ children, handleSubmit, isFullWidth, isHidden, styles
   if (isHidden) return null
 
   return (
-    <Styled onSubmit={handleFormSubmit(handleSubmit)} isFullWidth={isFullWidth} styles={styles}>
+    <Styled id={id} onSubmit={handleFormSubmit(handleSubmit)} isFullWidth={isFullWidth} styles={styles}>
       {inputs}
     </Styled>
   )

@@ -1,6 +1,6 @@
 export const isEmailValid = (value: string): boolean => {
   // eslint-disable-next-line no-useless-escape
-  const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  const regex = /^[a-zA-Z0-9+_.-]+@([\w-]+\.)+[\w-]{2,}$/
   return regex.test(value)
 }
 
