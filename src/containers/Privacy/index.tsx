@@ -21,7 +21,7 @@ const Privacy: FC<Props> = ({ isHidden }) => {
       </Paragraph>
       <Accordion title="¿Quién es el responsable del tratamiento de tus datos personales?">
         <Paragraph color="darkGrey" size="s">
-          El responsable del tratamiento es la Asociación Maisha Roots Spain, provista e CIF G-87557476, con domicilio social en Avenida Bélgica, 12, drch 7ºB 28916, Leganés (España).
+          El responsable del tratamiento es la Asociación Maisha Roots Spain, provista e CIF G-87557476, con domicilio social en C/ Braulio Vivas, 3, 5E. 28805, Alcalá de Henares (Madrid).
           <br />
           Puedes contactar con nosotros a través de nuestro correo electrónico: canaldenuncias@maisharoots.org
         </Paragraph>
@@ -99,7 +99,7 @@ const Privacy: FC<Props> = ({ isHidden }) => {
       </Accordion>
       <Accordion title="¿Cuáles son tus derechos?">
         <Paragraph color="darkGrey" size="s">
-          Mediante solicitud escrita y firmada, acompañada de copia del Documento de Identidad, dirigida a Maisha Roots Spain, Avenida Bélgica, 12, drch 7ºB 28916, Leganés (España), o a canaldenuncias@maisharoots.org, puedes
+          Mediante solicitud escrita y firmada, acompañada de copia del Documento de Identidad, dirigida a Maisha Roots Spain, C/ Braulio Vivas, 3, 5E. 28805, Alcalá de Henares (Madrid), o a canaldenuncias@maisharoots.org, puedes
         </Paragraph>
         <ul>
           <li>

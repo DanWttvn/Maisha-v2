@@ -161,6 +161,12 @@ export const TransparencySection: FC<SectionProps> = () => {
           <ExternalLink href="/images/docs/Memoria_de_Actividades2020-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
         </Paragraph>
         <Paragraph isFullWidth>
+          {lang === 'ES' && 'Memoria actividades 2021'}
+          {lang === 'EN' && 'Report of Activities 2021'}
+          {lang === 'SW' && 'Ripoti ya Shughuli 2021'}
+          <ExternalLink href="/images/docs/Memoria_de_Actividades2021-MR.pdf" styles={{ margin: '0 4px' }}>ESP</ExternalLink>
+        </Paragraph>
+        <Paragraph isFullWidth>
           {lang === 'ES' && 'Estatutos Maisha Roots Spain'}
           {lang === 'EN' && 'Maisha Roots Spain Constitution'}
           {lang === 'SW' && 'Katiba ya Maisha Roots Spain'}
