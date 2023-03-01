@@ -13,7 +13,7 @@ export interface InputProps {
   isRequired?: boolean
 }
 
-export type SectionTitle = 'header' | 'about' | 'timeline' | 'how-work' | 'projects' | 'collaborate' | 'transparency'
+export type SectionTitle = 'header' | 'about' | 'timeline' | 'how-work' | 'projects' | 'collaborate' | 'transparency' | 'blog'
 export type SubSectionTitle = 'know-us' | 'where' | 'context' | 'structure' | 'collaborators' | 'volunteering' | 'donate' | 'entities' | 'reports' | 'entities' | 'good-practices'
 
 export interface SectionProps {
@@ -92,6 +92,7 @@ interface SectionData {
     id: SubSectionTitle
     title: { ES: string, EN: string, SW: string }
   }[]
+  externalHref?: string
 }
 
 export const sectionsData: SectionData[] = [
@@ -129,14 +130,14 @@ export const sectionsData: SectionData[] = [
       }
     ],
   },
-  {
-    id: 'timeline',
-    title: {
-      ES: 'De dónde venimos',
-      EN: 'Where we come from',
-      SW: 'Tumetoka wapi'
-    }
-  },
+  // {
+  //   id: 'timeline',
+  //   title: {
+  //     ES: 'De dónde venimos',
+  //     EN: 'Where we come from',
+  //     SW: 'Tumetoka wapi'
+  //   }
+  // },
   {
     id: 'how-work',
     title: {
@@ -230,5 +231,14 @@ export const sectionsData: SectionData[] = [
         }
       }
     ]
+  },
+  {
+    id: 'blog',
+    title: {
+      ES: 'Blog',
+      EN: 'Blog',
+      SW: 'Blog',
+    },
+    externalHref: 'https://maisharoots.blogspot.com/'
   }
 ]

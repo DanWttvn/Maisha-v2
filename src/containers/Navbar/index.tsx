@@ -42,7 +42,7 @@ export const Navbar: FC<Props> = ({ isHomePage }) => {
   }
 
   const items = sectionsData.map(section => {
-    const subItems = section.subsections?.map(subSection => { return { name: subSection.title[lang], section: subSection.id } })
+    const subItems = section.subsections?.map(subSection =>  ({ name: subSection.title[lang], section: subSection.id }))
 
     return (
       <NavItem
@@ -52,6 +52,7 @@ export const Navbar: FC<Props> = ({ isHomePage }) => {
         onOpen={handleOpen}
         onClick={handleClick}
         isHomePage={isHomePage}
+        externalHref={section.externalHref}
       >
         {section.title[lang]}
       </NavItem>
