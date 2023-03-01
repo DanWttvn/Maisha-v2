@@ -1,6 +1,7 @@
 import React, { useState, FC } from 'react'
 import { BaseProps, SectionTitle, SubSectionTitle } from '../../models'
 import { Li, SubItemsWrapper, AppLink } from './styles'
+import ExternalLink from '../ExternalLink'
 
 export interface Props extends BaseProps {
   subItemsData?: { name: string, section: SubSectionTitle }[]
@@ -8,9 +9,10 @@ export interface Props extends BaseProps {
   onClick?: () => void
   onOpen: (isShown: boolean) => void
   isHomePage?: boolean
+  externalHref?: string
 }
 
-const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen, isHomePage }) => {
+const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen, isHomePage, externalHref }) => {
   const [ showSub, setShowSub ] = useState(false)
 
   const subItems = subItemsData?.map((x, i) => (
@@ -27,7 +29,10 @@ const NavItem: FC<Props> = ({ children, subItemsData, sectionId, onClick, onOpen
 
   return (
     <Li onMouseEnter={handleToggle.bind(undefined, true)} onMouseLeave={handleToggle.bind(undefined, false)}>
-      <AppLink toSection={sectionId} variant="menu" onClick={onClick} isSamePage={isHomePage}>{children}</AppLink>
+      {externalHref
+        ? <ExternalLink href={externalHref} variant="menu" onClick={onClick}>{children}</ExternalLink>
+        : <AppLink toSection={sectionId} variant="menu" onClick={onClick} isSamePage={isHomePage}>{children}</AppLink>
+      }
       <SubItemsWrapper isOpen={showSub}>{subItems}</SubItemsWrapper>
     </Li>
   )
