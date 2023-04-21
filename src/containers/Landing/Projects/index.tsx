@@ -29,7 +29,7 @@ const Projects: FC = () => {
           </Paragraph>
         </Project>
         <Project direction="vertical">
-          <Image src="/images/icons/gender.svg" styles={{ height: 120, margin: '25px 0' }} />
+          <Image src="/images/icons/Gender.svg" styles={{ height: 120, margin: '25px 0' }} />
           <Text weight="black" size="m" styles={{ marginBottom: 8, marginTop: 16, textAlign: 'center' }}>Talleres de género</Text>
           <Paragraph size="s" styles={{ textAlign: 'center' }}>
             El 58% de las mujeres de entre 15 y 49 años afirma haber sufrido violencia por parte de su pareja. En Maisha Roots apostamos por el empoderamiento transversal de las mujeres en Arusha como uno de los ejes fundamentales en la lucha contra la violencia de género.
